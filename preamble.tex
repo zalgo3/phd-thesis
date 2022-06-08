@@ -1,0 +1,358 @@
+\title{\TheTitle}
+\author{\TheAuthor}
+\date{\TheDate}
+
+\makeatletter
+\let\blx@noerroretextools\@empty
+\makeatother
+
+\ifdraft
+    \usepackage[style=draft,maxnames=99]{biblatex}
+\else
+    \usepackage[maxnames=99]{biblatex}
+\fi
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{exscale}
+\usepackage{grffile}
+
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{subcaption}
+
+\usepackage[chapter]{algorithm}
+\usepackage{algpseudocode}
+
+\usepackage{booktabs}
+\usepackage{tabularray}
+\usepackage[l3]{csvsimple}
+
+\usepackage{amsmath,amssymb}
+\usepackage{cases}
+\usepackage{derivative}
+\usepackage[ntheorem]{empheq}
+\usepackage{mathtools}
+\usepackage[amsmath,thmmarks,amsthm]{ntheorem}
+\usepackage{hyperref}
+\usepackage[capitalize,nameinlink]{cleveref}
+\let\etoolboxcsvloop\csvloop
+\let\csvloop\relax
+\let\etoolboxforlistloop\forlistloop
+\usepackage{autonum}
+\let\csvloop\etoolboxcsvloop
+\let\forlistloop\etoolboxforlistloop
+
+
+\usepackage[top=4cm, bottom=4cm, left=3cm, right=3cm]{geometry}
+\usepackage{setspace}
+\usepackage{tocloft}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\usepackage[english]{babel}
+\usepackage[intoc]{nomencl}
+\usepackage{subfiles}
+
+\usepackage{siunitx}
+\usepackage[inline]{enumitem}
+
+
+\def\usebbsetcapital{\def\setcapital##1{\mathbb{##1}}}
+\def\usebfsetcapital{\def\setcapital##1{\mathbf{##1}}}
+\def\usebmsetcapital{\def\setcapital##1{\bm{##1}}}
+\usebfsetcapital
+\def\setC{\setcapital{C}}
+\def\setH{\setcapital{H}}
+\def\setN{\setcapital{N}}
+\def\setNpos{\setcapital{N}_{\mathord{+}}}
+\def\setP{\setcapital{P}}
+\def\setQ{\setcapital{Q}}
+\def\setR{\setcapital{R}}
+\def\setRpos{\setcapital{R}_{\mathord{+}}}
+\def\setZ{\setcapital{Z}}
+
+\DeclareMathOperator*\argmax{argmax}
+\DeclareMathOperator*\argmin{argmin}
+\DeclareMathOperator*\myliminf{liminf}
+\renewcommand\liminf\myliminf
+\DeclareMathOperator\dist{dist}
+\DeclareMathOperator\interior{int}
+\DeclareMathOperator\conv{conv}
+\DeclareMathOperator\dom{dom}
+\DeclareMathOperator\proj{\mathbf{proj}}
+\DeclareMathOperator\prox{\mathbf{prox}}
+\DeclareMathOperator\proxgrad{\mathcal{T}}
+\DeclareMathOperator\envelope{\mathcal{M}}
+\DeclareMathOperator\indicator{\delta}
+\DeclareMathOperator\level{\mathbf{lev}}
+\DeclareMathOperator\Beta{\mathrm{B}}
+\DeclareMathOperator\simplex{\Delta}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\set{\lbrace}{\rbrace}
+\DeclarePairedDelimiterX\Set[2]{\lbrace}{\rbrace}{#1\mathrel{}\delimsize\vert\mathrel{}#2}
+\DeclarePairedDelimiterX\innerp[2]{\langle}{\rangle}{#1, #2}
+
+\newcommand\condition[1]{\quad \text{#1}}
+\newcommand\forallcondition[1]{\condition{for all~$#1$}}
+\newcommand\eqand{\quad \text{and} \quad}
+\newcommand\st{\mathrm{s.t.}}
+\newcommand\otherwise{\text{otherwise}}
+\newcommand\T{\top\hspace{-1pt}}
+\newcommand\acc{\mathrm{acc}}
+\renewcommand\jdv[2]{\mathcal{J}_{#1}(#2)}
+
+
+\AtBeginEnvironment{bmatrix}{\everymath{\displaystyle}}
+\AtBeginEnvironment{pmatrix}{\everymath{\displaystyle}}
+
+
+\makenomenclature
+\renewcommand\nomname{List of Symbols and Notations}
+\nomenclature{$\setR$}{the set of real numbers}
+\nomenclature{$\setR^n$}{the $n$-dimensional real space}
+\nomenclature{$\setRpos^n$}{the nonnegative orthant in~$\setR^n$}
+\nomenclature{$\innerp{x}{y}$}{the Euclidean inner product between~$x$ and~$y$}
+\nomenclature{$\norm{x}_2$}{the $\ell_2$-norm of~$x$}
+\nomenclature{$\norm{x}_1$}{the $\ell_1$-norm of~$x$}
+\nomenclature{$\norm{x}_\infty$}{the $\ell_\infty$-norm of~$x$}
+\nomenclature{$(x, y)$}{the open line segment between~$x$ and~$y$}
+\nomenclature{$[x, y]$}{the closed line segment between~$x$ and~$y$}
+\nomenclature{$\dom(f)$}{the effective domain of function~$f$}
+\nomenclature{$\nabla f(x)$}{the gradient of~$f$ at~$x$}
+\nomenclature{$\jdv{f}{x}$}{the Jacobian matrix of~$f$ at~$x$}
+\nomenclature{$\partial f(x)$}{the subdifferential of~$f$ at~$x$}
+\nomenclature{$I_n$}{the $n \times n$ identity matrix}
+\nomenclature{$\simplex^n$}{the unit $n$-simplex}
+\nomenclature{$\interior(C)$}{the interior of~$C$}
+\nomenclature{$\conv(C)$}{the convex hull of~$C$}
+\nomenclature{$\dist{x, C}$}{the distance between~$x$ and~$C$}
+
+
+\renewcommand\algorithmicrequire{\textbf{Input:}}
+\renewcommand\algorithmicensure{\textbf{Output:}}
+
+\renewcommand\baselinestretch{1.2}
+
+
+\theoremclass{Theorem}
+\theoremstyle{break}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{example}{Example}[chapter]
+\newtheorem{remark}{Remark}[chapter]
+\newtheorem{assumption}{Assumption}[chapter]
+
+
+\setlist[description]{style=nextline}
+\setlist[enumerate]{
+    label=(\roman*)
+}
+\AtBeginEnvironment{theorem}{
+    \setlist[enumerate]{
+        label=(\roman*),
+        ref=Theorem~\thetheorem~(\roman*)
+    }
+}
+\AtEndEnvironment{theorem}{
+    \setlist[enumerate]{
+        label=(\roman*),
+        ref=(\roman*)
+    }
+}
+\AtBeginEnvironment{lemma}{
+    \setlist[enumerate]{
+        label=(\roman*),
+        ref=Lemma~\thelemma~(\roman*)
+    }
+}
+\AtEndEnvironment{lemma}{
+    \setlist[enumerate]{
+        label=(\roman*),
+        ref=(\roman*)
+    }
+}
+\AtBeginEnvironment{proposition}{
+    \setlist[enumerate]{
+        label=(\roman*),
+        ref=Proposition~\theproposition~(\roman*)
+    }
+}
+\AtEndEnvironment{proposition}{
+    \setlist[enumerate]{
+        label=(\roman*),
+        ref=(\roman*)
+    }
+}
+\AtBeginEnvironment{corollary}{
+    \setlist[enumerate]{
+        label=(\roman*),
+        ref=Corollary~\thecorollary~(\roman*)
+    }
+}
+\AtEndEnvironment{corollary}{
+    \setlist[enumerate]{
+        label=(\roman*),
+        ref=(\roman*)
+    }
+}
+\AtBeginEnvironment{remark}{
+    \setlist[enumerate]{
+        label=(\roman*),
+        ref=Remark~\theremark~(\roman*)
+    }
+}
+\AtEndEnvironment{remark}{
+    \setlist[enumerate]{
+        label=(\roman*),
+        ref=(\roman*)
+    }
+}
+\AtBeginEnvironment{definition}{
+    \setlist[enumerate]{
+        label=(\roman*),
+        ref=Definition~\thedefinition~(\roman*)
+    }
+}
+\AtEndEnvironment{definition}{
+    \setlist[enumerate]{
+        label=(\roman*),
+        ref=(\roman*)
+    }
+}
+\AtBeginEnvironment{assumption}{
+    \setlist[enumerate]{
+        label=(\roman*),
+        ref=Assumption~\theassumption~(\roman*)
+    }
+}
+\AtEndEnvironment{assumption}{
+    \setlist[enumerate]{
+        label=(\roman*),
+        ref=(\roman*)
+    }
+}
+\AtBeginEnvironment{example}{
+    \setlist[enumerate]{
+        label=(\roman*),
+        ref=Example~\theexample~(\roman*)
+    }
+}
+\AtEndEnvironment{example}{
+    \setlist[enumerate]{
+        label=(\roman*),
+        ref=(\roman*)
+    }
+}
+
+
+\crefname{equation}{}{}
+\Crefname{equation}{Eq.}{Eqs.}
+\crefname{enumi}{}{}
+\crefname{figure}{Figure}{Figures}
+\crefname{assumption}{Assumption}{Assumptions}
+\crefname{line}{line}{lines}
+\newcommand{\crefrangeconjunction}{--}
+
+\newcounter{subcreftmpcnt}
+\newcommand\romansubformat[1]{(\roman{#1})}
+\makeatletter
+\newcommand\subcref[2][\romansubformat]{
+\ifcsname r@#2@cref\endcsname
+  \cref@getcounter {#2}{\mylabel}
+  \setcounter{subcreftmpcnt}{\mylabel}
+  \hyperref[#2]{claim~#1{subcreftmpcnt}}
+ \else ?? \fi}
+\newcommand\sublabelcref[2][\romansubformat]{
+\ifcsname r@#2@cref\endcsname
+  \cref@getcounter {#2}{\mylabel}
+  \setcounter{subcreftmpcnt}{\mylabel}
+  \hyperref[#2]{#1{subcreftmpcnt}}
+ \else ?? \fi}
+\newcommand\subCref[2][\romansubformat]{
+\ifcsname r@#2@cref\endcsname
+  \cref@getcounter {#2}{\mylabel}
+  \setcounter{subcreftmpcnt}{\mylabel}
+  \hyperref[#2]{Claim~#1{subcreftmpcnt}}
+ \else ?? \fi}
+\makeatother
+
+
+\hypersetup{
+    colorlinks=true,
+    allcolors=[HTML]{0645ad},
+    pdftitle=\TheTitle,
+    pdfauthor=\TheAuthor,
+    final
+}
+
+
+\pagestyle{fancy}
+
+\fancyhead[RE]{\leftmark} %section
+\fancyhead[LE]{\thepage}
+\fancyhead[LO]{\rightmark} % chapter
+\fancyhead[RO]{\thepage}
+\fancyfoot[C]{}
+\setlength\headheight{27.5pt}
+
+
+\makeatletter
+\AtBeginDocument{
+    \renewcommand\chapter{
+        \if@openright\cleardoublepage\else\clearpage\fi
+        \global\@topnum\z@
+        \@afterindentfalse
+    \secdef\@chapter\@schapter}
+    \renewcommand\tableofcontents{
+        \if@twocolumn
+            \@restonecoltrue\onecolumn
+        \else
+            \@restonecolfalse
+        \fi
+        \chapter*{\contentsname
+            \@mkboth{
+        \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}
+        \@starttoc{toc}
+        \if@restonecol\twocolumn\fi
+    }
+    \renewcommand\listoffigures{
+        \if@twocolumn
+            \@restonecoltrue\onecolumn
+        \else
+            \@restonecolfalse
+        \fi
+        \chapter*{\listfigurename}
+        \@mkboth{\MakeUppercase\listfigurename}
+        {\MakeUppercase\listfigurename}
+        \@starttoc{lof}
+        \if@restonecol\twocolumn\fi
+    }
+    \renewcommand\listoftables{
+        \if@twocolumn
+            \@restonecoltrue\onecolumn
+        \else
+            \@restonecolfalse
+        \fi
+        \chapter*{\listtablename}
+        \@mkboth{
+        \MakeUppercase\listtablename}
+        {\MakeUppercase\listtablename}
+        \@starttoc{lot}
+        \if@restonecol\twocolumn\fi
+    }
+    \subfile{frontback/cover}
+}
+\makeatother
+
+\AtEndDocument{
+    \printbibliography
+}
+
+
+\addbibresource{library.bib}

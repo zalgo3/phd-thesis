@@ -1,0 +1,41 @@
+\RequirePackage{fix-cm}
+
+\newif\ifdraft
+%\drafttrue
+\draftfalse
+
+\ifdraft
+    \documentclass[12pt,a4paper,openright,draft]{book}
+\else
+    \documentclass[12pt,a4paper,openright]{book}
+\fi
+
+\newcommand{\TheTitle}{Non-smooth, particularly composite, multi-objective optimization}
+\newcommand{\TheSubTitle}{Theory and algorithms}
+\newcommand{\TheAuthor}{Hiroki Tanabe}
+\newcommand{\TheDate}{September 2022}
+
+\input{preamble}
+\begin{document}
+
+\pagestyle{empty}
+\pagenumbering{roman}
+\subfile{frontback/front}
+
+\cleardoublepage
+
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\subfile{intro/intro}
+
+\subfile{preliminaries/preliminaries}
+
+\subfile{merit/merit}
+
+\subfile{pgm/pgm}
+
+\subfile{acc_pgm/acc_pgm}
+
+\subfile{frontback/conclusions}
+
+\end{document}

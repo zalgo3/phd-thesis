@@ -1,0 +1,37 @@
+\documentclass[../main]{subfiles}
+
+\begin{document}
+\section{Stability and sensitivity analysis}
+We consider the following parameterized optimization problem:
+\[ \label{eq:parameterized}
+    \min_{x \in X} \quad h(x, \xi)
+,\] 
+depending on the parameter vector~$\xi \in \Xi$.
+We assume that~$X \subseteq \setR^p$ and~$\Xi \subseteq \setR^q$ are non-empty and closed.
+Let us write the optimal value function of~\cref{eq:parameterized}
+\[ \label{eq:opt_val_fun}
+    \phi(\xi) \coloneqq \inf_{x \in X} h(x, \xi)
+\] 
+and the associated set as
+\[ \label{eq:opt_sol_map}
+    \Phi(\xi) \coloneqq \Set{x \in X}{\phi(\xi) = h(x, \xi)}
+.\] 
+The following proposition describes the directional differentiability of the optimal value function~$\phi$.
+\begin{proposition}[{\cite[Proposition~4.12]{Bonnans2000}}] \label{thm:sensitivity}
+    Let~$\xi^0 \in \Xi$.
+    Suppose that
+    \begin{enumerate}
+        \item the function~$h(x, \xi)$ is continuous on~$X \times \Xi$;
+        \item there exist~$\alpha \in \setR$ and a compact set~$C \subseteq X$ such that for every~$\hat{\xi}$ near~$\xi^0$, the level set~$\level_\alpha h(\cdot, \hat{\xi})$ is non-empty and contained in~$C$;
+        \item for any~$x \in X$, the function~$h_x(\cdot) \coloneqq h(x, \cdot)$ is directionally differentiable at~$\xi^0$;
+        \item if~$\xi \in \Xi, t_k \searrow 0$, and~$\set{x^k} \subseteq C$, then~$\set{x^k}$ has an accumulation point~$\bar{x}$ such that
+            \[
+                \limsup_{k \to \infty} \frac{h(x^k, \xi^0 + t_k(\xi - \xi^0)) - h(x^k, \xi^0)}{t_k} \ge h_{\bar{x}}'(\xi^0; \xi - \xi^0)
+            .\] 
+    \end{enumerate}
+    Then, the optimal value function~$\phi$ given by~\cref{eq:opt_val_fun} is directionally differentiable at~$\xi^0$ and
+    \[
+        \phi'(\xi^0; \xi - \xi^0) = \inf_{x \in \Phi(\xi^0)} h_x'(\xi^0; \xi - \xi^0)
+    .\] 
+\end{proposition}
+\end{document}

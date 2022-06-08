@@ -1,0 +1,50 @@
+\documentclass[../main]{subfiles}
+
+\begin{document}
+\section{The algorithm} \label{sec:pgm:algorithm}
+For given~$x \in \dom F$ and~$\ell > 0$, we consider the following minimization problem:
+\[ \label{eq:prox subprob}
+    \min_{z \in \setR^n} \quad \varphi_\ell(z; x)
+,\]
+where
+\[ \label{eq:varphi}
+    \varphi_\ell(z; x) \coloneqq \max_{i = 1, \dots, m} [ \innerp{\nabla f_i(x)}{z - x} + g_i(z) - g_i(x) ] + \frac{\ell}{2} \norm*{ z - x }_2^2
+.\]
+The convexity of~$g_i$ implies that~$z \mapsto \varphi_\ell(z; x)$ is strongly convex, so the problem~\cref{eq:prox subprob} always has a unique solution.
+Let us write such a solution as~$p_\ell(x)$ and let~$\theta_\ell(x)$ be its optimal function value, i.e.,
+\[ \label{eq:p theta}
+    p_\ell(x) \coloneqq \argmin_{z \in \setR^n} \varphi_\ell(z; x) \eqand \theta_\ell(x) \coloneqq \min_{z \in \setR^n} \varphi_\ell(z; x)
+.\]
+The following proposition shows that~$p_\ell(x)$ and~$\theta_\ell(x)$ helps to characterize the Pareto stationarity of~\cref{eq:MOO}.
+\begin{lemma}[{\cite[Lemma 3.2]{Tanabe2019}}]\label{thm:pgm_stop}
+    Let $p_\ell$ and $\theta_\ell$ be defined in \cref{eq:p theta}.
+    Then, the following claims hold.
+	\begin{enumerate}
+        \item The following three conditions are equivalent:
+            \begin{enumerate*}
+                \item $x \in \setR^n$ is Pareto stationary for~\cref{eq:MOO}; \label{thm:pgm_stop:equivalence:stationary}
+                \item $p_\ell(x) = x$; \label{thm:pgm_stop:equivalence:sol}
+                \item $\theta_\ell(x) = x$. \label{thm:pgm_stop:equivalence:val}
+            \end{enumerate*} \label{thm:pgm_stop:equivalence}
+		\item The mappings $p_\ell$ and $\theta_\ell$ are continuous.\label{thm:pgm_stop:cont}
+	\end{enumerate}
+\end{lemma}
+
+From \cref{thm:pgm_stop}, we can treat~$\norm*{p_\ell(x) - x}_\infty < \varepsilon$ for some~$\varepsilon > 0$ as a stopping criteria.
+Now, we state below the proximal gradient method for~\cref{eq:MOO}.
+
+\begin{algorithm}[hbtp]
+    \caption{Proximal gradient method for multi-objective optimization}
+    \label{alg:pgm_MO}
+    \begin{algorithmic}[1]
+        \Require $x^0 \in \dom F$, $\ell > L / 2$, $\varepsilon > 0$
+        \Ensure $x^\ast$: A weakly Pareto optimal point
+        \State $k \gets 0$
+        \While{$\norm*{p_\ell(x^k) - x^k}_\infty \ge \varepsilon$}
+        \State $x^{k + 1} \gets p_\ell(x^k)$
+        \State $k \gets k + 1$
+        \EndWhile
+    \end{algorithmic}
+\end{algorithm}
+
+\end{document}

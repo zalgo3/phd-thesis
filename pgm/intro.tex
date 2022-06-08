@@ -1,0 +1,17 @@
+\documentclass[../main]{subfiles}
+
+\begin{document}
+\section{Introduction} \label{sec:pgm:intro}
+This chapter proposes the proximal gradient method for the unconstrained composite multi-objective optimization, i.e.,~\cref{eq:MOO} with~\cref{eq:composite_MO} and~$C = \setR^n$.
+The proposed method generalizes \cref{alg:pgm}.
+As it can be seen in the single objective function cases~\cite{Beck2009,Tseng2010}, this method is shown to be efficient when $g_i$ has some special structure.
+Moreover, we analyze the proposed method's convergence rate using the gap function~\cref{eq:u_0} to measure the complexity.
+
+We also observe that the problem and the proposed methods have many applications. For example, when $g_i$ is an indicator function of a convex set~$S$, \cref{eq:MOO} is equivalent to the optimization problems with constraints $x \in S$. Also, as it can be seen in \cref{sec:pgm:robust}, we can deal with robust optimization problems. These problems include uncertain parameters and basically consists in optimizing under the worst scenario. Although the literature about robust optimization is vast, the studies about robust multi-objective optimization is relatively new~\cite{Ehrgott2014,Fliege2014,Morishita2016}.
+
+The outline of this chapter is as follows.
+In~\cref{sec:pgm:algorithm}, we propose the proximal gradient methods for unconstrained multi-objective optimization.
+We estimate the global convergence rates of the proposed method in \cref{sec:pgm:rate}.
+In \cref{sec:pgm:robust}, we apply the proposed method to robust optimization.
+Finally, we report some numerical experiments by solving robust multi-objective optimization problems in~\ref{sec:pgm:experiments}.
+\end{document}

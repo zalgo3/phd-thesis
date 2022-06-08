@@ -1,0 +1,30 @@
+\documentclass[../main]{subfiles}
+
+\begin{document}
+\section{Directional derivatives and subgradients}
+A function~$h \colon \setR^p \to (-\infty, +\infty]$ is \emph{directionally differentiable} at~$x \in \setR^p$ in a direction~$d \in \setR^p$ if
+\[ \label{eq:dir_deriv}
+    h'(x; d) \coloneqq \lim_{\alpha \searrow 0} \frac{h(x + \alpha d) - h(x)}{\alpha}
+\] 
+exists, and then we call~$h'(x; d)$ the \emph{directional derivative} at~$x$ in a direction~$d$.
+When~$h$ is differentiable at~$x$, we have~$h'(x; d) = \innerp{\nabla h(x)}{d}$ for all~$d \in \setR^p$.
+As the following lemma implies, convex functions are directionally differentiable if we allow~$\pm \infty$ as a limit.
+\begin{lemma}[{\cite[Section~4.1]{Bertsekas2003}}] \label{thm:nondecreasing}
+    Let~$h \colon \setR^p \to (-\infty, +\infty]$ be convex.
+    Then, the function~$h_{x, d} \colon (0, +\infty) \to (-\infty, +\infty]$ defined by
+    \[
+        h_{x, d}(\alpha) \coloneqq \frac{h(x + \alpha d) - h(x)}{\alpha}
+    \] 
+    is non-decreasing.
+    In particular, it follows that
+    \[
+        h'(x; d) \le h_{x, d}(\alpha) \le h(x + d) - h(x) \forallcondition{x, d \in \setR^p, \alpha \in (0, 1]}
+    .\] 
+\end{lemma}
+On the other hand, for a proper and convex function~$h \colon \setR^p \to (-\infty, +\infty]$, we call~$\xi \in \setR^p$ a \emph{subgradient} of~$h$ at~$x \in \setR^p$ if
+\[ \label{eq:subgrad}
+    h(y) - h(x) \ge \innerp{\xi}{y - x} \forallcondition{y \in \setR^p}
+,\] 
+and we write~$\partial h(x)$ the \emph{subdifferential} of~$h$ at~$x$, i.e., the set of all subgradients of~$h$ at~$x$.
+When~$h$ is differentiable at~$x$, $\partial h(x)$ amounts to a singular $\set{\nabla h(x)}$.
+\end{document}

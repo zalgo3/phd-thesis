@@ -1,0 +1,236 @@
+\documentclass[../../main]{subfiles}
+
+\begin{document}
+\subsection{A regularized and partially linearized gap function for composite multi-objective optimization} \label{sec:merit:merit:reg_lin_gap}
+Now, let us consider the composite case, i.e., each component~$F_i$ of the objective function~$F$ of~\cref{eq:MOO} has the composite structure~\cref{eq:composite_MO}
+Since they are generally non-convex, we can regard them as a relaxation of the assumptions of the previous subsection.
+For~\cref{eq:MOO} with objective function~\cref{eq:composite_MO}, we propose a regularized and partially linearized gap function~$w_\alpha \colon C \to \setR$ with a given~$\alpha > 0$ as follows:
+\begin{equation} \label{eq:w_alpha}
+    w_\alpha(x) \coloneqq \max_{y \in C} \min_{i = 1, \dots, m} \left[ \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\alpha}{2} \norm{x - y}_2^2 \right] 
+.\end{equation} 
+Like~$u_\alpha$, the convexity of~$g_i$ leads to the finiteness of~$w_\alpha$ and the existence of a unique solution that attains~$\max_{y \in C}$.
+As the following remark shows,~$w_\alpha$ generalizes other kinds of merit functions.
+\begin{remark} \label{rem:composite ref}
+    \begin{enumerate}
+        \item When~$g_i = 0$,~$w_\alpha$ corresponds to the regularized gap function~\cite{Charitha2010} for vector variational inequality.
+        \item When~$f_i = 0$,~$w_\alpha$ matches~$u_\alpha$ defined by~\cref{eq:u_alpha}. \label{enum:w u correspond}
+    \end{enumerate}
+\end{remark}
+As shown in the following theorem,~$w_\alpha$ is a merit function in the sense of Pareto stationarity.
+\begin{theorem} \label{thm:w ell}
+    Let~$w_\alpha$ be given by~\cref{eq:w_alpha} for some~$\alpha > 0$.
+    Then, we have~$w_\alpha(x) \ge 0$ for all~$x \in C$.
+    Furthermore,~$x \in C$ is Pareto stationary for~\cref{eq:MOO} if and only if~$w_\alpha(x) = 0$.
+\end{theorem}
+\begin{proof}
+    We first show the nonnegativity of~$w_\alpha$ for all~$\alpha > 0$.
+    Let~$x \in C$.
+    The definition of~$w_\alpha$ gives
+    \begin{align}
+        w_\alpha(x) &= \sup_{y \in C} \min_{i = 1, \dots, m} \left[ \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\alpha}{2} \norm{x - y}_2^2 \right] \\
+                    &\ge \min_{i = 1, \dots, m} \left[ \innerp{\nabla f_i(x)}{x - x} + g_i(x) - g_i(x) - \frac{\alpha}{2} \norm*{x - x}_2^2 \right] = 0
+                .\end{align}
+
+                Let us prove the second statement.
+                Assume that~$w_\alpha(x) = 0$.
+                Then, again using the definition of~$w_\alpha$, we get
+                \[
+                    \min_{i = 1, \dots, m} \left[ \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\alpha}{2} \norm{x - y}_2^2 \right] \le 0 \forallcondition{y \in C}
+                .\] 
+                Let~$z \in C$ and~$t \in (0, 1)$.
+                Since~$C \subseteq \setR^n$ is convex,~$x, z \in C$ implies~$x + t (z - x) \in C$.
+                Therefore, by substituting~$y = x + t (z - x)$ into the above inequality, we obtain
+                \[
+                    \min_{i = 1, \dots, m} \left[ - \innerp{\nabla f_i(x)}{t (z - x)} + g_i(x) - g_i(x + \alpha (z - x)) - \frac{\alpha}{2} \norm{t (z - x)}^2 \right] \le 0
+                .\] 
+                Dividing both sides by~$\alpha$ yields
+                \[
+                    \min_{i = 1, \dots, m} \left[ - \innerp{\nabla f_i(x)}{z - x} - \frac{g_i(x + t (z - x)) - g_i(x)}{t} - \frac{\alpha t}{2} \norm{z - x}^2 \right] \le 0
+                .\] 
+                By taking~$\alpha \searrow 0$ and multiplying both sides by~$- 1$, we get
+                \[
+                    \max_{i = 1, \dots, m} F_i'(x; z - x) \ge 0
+                ,\] 
+                which means that~$x$ is Pareto stationary for~\cref{eq:MOO}.
+
+                Now, we prove the converse by contrapositive.
+                Suppose that~$w_\alpha(x) > 0$.
+                Then, from the definition of~$w_\alpha$, there exists some~$y \in C$ such that
+                \[
+                    \min_{i = 1, \dots, m} \left[ \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\alpha}{2} \norm{x - y}_2^2 \right] > 0
+                .\] 
+                Since~$g_i$ is convex, we obtain
+                \[
+                    \min_{i = 1, \dots, m} \left[ \innerp{\nabla f_i(x)}{x - y} - g_i'(x; y - x) - \frac{\alpha}{2} \norm{x - y}_2^2 \right] > 0
+                .\] 
+                Thus, we have
+                \[
+                    \max_{i = 1, \dots, m} F_i'(x; y - x) \le - \frac{\alpha}{2} \norm{x - y}_2^2 < 0
+                ,\] 
+                which shows that~$x$ is not Pareto stationary for~\cref{eq:MOO}.
+            \end{proof}
+            While~$u_0$ and~$u_\alpha$ given by~\cref{eq:u_0,eq:u_alpha} are merit functions in the sense of weak Pareto optimality,~$w_\alpha$ defined by~\cref{eq:w_alpha} is a merit function only in the sense of Pareto stationarity.
+            As indicated by the following example, even if~$w_\alpha(x) = 0$,~$x$ is not necessarily weakly Pareto optimal for~\cref{eq:MOO}.
+            \begin{example}
+                Consider the single-objective function~$F\colon \setR \to \setR$ defined by~$F(x) \coloneqq f(x) + g(x)$, where
+                \[
+                    f(x) \coloneqq - x^2 \eqand g(x) \coloneqq 0
+                ,\]
+                and set~$C = \setR$.
+                Then, we have
+                \[
+                    w_\alpha(0) = \max_{y \in \setR} \left[ f'(0) (0 - y) + g(0) - g(y) - \frac{\alpha}{2} (y - 0)^2 \right] 
+                    = \max_{y \in \setR} \left[ - \frac{\alpha}{2} y^2 \right] = 0
+                ,\] 
+                but $x = 0$ is not global minimal (i.e., weakly Pareto optimal) for~$F$.
+            \end{example}
+
+            We now define the optimal solution mapping~~$W_\alpha \colon C \to C$ associated with~\cref{eq:w_alpha} by
+            \begin{equation} \label{eq:W_alpha}
+                W_\alpha(x) \coloneqq \argmax_{y \in C} \min_{i = 1, \dots, m} \left[ \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\alpha}{2} \norm{x - y}_2^2 \right] 
+            .\end{equation} 
+            We can also show the continuity of~$w_\alpha$ and~$W_\alpha$.
+            \begin{theorem}
+                For all~$\alpha > 0$,~$w_\alpha$ and~$W_\alpha$ defined by~\cref{eq:w_alpha,eq:W_alpha} are continuous on~$C$.
+            \end{theorem}
+            \begin{proof}
+                Since~$y \mapsto - \innerp{\nabla f_i(x)}{x - y}$ is convex and~$\innerp{\nabla f_i(x)}{x - x} = 0$, if we replace each~$f_i$ by~$y \mapsto - \innerp{\nabla f_i(x)}{x - y}$ in~\cref{eq:MOO}, then we can regard~$w_\alpha$ and~$W_\alpha$ as~$u_\alpha$ and~$U_\alpha$ defined by~\cref{eq:u_alpha,eq:U_alpha}, respectively.
+                Therefore, \cref{thm:cont_u_alpha} proves this theorem.
+            \end{proof}
+
+            On the other hand, in the same way as the derivation of~\cref{eq:u dual}, Sion's minimax theorem~\cite{Sion1958} gives another representation of~$w_\alpha$ for~$\alpha > 0$ as follows:
+            \begin{equation} \label{eq:w_alpha Sion}
+                w_\alpha(x) = \min_{\pi \in \Delta^m} \max_{y \in C} \sum_{i = 1}^{m} \pi_i \left[ \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\alpha}{2} \norm{x - y}_2^2 \right] 
+            ,\end{equation} 
+            where~$\Delta^m$ denotes the standard simplex~\cref{eq:simplex}.
+            Moreover, simple calculations show that
+            \begin{equation} \label{eq:w_alpha dual}
+                \begin{alignedat}{2}
+                    w_\alpha(x) &= \min_{\pi \in \Delta^m} &&\left\{ \sum_{i = 1}^{m} \pi_i g_i(x) + \frac{1}{2 \alpha} \norm*{\sum_{i = 1}^{m} \pi_i \nabla f_i(x)}_2^2 \right. \\
+                                &&& \left. {}- \min_{y \in C} \left[ \sum_{i = 1}^{m} \pi_i g_i(y) + \frac{\alpha}{2} \norm*{x - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) - y}_2^2 \right] \right\} \\
+                                &= \min_{\pi \in \Delta^m} &&\left[ \sum_{i = 1}^{m} \pi_i g_i(x) + \frac{1}{2 \alpha} \norm*{\sum_{i = 1}^{m} \pi_i \nabla f_i(x)}_2^2 \right. \\
+                                &&& \left. {}- \alpha \envelope_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \pi_i g_i + \indicator_C} \left( x - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) \right) \right]
+                            ,\end{alignedat}
+                        \end{equation} 
+                        where~$\envelope$ and~$\indicator$ are given by~\cref{eq:Moreau_env,eq:indicator}, respectively.
+                        In other words, we can compute~$w_\alpha$ via the following~$m$-dimensional, simplex-constrained, and convex optimization problem:
+                        \begin{equation} \label{eq:dual_reg_lin_gap}
+                            \begin{aligned}
+                                \min_{\pi \in \setR^m} &&& \sum_{i = 1}^{m} \pi_i g_i(x) + \frac{1}{2 \alpha} \norm*{\sum_{i = 1}^{m} \pi_i \nabla f_i(x)}_2^2 \\
+                                                       &&&\quad - \alpha \envelope_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \pi_i g_i + \indicator_C}\left( x - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) \right)  \\
+                                \st &&& \pi \ge 0 \eqand \sum_{i = 1}^{m} \pi_i = 1 
+                            .\end{aligned}
+                        \end{equation} 
+                        Moreover, the following theorem proves that~\cref{eq:dual_reg_lin_gap} is differentiable.
+                        \begin{theorem} \label{thm:differentiability of the objective function of w_alpha}
+                            The objective function of~\cref{eq:dual_reg_lin_gap} is continuously differentiable at every~$\pi \in \setR^m$ and
+                            \begin{multline}
+                                \nabla_\pi \left[ \sum_{i = 1}^{m} \pi_i g_i(x) + \frac{1}{2 \alpha} \norm*{\sum_{i = 1}^{m} \pi_i \nabla f_i(x)}_2^2 - \alpha \envelope_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} g_i + \indicator_C}\left( x - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) \right)  \right] \\
+                                = g(x) - g\left( \prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \pi_i g_i + \indicator_C}\left( x - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) \right) \right) \\
+                                - \jdv{f}{x} \left( \prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \pi_i g_i + \indicator_C}\left( x - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) \right) - x \right) 
+                            ,\end{multline}
+                            where~$\prox$ is the proximal operator~\cref{eq:prox}, and~$\jdv{f}{x}$ is the Jacobian matrix at~$x$ given by~\cref{eq:jac}.
+                        \end{theorem}
+                        \begin{proof}
+                            Let
+                            \[
+                                \theta(y, \lambda) \coloneqq \sum_{i = 1}^{m} \lambda_i g_i(y) + \frac{\alpha}{2} \norm*{x - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) - y}_2^2
+                            .\] 
+                            Then,~$\theta$ is continuous,~$\theta_y(\cdot) \coloneqq \theta(y, \cdot)$ is continuously differentiable, and
+                            \[
+                                \nabla_\pi \theta_y(\pi) = g(y) + \jdv{f}{x} \left( y - x + \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) \right) 
+                            .\] 
+                            Moreover,~$\prox_{\frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i g_i + \indicator_C}(x) = \argmin_{y \in C} \theta(y, \lambda)$ is also continuous at every~$\pi \in \setR^m$ (cf.~\cite[Excercise 7.38]{Rockafellar1998}).
+                            The above discussion implies that every assumption in \cref{thm:sensitivity} is satisfied.
+                            Combined with the uniqueness of~$\prox_{\frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i g_i + \indicator_C}(x)$, we get
+                            \begin{multline}
+                                \nabla_\pi \left[ \alpha \envelope_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \pi_i g_i + \indicator_C}\left( x - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) \right) \right] \\ %TODO
+                                = g\left( \prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \pi_i g_i + \indicator_C}\left( x - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) \right) \right) \\
+                                + \jdv{f}{x} \left( \prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \pi_i g_i + \indicator_C}\left( x - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) \right) - x + \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) \right) 
+                            .\end{multline}
+                            On the other hand, we have
+                            \[
+                                \nabla_\pi \left[ \sum_{i = 1}^{m} \pi_i g_i(x) + \frac{1}{2 \alpha} \norm*{\sum_{i = 1}^{m} \pi_i \nabla f_i(x)}_2^2 \right] = g(x) + \frac{1}{\alpha} \jdv{f}{x} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) 
+                            .\] 
+                            Adding the above two equalities, we obtain the desired result.
+                        \end{proof}
+                        Thus, like~\cref{eq:dual_reg_gap}, \cref{eq:dual_reg_lin_gap} is solvable with convex optimization techniques such as the interior point method~\cite{Bertsekas1999} when we can quickly evaluate~$\prox_{\frac{1}{\alpha} \sum_{i = 1}^{m} \lambda_i g_i + \indicator_C}(\cdot)$.
+                        When~$n \gg m$, this usually gives a faster way to compute~$w_\alpha$.
+                        Note, for example, that if~$g_i(x) = 0$ for all~$i = 1, \dots, m$, then~$\prox_{\frac{1}{\alpha} \sum_{i = 1}^{m} \lambda_i g_i + \indicator_C}$ reduces to the projection onto~$C$ from~\cref{eq:prox_ind}.
+                        Moreover, for example, if~$g_i(x) = g_1(x)$ for any~$i = 1, \dots, m$, or if~$g_i(x) = g_1(x_{I_i})$ and the index sets~$I_i \subseteq \set*{1, \dots, n}$ do not overlap each other, then~$\prox_{\frac{1}{\alpha} \sum_{i = 1}^{m} \lambda_i g_i}$ is computable with each~$\prox_{g_i}$ when~$C = \setR^n$.
+
+                        Now, define the optimal solution set of~\cref{eq:dual_reg_lin_gap} by
+                        \begin{multline} \label{eq:Pi}
+                            \Pi(x) = \argmin_{\pi \in \Delta^m} \left[ \sum_{i = 1}^{m} \pi_i g_i(x) + \frac{1}{2 \alpha} \norm*{\sum_{i = 1}^{m} \pi_i \nabla f_i(x)}_2^2 \right. \\
+                            \left. {}- \alpha \envelope_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \pi_i g_i + \indicator_C}\left( x - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) \right) \right] 
+                        .\end{multline} 
+                        Then, in the same manner as \cref{thm:smooth_reg_gap}, we obtain the following theorem.
+                        \begin{theorem} \label{thm:smooth_reg_lin_gap}
+                            Let~$x \in C$.
+                            Assume that~$f_i$ is twice continuously differentiable at~$x$.
+                            Then, for all~$\alpha > 0$, the merit function~$w_\alpha$ defined by~\cref{eq:w_alpha} has a directional derivative
+                            \begin{multline}
+                                w_\alpha'(x; z - x) = \inf_{\pi \in \Pi(x)} \left[ \sum_{i = 1}^{m} \pi_i g_i'(x; z - x) \right. \\
+                                {}- \alpha \left\langle \left[ I_n - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla^2 f_i(x) \right] \left[x - \prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \pi_i g_i + \indicator_C} \left( x - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) \right) \right] \right.\\
+                                \left. \left.- \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) , z - x \right\rangle \right] 
+                            \end{multline}
+                            for all~$z \in C$, where~$\prox$ and~$\Pi$ is given by~\cref{eq:prox,eq:Pi}, respectively, and~$I_n \in \setR^{n \times n}$ is the~$n$-dimensional identity matrix.
+                            In particular, if~$\Pi(x)$ is a singleton, i.e.,~$\Pi(x) = \set*{\pi(x)}$, and~$g_i$ is continuously differentiable at~$x$, then~$w_\alpha$ is continuously differentiable at~$x$, and we have
+                            \begin{multline}
+                                \nabla w_\alpha(x) = \sum_{i = 1}^{m} \pi_i(x) \nabla F_i(x) \\
+                                {}- \alpha \left[ I_n - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i(x) \nabla^2 f_i(x) \right] \left[x - \prox_{\frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i(x) g_i + \indicator_C} \left( x - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i(x) \nabla f_i(x) \right) \right]
+                            .\end{multline}
+                        \end{theorem}
+                        If the convex part~$g_i$ is the same regardless of~$i$, we get the following corollary without assuming the differentiability of~$g_i$.
+                        \begin{corollary} \label{thm:w_alpha composite}
+                            Let~$x \in C$ and~$\alpha > 0$.
+                            Assume that~$f_i$ is twice continuously differentiable at~$x$ and~$g_i = g_1$ for all~$i = 1, \dots, m$, and recall that~$w_\alpha$ and~$\prox$ be defined by~\cref{eq:w_alpha,eq:prox}, respectively.
+                            If~$\Pi(x)$ given by~\cref{eq:Pi} is a singleton, i.e.,~$\Pi(x) = \set*{\pi(x)}$, then the function~$w_\alpha - g_1$ is continuously differentiable at~$x$, and we have
+                            \begin{multline}
+                                \nabla_x \left( w_\alpha(x) - g_1(x) \right) \\
+                                = - \alpha \left[ I_n - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i(x) \nabla^2 f_i(x) \right] \left[x - \prox_{\frac{1}{\alpha} g_1 + \indicator_C} \left( x - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i(x) \nabla f_i(x) \right) \right] \\
+                                + \sum_{i = 1}^{m} \pi_i(x) \nabla f_i(x)
+                            .\end{multline}
+                        \end{corollary}
+                        \Cref{thm:w_alpha composite} implies that, under certain conditions, the merit function~$w_\alpha = (w_\alpha - g_1) + g_1$ is composite, i.e., the sum of a continuously differentiable function and a convex one.
+
+                        \Cref{thm:w ell,thm:smooth_reg_lin_gap} show that the Pareto stationary points for~\cref{eq:MOO} are global optimal for the following directionally differentiable single-objective optimization problem:
+                        \begin{equation} \label{eq:min_reg_lin_gap}
+                            \min_{x \in C} \quad w_\alpha(x)
+                        .\end{equation} 
+                        Moreover, when the assumptions of \cref{thm:w_alpha composite} hold, we can apply first-order methods such as the proximal gradient method~\cite{Fukushima1981} to~\cref{eq:min_reg_lin_gap}.
+                        On the other hand, if we consider~\cref{ex:min_reg_gap} with~$f_i = 0$, we can see that the stationary point for~\cref{eq:min_reg_lin_gap} is not necessarily Pareto stationary for~\cref{eq:MOO}.
+                        However, if~$f_i$ is convex and twice continuously differentiable, and~$F_i$ is strictly convex, then we can prove that every stationary point of~\cref{eq:min_reg_lin_gap} is Pareto optimal for~\cref{eq:MOO}, i.e., global optimal for~\cref{eq:min_reg_gap}.
+                        Note that this assumption does not assert the convexity of~$w_\alpha$.
+                        \begin{theorem}
+                            Let~$x \in C$ and~$\alpha > 0$.
+                            Suppose that~$f_i$ is convex and twice continuously differentiable at~$x$, and~$F_i$ is strictly convex for any~$i = 1, \dots, m$.
+                            If~$x$ is stationary for~\cref{eq:min_reg_lin_gap}, i.e.,
+                            \[
+                                w_\alpha'(x; z - x) \ge 0 \forallcondition{z \in C}
+                            ,\] 
+                            then~$x$ is Pareto optimal for~\cref{eq:MOO}.
+                        \end{theorem}
+                        \begin{proof}
+                            Let~$z \in C$ and $\pi \in \Pi(x)$, where~$\Pi(x)$ is defined by~\cref{eq:Pi}.
+                            Then, it follows from~\cref{thm:smooth_reg_lin_gap} that
+                            \begin{multline}
+                                \sum_{i = 1}^{m} \pi_i g_i'(x; z - x) \\
+                                - \alpha \left\langle \left[ I_n - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla^2 f_i(x) \right] \left[x - \prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \pi_i g_i + \indicator_C} \left( x - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) \right) \right] \right.\\
+                                \left. - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) , z - x \right\rangle \ge 0
+                            .\end{multline}
+                            Substituting~$z = \prox_{\frac{1}{\alpha} \sum_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x)$, we have
+                            \begin{multline}
+                                \sum_{i = 1}^{m} \pi_i F_i' \left(x; \prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \pi_i g_i + \indicator_C}\left( x - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) \right) - x \right) \\
+                                + \alpha \left\langle \left[ I_n - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla^2 f_i(x) \right] \left[ x - \prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \pi_i g_i + \indicator_C}\left( x - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) \right) \right]  \right. , \\
+                                \left. x - \prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \pi_i g_i + \indicator_C}\left( x - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) \right) \right\rangle \ge 0
+                            .\end{multline}
+                            Since the convexity of~$f_i$ implies that~$\nabla^2 f_i(x)$ is positive semidefinite, we get
+                            \begin{multline}
+                                \sum_{i = 1}^{m} \pi_i F_i' \left(x; \prox_{\frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i g_i + \indicator_C}\left( x - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) \right) - x \right) \\
+                                + \alpha \norm*{\prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \pi_i g_i + \indicator_C}\left( x - \frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i \nabla f_i(x) \right)}_2^2 \ge 0
+                            .\end{multline}
+                            Therefore, with similar arguments used in the proof of~\cref{thm:stationary_reg_gap}, we obtain~$x = \prox_{\frac{1}{\alpha} \sum_{i = 1}^{m} \pi_i g_i + \indicator_C}\left( x - (1 / \alpha) \sum_{i = 1}^{m} \pi_i \nabla f_i(x) \right)$, and thus~$w_\alpha(x) = 0$.
+                            Since~$F_i$ is strictly convex,~$x$ is Pareto optimal for~\cref{eq:MOO} from \cref{thm:Pareto:strict_convex} and \cref{thm:w ell}.
+                        \end{proof}
+                        \end{document}

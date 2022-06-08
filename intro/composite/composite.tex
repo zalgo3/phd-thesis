@@ -1,0 +1,47 @@
+\documentclass[../../main]{subfiles}
+
+\begin{document}
+\section{Composite optimization} \label{sec:intro:composite}
+\emph{Composite optimization} has the following structure:
+\[ \label{eq:composite}
+    \min_{x \in \setR^n} \quad F(x) \coloneqq f(x) + g(x)
+,\] 
+where~$f \colon \setR^n \to \setR$ is $L_f$-smooth with some~$L_f > 0$, and~$g \colon \setR^n \to \setR \cup \set{\infty}$ is closed, proper, and convex.
+When~$f$ is convex, we call~\cref{eq:composite} \emph{convex composite}.
+This model has many applications, particularly in machine learning.
+In detail,~$f$ and~$g$ often represent the loss function and the regularization term, respectively.
+We list below some typical examples with the structure~\cref{eq:composite}.
+
+\begin{example} \label{ex:composite}
+    \begin{description}
+        \item[Smooth unconstrained minimization] If~$g = 0$,~\cref{eq:composite} reduces to the unconstrained smooth minimization
+            \[
+                \min_{x \in \setR^n} \quad f(x)
+            ,\] 
+            where~$f \colon \setR^n \to \setR$ is~$L_f$-smooth.
+        \item[Convex-constrained smooth minimization] If~$g$ is an indicator function of a non-empty, closed, and convex set~$C$, i.e.,
+            \[ \label{eq:indicator}
+                g(x) = \indicator_C(x) \coloneqq
+                \begin{cases}
+                    0 & x \in C, \\
+                    \infty & \otherwise,
+                \end{cases}
+            \] 
+            then~\cref{eq:composite} amounts to the convex-constrained smooth minimization
+            \[
+                \min_{x \in C} \quad f(x)
+            \] 
+            with an~$L$-smooth function~$f$.
+        \item[$\ell_1$-regularization] If~$g(x) \coloneqq \tau \norm{x}_1$ for some~$\tau > 0$,~\cref{eq:composite} reduces to the~$\ell_1$-regularizaiton
+            \[
+                \min_{x \in C} \quad f(x) + \tau \norm{x}_1
+            \] 
+            with~$f$ being~$L_f$-smooth.
+    \end{description}
+\end{example}
+
+\subfile{prox_grad}
+
+\subfile{acc_prox_grad}
+
+\end{document}

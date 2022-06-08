@@ -1,0 +1,38 @@
+\documentclass[../../main]{subfiles}
+
+\begin{document}
+\subsection{The strongly convex case}
+For~\cref{eq:MOO} with~$m = 1$, it is known that~$\{x^k\}$ converges linearly to the optimal point when~$f_1$ is strongly convex~\cite{Beck2017}.
+Now, we show that the same result holds for \cref{alg:pgm_MO}.
+\begin{theorem} \label{thm:strongly convex}
+    Let $f_i$ and $g_i$ have convexity parameters~$\mu_i \in \setR$ and $\nu_i \in \setR$, respectively, and write $\mu \coloneqq \min_{i = 1, \dots, m} \mu_i$ and $\nu \coloneqq \min_{i = 1, \dots, m} \nu_i$. If $\ell > L$, then there exists a Pareto optimal point~$x^\ast \in \setR^n$ such that for each iteration~$k$,
+	\[
+		\norm*{ x^{k + 1} - x^\ast } \le \sqrt{\frac{\ell - \mu}{\ell + \nu}} \norm*{x^k - x^\ast}.
+	\]
+	Thus, we have
+	\[
+		\norm*{ x^k - x^\ast } \le \left( \sqrt{\frac{\ell - \mu}{\ell + \nu}} \right)^k \norm*{x^0 - x^\ast}.
+	\]
+\end{theorem}
+\begin{proof}
+    Since each~$F_i$ is strongly convex, the level set of every~$F_i$ is bounded.
+    Thus, $\{ x^k \}$ has an accumulation point~$x^\ast \in \setR^n$.
+    Note that~$x^\ast$ is a Pareto optimal point~\cite[Lemma~2.2~and~Theorem~4.3]{Tanabe2019}.
+    Now, from \cref{lem:without_line_lem}, we have
+    \[
+        \begin{split}
+            \sum_{i = 1}^m \lambda_i^k \left(F_i(x^{k + 1}) - F_i(x^\ast)\right) \le{}& \frac{\ell}{2} \left( \norm*{ x^k - x^\ast }^2 - \norm*{ x^{k + 1} - x^\ast }^2 \right) \\
+    &- \frac{\mu}{2} \norm*{ x^k - x^\ast }^2 - \frac{\nu}{2} \norm*{ x^{k + 1} - x^\ast }^2.
+        \end{split}
+    \]
+    Since the left-hand side is nonnegative because of~\cref{eq:psi},~\cref{eq:descent}, and \cref{lem: psi property}, we obtain
+	\[
+		0 \le \frac{\ell}{2} \left( \norm*{x^k - x^\ast }^2 - \norm*{x^{k + 1} - x^\ast }^2 \right) - \frac{\mu}{2} \norm*{x^k - x^\ast }^2 - \frac{\nu}{2} \norm*{ x^{k + 1} - x^\ast }^2,
+	\]
+	which is equivalent to
+	\[
+		\norm*{ x^{k + 1} - x^\ast } \le \sqrt{\frac{\ell - \mu}{\ell + \nu}} \norm*{x^k - x^\ast}.
+	\]
+\end{proof}
+
+\end{document}

@@ -1,0 +1,48 @@
+\documentclass[../../main]{subfiles}
+
+\begin{document}
+\subsection{The case that the multi-objective proximal-PL inequality is assumed}
+For~\cref{eq:MOO} with~$m = 1$ satisfying proximal-PL inequality, it is known that~$\{ F_1(x^k) - F_1^\ast \}$ converges linearly to zero with the proximal gradient method~\cite{Karimi2016}.
+Now, we show that~$\{u_0(x^k)\}$ converges linearly to zero with \cref{alg:pgm_MO} for the multi-objective problem~\cref{eq:MOO} that satisfies the multi-objective proximal-PL inequality~\cref{eq:MOO proximal-PL}.
+\begin{theorem} \label{thm:PL}
+    Suppose that~\cref{eq:MOO proximal-PL} holds with a constant~$\tau > 0$.
+    Then, \cref{alg:pgm_MO} generates a sequence~$\{ x^k \}$ such that
+    \[
+        u_0 (x^{k + 1}) \le \left( 1 - \frac{\tau}{\ell} \right) u_0(x^k).
+    \]
+\end{theorem}
+\begin{proof}
+    Since~$\nabla f_i$ is Lipschitz continuous with constant~$\ell > L$, for all~$i = 1, \dots, m$ we get
+    \[
+        \begin{split}
+            F_i(x^{k + 1}) - F_i(x^k) &\le \innerp{\nabla f_i(x^k)}{d^k} + g_i(x^{k + 1}) - g_i(x^k) + \frac{\ell}{2}\norm*{ d^k}^2 \\
+                                      &\le \max_{i = 1, \dots, m} \left\{ \innerp{\nabla f_i(x^k)}{d^k} + g_i(x^{k + 1}) - g_i(x^k) + \frac{\ell}{2}\norm*{ d^k}^2 \right\} \\
+                                      &= - w_\ell(x^k)
+        \le - \frac{\tau}{\ell} u_0(x^k)
+        ,\end{split}
+    \]
+    where the equality follows from~\cref{eq:psi w_ell}, and the last inequality comes from~\cref{eq:MOO proximal-PL}.
+    Then, for all~$x \in \setR^n$ we obtain
+    \[
+        F_i(x^{k + 1}) - F_i(x) \le F_i(x^k) - F_i(x) - \frac{\tau}{\ell} u_0(x^k)
+    .\]
+    Therefore, it follows that
+    \[
+        \sup_{x \in \setR^n} \min_{i = 1, \dots, m} \{ F_i(x^{k + 1}) - F_i(x) \} \le \sup_{x \in \setR^n} \min_{i = 1, \dots, m} \{ F_i(x^k) - F_i(x) \} - \frac{\tau}{\ell} u_0(x^k),
+    \]
+    which is equivalent to
+    \[
+        u_0 (x^{k + 1}) \le \left( 1 - \frac{\tau}{\ell} \right) u_0(x^k).
+    \]
+\end{proof}
+
+\begin{remark}
+    While \cref{thm:strongly convex} implies linear convergence of~$\{x^k\}$, we show that~$\{u_0(x^k)\}$ converges to zero linearly in \cref{thm:PL}.
+    However, from \cref{thm:PL}, we can show that if each~$f_i$ is strongly convex with modulus~$\mu_i > 0$, then it follows that
+    \[
+        u_0 (x^{k + 1}) \le \left( 1 - \frac{L}{\ell \max \{L / \mu, 1\}} \right) u_0(x^k),
+    \]
+    with~$\mu \coloneqq \max_{i = 1, \dots, m} \mu_i$.
+\end{remark}
+
+\end{document}

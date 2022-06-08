@@ -1,0 +1,31 @@
+\documentclass[../main]{subfiles}
+
+\begin{document}
+\section{Introduction}
+This chapter develops the accelerated proximal gradient method for the unconstrained comvex composite multi-objective optimization, i.e.,~\cref{eq:MOO} with~\cref{eq:composite_MO},~$f_i$ is convex, and~$C = \setR^n$.
+
+There are many studies related to the acceleration of single-objective first-order methods.
+After being established by Nesterov~\cite{Nesterov1983}, researchers developed various accelerated schemes.
+In particular, the Fast Iterative Shrinkage-Thresholding Algorithm (FISTA)~\cite{Beck2009}, an accelerated version of the proximal gradient method, has contributed to a wide range of research fields, including image and signal processing.
+However, in the multi-objective case, the studies associated with accelerated algorithms are still insufficient.
+In 2020, El Moudden and El Mouatasim~\cite{ElMoudden2020} proposed an accelerated diagonal steepest descent method for multi-objective optimization, a natural extension of Nesterov's accelerated method for single-objective problems.
+They proved the global convergence rate of the algorithm ($O(1 / k^2)$) under the assumption that the sequence of the Lagrange multipliers of the subproblems is eventually fixed.
+Nevertheless, this assumption is restrictive because it indicates that the approach is essentially the same as the (single-objective) Nesterov's method, only applied to the minimization of a weighted sum of the objective functions.
+
+Here, we propose a genuine accelerated proximal gradient method for multi-objective optimization.
+As it is usual, in each iteration, we solve a convex (scalar-valued) subproblem.
+While the accelerated and non-accelerated algorithms solve the same subproblem in the single-objective case, the subproblem of our accelerated method has terms that are not included in the non-accelerated version.
+However, we can ignore these terms in the single-objective case, and thus we can regard our proposed method as a generalization of FISTA.
+Moreover, under more natural assumptions, we prove the proposed method's global convergence rate ($O(1/k^2)$) by using a merit function~\cref{eq:u_0} to measure the complexity.
+
+Furthermore, having the practical computational efficiency in mind, we derive a dual of the subproblem, which is convex and differentiable.
+Such a dual problem turns out to be easier to solve than the original one, especially when the number of objective functions is smaller than the dimension of the decision variables.
+We can also reconstruct the original subproblem's solution directly from the dual optimum.
+In addition, we implement the whole algorithm using this dual problem and confirm its effectiveness with numerical experiments.
+
+The outline of this paper is as follows.
+We present the accelerated proximal gradient method for multi-objective optimization in \cref{sec:acc_pgm:algorithm} and analyze its~$O(1 / k^2)$ convergence rate in \cref{sec:acc_pgm:rate}.
+Moreover, \cref{sec:acc_pgm:convergence} demonstrates the convergence of the iterates.
+Finally, we report some numerical results for test problems in \cref{sec:acc_pgm:experiments}, demonstrating that the proposed method is faster than the one without acceleration.
+
+\end{document}

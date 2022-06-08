@@ -1,0 +1,42 @@
+name: github-pages
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  deploy:
+    name: github-pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Cache container
+        uses: jamesmortensen/cache-container-images-action@master
+        with:
+          runtime: podman
+          images: zalgo3/texlive
+      - name: Get last successful commit id
+        if: ${{ github.event.name == 'pull_request' }}
+        uses: nrwl/last-successful-commit-action@v1
+        id: last_successful_commit
+        with:
+          branch: 'main'
+          workflow_id: 'gh-pages.yml'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Generate diff tex source
+        if: ${{ github.event.name == 'pull_request' }}
+        run: latexdiff-vc --git --flatten -r ${{ steps.last_successful_commit.outputs.commit_hash }} main.tex && mv *diff*.tex diff.tex
+      - name: Build main pdf file
+        run: latexmk main.tex && latexmk -c && mkdir -p pdf && cp main.pdf ./pdf/
+      - name: Build diff pdf file
+        if: ${{ github.event.name == 'pull_request' }}
+        run: latexmk diff.tex && latexmk -c && mkdir -p pdf && cp diff.pdf ./pdf/
+      - name: Deploy pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./pdf
+          keep_files: true

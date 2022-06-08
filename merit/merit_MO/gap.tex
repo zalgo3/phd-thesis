@@ -1,0 +1,52 @@
+\documentclass[../../main]{subfiles}
+
+\begin{document}
+\subsection{A gap function for continuous multi-objective optimization} \label{sec:merit:merit:gap}
+First, we assume only continuity on~$F$ other than continuity and propose a gap function~$u_0 \colon C \to (-\infty, +\infty]$ as follows:
+\begin{equation} \label{eq:u_0}
+    u_0(x) \coloneqq \sup_{y \in C} \min_{i = 1, \dots, m} [ F_i(x) - F_i(y) ] 
+.\end{equation}
+When~$F$ is linear, this merit function has already been discussed in~\cite{Liu2009}, but here we consider the more general nonlinear cases.
+We now show that $u_0$ is a merit function in the sense of weak Pareto optimality.
+\begin{theorem} \label{thm:u_0}
+    Let~$u_0$ be defined by~\cref{eq:u_0}.
+    Then, we have~$u_0(x) \ge 0$ for all~$x \in C$.
+    Moreover,~$x \in C$ is weakly Pareto optimal for~\cref{eq:MOO} if and only if~$u_0(x) = 0$.
+\end{theorem}
+\begin{proof}
+    Let~$x \in C$.
+    By the definition~\cref{eq:u_0} of~$u_0$, we get
+    \[
+        u_0(x) = \sup_{y \in C} \min_{i = 1, \dots, m} [ F_i(x) - F_i(y) ]
+                 \ge \min_{i = 1, \dots, m} [ F_i(x) - F_i(x) ] = 0
+    .\] 
+    On the other hand, again considering the definition~\cref{eq:u_0} of~$u_0$, we obtain
+    \[
+        u_0(x) = 0 \iff \min_{i = 1, \dots, m} [ F_i(x) - F_i(y) ] \le 0 \forallcondition{y \in C}
+    .\] 
+    This is equivalent to the existence of~$i = 1, \dots, m$ such that
+    \[
+        F_i(x) - F_i(y) \le 0 \forallcondition{y \in C}
+    ,\] 
+    i.e., there does not exist~$y \in C$ such that
+    \[
+        F_i(x) - F_i(y) > 0 \forallcondition{i = 1, \dots, m}
+    ,\] 
+    which means that~$x$ is weakly Pareto optimal for~\cref{eq:MOO} by \cref{def:Pareto:Pareto}.
+\end{proof}
+
+The following theorem is clear from the continuity of~$F_i$.
+\begin{theorem} \label{thm:cont_u_0}
+    The function~$u_0$ defined by~\cref{eq:u_0} is lower semicontinuous on~$C$.
+\end{theorem}
+\Cref{thm:cont_u_0,thm:u_0} imply that if~$u_0(x^k) \to 0$ holds for some bounded sequence~$\set{x^k}$, its accumulation points are weakly Pareto optimal.
+Thus, we can use~$u_0$ to measure the complexity of multi-objective optimization methods.
+
+Moreover, \cref{thm:u_0} implies that we can get weakly Pareto optimal solutions via the following single-objective optimization problem:
+\[
+    \min_{x \in C} \quad u_0(x)
+.\] 
+However, if~$F_i$ is not bounded from below on~$S$, we cannot guarantee that~$u_0$ is finite-valued.
+Moreover, even if~$u_0$ is finite-valued,~$u_0$ does not preserve the differentiability of the original objective function~$F$.
+
+\end{document}

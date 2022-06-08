@@ -1,0 +1,85 @@
+\documentclass[../main]{subfiles}
+
+\begin{document}
+\section{Error bounds of the proposed merit functions} \label{sec:merit:eb}
+This section shows that our proposed merit functions provide global error bounds for~\cref{eq:MOO}, i.e., for any given point~$x$, they can bound the distance between~$x$ and the Pareto optimal solution set at~$x$ multiplied by some positive constant.
+\begin{theorem} \label{thm:error bound}
+    For an arbitrary~$\alpha > 0$, let~$w_\alpha$ be defined by~\cref{eq:w_alpha}.
+    Assume that~$F$ has the composite structure~\cref{eq:composite_MO}, and at least one of the following conditions holds for all~$i = 1, \dots, m$:
+    \begin{enumerate}
+        \item $f_i$ is~$\mu_i$-convex for some~$\mu_i \in \setR$,~$F_i$ is~$\sigma_i$-convex for some~$\sigma_i > 0$, and~$\rho_i \coloneqq \sigma_i + \mu_i > 0$;
+        \item $\nabla f_i$ is~$L_i$-Lipschitz continuous for some~$L_i > 0$,~$F_i$ is~$\sigma_i$-convex for some~$\sigma_i > 0$, and~$\rho_i \coloneqq \sigma_i - L_i > 0$.
+    \end{enumerate}
+    Then, we have
+    \[
+        w_\alpha(x) \ge \kappa(\rho) \inf_{x^\ast \in X^\ast} \norm*{x - x^\ast}_2^2 \forallcondition{x \in C}
+    ,\]
+    where~$X^\ast$ is the set of Pareto optimal solutions for~\cref{eq:MOO},~$\rho \coloneqq \min_{i = 1, \dots, n} \rho_i$, and
+    \[
+        \kappa(\rho) \coloneqq \begin{dcases}
+            \frac{\rho - \alpha}{2}, & \text{if } \alpha < \rho / 2, \\
+            \frac{\rho^2}{8 \alpha}, & \text{otherwise}
+        .\end{dcases}
+    \]
+\end{theorem}
+\begin{proof}
+    Let~$x \in C$ and~$r \coloneqq \min ( \alpha, \rho / 2 )$.
+    Since~$r \le \alpha$ and~$\kappa(\rho) = (r / \alpha) (\rho - r) / 2$, from \cref{thm:merit inner}, it suffices to show that
+    \begin{equation} \label{eq:eb sufficient}
+        w_r(x) \ge \frac{\rho - r}{2} \inf_{x^\ast \in X^\ast} \norm*{x - x^\ast}_2^2
+    .\end{equation} 
+    Recall the min-max reformulation~\cref{eq:w_alpha Sion} of~$w_r$ given by
+    \[
+        w_r(x) = \min_{\gamma \in \Delta^m} \max_{y \in C} \sum_{i = 1}^m \gamma_i \left[ \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{r}{2} \norm{x - y}_2^2 \right]
+    ,\]
+    where~$\Delta^m$ denotes the standard simplex~\cref{eq:simplex}.
+    Since~$\Delta^m$ is compact, there exists~$\gamma^\ast \in \Delta^m$ such that
+    \[
+        w_r(x) = \max_{y \in C} \sum_{i = 1}^m \gamma_i^\ast \left[ \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{r}{2} \norm{x - y}_2^2 \right].
+    \]
+    Let~$x^\ast \in C$ be the solution of
+    \begin{equation} \label{eq:eb:weighted}
+        \min_{x \in C} \quad \sum_{i = 1}^m \gamma_i^\ast F_i(x)
+    .\end{equation}
+    Note that~$x^\ast$ is unique since~$F_i$ is strongly convex.
+    Then, we obtain
+    \begin{align}
+        w_r(x) &\ge \sum_{i = 1}^m \gamma_i^\ast \left\{ \nabla f_i(x)^\T (x - x^\ast) + g_i(x) - g_i(x^\ast) - \frac{r}{2} \norm*{x - x^\ast}_2^2 \right\} \\
+               &\ge \sum_{i = 1}^m \gamma_i^\ast \left\{ F_i(x) - F_i(x^\ast) + \frac{\rho_i - \sigma_i - r}{2} \norm*{x - x^\ast}_2^2 \right\} \\
+               &\ge \sum_{i = 1}^m \gamma_i^\ast \frac{\rho_i - r}{2} \norm*{x - x^\ast}_2^2 \ge \frac{\rho - r}{2} \norm*{x - x^\ast}_2^2
+    ,\end{align}
+    where the second inequality follows from the definition of~$\rho_i$ and~$\mu_i$-convexity of~$f_i$ or~$L_i$-Lipschitz continuity of~$\nabla f_i$, the third one comes from the~$\sigma_i$-convexity of~$F_i$, and the fourth one is obtained by the definition of~$\rho$ and the fact that~$\gamma^\ast \in \Delta^m$.
+    Since~\cref{eq:eb:weighted} is a weighting scalarization of~\cref{eq:MOO}, $x^\ast$ is Pareto optimal for~\cref{eq:MOO}~\cite[Theorem 3.1.3]{Miettinen1998}, i.e.,~$x^\ast \in X^\ast$.
+    Therefore, we get~\cref{eq:eb sufficient}, which completes the proof.
+\end{proof}
+
+We can easily introduce error bound property of~$u_\alpha$ by setting~$f_i = 0$ in \cref{thm:error bound}.
+
+\begin{corollary} \label{thm:eb_cor}
+    For an arbitrary~$\alpha \ge 0$, let~$u_\alpha$ be defined by~\cref{eq:u_alpha}.
+    Assume that~$F_i$ is $\sigma_i$-convex with~$\sigma_i > 0$ for all~$i = 1, \dots, m$.
+    Then, we have
+    \[
+        u_\alpha(x) \ge \upsilon(\sigma) \inf_{x^\ast \in X^\ast} \norm*{x - x^\ast}_2^2 \forallcondition{x \in C}
+    ,\]
+    where~$X^\ast$ is the set of Pareto optimal solutions for~\cref{eq:MOO},~$\sigma \coloneqq \min_{i = 1, \dots, m} \sigma_i$, and
+    \[
+        \upsilon(\sigma) \coloneqq \begin{dcases}
+            \frac{\sigma - \alpha}{2}, & \text{if } \alpha < \sigma / 2, \\
+            \frac{\sigma^2}{8 \alpha}, & \text{otherwise}
+        .\end{dcases}
+    \] 
+\end{corollary}
+
+When~$F_i$ is strongly convex, the min-max reformulation similar to~\cref{eq:w_alpha Sion} is also applicable to~$u_0$, so we can likewise derive the error bounds for~$u_0$ by setting~$f_i = 0$ and~$r = 0$ after~\cref{eq:eb sufficient} in the proof of~\cref{thm:error bound}.
+\begin{corollary}
+    Let~$u_0$ be defined by~\cref{eq:u_0}.
+    Assume that~$F_i$ is $\sigma_i$-convex with~$\sigma_i > 0$ for all~$i = 1, \dots, m$.
+    Then, we have
+    \[
+        u_0(x) \ge \frac{\sigma}{2} \inf_{x^\ast \in X^\ast} \norm*{x - x^\ast}_2^2 \forallcondition{x \in C}
+    ,\]
+    where~$X^\ast$ is the set of Pareto optimal solutions for~\cref{eq:MOO}, and~$\sigma \coloneqq \min_{i = 1, \dots, m} \sigma_i$.
+\end{corollary}
+
+\end{document}

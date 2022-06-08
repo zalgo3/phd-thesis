@@ -1,0 +1,39 @@
+\documentclass[../../main]{subfiles}
+
+\begin{document}
+\subsection{Second-order cone programming} \label{sec:pgm:robust:SOCP}
+Suppose that $\hat{g}_i (x,u) = u^\T x$ and ${\mathcal{U}}_i = \{ a_i + P_i v \in \setR^n \mid \| v \| \leq 1,\, v \in \setR^n \}$, where $a_i \in \setR^n$ and $\ P_i \in \setR^{n \times n}$, that is, $\hat{g}_i$ is once again linear in $x$ and $\mathcal{U}_i$ is an ellipsoid. Then, for all $i = 1,\dots,m$ we have
+\begin{align}
+g_i (x) &=  \max_{u \in {\mathcal{U}}_i } \hat{g}_i (x,u) \\
+&=\max_{v : \| v \| \leq 1} (a_i + P_i v)^\T x \\
+&= a_i^\T x + \max_{v : \| v \| \leq 1} (P_i^\T x)^\T v.
+\end{align}
+If $P_i^\T x = 0$, then $\displaystyle \max_{v : \| v \| \leq 1} (P_i^\T x)^\T v = 0 = \| P_i^\T x \|$. If $P_i^\T x \neq 0$, then $\frac{P_i^\T x}{\|P_i^| x\|}$ is a solution of $\displaystyle \max_{v : \| v \| \leq 1} (P_i^\T x)^\T v$, and hence $\displaystyle \max_{v : \| v \| \leq 1} (P_i^\T x)^\T v = \| P_i^\T x \|$. Consequently, we have
+\[
+	g_i(x) = a_i^\T x + \| P_i^\T x \|.
+\]
+Therefore, introducing slack variables $\gamma \in \setR$ and $\tau \in \setR$, the subproblem~\cref{eq:prox subprob} can be written as
+\begin{align}
+\begin{aligned}
+\min_{\tau, \gamma, d} \quad   &\tau \\ 
+\st    \quad   &\nabla f_i (x)^\T d + \| P_i^\T (x + d) \| - \|P_i^\T x\| + a_i^\T d \leq \gamma, \quad i = 1,\ldots,m, \\
+& \gamma + \frac{\ell}{2} \| d \|^2 \leq \tau.
+\end{aligned}
+\end{align}
+Note that convex quadratic constraints can be converted to second-order cone constraints. Using the expression given in~\cite[Section 2.1]{Alizadeh2003}, we get the following second-order cone programming problem (SOCP):
+\begin{align}\label{eq:socp}
+\begin{aligned}
+\min_{\tau, \gamma, d} \quad   &\tau \\ 
+\st    \quad   &\begin{bmatrix} -(\nabla f_i(x) + a_i)^\T d + \gamma + \|P_i^\T x\| \\
+P_i^\T (x + d)
+\end{bmatrix} \in \mathcal{K}_{n + 1}, \\
+& \begin{bmatrix} 1 - \gamma + \tau \\
+1 + \gamma - \tau \\
+\sqrt{2 \ell} d
+\end{bmatrix} \in \mathcal{K}_{n + 2},
+\end{aligned}
+\end{align}
+where $\mathcal{K}_q \coloneqq \{(y_0, \bar{y}) \in \setR \times \setR^{q - 1} \mid y_0 \geq \| \bar{y} \|\}$ is the second-order cone in $\setR^{q}$.
+The above SOCP can be solved efficiently with an interior point method~\cite{Alizadeh2003}.
+
+\end{document}

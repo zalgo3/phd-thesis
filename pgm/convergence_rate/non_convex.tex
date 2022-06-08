@@ -1,0 +1,44 @@
+\documentclass[../../main]{subfiles}
+
+\begin{document}
+\subsection{The non-convex case}
+When $m = 1$ and~$F_1$ is not convex for~\cref{eq:MOO},~$\set{\norm{ x^k - \prox_{g_1/L_1} (x^k - \nabla f_1(x^k) / L_1) }}$ converges to zero with rate~$O(\sqrt{1 / k})$ if the proximal gradient method is applied, where the proximal operator~``$\prox$'' is defined by~\cref{eq:prox}~\cite{Beck2017}.
+Note that when~$m = 1$ we have~$w_{L_1}(x^k) \ge (L_1 / 2) \norm{ x^k - \prox_{g_1/L_1} (x^k - \nabla f_1(x^k) / L_1) }^2$.
+Now, in the multi-objective context, we show below that~$\set{ \sqrt{w_1(x^k)} }$ still converges to zero with rate~$O(\sqrt{1 / k})$ with \cref{alg:pgm_MO}.
+\begin{theorem} \label{thm:rate nonconvex}
+    Suppose that there exists some nonempty set $\mathcal{J} \subseteq \set{i = 1, \dots, m}$ such that if $i \in \mathcal{J}$ then $F_i(x)$ has a lower bound~$F_i^{\min}$ for all~$x \in \setR^n$.
+    Let $F^{\min} \coloneqq \min_{i \in \mathcal{J}} F_i^{\min}$ and $F_0^{\max} \coloneqq \max_{i = 1, \dots, m} F_i(x^0)$.
+	Then, \cref{alg:pgm_MO} generates a sequence~$\{x^k\}$ such that
+    \[
+		\min_{0 \le j \le k - 1} w_1(x^j) \le \frac{(F_0^{\max} - F^{\min}) \max \set*{ 1, \ell }}{k}
+    .\]
+\end{theorem}
+\begin{proof}
+    Let $i \in \mathcal{J}$. From~\cref{eq:descent}, we have
+    \begin{multline}
+        F_i(x^{k + 1}) - F_i(x^k) \le \innerp{\nabla f_i(x^k)}{d^k} + g_i(x^{k + 1}) - g_i(x^k) + \frac{\ell}{2} \norm*{ d^k}^2 \\
+        \le \max_{i = 1, \dots, m} \left\{ \innerp{\nabla f_i(x^k)}{d^k} + g_i(x^{k + 1}) - g_i(x^k) + \frac{\ell}{2} \norm*{ d^k}^2 \right\}
+        = - w_\ell(x^k)
+    ,\end{multline}
+    where the equality follows from~\cref{eq:psi,eq:psi w_ell}.
+    Adding up the above inequality from~$k = 0$ to~$k = \tilde{k} - 1$ yields that
+    \[
+        F_i(x^{\tilde{k}}) - F_i(x^0) \le - \sum_{k = 0}^{\tilde{k} - 1} w_\ell(x^k)
+		\le - \tilde{k} \min_{0 \le k \le \tilde{k} - 1} w_\ell(x^k).
+    \]
+    From the definitions of~$F^{\min}$ and~$F_0^{\max}$, we obtain
+    \[
+        \min_{0 \le k \le \tilde{k} - 1} w_\ell(x^k) \le \frac{F_0^{\max} - F^{\min}}{\tilde{k}}.
+    \]
+    Finally, from \cref{thm:merit inner}, we get
+	\[
+        \min_{0 \le k \le \tilde{k} - 1} w_1(x^k) \le \frac{(F_0^{\max} - F^{\min}) \max \{ 1, \ell \}}{\tilde{k}}.
+	\]
+\end{proof}
+\begin{remark}
+    When~$g_i = 0$ for all~$i$, references~\cite{Calderon2020,Fliege2019,Grapiglia2015} present the convergence rate of various multi-objective optimization methods.
+    However, as we have mentioned in the introduction, they all evaluate the convergence rate with measures that depend on the subproblems or variables used in their algorithms.
+    This means that the comparison in terms of complexity between different methods is not easy by using those measures.
+    However, \cref{thm:rate nonconvex} analyzes the convergence rate using the merit function~$w_1$, which can be defined uniformly by~\cref{eq:w_alpha} for multi-objective optimization problems with a structure like~\cref{eq:composite_MO}.
+\end{remark}
+\end{document}
