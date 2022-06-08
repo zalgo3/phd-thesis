@@ -10,14 +10,10 @@ jobs:
   deploy:
     name: github-pages
     runs-on: ubuntu-latest
+    container: zalgo3/texlive
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Cache container
-        uses: jamesmortensen/cache-container-images-action@master
-        with:
-          runtime: podman
-          images: zalgo3/texlive
       - name: Get last successful commit id
         if: ${{ github.event.name == 'pull_request' }}
         uses: nrwl/last-successful-commit-action@v1
