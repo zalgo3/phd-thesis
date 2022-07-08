@@ -1,11 +1,11 @@
 \documentclass[../main]{subfiles}
 
 \begin{document}
-\section{Numerical experiments} \label{sec:acc_pgm:experiments}
-This section compares the performance between \cref{alg:acc_pgm_MO} with various~$a$ and~$b$ and \cref{alg:acc_pgm_MO} ($a = 0, b = 1 / 4$) through numerical experiments.
+\section{Numerical experiments} \zlabel{sec:acc_pgm:experiments}
+This section compares the performance between \zcref{alg:acc_pgm_MO} with various~$a$ and~$b$ and \zcref{alg:acc_pgm_MO} ($a = 0, b = 1 / 4$) through numerical experiments.
 We run all experiments in Python 3.9.9 on a machine with 2.3 GHz Intel Core i7 CPU and 32 GB memory.
 For each example, we test 15 different hyperparameters combining~$a = 0, 1 / 6, 1 / 4, 1 / 2, 3 / 4$ and~$b = a^2 / 4, (a^2 + 1) / 8, 1 / 4$, i.e.,
-\[
+\begin{equation}
     (a, b) = \left\{
         \begin{gathered}
             (0, 0), (0, 1 / 8), (0, 1 / 4),\\
@@ -15,11 +15,11 @@ For each example, we test 15 different hyperparameters combining~$a = 0, 1 / 6, 
             (3 / 4, 9 / 64), (3 / 4, 25 / 128), (3 / 4, 1 / 4)
         \end{gathered}
     \right\},
-\] 
+\end{equation} 
 and we set~$\varepsilon = 10^{-5}$ for the stopping criteria.
 
 \subsection{Artificial test problems (bi-objective and tri-objective)}
-First, we solve the multi-objective test problems in the form~\cref{eq:MOO} used in~\cite{Tanabe2022a}, modifications from~\cite{Jin2001,Fliege2009}, whose objective functions are defined by
+First, we solve the multi-objective test problems in the form~\zcref{eq:MOO} used in~\cite{Tanabe2022a}, modifications from~\cite{Jin2001,Fliege2009}, whose objective functions are defined by
 \begin{align}
     &f_1(x) = \frac{1}{n} \norm*{x}^2,
     f_2(x) = \frac{1}{n} \norm*{x - 2}^2,
@@ -42,14 +42,14 @@ First, we solve the multi-objective test problems in the form~\cref{eq:MOO} used
             g_1(x) = g_2(x) = g_3(x) = \indicator_{\setRpos^n}(x),
     \end{aligned} \right.\label{eq:FDS_CONSTRAINED} \tag{FDS-CON}
 \end{align}
-where~$x \in \setR^n, n = 50$ and~$\indicator_{\setRpos^n}$ is an indicator function~\cref{eq:indicator} of the nonnegative orthant.
-We choose~$1000$ initial points, commonly for all pairs~$(a, b)$, and randomly with a uniform distribution between~$\underline{c}$ and~$\overline{c}$, where~$\underline{c} = (-2, \dots, -2)^\T$ and~$\overline{c} = (4, \dots, 4)^\T$ for~\cref{eq:JOS1,eq:JOS1_L1},~$\underline{c} = (-2, \dots, -2)^\T$ and~$\overline{c} = (2, \dots, 2)^\T$ for~\cref{eq:FDS}, and~$\underline{c} = (0, \dots, 0)^\T$ and~$\overline{c} = (2, \dots, 2)^\T$ for~\cref{eq:FDS_CONSTRAINED}.
+where~$x \in \setR^n, n = 50$ and~$\indicator_{\setRpos^n}$ is an indicator function~\zcref{eq:indicator} of the nonnegative orthant.
+We choose~$1000$ initial points, commonly for all pairs~$(a, b)$, and randomly with a uniform distribution between~$\underline{c}$ and~$\overline{c}$, where~$\underline{c} = (-2, \dots, -2)^\T$ and~$\overline{c} = (4, \dots, 4)^\T$ for~\zcref{eq:JOS1,eq:JOS1_L1},~$\underline{c} = (-2, \dots, -2)^\T$ and~$\overline{c} = (2, \dots, 2)^\T$ for~\zcref{eq:FDS}, and~$\underline{c} = (0, \dots, 0)^\T$ and~$\overline{c} = (2, \dots, 2)^\T$ for~\zcref{eq:FDS_CONSTRAINED}.
 Moreover, we use backtracking for updating~$\ell$, with~$1$ as the initial value of~$\ell$ and~$2$ as the constant multiplied into~$\ell$ at each iteration (cf.~\cite[Remark~4.1~(v)]{Tanabe2022a}).
-Furthermore, at each iteration, we transform the subproblem~\cref{eq:acc prox subprob} into their dual as suggested in~\cite{Tanabe2022a} and solve them with the trust-region interior point method~\cite{Byrd1999} using the scientific library SciPy.
+Furthermore, at each iteration, we transform the subproblem~\zcref{eq:acc prox subprob} into their dual as suggested in~\cite{Tanabe2022a} and solve them with the trust-region interior point method~\cite{Byrd1999} using the scientific library SciPy.
 
-\Cref{fig:Pareto,tab:Average computational costs} present the experimental results.
-\Cref{fig:Pareto} plots the solutions only for the cases~$(a, b) = (0, 1 / 4), (3 / 4, 1 / 4)$, but other combinations also yield similar plots, including a wide range of Pareto solutions.
-\Cref{tab:Average computational costs} shows that the new momentum factors are fast enough to compete with the existing ones ($(a, b) = (0, 1/4)$ or $b = a^2/4$) and better than them in some cases.
+\zcref{fig:Pareto,tab:Average computational costs} present the experimental results.
+\zcref{fig:Pareto} plots the solutions only for the cases~$(a, b) = (0, 1 / 4), (3 / 4, 1 / 4)$, but other combinations also yield similar plots, including a wide range of Pareto solutions.
+\zcref{tab:Average computational costs} shows that the new momentum factors are fast enough to compete with the existing ones ($(a, b) = (0, 1/4)$ or $b = a^2/4$) and better than them in some cases.
 
 \begin{figure}[htbp]
     \centering
@@ -63,8 +63,8 @@ Furthermore, at each iteration, we transform the subproblem~\cref{eq:acc prox su
             \centering
             \adjincludegraphics[trim={{.66\width} 0 0 {.8\height}}, clip, width=\linewidth]{figs/JOS1_ab.pdf}
         \end{minipage}
-        \subcaption{\cref{eq:JOS1}}
-        \label{fig:JOS1}
+        \subcaption{\zcref{eq:JOS1}}
+        \zlabel{fig:JOS1}
     \end{minipage}
     \begin{minipage}[b]{.49\hsize}
         \centering
@@ -76,8 +76,8 @@ Furthermore, at each iteration, we transform the subproblem~\cref{eq:acc prox su
             \centering
             \adjincludegraphics[trim={{.66\width} 0 0 {.8\height}}, clip, width=\linewidth]{figs/JOS1_L1_ab.pdf}
         \end{minipage}
-        \subcaption{\cref{eq:JOS1_L1}}
-        \label{fig:JOS1_L1}
+        \subcaption{\zcref{eq:JOS1_L1}}
+        \zlabel{fig:JOS1_L1}
     \end{minipage}
     \begin{minipage}[b]{.49\hsize}
         \centering
@@ -89,8 +89,8 @@ Furthermore, at each iteration, we transform the subproblem~\cref{eq:acc prox su
             \centering
             \adjincludegraphics[trim={{.605\width} 0 {.014\width} {.8\height}}, clip, width=\linewidth]{figs/fDS_ab.pdf}
         \end{minipage}
-        \subcaption{\cref{eq:FDS}}
-        \label{fig:FDS}
+        \subcaption{\zcref{eq:FDS}}
+        \zlabel{fig:FDS}
     \end{minipage}
     \begin{minipage}[b]{.49\hsize}
         \centering
@@ -102,19 +102,19 @@ Furthermore, at each iteration, we transform the subproblem~\cref{eq:acc prox su
             \centering
             \adjincludegraphics[trim={{.605\width} 0 {.014\width} {.8\height}}, clip, width=\linewidth]{figs/FDS_CONSTRAINED_ab.pdf}
         \end{minipage}
-        \subcaption{\cref{eq:FDS_CONSTRAINED}}
-        \label{fig:FDS_CON}
+        \subcaption{\zcref{eq:FDS_CONSTRAINED}}
+        \zlabel{fig:FDS_CON}
     \end{minipage}
     \caption{Pareto solutions obtained with some~$(a, b)$}
-    \label{fig:Pareto}
+    \zlabel{fig:Pareto}
 \end{figure}
 \begin{table}[htbp]
     \centering
     \caption{Average computational costs to solve the multi-objective examples}
-    \label{tab:Average computational costs}
+    \zlabel{tab:Average computational costs}
     \begin{minipage}{.49\hsize}
         \centering
-        \subcaption{\cref{eq:JOS1}}
+        \subcaption{\zcref{eq:JOS1}}
         \begin{tabular}{@{}cccc@{}}
             \toprule
             $a$ & $b$ & Time [\si{\second}] & Iterations \\
@@ -127,7 +127,7 @@ Furthermore, at each iteration, we transform the subproblem~\cref{eq:acc prox su
     \end{minipage}
     \begin{minipage}{.49\hsize}
         \centering
-        \subcaption{\cref{eq:JOS1_L1}}
+        \subcaption{\zcref{eq:JOS1_L1}}
         \begin{tabular}{@{}cccc@{}}
             \toprule
             $a$ & $b$ & Time [\si{\second}] & Iterations \\
@@ -140,7 +140,7 @@ Furthermore, at each iteration, we transform the subproblem~\cref{eq:acc prox su
     \end{minipage}
     \begin{minipage}{.49\hsize}
         \centering
-        \subcaption{\cref{eq:FDS}}
+        \subcaption{\zcref{eq:FDS}}
         \begin{tabular}{@{}cccc@{}}
             \toprule
             $a$ & $b$ & Time [\si{\second}] & Iterations \\
@@ -153,7 +153,7 @@ Furthermore, at each iteration, we transform the subproblem~\cref{eq:acc prox su
     \end{minipage}
     \begin{minipage}{.49\hsize}
         \centering
-        \subcaption{\cref{eq:FDS_CONSTRAINED}}
+        \subcaption{\zcref{eq:FDS_CONSTRAINED}}
         \begin{tabular}{@{}cccc@{}}
             \toprule
             $a$ & $b$ & Time [\si{\second}] & Iterations \\
@@ -168,36 +168,36 @@ Furthermore, at each iteration, we transform the subproblem~\cref{eq:acc prox su
 
 \subsection{Image deblurring (single-objective)}
 Since our proposed momentum factor is also new in the single-objective context, we also tackle deblurring the cameraman test image via a single-objective $\ell_2$-$\ell_1$ minimization, inspired by~\cite{Beck2009}.
-In detail, as shown in \cref{fig:cameraman}, to a~$256 \times 256$ cameraman test image with each pixel scaled to~$[0,1]$, we generate an observed image by applying a Gaussian blur of size~$9 \times 9$ and standard deviation $4$ and adding a zero-mean white Gaussian noise with standard deviation $10^{-3}$.
+In detail, as shown in \zcref{fig:cameraman}, to a~$256 \times 256$ cameraman test image with each pixel scaled to~$[0,1]$, we generate an observed image by applying a Gaussian blur of size~$9 \times 9$ and standard deviation $4$ and adding a zero-mean white Gaussian noise with standard deviation $10^{-3}$.
 \begin{figure}[htpb]
     \centering
     \begin{minipage}[b]{.45\hsize}
         \centering
         \includegraphics[width=0.8\textwidth]{figs/cameraman_original.png}
         \subcaption{Original}
-        \label{fig:cameraman:original}
+        \zlabel{fig:cameraman:original}
     \end{minipage}
     \begin{minipage}[b]{.45\hsize}
         \centering
         \includegraphics[width=0.8\textwidth]{figs/cameraman_blurred_and_noisy.png}
         \subcaption{Blurred and noisy}
-        \label{fig:cameraman:blurred_and_noisy}
+        \zlabel{fig:cameraman:blurred_and_noisy}
     \end{minipage}
     \caption{Deblurring of the cameraman}
-    \label{fig:cameraman}
+    \zlabel{fig:cameraman}
 \end{figure}
 
-Letting~$\theta, B,$ and~$W$ be the observed image, the blur matrix, and the inverse of the Haar wavelet transform, respectively, consider the single-objective problem~\cref{eq:MOO} with~$m = 1$ and
-\[ \label{eq:cam_deblur} \tag{CAM-DEBLUR}
+Letting~$\theta, B,$ and~$W$ be the observed image, the blur matrix, and the inverse of the Haar wavelet transform, respectively, consider the single-objective problem~\zcref{eq:MOO} with~$m = 1$ and
+\begin{equation} \label{eq:cam_deblur} \tag{CAM-DEBLUR}
     f_1(x) \coloneqq \norm*{BWx - \theta}^2 \eqand g_1(x)=\lambda \norm*{x}_1
-,\] 
+,\end{equation} 
 where~$\lambda \coloneqq 2 \times 10^{-5}$ is a regularization parameter.
 Unlike in the previous subsection, we can compute~$\nabla f$'s Lipschitz constant by calculating~$(BW)^\T(BW)$'s eigenvalues using the two-dimensional cosine transform~\cite{Hansen2006}, so we use it constantly as~$\ell$.
 Moreover, we use the observed image's Wavelet transform as the initial point.
 
-\Cref{fig:deblurred} shows the reconstructed image from the obtained solution.
+\zcref{fig:deblurred} shows the reconstructed image from the obtained solution.
 Images produced by all hyperparameters are similar, so we present only~$(a, b) = (0, 1 / 4)$ and~$(1 / 2, 1 / 4)$.
-Moreover, we summarize the numerical performance in \cref{tab:cam_deblur,fig:cameraman_plot}.
+Moreover, we summarize the numerical performance in \zcref{tab:cam_deblur,fig:cameraman_plot}.
 Like the last subsection, this example also suggests that our new momentum factors may occasionally improve the algorithm's performance even for single-objective problems.
 
 \begin{figure}[htpb]
@@ -213,13 +213,13 @@ Like the last subsection, this example also suggests that our new momentum facto
         \subcaption{$(a, b) = (1 / 2, 1 / 4)$}
     \end{minipage}
     \caption{Deblurred image}
-    \label{fig:deblurred}
+    \zlabel{fig:deblurred}
 \end{figure}
 
 \begin{table}[htbp]
     \centering
     \caption{Computational costs for the image deblurring}
-    \label{tab:cam_deblur}
+    \zlabel{tab:cam_deblur}
     \begin{tabular}{@{}cccc@{}}
         \toprule
          $a$ & $b$ & Total time [\si{\second}] & Iteration counts \\
@@ -235,7 +235,7 @@ Like the last subsection, this example also suggests that our new momentum facto
     \centering
     \includegraphics[width=\textwidth]{figs/cameraman_plot.pdf}
     \caption{Values of~$u_0(x^k) = F_1(x) - F_1(x^\ast)$, where~$x^\ast$ is the optimal solution estimated from the original image}
-    \label{fig:cameraman_plot}
+    \zlabel{fig:cameraman_plot}
 \end{figure}
 
 \end{document}

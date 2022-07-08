@@ -1,67 +1,70 @@
 \documentclass[../../main]{subfiles}
 
 \begin{document}
-\subsection{Semi-definite programming} \label{sec:pgm:robust:SDP}
-Suppose that\footnote{We denote $A \succeq (\succ) O$ when $A$ is positive semidefinite (positive definite). Also, $A \succeq (\succ) B$ if and only if $A - B \succeq (\succ) O$.} $\hat{g}_i (x,u) = (x + u)^\T A_i (x + u)$ and ${\mathcal{U}}_i = \{ a_i + P_i v \in \setR^n \mid \| v \| \leq 1 \}$, where $A_i \in \setR^{n \times n}$ and $A_i \succeq O,\, a_i \in \setR^n$ and $P_i \in \setR^{n \times n}$. Then, there exists a matrix $M_i \in \setR^{n \times n}$ such that $A_i = M_i M_i^\T$. Note that $\hat{g}_i$ is convex quadratic and $\mathcal{U}_i$ is an ellipsoid. Here, without loss of generality we can assume that $A$ is a symmetric matrix since $(x + u)^\T A_i (x + u) = (x + u)^\T \tilde{A}_i (x + u)$, where $\tilde{A}_i \coloneqq (A_i+A_i^\T) / 2$. Then, $g_i(x)$ can be given as
+\subsection{Semi-definite programming} \zlabel{sec:pgm:robust:SDP}
+Suppose that~$\hat{g}_i (x,u) = \innerp{x + u}{A_i (x + u)}$ and ${\mathcal{U}}_i = \Set{ a^i + P_i v \in \setR^n }{\norm{v}_2 \leq 1 }$, where $A_i \in \setR^{n \times n}$ and $A_i \succeq O, a^i \in \setR^n$ and $P_i \in \setR^{n \times n}$. 
+Then, there exists a matrix $M_i \in \setR^{n \times n}$ such that $A_i = M_i M_i^\T$. 
+Note that $\hat{g}_i$ is convex quadratic and $\mathcal{U}_i$ is an ellipsoid. 
+Here, without loss of generality we can assume that $A$ is a symmetric matrix since $\innerp*{x + u}{A_i (x + u)} = \innerp*{x + u}{\tilde{A}_i (x + u)}$, where $\tilde{A}_i \coloneqq \left(A_i+A_i^\T\right) / 2$. Then, $g_i(x)$ can be given as
 \begin{equation} \label{eq:sdp_g_i}
-g_i(x) = \max_{v : \| v \| \leq 1} (x + a_i + P_i v)^\T A_i (x + a_i + P_i v).
+    g_i(x) = \max_{v : \norm{v}_2 \leq 1} \innerp*{x + a^i + P_i v}{A_i \left(x + a^i + P_i v\right)}.
 \end{equation}
-Since problem~\cref{eq:sdp_g_i} is a maximization problem of a convex function, it is not a convex optimization problem. Fortunately, it can be seen as a subproblem of a trust region method, so its optimal value~$g_i(x)$ can be obtained efficiently. Considering~\cref{eq:sdp_g_i}, we observe that
+Since problem~\zcref{eq:sdp_g_i} is a maximization problem of a convex function, it is not a convex optimization problem. Fortunately, it can be seen as a subproblem of a trust region method, so its optimal value~$g_i(x)$ can be obtained efficiently. Considering~\zcref{eq:sdp_g_i}, we observe that
 \begin{equation} \label{eq:sdp_g_i_}
-g_i(x + d) = \max_{v : \| v \| \leq 1} (x + d + a_i + P_i v)^\T A_i (x + d + a_i + P_i v).
+    g_i(z) = \max_{v : \norm{v}_2 \leq 1} \innerp*{z + a^i + P_i v}{A_i \left(z + a^i + P_i v\right)}.
 \end{equation}
-From~\cite[Section~3]{Beck2006}, the Lagrangian dual of the maximization problem~\cref{eq:sdp_g_i_} is given by
-\begin{align}
-\begin{aligned} \label{eq:dual}
-\min_{\alpha, w} \quad   & -w \\ 
-\st    \quad   & 
-\begin{bmatrix}
--P_i^\T A_i P_i &\quad -P_i^\T A_i (x + d + a_i) \\
--(x + d + a_i)^\T A_i^\T P_i &\quad -(x + d + a_i)^\T A_i (x + d + a_i) - w
-\end{bmatrix} \\
-& \hspace{20.3em} \succeq
-\alpha \begin{bmatrix}
--I_n & 0 \\
-0 & 1
-\end{bmatrix}, \\
-& \alpha \geq 0,
-\end{aligned}
-\end{align}
-where $I_n$ stands for the identity matrix of dimension $n$. Let $(\alpha^\ast, w^\ast)$ be an optimal solution of~\cref{eq:dual} and assume that\footnote{Here, $\dim$ denotes dimension of a space and $\ker$ means kernel of a matrix.} $\dim(\ker(A_i + \alpha^\ast I_n)) \neq 1$. Since both~\cref{eq:sdp_g_i_} and \cref{eq:dual} have strictly feasible solutions and $I_n \succ O$, then the strong duality holds from~\cite[Theorem~3.5]{Beck2006}. Therefore, recalling~\cref{eq:subproblem}, the subproblem~\cref{eq:prox subprob} is equivalent to
-\begin{align}
-\begin{aligned}
-\min_{\gamma, d, w_i, \alpha_i} \quad & \gamma + \frac\ell2 \| d \|^2 \\ 
-\st    \quad   & \nabla f_i (x)^\T d - w_i - g_i (x) \leq \gamma, \\
-& \begin{bmatrix}
--P_i^\T A_i P_i + \alpha_i I_n &\quad -P_i^\T A_i (x + d + a_i) \\
--(x + d + a_i)^\T A_i^\T P_i &\quad -(x + d + a_i)^\T A_i (x + d + a_i) - w_i -\alpha_i
-\end{bmatrix} \\
-& \hspace{26em} \succeq O, \\
-& \alpha_i \geq 0, \quad i = 1,\dots,m.
-\end{aligned}
-\end{align}
-Now, by using slack variables $\tau \in \setR$ and $\zeta_i \in \setR$ and converting the convex quadratic constraints to second-order cone ones, we get the following semidefinite programming problem:
-\begin{align} \label{eq:sdp}
-\begin{aligned}
-\min_{\tau, \alpha_i, w_i, \gamma, d} \quad   &\tau \\ 
-\st    \quad   &\nabla f_i(x)^\T d - w_i - g_i(x) \leq \gamma, \\
-& \begin{bmatrix} 1 - \gamma + \tau \\
-1 + \gamma - \tau \\
-\sqrt{2 \ell} d
-\end{bmatrix} \in \mathcal{K}_{n + 2}, \\
-& 
-\begin{bmatrix}
--P_i^\T A_i P_i + \alpha_i I_n & -P_i^\T A_i (x + d + a_i) \\
--(x + d + a_i)^\T A_i^\T P_i & \zeta_i
-\end{bmatrix} \succeq
-O, \\
-& \begin{bmatrix} \dfrac{1 - \zeta_i - w_i - \alpha_i}{2} \\
-\dfrac{1 + \zeta_i + w_i + \alpha_i}{2} \\
-M_i^\T (x + d + a_i)
-\end{bmatrix} \in \mathcal{K}_{n + 2}, \\
-& \alpha_i \geq 0,  \quad i = 1,\ldots,m,
-\end{aligned}
-\end{align}
-where $O$ stands for a zero matrix with appropriate dimension. Note that the second-order cone constraints can be converted further into semidefinite constraints.
+From~\cite[Section~3]{Beck2006}, the Lagrangian dual of the maximization problem~\zcref{eq:sdp_g_i_} is given by
+\begin{equation}\label{eq:dual}
+    \begin{aligned} 
+        \min_{\beta, w} \quad   & -w \\ 
+        \st    \quad   & 
+        \begin{bmatrix}
+            -P_i^\T A_i P_i &\quad -P_i^\T A_i (z + a^i) \\
+            -(z + a^i)^\T A_i^\T P_i &\quad -\innerp*{z + a^i}{A_i (z + a^i)} - w
+        \end{bmatrix}
+        \succeq
+        \beta \begin{bmatrix}
+            -I_n & 0 \\
+            0 & 1
+        \end{bmatrix}, \\
+                       & \beta \geq 0,
+    \end{aligned}
+\end{equation}
+where $I_n$ stands for the identity matrix of dimension $n$. Let $(\beta^\ast, w^\ast)$ be an optimal solution of~\zcref{eq:dual} and assume that\footnote{Here, $\dim$ denotes dimension of a space and $\ker$ means kernel of a matrix.} $\dim(\ker(A_i + \beta^\ast I_n)) \neq 1$. Since both~\zcref{eq:sdp_g_i_} and \zcref{eq:dual} have strictly feasible solutions and $I_n \succ O$, then the strong duality holds from~\cite[Theorem~3.5]{Beck2006}. Therefore, recalling~\zcref{eq:subproblem}, the subproblem~\zcref{eq:pgm_subproblem} is equivalent to
+\begin{equation}
+    \begin{aligned}
+        \min_{\gamma, z, w, \beta} \quad & \gamma + \frac{1}{2 \alpha} \norm{z - x}_2^2 \\ 
+        \st    \quad   & \innerp{\nabla f_i(x)}{z - x} - w_i - g_i (x) \leq \gamma, \\
+                       & \begin{bmatrix}
+                           -P_i^\T A_i P_i + \beta_i I_n &\quad -P_i^\T A_i (z + a^i) \\
+                           -(z + a^i)^\T A_i^\T P_i &\quad -\innerp*{z + a^i}{A_i (z + a^i)} - w_i -\beta_i
+                       \end{bmatrix} 
+                       \succeq O, \\
+                       & \beta_i \geq 0, \quad i = 1,\dots,m.
+    \end{aligned}
+\end{equation}
+Now, by using slack variables $\tau \in \setR$ and $\zeta^i \in \setR$ and converting the convex quadratic constraints to second-order cone ones, we get the following semi-definite programming problem:
+\begin{equation} \label{eq:sdp}
+    \begin{aligned}
+        \min_{\tau, \beta, w, \gamma, z} \quad   &\tau \\ 
+        \st    \quad   &\innerp{\nabla f_i(x)}{z - x} - w_i - g_i(x) \leq \gamma, \\
+                       & \begin{bmatrix} 1 - \gamma + \tau \\
+                           1 + \gamma - \tau \\
+                           \sqrt{\frac{2}{\alpha}} (z - x)
+                       \end{bmatrix} \in \mathcal{K}_{n + 2}, \\
+                       & 
+                       \begin{bmatrix}
+                           -P_i^\T A_i P_i + \beta_i I_n & -P_i^\T A_i (z + a^i) \\
+                           -(z + a^i)^\T A_i^\T P_i & \zeta^i
+                       \end{bmatrix} \succeq
+                       O, \\
+                       & \begin{bmatrix} \dfrac{1 - \zeta^i - w_i - \beta_i}{2} \\
+                           \dfrac{1 + \zeta^i + w_i + \beta_i}{2} \\
+                           M_i^\T (z + a^i)
+                       \end{bmatrix} \in \mathcal{K}_{n + 2}, \\
+                       & \beta_i \geq 0,  \quad i = 1,\ldots,m.
+    \end{aligned}
+\end{equation}
+Note that the second-order cone constraints can be converted further into semi-definite constraints.
 
 \end{document}

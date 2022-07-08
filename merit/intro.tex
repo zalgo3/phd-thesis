@@ -2,32 +2,32 @@
 
 \begin{document}
 \section{Introduction}
-This chapter considers the convex-constrained multi-objective optimization problems, i.e.,~\cref{eq:MOO} with~$C$ being non-empty, closed, and convex.
-It presents new merit functions for them, and discusses their properties mentioned in \cref{sec:intro:merit}.
+This chapter considers the convex-constrained multi-objective optimization problems, i.e.,~\zcref{eq:MOO} with~$C$ being non-empty, closed, and convex.
+It presents new merit functions for them, and discusses their properties mentioned in \zcref{sec:intro:merit}.
 
-In detail, it proposes the following three merit functions for~\cref{eq:MOO}: 
+In detail, it proposes the following three merit functions for~\zcref{eq:MOO}: 
 \begin{enumerate}
-    \item the gap function for continuous multi-objective optimization; \label{enum:gap_MO}
-    \item the regularized gap function for convex multi-objective optimization; \label{enum:reg_gap_MO}
-    \item the regularized and partially linearized gap function for composite multi-objective optimization. \label{enum:reg_lin_gap_MO}
+    \item the gap function for continuous multi-objective optimization; \zlabel{enum:gap_MO}
+    \item the regularized gap function for convex multi-objective optimization; \zlabel{enum:reg_gap_MO}
+    \item the regularized and partially linearized gap function for composite multi-objective optimization. \zlabel{enum:reg_lin_gap_MO}
 \end{enumerate}
-In \cref{tab:merit}, we summarize the properties of those merit functions, which will be shown in the subsequent sections.
-There, `Sol.' represents the types of Pareto solutions for~\cref{eq:MOO} corresponding to the minima (zero points) of the merit functions.
-Moreover, `SP,' `LB,' and `EB' indicate each~$F_i$'s sufficient conditions so that stationary points of the merit functions can solve~\cref{eq:MOO}, the merit functions are level-bounded, and the merit functions provide error bounds, respectively.
-The gap function~\cref{enum:gap_MO} connects its minima and the weak Pareto solutions of~\cref{eq:MOO} but does not have good properties in other aspects.
-The regularized gap function~\cref{enum:reg_gap_MO} has better properties but requires the convexity of~$F_i$.
-The regularized and partially linearized gap function~\cref{enum:reg_lin_gap_MO} relaxes the convexity assumption and is easy to compute for particular problems.
+In \zcref{tab:merit}, we summarize the properties of those merit functions, which will be shown in the subsequent sections.
+There, `Sol.' represents the types of Pareto solutions for~\zcref{eq:MOO} corresponding to the minima (zero points) of the merit functions.
+Moreover, `SP,' `LB,' and `EB' indicate each~$F_i$'s sufficient conditions so that stationary points of the merit functions can solve~\zcref{eq:MOO}, the merit functions are level-bounded, and the merit functions provide error bounds, respectively.
+The gap function~\zcref[noname]{enum:gap_MO} connects its minima and the weak Pareto solutions of~\zcref{eq:MOO} but does not have good properties in other aspects.
+The regularized gap function~\zcref[noname]{enum:reg_gap_MO} has better properties but requires the convexity of~$F_i$.
+The regularized and partially linearized gap function~\zcref[noname]{enum:reg_lin_gap_MO} relaxes the convexity assumption and is easy to compute for particular problems.
 \begin{table}[htpb]
     \caption{Properties of our proposed merit functions}
-    \label{tab:merit}
+    \zlabel{tab:merit}
     \begin{subtable}{\textwidth}
         \centering
         \caption{Proposed merit functions and their properties}
         \begin{tblr}{hline{1,2,5}={solid}, hline{3,4}={dashed}, width=\textwidth, colspec={@{}X[.75,c]X[1.5,c]X[c]X[c]X[c]X[1.5,c]X[3,c]X[2,c]@{}}, rowspec={Q[m]Q[m]Q[m]Q[m]}}
         & Obj. & Sol. & Cont. & Diff. & SP & LB & EB \\
-            \cref{enum:gap_MO} & Cont. & \SetCell[r=2]{m}WPO & LSC & $\times$ & $\times$ & LB &\SetCell[r=2]{m} SgC \\
-            \cref{enum:reg_gap_MO} & Conv. & & \SetCell[r=2]{m}Cont. &\SetCell[r=2]{m} DD & SC & Conv., LB & \\
-            \cref{enum:reg_lin_gap_MO} & Comp. & PS & & & SC, $C^2$ & Conv., LB, etc. & SgC, etc.  \\
+            \zcref[noname]{enum:gap_MO} & Cont. & \SetCell[r=2]{m}WPO & LSC & $\times$ & $\times$ & LB &\SetCell[r=2]{m} SgC \\
+            \zcref[noname]{enum:reg_gap_MO} & Conv. & & \SetCell[r=2]{m}Cont. &\SetCell[r=2]{m} DD & SC & Conv., LB & \\
+            \zcref[noname]{enum:reg_lin_gap_MO} & Comp. & PS & & & SC, $C^2$ & Conv., LB, etc. & SgC, etc.  \\
         \end{tblr}
     \end{subtable}
 
@@ -59,7 +59,7 @@ The regularized and partially linearized gap function~\cref{enum:reg_lin_gap_MO}
 \end{table}
 
 We summarize the structure of the rest of this chapter.
-\Cref{sec:merit:merit} proposes different merit functions for multi-objective optimization with continuous objectives, convex objectives, and composite objectives, along with methods for evaluating the function values, the differentiability, and the stationary point properties.
-Furthermore, sufficient conditions for them to be level-bounded and to provide error bounds are given in \cref{sec:merit:lb,sec:merit:eb}, respectively.
+\zcref{sec:merit:merit} proposes different merit functions for multi-objective optimization with continuous objectives, convex objectives, and composite objectives, along with methods for evaluating the function values, the differentiability, and the stationary point properties.
+Furthermore, sufficient conditions for them to be level-bounded and to provide error bounds are given in \zcref{sec:merit:lb,sec:merit:eb}, respectively.
 
 \end{document}

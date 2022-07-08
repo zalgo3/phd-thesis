@@ -1,15 +1,15 @@
 \documentclass[../../main]{subfiles}
 
 \begin{document}
-\section{Multi-objective optimization} \label{sec:intro:multi_objective}
+\section{Multi-objective optimization} \zlabel{sec:intro:multi_objective}
 Optimization problems usually deal with only one objective function.
 However, many real-world problems have multiple objectives.
 One solution to this is \emph{multi-objective optimization}, which minimizes several objective functions as follows:
-\[ \label{eq:MOO}
+\begin{equation} \label{eq:MOO}
     \min_{x \in C} \quad F(x)
-,\] 
-where~$C \subseteq \setR^n$ is a constraint set, and $F \colon \setR^n \to (\setR \cup \set{\infty})^m$ is a vector-valued function with~$F \coloneqq (F_1, \dots, F_m)^\T$.
-When~$m = 1$,~\cref{eq:MOO} reduces to a single-objective optimization.
+,\end{equation} 
+where~$C \subseteq \setR^n$ is a constraint set, and $F \colon \setR^n \to (-\infty, +\infty]^m$ is a vector-valued function with~$F \coloneqq (F_1, \dots, F_m)^\T$.
+When~$m = 1$,~\zcref{eq:MOO} reduces to a single-objective optimization.
 This model has many applications in engineering~\cite{Eschenauer1990}, statistics~\cite{Carrizosa1998}, and machine learning (particularly multi-task learning~\cite{Sener2018,Lin2019} and neural architecture search~\cite{Kim2017,Dong2018,Elsken2019}).
 
 In most cases of~$m \ge 2$, no single point minimizes all objective functions simultaneously, so we use the concept of~\emph{Pareto optimality}, a generalization of the usual optimality for single-objective problems.

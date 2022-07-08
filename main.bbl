@@ -18,7 +18,7 @@
 
 
 \refsection{0}
-  \datalist[entry]{nty/global//global/global}
+  \datalist[entry]{debug/global//global/global}
     \entry{Alber1998}{article}{}
       \name{author}{3}{}{%
         {{hash=5167c16f4295c84a6d43e7b4b41f1299}{%
@@ -172,6 +172,61 @@
       \endverb
       \keyw{Calculus of Variations and Optimal Control,Combinatorics,Mathematical Methods in Physics,Mathematical and Computational Physics,Mathematics of Computing,Numerical Analysis,Optimization,Theoretical}
     \endentry
+    \entry{Attouch2016}{article}{}
+      \name{author}{2}{}{%
+        {{hash=462b91257a7d44e2720906b8d28d9577}{%
+           family={Attouch},
+           familyi={A\bibinitperiod},
+           given={Hedy},
+           giveni={H\bibinitperiod}}}%
+        {{hash=8b3d068d1c2149eb08790b97b2d01eb3}{%
+           family={Peypouquet},
+           familyi={P\bibinitperiod},
+           given={Juan},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Society for Industrial}%
+        {Applied Mathematics}%
+      }
+      \strng{namehash}{777f020bf4751c12b8fbf0cd9977c766}
+      \strng{fullhash}{777f020bf4751c12b8fbf0cd9977c766}
+      \strng{bibnamehash}{777f020bf4751c12b8fbf0cd9977c766}
+      \strng{authorbibnamehash}{777f020bf4751c12b8fbf0cd9977c766}
+      \strng{authornamehash}{777f020bf4751c12b8fbf0cd9977c766}
+      \strng{authorfullhash}{777f020bf4751c12b8fbf0cd9977c766}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The forward-backward algorithm is a powerful tool for solving optimization problems with an additively separable and smooth plus nonsmooth structure. In the convex setting, a simple but ingenious a...}
+      \field{eprinttype}{arXiv}
+      \field{issn}{10526234}
+      \field{journaltitle}{SIAM Journal on Optimization}
+      \field{month}{9}
+      \field{number}{3}
+      \field{title}{{The rate of convergence of {N}esterov's accelerated forward-backward method is actually faster than $1/k^2$}}
+      \field{volume}{26}
+      \field{year}{2016}
+      \field{pages}{1824\bibrangedash 1834}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1137/15M1046095
+      \endverb
+      \verb{eprint}
+      \verb 1510.08740
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Attouch, Peypouquet - 2016 - The Rate of Convergence of Nesterov's Accelerated Forward-Backward Method is Actually Faster Than $1k2$.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1137/15M1046095
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1137/15M1046095
+      \endverb
+      \keyw{49M37,65K05,90C25,Nesterov method,convex optimization,fast convergent methods}
+    \endentry
     \entry{Attouch2018}{article}{}
       \name{author}{4}{}{%
         {{hash=462b91257a7d44e2720906b8d28d9577}{%
@@ -231,61 +286,6 @@
       \verb https://doi.org/10.1007/s10107-016-0992-8
       \endverb
       \keyw{Calculus of Variations and Optimal Control,Combinatorics,Mathematical Methods in Physics,Mathematical and Computational Physics,Mathematics of Computing,Numerical Analysis,Optimization,Theoretical}
-    \endentry
-    \entry{Attouch2016}{article}{}
-      \name{author}{2}{}{%
-        {{hash=462b91257a7d44e2720906b8d28d9577}{%
-           family={Attouch},
-           familyi={A\bibinitperiod},
-           given={Hedy},
-           giveni={H\bibinitperiod}}}%
-        {{hash=8b3d068d1c2149eb08790b97b2d01eb3}{%
-           family={Peypouquet},
-           familyi={P\bibinitperiod},
-           given={Juan},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{publisher}{2}{%
-        {Society for Industrial}%
-        {Applied Mathematics}%
-      }
-      \strng{namehash}{777f020bf4751c12b8fbf0cd9977c766}
-      \strng{fullhash}{777f020bf4751c12b8fbf0cd9977c766}
-      \strng{bibnamehash}{777f020bf4751c12b8fbf0cd9977c766}
-      \strng{authorbibnamehash}{777f020bf4751c12b8fbf0cd9977c766}
-      \strng{authornamehash}{777f020bf4751c12b8fbf0cd9977c766}
-      \strng{authorfullhash}{777f020bf4751c12b8fbf0cd9977c766}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{The forward-backward algorithm is a powerful tool for solving optimization problems with an additively separable and smooth plus nonsmooth structure. In the convex setting, a simple but ingenious a...}
-      \field{eprinttype}{arXiv}
-      \field{issn}{10526234}
-      \field{journaltitle}{SIAM Journal on Optimization}
-      \field{month}{9}
-      \field{number}{3}
-      \field{title}{{The rate of convergence of {N}esterov's accelerated forward-backward method is actually faster than $1/k^2$}}
-      \field{volume}{26}
-      \field{year}{2016}
-      \field{pages}{1824\bibrangedash 1834}
-      \range{pages}{11}
-      \verb{doi}
-      \verb 10.1137/15M1046095
-      \endverb
-      \verb{eprint}
-      \verb 1510.08740
-      \endverb
-      \verb{file}
-      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Attouch, Peypouquet - 2016 - The Rate of Convergence of Nesterov's Accelerated Forward-Backward Method is Actually Faster Than $1k2$.pdf:pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1137/15M1046095
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1137/15M1046095
-      \endverb
-      \keyw{49M37,65K05,90C25,Nesterov method,convex optimization,fast convergent methods}
     \endentry
     \entry{Auchmuty1989}{article}{}
       \name{author}{1}{}{%
@@ -359,51 +359,6 @@
       \field{title}{{Optimisation : m\'{e}thodes num\'{e}riques}}
       \field{volume}{1}
       \field{year}{1976}
-    \endentry
-    \entry{Beck2017}{book}{}
-      \name{author}{1}{}{%
-        {{hash=7e285058a4af1ce645d910e3951d7b82}{%
-           family={Beck},
-           familyi={B\bibinitperiod},
-           given={Amir},
-           giveni={A\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Philadelphia, Pennsylvania, USA}%
-      }
-      \list{publisher}{2}{%
-        {Society for Industrial}%
-        {Applied Mathematics}%
-      }
-      \strng{namehash}{7e285058a4af1ce645d910e3951d7b82}
-      \strng{fullhash}{7e285058a4af1ce645d910e3951d7b82}
-      \strng{bibnamehash}{7e285058a4af1ce645d910e3951d7b82}
-      \strng{authorbibnamehash}{7e285058a4af1ce645d910e3951d7b82}
-      \strng{authornamehash}{7e285058a4af1ce645d910e3951d7b82}
-      \strng{authorfullhash}{7e285058a4af1ce645d910e3951d7b82}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Vector spaces -- Extended real-value functions -- Subgradients -- Conjugate functions -- Smoothness and strong convexity -- The proximal operator -- Spectral functions -- Primal and dual projected subgradient methods -- Mirror descent -- The proximal gradient method -- The block proximal gradient method -- Dual-based proximal gradient methods -- The generalized Conditional gradient method -- Alternating minimization -- ADMM.}
-      \field{booktitle}{First-Order Methods in Optimization}
-      \field{isbn}{978-1-61197-498-0}
-      \field{month}{10}
-      \field{title}{{First-Order Methods in Optimization}}
-      \field{year}{2017}
-      \verb{doi}
-      \verb 10.1137/1.9781611974997
-      \endverb
-      \verb{file}
-      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Beck - 2017 - First-Order Methods in Optimization.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.appa.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.appb.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.appc.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.appd.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.bm.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch1.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch2.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch3.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch4.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch5.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch6.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch7.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch8.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch9.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch10.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch11.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch12.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch13.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch14.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch15.pdf:pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1137/1.9781611974997
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1137/1.9781611974997
-      \endverb
-      \keyw{Alexander,Algorithms,Amir,Andrew R,Andrzej,Applications of Stochastic Programming Gr\"{o}tschel,Arc Routing: Problems,Buttazzo,Daniele,Darinka,Dentcheva,Evaluating Gas Network Capacities Corber\'{a}n,Fabio,Gilbert,Giuseppe,Global Optimization: Theory,G\'{e}rard,Hedy,Introduction to Derivative-Free Optimization Ferri,Introduction to Nonlinear Optimization: Theory,Introduction to Optimization and Semidifferential,Katya,Lars,Lectures on Stochastic Programming: Modeling and T,Linear Programming with MATLAB Attouch,Lorenz T,Luis N,M C,Mangasarian,Marco and Schoen,Martin,Methods,Michael,Michael C,Nonlinear Programming: Concepts,Olvi L,Paolo,Scheinberg,Second Edition Beck,Second Edition Locatelli,Second Edition Shapiro,Semidefinite Optimization and Convex Algebraic Geo,Semismooth Newton Methods for Variational Inequali,Stein W and Ziemba,Stephen J,The,Variational Analysis in Sobolev and BV Spaces: App,Vehicle Routing: Problems,William T,and Applications,and Applications Toth,and Applications editors,and Applications to Chemical Processes Shapiro,and Applications with MATLAB Attouch,and Laporte,and Michaille,and Ruszczy\'{n}ski,and Vicente,and Vigo,and Wright,editor,editors,\'{A}ngel}
     \endentry
     \entry{Beck2006}{article}{}
       \name{author}{2}{}{%
@@ -506,6 +461,51 @@
       \verb https://doi.org/10.1137/080716542
       \endverb
       \keyw{Deconvolution,Global rate of convergence,Image deblurring,Iterative shrinkage-thresholding algorithm,Least squares and l1 regularization problems,Linear inverse problem,Optimal gradient method,Two-step iterative algorithms}
+    \endentry
+    \entry{Beck2017}{book}{}
+      \name{author}{1}{}{%
+        {{hash=7e285058a4af1ce645d910e3951d7b82}{%
+           family={Beck},
+           familyi={B\bibinitperiod},
+           given={Amir},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Philadelphia, Pennsylvania, USA}%
+      }
+      \list{publisher}{2}{%
+        {Society for Industrial}%
+        {Applied Mathematics}%
+      }
+      \strng{namehash}{7e285058a4af1ce645d910e3951d7b82}
+      \strng{fullhash}{7e285058a4af1ce645d910e3951d7b82}
+      \strng{bibnamehash}{7e285058a4af1ce645d910e3951d7b82}
+      \strng{authorbibnamehash}{7e285058a4af1ce645d910e3951d7b82}
+      \strng{authornamehash}{7e285058a4af1ce645d910e3951d7b82}
+      \strng{authorfullhash}{7e285058a4af1ce645d910e3951d7b82}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Vector spaces -- Extended real-value functions -- Subgradients -- Conjugate functions -- Smoothness and strong convexity -- The proximal operator -- Spectral functions -- Primal and dual projected subgradient methods -- Mirror descent -- The proximal gradient method -- The block proximal gradient method -- Dual-based proximal gradient methods -- The generalized Conditional gradient method -- Alternating minimization -- ADMM.}
+      \field{booktitle}{First-Order Methods in Optimization}
+      \field{isbn}{978-1-61197-498-0}
+      \field{month}{10}
+      \field{title}{{First-Order Methods in Optimization}}
+      \field{year}{2017}
+      \verb{doi}
+      \verb 10.1137/1.9781611974997
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Beck - 2017 - First-Order Methods in Optimization.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.appa.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.appb.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.appc.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.appd.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.bm.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch1.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch2.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch3.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch4.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch5.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch6.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch7.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch8.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch9.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch10.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch11.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch12.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch13.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch14.pdf:pdf;:Users/zalgo/Downloads/1.9781611974997.ch15.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1137/1.9781611974997
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1137/1.9781611974997
+      \endverb
+      \keyw{Alexander,Algorithms,Amir,Andrew R,Andrzej,Applications of Stochastic Programming Gr\"{o}tschel,Arc Routing: Problems,Buttazzo,Daniele,Darinka,Dentcheva,Evaluating Gas Network Capacities Corber\'{a}n,Fabio,Gilbert,Giuseppe,Global Optimization: Theory,G\'{e}rard,Hedy,Introduction to Derivative-Free Optimization Ferri,Introduction to Nonlinear Optimization: Theory,Introduction to Optimization and Semidifferential,Katya,Lars,Lectures on Stochastic Programming: Modeling and T,Linear Programming with MATLAB Attouch,Lorenz T,Luis N,M C,Mangasarian,Marco and Schoen,Martin,Methods,Michael,Michael C,Nonlinear Programming: Concepts,Olvi L,Paolo,Scheinberg,Second Edition Beck,Second Edition Locatelli,Second Edition Shapiro,Semidefinite Optimization and Convex Algebraic Geo,Semismooth Newton Methods for Variational Inequali,Stein W and Ziemba,Stephen J,The,Variational Analysis in Sobolev and BV Spaces: App,Vehicle Routing: Problems,William T,and Applications,and Applications Toth,and Applications editors,and Applications to Chemical Processes Shapiro,and Applications with MATLAB Attouch,and Laporte,and Michaille,and Ruszczy\'{n}ski,and Vicente,and Vigo,and Wright,editor,editors,\'{A}ngel}
     \endentry
     \entry{Bello-Cruz2013}{article}{}
       \name{author}{1}{}{%
@@ -669,6 +669,9 @@
            given={Alexander},
            giveni={A\bibinitperiod}}}%
       }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
       \list{publisher}{1}{%
         {Springer New York}%
       }
@@ -750,6 +753,66 @@
       \verb https://doi.org/10.1137/S1052623403429093
       \endverb
       \keyw{Inexact algorithm,Proximal point,Vector optimization}
+    \endentry
+    \entry{Burachik1995}{article}{}
+      \name{author}{4}{}{%
+        {{hash=ff6ffa5ab73884ae4d01c25b27875ce2}{%
+           family={Burachik},
+           familyi={B\bibinitperiod},
+           given={Regina\bibnamedelima Sandra},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=79b9d0386837e14eb2455f224b15bec4}{%
+           family={{Gra\~{n}a Drummond}},
+           familyi={G\bibinitperiod},
+           given={Luis\bibnamedelima Mauricio},
+           giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=0eba3dfea4ed61f5a6bdfb2e6016fb1d}{%
+           family={Iusem},
+           familyi={I\bibinitperiod},
+           given={Alfredo\bibnamedelima Noel},
+           giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=975a8e0ef61c5aca1bf497aac32c8c43}{%
+           family={Svaiter},
+           familyi={S\bibinitperiod},
+           given={Benar\bibnamedelima Fux},
+           giveni={B\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Gordon}%
+        {Breach Science Publishers}%
+      }
+      \strng{namehash}{36cc6a98fc9d1b62f19970feb2fb8df2}
+      \strng{fullhash}{36cc6a98fc9d1b62f19970feb2fb8df2}
+      \strng{bibnamehash}{36cc6a98fc9d1b62f19970feb2fb8df2}
+      \strng{authorbibnamehash}{36cc6a98fc9d1b62f19970feb2fb8df2}
+      \strng{authornamehash}{36cc6a98fc9d1b62f19970feb2fb8df2}
+      \strng{authorfullhash}{36cc6a98fc9d1b62f19970feb2fb8df2}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Several finite procedures for determining the step size of the steepest descent method for unconstrained optimization, without performing exact one-dimensional minimizations, have been considered i...}
+      \field{issn}{10294945}
+      \field{journaltitle}{Optimization}
+      \field{number}{2}
+      \field{title}{{Full convergence of the steepest descent method with inexact line searches}}
+      \field{volume}{32}
+      \field{year}{1995}
+      \field{pages}{137\bibrangedash 146}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1080/02331939508844042
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Burachik et al. - 1995 - Full convergence of the steepest descent method with inexact line searches.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1080/02331939508844042
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1080/02331939508844042
+      \endverb
+      \keyw{Convex Programming,Inexact Line Searches,Steepest Descent Method}
     \endentry
     \entry{Byrd1999}{article}{}
       \name{author}{3}{}{%
@@ -1022,6 +1085,59 @@
       \verb http://www.ybook.co.jp/online2/oppjo/vol6/p497.html
       \endverb
     \endentry
+    \entry{Chen1998}{article}{}
+      \name{author}{3}{}{%
+        {{hash=c20de537c9f162ce95f9282edc5f918a}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Guang-ya},
+           giveni={G\bibinithyphendelim y\bibinitperiod}}}%
+        {{hash=4d599eeeb4da1cd14594ab9fa715cdd0}{%
+           family={Goh},
+           familyi={G\bibinitperiod},
+           given={Chuen-Jin},
+           giveni={C\bibinithyphendelim J\bibinitperiod}}}%
+        {{hash=ed6f1cd802fbd72f9d2ba807fe42c15c}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Xiao\bibnamedelima Qi},
+           giveni={X\bibinitperiod\bibinitdelim Q\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {North-Holland}%
+      }
+      \strng{namehash}{e437183beb7990ee56a90ef64c97b6bb}
+      \strng{fullhash}{e437183beb7990ee56a90ef64c97b6bb}
+      \strng{bibnamehash}{e437183beb7990ee56a90ef64c97b6bb}
+      \strng{authorbibnamehash}{e437183beb7990ee56a90ef64c97b6bb}
+      \strng{authornamehash}{e437183beb7990ee56a90ef64c97b6bb}
+      \strng{authorfullhash}{e437183beb7990ee56a90ef64c97b6bb}
+      \field{extraname}{1}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We generalize the concept of a gap function previously defined for a convex (scalar) optimization problem to a convex multicriteria optimization problem and study its various properties. {{$\copyright$}} 1998 Elsevier Science B.V. All rights reserved.}
+      \field{issn}{0377-2217}
+      \field{journaltitle}{European Journal of Operational Research}
+      \field{month}{11}
+      \field{number}{1}
+      \field{title}{{The gap function of a convex multicriteria optimization problem}}
+      \field{volume}{111}
+      \field{year}{1998}
+      \field{pages}{142\bibrangedash 151}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1016/S0377-2217(97)00300-7
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/S0377-2217(97)00300-7
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/S0377-2217(97)00300-7
+      \endverb
+      \keyw{Cone-convexity of set-valued functions,Gap function,Multicriteria optimization,Wolfe dual}
+    \endentry
     \entry{Chen2000}{incollection}{}
       \name{author}{3}{}{%
         {{hash=c20de537c9f162ce95f9282edc5f918a}{%
@@ -1062,7 +1178,7 @@
       \strng{editorbibnamehash}{d647ebb07d0fb48ac0b5286a4c013a4b}
       \strng{editornamehash}{d647ebb07d0fb48ac0b5286a4c013a4b}
       \strng{editorfullhash}{d647ebb07d0fb48ac0b5286a4c013a4b}
-      \field{extraname}{1}
+      \field{extraname}{2}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{labelnamesource}{author}
@@ -1086,106 +1202,6 @@
       \verb https://doi.org/10.1007/978-1-4613-0299-5_4
       \endverb
       \keyw{Fenchel conjugate,Vector variational inequality,duality,gap functions}
-    \endentry
-    \entry{Chen1998}{article}{}
-      \name{author}{3}{}{%
-        {{hash=c20de537c9f162ce95f9282edc5f918a}{%
-           family={Chen},
-           familyi={C\bibinitperiod},
-           given={Guang-ya},
-           giveni={G\bibinithyphendelim y\bibinitperiod}}}%
-        {{hash=4d599eeeb4da1cd14594ab9fa715cdd0}{%
-           family={Goh},
-           familyi={G\bibinitperiod},
-           given={Chuen-Jin},
-           giveni={C\bibinithyphendelim J\bibinitperiod}}}%
-        {{hash=ed6f1cd802fbd72f9d2ba807fe42c15c}{%
-           family={Yang},
-           familyi={Y\bibinitperiod},
-           given={Xiao\bibnamedelima Qi},
-           giveni={X\bibinitperiod\bibinitdelim Q\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {North-Holland}%
-      }
-      \strng{namehash}{e437183beb7990ee56a90ef64c97b6bb}
-      \strng{fullhash}{e437183beb7990ee56a90ef64c97b6bb}
-      \strng{bibnamehash}{e437183beb7990ee56a90ef64c97b6bb}
-      \strng{authorbibnamehash}{e437183beb7990ee56a90ef64c97b6bb}
-      \strng{authornamehash}{e437183beb7990ee56a90ef64c97b6bb}
-      \strng{authorfullhash}{e437183beb7990ee56a90ef64c97b6bb}
-      \field{extraname}{2}
-      \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{We generalize the concept of a gap function previously defined for a convex (scalar) optimization problem to a convex multicriteria optimization problem and study its various properties. {{$\copyright$}} 1998 Elsevier Science B.V. All rights reserved.}
-      \field{issn}{0377-2217}
-      \field{journaltitle}{European Journal of Operational Research}
-      \field{month}{11}
-      \field{number}{1}
-      \field{title}{{The gap function of a convex multicriteria optimization problem}}
-      \field{volume}{111}
-      \field{year}{1998}
-      \field{pages}{142\bibrangedash 151}
-      \range{pages}{10}
-      \verb{doi}
-      \verb 10.1016/S0377-2217(97)00300-7
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1016/S0377-2217(97)00300-7
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1016/S0377-2217(97)00300-7
-      \endverb
-      \keyw{Cone-convexity of set-valued functions,Gap function,Multicriteria optimization,Wolfe dual}
-    \endentry
-    \entry{Deb2014}{article}{}
-      \name{author}{2}{}{%
-        {{hash=b11d1da0cc2920eef235d484e6b858ef}{%
-           family={Deb},
-           familyi={D\bibinitperiod},
-           given={Kalyanmoy},
-           giveni={K\bibinitperiod}}}%
-        {{hash=a7ee3f759bf5ccf1b94bebde9d2af758}{%
-           family={Jain},
-           familyi={J\bibinitperiod},
-           given={Himanshu},
-           giveni={H\bibinitperiod}}}%
-      }
-      \list{publisher}{2}{%
-        {Institute of Electrical}%
-        {Electronics Engineers Inc.}%
-      }
-      \strng{namehash}{9282fa3947bfd0e4b3ea6b8ef5c86934}
-      \strng{fullhash}{9282fa3947bfd0e4b3ea6b8ef5c86934}
-      \strng{bibnamehash}{9282fa3947bfd0e4b3ea6b8ef5c86934}
-      \strng{authorbibnamehash}{9282fa3947bfd0e4b3ea6b8ef5c86934}
-      \strng{authornamehash}{9282fa3947bfd0e4b3ea6b8ef5c86934}
-      \strng{authorfullhash}{9282fa3947bfd0e4b3ea6b8ef5c86934}
-      \field{sortinit}{D}
-      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Having developed multiobjective optimization algorithms using evolutionary optimization methods and demonstrated their niche on various practical problems involving mostly two and three objectives, there is now a growing need for developing evolutionary multiobjective optimization (EMO) algorithms for handling many-objective (having four or more objectives) optimization problems. In this paper, we recognize a few recent efforts and discuss a number of viable directions for developing a potential EMO algorithm for solving many-objective optimization problems. Thereafter, we suggest a reference-point-based many-objective evolutionary algorithm following NSGA-II framework (we call it NSGA-III) that emphasizes population members that are nondominated, yet close to a set of supplied reference points. The proposed NSGA-III is applied to a number of many-objective test problems with three to 15 objectives and compared with two versions of a recently suggested EMO algorithm (MOEA/D). While each of the two MOEA/D methods works well on different classes of problems, the proposed NSGA-III is found to produce satisfactory results on all problems considered in this paper. This paper presents results on unconstrained problems, and the sequel paper considers constrained and other specialties in handling many-objective optimization problems. {{$\copyright$}} 1997-2012 IEEE.}
-      \field{issn}{1089778X}
-      \field{journaltitle}{IEEE Transactions on Evolutionary Computation}
-      \field{number}{4}
-      \field{title}{{An evolutionary many-objective optimization algorithm using reference-point-based nondominated sorting approach, Part I: Solving problems with box constraints}}
-      \field{volume}{18}
-      \field{year}{2014}
-      \field{pages}{577\bibrangedash 601}
-      \range{pages}{25}
-      \verb{doi}
-      \verb 10.1109/TEVC.2013.2281535
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1109/TEVC.2013.2281535
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1109/TEVC.2013.2281535
-      \endverb
-      \keyw{Many-objective optimization,NSGA-III,evolutionary computation,large dimension,multi-criterion optimization,non-dominated sorting}
     \endentry
     \entry{Deb2002}{article}{}
       \name{author}{4}{}{%
@@ -1243,6 +1259,53 @@
       \verb https://doi.org/10.1109/4235.996017
       \endverb
       \keyw{Constraint handling,Elitism,Genetic algorithms,Multicriterion decision making,Multiobjective optimization,Pareto-optimal solutions}
+    \endentry
+    \entry{Deb2014}{article}{}
+      \name{author}{2}{}{%
+        {{hash=b11d1da0cc2920eef235d484e6b858ef}{%
+           family={Deb},
+           familyi={D\bibinitperiod},
+           given={Kalyanmoy},
+           giveni={K\bibinitperiod}}}%
+        {{hash=a7ee3f759bf5ccf1b94bebde9d2af758}{%
+           family={Jain},
+           familyi={J\bibinitperiod},
+           given={Himanshu},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Institute of Electrical}%
+        {Electronics Engineers Inc.}%
+      }
+      \strng{namehash}{9282fa3947bfd0e4b3ea6b8ef5c86934}
+      \strng{fullhash}{9282fa3947bfd0e4b3ea6b8ef5c86934}
+      \strng{bibnamehash}{9282fa3947bfd0e4b3ea6b8ef5c86934}
+      \strng{authorbibnamehash}{9282fa3947bfd0e4b3ea6b8ef5c86934}
+      \strng{authornamehash}{9282fa3947bfd0e4b3ea6b8ef5c86934}
+      \strng{authorfullhash}{9282fa3947bfd0e4b3ea6b8ef5c86934}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Having developed multiobjective optimization algorithms using evolutionary optimization methods and demonstrated their niche on various practical problems involving mostly two and three objectives, there is now a growing need for developing evolutionary multiobjective optimization (EMO) algorithms for handling many-objective (having four or more objectives) optimization problems. In this paper, we recognize a few recent efforts and discuss a number of viable directions for developing a potential EMO algorithm for solving many-objective optimization problems. Thereafter, we suggest a reference-point-based many-objective evolutionary algorithm following NSGA-II framework (we call it NSGA-III) that emphasizes population members that are nondominated, yet close to a set of supplied reference points. The proposed NSGA-III is applied to a number of many-objective test problems with three to 15 objectives and compared with two versions of a recently suggested EMO algorithm (MOEA/D). While each of the two MOEA/D methods works well on different classes of problems, the proposed NSGA-III is found to produce satisfactory results on all problems considered in this paper. This paper presents results on unconstrained problems, and the sequel paper considers constrained and other specialties in handling many-objective optimization problems. {{$\copyright$}} 1997-2012 IEEE.}
+      \field{issn}{1089778X}
+      \field{journaltitle}{IEEE Transactions on Evolutionary Computation}
+      \field{number}{4}
+      \field{title}{{An evolutionary many-objective optimization algorithm using reference-point-based nondominated sorting approach, Part I: Solving problems with box constraints}}
+      \field{volume}{18}
+      \field{year}{2014}
+      \field{pages}{577\bibrangedash 601}
+      \range{pages}{25}
+      \verb{doi}
+      \verb 10.1109/TEVC.2013.2281535
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1109/TEVC.2013.2281535
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1109/TEVC.2013.2281535
+      \endverb
+      \keyw{Many-objective optimization,NSGA-III,evolutionary computation,large dimension,multi-criterion optimization,non-dominated sorting}
     \endentry
     \entry{Dong2018}{incollection}{}
       \name{author}{5}{}{%
@@ -1599,6 +1662,56 @@
       \verb https://doi.org/10.1007/978-3-642-48697-5
       \endverb
     \endentry
+    \entry{Fliege2000}{article}{}
+      \name{author}{2}{}{%
+        {{hash=c29438705766e23e4be7e0785b9b5f04}{%
+           family={Fliege},
+           familyi={F\bibinitperiod},
+           given={J\"{o}rg},
+           giveni={J\bibinitperiod}}}%
+        {{hash=975a8e0ef61c5aca1bf497aac32c8c43}{%
+           family={Svaiter},
+           familyi={S\bibinitperiod},
+           given={Benar\bibnamedelima Fux},
+           giveni={B\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Physica-Verlag}%
+      }
+      \strng{namehash}{fb1f2dea789eeb36f1ff502b0fcce29a}
+      \strng{fullhash}{fb1f2dea789eeb36f1ff502b0fcce29a}
+      \strng{bibnamehash}{fb1f2dea789eeb36f1ff502b0fcce29a}
+      \strng{authorbibnamehash}{fb1f2dea789eeb36f1ff502b0fcce29a}
+      \strng{authornamehash}{fb1f2dea789eeb36f1ff502b0fcce29a}
+      \strng{authorfullhash}{fb1f2dea789eeb36f1ff502b0fcce29a}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We propose a steepest descent method for unconstrained multicriteria optimization and a "feasible descent direction" method for the constrained case. In the unconstrained case, the objective functions are assumed to be continuously differentiable. In the constrained case, objective and constraint functions are assumed to be Lipshitz-continuously differentiable and a constraint qualification is assumed. Under these conditions, it is shown that these methods converge to a point satisfying certain first-order necessary conditions for Pareto optimality. Both methods do not scalarize the original vector optimization problem. Neither ordering information nor weighting factors for the different objective functions are assumed to be known. In the single objective case, we retrieve the Steepest descent method and Zoutendijk's method of feasible directions, respectively.}
+      \field{issn}{1432-2994}
+      \field{journaltitle}{Mathematical Methods of Operations Research}
+      \field{month}{8}
+      \field{number}{3}
+      \field{title}{{Steepest descent methods for multicriteria optimization}}
+      \field{volume}{51}
+      \field{year}{2000}
+      \field{pages}{479\bibrangedash 494}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1007/s001860000043
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Fliege, Svaiter - 2000 - Steepest descent methods for multicriteria optimization.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s001860000043
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s001860000043
+      \endverb
+      \keyw{Multi-objective programming,Multicriteria optimization,Pareto points,Steepest descent,Vector optimization}
+    \endentry
     \entry{Fliege2009}{article}{}
       \name{author}{3}{}{%
         {{hash=c29438705766e23e4be7e0785b9b5f04}{%
@@ -1655,55 +1768,55 @@
       \endverb
       \keyw{Multicriteria optimization,Multiobjective programming,Newton's method,Pareto points}
     \endentry
-    \entry{Fliege2000}{article}{}
+    \entry{Fliege2014}{article}{}
       \name{author}{2}{}{%
         {{hash=c29438705766e23e4be7e0785b9b5f04}{%
            family={Fliege},
            familyi={F\bibinitperiod},
            given={J\"{o}rg},
            giveni={J\bibinitperiod}}}%
-        {{hash=975a8e0ef61c5aca1bf497aac32c8c43}{%
-           family={Svaiter},
-           familyi={S\bibinitperiod},
-           given={Benar\bibnamedelima Fux},
-           giveni={B\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=cfb14fca4467aa99d80d54da40c31d14}{%
+           family={Werner},
+           familyi={W\bibinitperiod},
+           given={Ralf},
+           giveni={R\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {Physica-Verlag}%
+        {North-Holland}%
       }
-      \strng{namehash}{fb1f2dea789eeb36f1ff502b0fcce29a}
-      \strng{fullhash}{fb1f2dea789eeb36f1ff502b0fcce29a}
-      \strng{bibnamehash}{fb1f2dea789eeb36f1ff502b0fcce29a}
-      \strng{authorbibnamehash}{fb1f2dea789eeb36f1ff502b0fcce29a}
-      \strng{authornamehash}{fb1f2dea789eeb36f1ff502b0fcce29a}
-      \strng{authorfullhash}{fb1f2dea789eeb36f1ff502b0fcce29a}
+      \strng{namehash}{6c41ad5b40f2312f30bf6dad64aa5e68}
+      \strng{fullhash}{6c41ad5b40f2312f30bf6dad64aa5e68}
+      \strng{bibnamehash}{6c41ad5b40f2312f30bf6dad64aa5e68}
+      \strng{authorbibnamehash}{6c41ad5b40f2312f30bf6dad64aa5e68}
+      \strng{authornamehash}{6c41ad5b40f2312f30bf6dad64aa5e68}
+      \strng{authorfullhash}{6c41ad5b40f2312f30bf6dad64aa5e68}
       \field{sortinit}{F}
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{We propose a steepest descent method for unconstrained multicriteria optimization and a "feasible descent direction" method for the constrained case. In the unconstrained case, the objective functions are assumed to be continuously differentiable. In the constrained case, objective and constraint functions are assumed to be Lipshitz-continuously differentiable and a constraint qualification is assumed. Under these conditions, it is shown that these methods converge to a point satisfying certain first-order necessary conditions for Pareto optimality. Both methods do not scalarize the original vector optimization problem. Neither ordering information nor weighting factors for the different objective functions are assumed to be known. In the single objective case, we retrieve the Steepest descent method and Zoutendijk's method of feasible directions, respectively.}
-      \field{issn}{1432-2994}
-      \field{journaltitle}{Mathematical Methods of Operations Research}
-      \field{month}{8}
-      \field{number}{3}
-      \field{title}{{Steepest descent methods for multicriteria optimization}}
-      \field{volume}{51}
-      \field{year}{2000}
-      \field{pages}{479\bibrangedash 494}
-      \range{pages}{16}
+      \field{abstract}{Motivated by Markowitz portfolio optimization problems under uncertainty in the problem data, we consider general convex parametric multiobjective optimization problems under data uncertainty. For the first time, this uncertainty is treated by a robust multiobjective formulation in the gist of Ben-Tal and Nemirovski. For this novel formulation, we investigate its relationship to the original multiobjective formulation as well as to its scalarizations. Further, we provide a characterization of the location of the robust Pareto frontier with respect to the corresponding original Pareto frontier and show that standard techniques from multiobjective optimization can be employed to characterize this robust efficient frontier. We illustrate our results based on a standard mean-variance problem. {{$\copyright$}} 2013 Elsevier B.V. All rights reserved.}
+      \field{issn}{03772217}
+      \field{journaltitle}{European Journal of Operational Research}
+      \field{month}{4}
+      \field{number}{2}
+      \field{title}{{Robust multiobjective optimization \& applications in portfolio optimization}}
+      \field{volume}{234}
+      \field{year}{2014}
+      \field{pages}{422\bibrangedash 433}
+      \range{pages}{12}
       \verb{doi}
-      \verb 10.1007/s001860000043
+      \verb 10.1016/j.ejor.2013.10.028
       \endverb
       \verb{file}
-      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Fliege, Svaiter - 2000 - Steepest descent methods for multicriteria optimization.pdf:pdf
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Fliege, Werner - 2014 - Robust multiobjective optimization & applications in portfolio optimization.pdf:pdf
       \endverb
       \verb{urlraw}
-      \verb https://doi.org/10.1007/s001860000043
+      \verb https://doi.org/10.1016/j.ejor.2013.10.028
       \endverb
       \verb{url}
-      \verb https://doi.org/10.1007/s001860000043
+      \verb https://doi.org/10.1016/j.ejor.2013.10.028
       \endverb
-      \keyw{Multi-objective programming,Multicriteria optimization,Pareto points,Steepest descent,Vector optimization}
+      \keyw{Markowitz,Multiobjective,Robustification,Uncertainty}
     \endentry
     \entry{Fliege2019}{article}{}
       \name{author}{3}{}{%
@@ -1760,57 +1873,7 @@
       \endverb
       \keyw{Multiobjective optimization,global rates,gradient descent,steepest descent,worst-case complexity}
     \endentry
-    \entry{Fliege2014}{article}{}
-      \name{author}{2}{}{%
-        {{hash=c29438705766e23e4be7e0785b9b5f04}{%
-           family={Fliege},
-           familyi={F\bibinitperiod},
-           given={J\"{o}rg},
-           giveni={J\bibinitperiod}}}%
-        {{hash=cfb14fca4467aa99d80d54da40c31d14}{%
-           family={Werner},
-           familyi={W\bibinitperiod},
-           given={Ralf},
-           giveni={R\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {North-Holland}%
-      }
-      \strng{namehash}{6c41ad5b40f2312f30bf6dad64aa5e68}
-      \strng{fullhash}{6c41ad5b40f2312f30bf6dad64aa5e68}
-      \strng{bibnamehash}{6c41ad5b40f2312f30bf6dad64aa5e68}
-      \strng{authorbibnamehash}{6c41ad5b40f2312f30bf6dad64aa5e68}
-      \strng{authornamehash}{6c41ad5b40f2312f30bf6dad64aa5e68}
-      \strng{authorfullhash}{6c41ad5b40f2312f30bf6dad64aa5e68}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Motivated by Markowitz portfolio optimization problems under uncertainty in the problem data, we consider general convex parametric multiobjective optimization problems under data uncertainty. For the first time, this uncertainty is treated by a robust multiobjective formulation in the gist of Ben-Tal and Nemirovski. For this novel formulation, we investigate its relationship to the original multiobjective formulation as well as to its scalarizations. Further, we provide a characterization of the location of the robust Pareto frontier with respect to the corresponding original Pareto frontier and show that standard techniques from multiobjective optimization can be employed to characterize this robust efficient frontier. We illustrate our results based on a standard mean-variance problem. {{$\copyright$}} 2013 Elsevier B.V. All rights reserved.}
-      \field{issn}{03772217}
-      \field{journaltitle}{European Journal of Operational Research}
-      \field{month}{4}
-      \field{number}{2}
-      \field{title}{{Robust multiobjective optimization \& applications in portfolio optimization}}
-      \field{volume}{234}
-      \field{year}{2014}
-      \field{pages}{422\bibrangedash 433}
-      \range{pages}{12}
-      \verb{doi}
-      \verb 10.1016/j.ejor.2013.10.028
-      \endverb
-      \verb{file}
-      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Fliege, Werner - 2014 - Robust multiobjective optimization & applications in portfolio optimization.pdf:pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1016/j.ejor.2013.10.028
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1016/j.ejor.2013.10.028
-      \endverb
-      \keyw{Markowitz,Multiobjective,Robustification,Uncertainty}
-    \endentry
-    \entry{Fukuda2014}{article}{}
+    \entry{Fukuda2011}{article}{}
       \name{author}{2}{}{%
         {{hash=c5ce024500fe29b568503d51a3c9d530}{%
            family={Fukuda},
@@ -1823,9 +1886,6 @@
            given={Luis\bibnamedelima Mauricio},
            giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {SOBRAPO}%
-      }
       \strng{namehash}{6426ccad8f899ff65f01d0d766d647da}
       \strng{fullhash}{6426ccad8f899ff65f01d0d766d647da}
       \strng{bibnamehash}{6426ccad8f899ff65f01d0d766d647da}
@@ -1837,29 +1897,22 @@
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{We present a rigorous and comprehensive survey on extensions to the multicriteria setting of three well-known scalar optimization algorithms. Multiobjective versions of the steepest descent, the projected gradient and the Newton methods are analyzed in detail. At each iteration, the search directions of these methods are computed by solving real-valued optimization problems and, in order to guarantee an adequate objective value decrease, Armijo-like rules are implemented by means of a backtracking procedure. Under standard assumptions, convergence to Pareto (weak Pareto) optima is established. For the Newton method, superlinear convergence is proved and, assuming Lipschitz continuity of the objectives second derivatives, it is shown that the rate is quadratic.}
-      \field{issn}{0101-7438}
-      \field{journaltitle}{Pesquisa Operacional}
-      \field{month}{12}
-      \field{number}{3}
-      \field{title}{{A survey on multiobjective descemt methods}}
-      \field{volume}{34}
-      \field{year}{2014}
-      \field{pages}{585\bibrangedash 620}
-      \range{pages}{36}
+      \field{abstract}{In 2004, Gra\~{n}a Drummond and Iusem proposed an extension of the projected gradient method for constrained vector optimization problems. Using this method, an Armijo-like rule, implemented with a backtracking procedure, was used in order to determine the step lengths. The authors just showed stationarity of all cluster points and, for another version of the algorithm (with exogenous step lengths), under some additional assumptions, they proved convergence to weakly efficient solutions. In this work, first we correct a slight mistake in the proof of a certain continuity result in that 2004 article, and then we extend its convergence analysis. Indeed, under some reasonable hypotheses, for convex objective functions with respect to the ordering cone, we establish full convergence to optimal points of any sequence produced by the projected gradient method with an Armijo-like rule, no matter how poor the initial guesses may be. {{$\copyright$}} 2011 Copyright Taylor and Francis Group, LLC.}
+      \field{issn}{02331934}
+      \field{journaltitle}{Optimization}
+      \field{number}{8-9}
+      \field{title}{{On the convergence of the projected gradient method for vector optimization}}
+      \field{volume}{60}
+      \field{year}{2011}
+      \field{pages}{1009\bibrangedash 1021}
+      \range{pages}{13}
       \verb{doi}
-      \verb 10.1590/0101-7438.2014.034.03.0585
+      \verb 10.1080/02331934.2010.522710
       \endverb
       \verb{file}
-      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Fukuda, Drummond - 2014 - A survey on multiobjective descent methods.pdf:pdf
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Fukuda, Gra{\~{n}}a Drummond - 2011 - On the convergence of the projected gradient method for vector optimization.pdf:pdf
       \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1590/0101-7438.2014.034.03.0585
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1590/0101-7438.2014.034.03.0585
-      \endverb
-      \keyw{Multiobjective optimization,Newton method,Nonlinear optimization,Projected gradient method,Steepest descent method}
+      \keyw{convexity with respect to cones,projected gradient method,quasi-F\'{e}jer convergence,vector optimization,weak efficiency}
     \endentry
     \entry{Fukuda2013}{article}{}
       \name{author}{2}{}{%
@@ -1911,6 +1964,102 @@
       \verb http://doi.org/10.1007/s10589-012-9501-z
       \endverb
       \keyw{Multiobjective optimization,Projected gradient method,Vector optimization,Weak efficiency}
+    \endentry
+    \entry{Fukuda2014}{article}{}
+      \name{author}{2}{}{%
+        {{hash=c5ce024500fe29b568503d51a3c9d530}{%
+           family={Fukuda},
+           familyi={F\bibinitperiod},
+           given={Ellen\bibnamedelima Hidemi},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=79b9d0386837e14eb2455f224b15bec4}{%
+           family={{Gra\~{n}a Drummond}},
+           familyi={G\bibinitperiod},
+           given={Luis\bibnamedelima Mauricio},
+           giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {SOBRAPO}%
+      }
+      \strng{namehash}{6426ccad8f899ff65f01d0d766d647da}
+      \strng{fullhash}{6426ccad8f899ff65f01d0d766d647da}
+      \strng{bibnamehash}{6426ccad8f899ff65f01d0d766d647da}
+      \strng{authorbibnamehash}{6426ccad8f899ff65f01d0d766d647da}
+      \strng{authornamehash}{6426ccad8f899ff65f01d0d766d647da}
+      \strng{authorfullhash}{6426ccad8f899ff65f01d0d766d647da}
+      \field{extraname}{3}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We present a rigorous and comprehensive survey on extensions to the multicriteria setting of three well-known scalar optimization algorithms. Multiobjective versions of the steepest descent, the projected gradient and the Newton methods are analyzed in detail. At each iteration, the search directions of these methods are computed by solving real-valued optimization problems and, in order to guarantee an adequate objective value decrease, Armijo-like rules are implemented by means of a backtracking procedure. Under standard assumptions, convergence to Pareto (weak Pareto) optima is established. For the Newton method, superlinear convergence is proved and, assuming Lipschitz continuity of the objectives second derivatives, it is shown that the rate is quadratic.}
+      \field{issn}{0101-7438}
+      \field{journaltitle}{Pesquisa Operacional}
+      \field{month}{12}
+      \field{number}{3}
+      \field{title}{{A survey on multiobjective descemt methods}}
+      \field{volume}{34}
+      \field{year}{2014}
+      \field{pages}{585\bibrangedash 620}
+      \range{pages}{36}
+      \verb{doi}
+      \verb 10.1590/0101-7438.2014.034.03.0585
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Fukuda, Drummond - 2014 - A survey on multiobjective descent methods.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1590/0101-7438.2014.034.03.0585
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1590/0101-7438.2014.034.03.0585
+      \endverb
+      \keyw{Multiobjective optimization,Newton method,Nonlinear optimization,Projected gradient method,Steepest descent method}
+    \endentry
+    \entry{Fukushima1981}{article}{}
+      \name{author}{2}{}{%
+        {{hash=2cedf89bdcdd2232e1b2b6fa56667310}{%
+           family={Fukushima},
+           familyi={F\bibinitperiod},
+           given={Masao},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5f2bb7c93498291426292f81ac12c491}{%
+           family={Mine},
+           familyi={M\bibinitperiod},
+           given={Hisashi},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor & Francis Group}%
+      }
+      \strng{namehash}{31ef582dde2a5a8d6ca52d51d139f6fc}
+      \strng{fullhash}{31ef582dde2a5a8d6ca52d51d139f6fc}
+      \strng{bibnamehash}{31ef582dde2a5a8d6ca52d51d139f6fc}
+      \strng{authorbibnamehash}{31ef582dde2a5a8d6ca52d51d139f6fc}
+      \strng{authornamehash}{31ef582dde2a5a8d6ca52d51d139f6fc}
+      \strng{authorfullhash}{31ef582dde2a5a8d6ca52d51d139f6fc}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{An algorithm is presented for minimizing a function which is the sum of a continuously differentiable function and a convex function. The class of such problems contains as a special case that of m...}
+      \field{issn}{14645319}
+      \field{journaltitle}{International Journal of Systems Science}
+      \field{number}{8}
+      \field{title}{{A generalized proximal point algorithm for certain non-convex minimization problems}}
+      \field{volume}{12}
+      \field{year}{1981}
+      \field{pages}{989\bibrangedash 1000}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1080/00207728108963798
+      \endverb
+      \verb{urlraw}
+      \verb https://www.tandfonline.com/doi/abs/10.1080/00207728108963798
+      \endverb
+      \verb{url}
+      \verb https://www.tandfonline.com/doi/abs/10.1080/00207728108963798
+      \endverb
     \endentry
     \entry{Fukushima1992}{article}{}
       \name{author}{1}{}{%
@@ -1997,51 +2146,6 @@
       \endverb
       \keyw{complementarity problem,gap function,merit function,optimization,problem,variational inequality problem}
     \endentry
-    \entry{Fukushima1981}{article}{}
-      \name{author}{2}{}{%
-        {{hash=2cedf89bdcdd2232e1b2b6fa56667310}{%
-           family={Fukushima},
-           familyi={F\bibinitperiod},
-           given={Masao},
-           giveni={M\bibinitperiod}}}%
-        {{hash=5f2bb7c93498291426292f81ac12c491}{%
-           family={Mine},
-           familyi={M\bibinitperiod},
-           given={Hisashi},
-           giveni={H\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Taylor & Francis Group}%
-      }
-      \strng{namehash}{31ef582dde2a5a8d6ca52d51d139f6fc}
-      \strng{fullhash}{31ef582dde2a5a8d6ca52d51d139f6fc}
-      \strng{bibnamehash}{31ef582dde2a5a8d6ca52d51d139f6fc}
-      \strng{authorbibnamehash}{31ef582dde2a5a8d6ca52d51d139f6fc}
-      \strng{authornamehash}{31ef582dde2a5a8d6ca52d51d139f6fc}
-      \strng{authorfullhash}{31ef582dde2a5a8d6ca52d51d139f6fc}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{An algorithm is presented for minimizing a function which is the sum of a continuously differentiable function and a convex function. The class of such problems contains as a special case that of m...}
-      \field{issn}{14645319}
-      \field{journaltitle}{International Journal of Systems Science}
-      \field{number}{8}
-      \field{title}{{A generalized proximal point algorithm for certain non-convex minimization problems}}
-      \field{volume}{12}
-      \field{year}{1981}
-      \field{pages}{989\bibrangedash 1000}
-      \range{pages}{12}
-      \verb{doi}
-      \verb 10.1080/00207728108963798
-      \endverb
-      \verb{urlraw}
-      \verb https://www.tandfonline.com/doi/abs/10.1080/00207728108963798
-      \endverb
-      \verb{url}
-      \verb https://www.tandfonline.com/doi/abs/10.1080/00207728108963798
-      \endverb
-    \endentry
     \entry{Gass1955}{article}{}
       \name{author}{2}{}{%
         {{hash=20f7982e0eeba3f37d8ae86da2dba031}{%
@@ -2124,6 +2228,46 @@
       \verb https://doi.org/10.1016/0022-247X(68)90201-1
       \endverb
     \endentry
+    \entry{Goldstein1964}{article}{}
+      \name{author}{1}{}{%
+        {{hash=98596aa50f325610c1351cc0e72e28fd}{%
+           family={Goldstein},
+           familyi={G\bibinitperiod},
+           given={Allen\bibnamedelima Abbey},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{98596aa50f325610c1351cc0e72e28fd}
+      \strng{fullhash}{98596aa50f325610c1351cc0e72e28fd}
+      \strng{bibnamehash}{98596aa50f325610c1351cc0e72e28fd}
+      \strng{authorbibnamehash}{98596aa50f325610c1351cc0e72e28fd}
+      \strng{authornamehash}{98596aa50f325610c1351cc0e72e28fd}
+      \strng{authorfullhash}{98596aa50f325610c1351cc0e72e28fd}
+      \field{extraname}{1}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0273-0979}
+      \field{journaltitle}{Bulletin of the American Mathematical Society}
+      \field{number}{5}
+      \field{title}{{Convex programming in Hilbert space}}
+      \field{volume}{70}
+      \field{year}{1964}
+      \field{pages}{709\bibrangedash 710}
+      \range{pages}{2}
+      \verb{doi}
+      \verb 10.1090/S0002-9904-1964-11178-2
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Goldstein - 1964 - Convex programming in Hilbert space.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1090/S0002-9904-1964-11178-2
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1090/S0002-9904-1964-11178-2
+      \endverb
+    \endentry
     \entry{Goldstein1967}{article}{}
       \name{author}{1}{}{%
         {{hash=98596aa50f325610c1351cc0e72e28fd}{%
@@ -2142,7 +2286,7 @@
       \strng{authorbibnamehash}{98596aa50f325610c1351cc0e72e28fd}
       \strng{authornamehash}{98596aa50f325610c1351cc0e72e28fd}
       \strng{authorfullhash}{98596aa50f325610c1351cc0e72e28fd}
-      \field{extraname}{1}
+      \field{extraname}{2}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{labelnamesource}{author}
@@ -2169,46 +2313,6 @@
       \verb https://doi.org/10.1137/1009133
       \endverb
     \endentry
-    \entry{Goldstein1964}{article}{}
-      \name{author}{1}{}{%
-        {{hash=98596aa50f325610c1351cc0e72e28fd}{%
-           family={Goldstein},
-           familyi={G\bibinitperiod},
-           given={Allen\bibnamedelima Abbey},
-           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-      }
-      \strng{namehash}{98596aa50f325610c1351cc0e72e28fd}
-      \strng{fullhash}{98596aa50f325610c1351cc0e72e28fd}
-      \strng{bibnamehash}{98596aa50f325610c1351cc0e72e28fd}
-      \strng{authorbibnamehash}{98596aa50f325610c1351cc0e72e28fd}
-      \strng{authornamehash}{98596aa50f325610c1351cc0e72e28fd}
-      \strng{authorfullhash}{98596aa50f325610c1351cc0e72e28fd}
-      \field{extraname}{2}
-      \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{0273-0979}
-      \field{journaltitle}{Bulletin of the American Mathematical Society}
-      \field{number}{5}
-      \field{title}{{Convex programming in Hilbert space}}
-      \field{volume}{70}
-      \field{year}{1964}
-      \field{pages}{709\bibrangedash 710}
-      \range{pages}{2}
-      \verb{doi}
-      \verb 10.1090/S0002-9904-1964-11178-2
-      \endverb
-      \verb{file}
-      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Goldstein - 1964 - Convex programming in Hilbert space.pdf:pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1090/S0002-9904-1964-11178-2
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1090/S0002-9904-1964-11178-2
-      \endverb
-    \endentry
     \entry{Grana-Drummond2004}{article}{}
       \name{author}{2}{}{%
         {{hash=79b9d0386837e14eb2455f224b15bec4}{%
@@ -2233,7 +2337,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Vector optimization problems are a significant extension of multiobjective optimization, which has a large number of real life applications. In vector optimization the preference order is related to an arbitrary closed and convex cone, rather than the nonnegative orthant. We consider extensions of the projected gradient gradient method to vector optimization, which work directly with vector-valued functions, without using scalar-valued objectives. We provide a direction which adequately substitutes for the projected gradient, and establish results which mirror those available for the scalar-valued case, namely stationarity of the cluster points (if any) without convexity assumptions, and convergence of the full sequence generated by the algorithm to a weakly efficient optimum in the convex case, under mild assumptions. We also prove that our results still hold when the search direction is only approximately computed.}
-      \field{issn}{0926-6003}
+      \field{issn}{09266003}
       \field{journaltitle}{Computational Optimization and Applications}
       \field{month}{4}
       \field{number}{1}
@@ -2397,6 +2501,45 @@
       \endverb
       \keyw{Convex programming,duality,duality gap}
     \endentry
+    \entry{Hoffman1952}{article}{}
+      \name{author}{1}{}{%
+        {{hash=ec929e099920301f79cf5c57d8dc8f53}{%
+           family={Hoffman},
+           familyi={H\bibinitperiod},
+           given={Alan\bibnamedelima J},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{ec929e099920301f79cf5c57d8dc8f53}
+      \strng{fullhash}{ec929e099920301f79cf5c57d8dc8f53}
+      \strng{bibnamehash}{ec929e099920301f79cf5c57d8dc8f53}
+      \strng{authorbibnamehash}{ec929e099920301f79cf5c57d8dc8f53}
+      \strng{authornamehash}{ec929e099920301f79cf5c57d8dc8f53}
+      \strng{authorfullhash}{ec929e099920301f79cf5c57d8dc8f53}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Let Ax^b be a consistent system of linear inequalities. The principal result is a quantitative formulation of the fact that if JC ''almost" satisfies the inequalities, then x is "close" to a solution. It is further shown how it is possible in certain cases to estimate the size of the vector joining JC to the nearest solution from the magnitude of the positive coordinates of Ax-b.}
+      \field{journaltitle}{Journal of Research of the National Bureau of Standards}
+      \field{number}{4}
+      \field{title}{{On approximate solutions of systems of linear inequalities}}
+      \field{volume}{49}
+      \field{year}{1952}
+      \field{pages}{263\bibrangedash 265}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1142/9789812796936_0018
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Hoffman - 1952 - On Approximate Solutions of Systems of Linear Inequalities.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1142/9789812796936_0018
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1142/9789812796936_0018
+      \endverb
+    \endentry
     \entry{Huang2007}{article}{}
       \name{author}{3}{}{%
         {{hash=2689f5b80f6a3bd210e2b07c6af63632}{%
@@ -2503,50 +2646,6 @@
       \verb{url}
       \verb https://dl.acm.org/doi/10.5555/2955239.2955427
       \endverb
-    \endentry
-    \entry{Kanzow1996}{article}{}
-      \name{author}{1}{}{%
-        {{hash=97d2e434223bd2d37723183cbed5e8df}{%
-           family={Kanzow},
-           familyi={K\bibinitperiod},
-           given={Christian},
-           giveni={C\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{97d2e434223bd2d37723183cbed5e8df}
-      \strng{fullhash}{97d2e434223bd2d37723183cbed5e8df}
-      \strng{bibnamehash}{97d2e434223bd2d37723183cbed5e8df}
-      \strng{authorbibnamehash}{97d2e434223bd2d37723183cbed5e8df}
-      \strng{authornamehash}{97d2e434223bd2d37723183cbed5e8df}
-      \strng{authorfullhash}{97d2e434223bd2d37723183cbed5e8df}
-      \field{sortinit}{K}
-      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Several methods for solving the nonlinear complementarity problem (NCP) are developed. These methods are generalizations of the recently proposed algorithms of Mangasarian and Solodov (Ref. 1) and are based on an unconstrianed minimization formulation of the nonlinear complementarity problem. It is shown that, under certain assumptions, any stationary point of the unconstrained objective function is already a solution of NCP. In particulr, these assumptions are satisfied by the mangasarian and Soolodov implicit Lagranian functioin. Furthermore, a special Newton-type method is suggested, and conditions for its local quadratic convergence are given. Finally, some preliminary numerical results are presented.}
-      \field{issn}{1573-2878}
-      \field{journaltitle}{Journal of Optimization Theory and Applications}
-      \field{number}{1}
-      \field{title}{{Nonlinear complementarity as unconstrained optimization}}
-      \field{volume}{88}
-      \field{year}{1996}
-      \field{pages}{139\bibrangedash 155}
-      \range{pages}{17}
-      \verb{doi}
-      \verb 10.1007/BF02192026
-      \endverb
-      \verb{file}
-      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Kanzow - 1996 - Nonlinear complementarity as unconstrained optimization.pdf:pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://link.springer.com/article/10.1007/BF02192026
-      \endverb
-      \verb{url}
-      \verb https://link.springer.com/article/10.1007/BF02192026
-      \endverb
-      \keyw{Applications of Mathematics,Calculus of Variations and Optimal Control,Engineering,Operations Research/Decision Theory,Optimization,Theory of Computation,general}
     \endentry
     \entry{Karimi2016}{inproceedings}{}
       \name{author}{3}{}{%
@@ -2720,57 +2819,6 @@
       \endverb
       \keyw{Computer Science,Operations Research/Decision Theory,Optimization,Real Functions,general}
     \endentry
-    \entry{Li2007}{article}{}
-      \name{author}{2}{}{%
-        {{hash=bc20e54573d2db853852f86802ab83de}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={Jun},
-           giveni={J\bibinitperiod}}}%
-        {{hash=2689f5b80f6a3bd210e2b07c6af63632}{%
-           family={Huang},
-           familyi={H\bibinitperiod},
-           given={Nan\bibnamedelima Jing},
-           giveni={N\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{b7cde363f2955dda55992a5bbeda51af}
-      \strng{fullhash}{b7cde363f2955dda55992a5bbeda51af}
-      \strng{bibnamehash}{b7cde363f2955dda55992a5bbeda51af}
-      \strng{authorbibnamehash}{b7cde363f2955dda55992a5bbeda51af}
-      \strng{authornamehash}{b7cde363f2955dda55992a5bbeda51af}
-      \strng{authorfullhash}{b7cde363f2955dda55992a5bbeda51af}
-      \field{extraname}{1}
-      \field{sortinit}{L}
-      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{In this paper, the notion of gap functions is extended from scalar case to vector one. Then, gap functions and generalized functions for several kinds of vector equilibrium problems are shown. As an application, the dual problem of a class of optimization problems with a system of vector equilibrium constraints (in short, OP) is established, the concavity of the dual function, the weak duality of (OP) and the saddle point sufficient condition are derived by using generalized gap functions.}
-      \field{issn}{1573-2916}
-      \field{journaltitle}{Journal of Global Optimization}
-      \field{month}{2}
-      \field{number}{2}
-      \field{title}{{An extension of gap functions for a system of vector equilibrium problems with applications to optimization problems}}
-      \field{volume}{39}
-      \field{year}{2007}
-      \field{pages}{247\bibrangedash 260}
-      \range{pages}{14}
-      \verb{doi}
-      \verb 10.1007/S10898-007-9137-1
-      \endverb
-      \verb{file}
-      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Li, Huang - 2007 - An extension of gap functions for a system of vector equilibrium problems with applications to optimization problems.pdf:pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://link.springer.com/article/10.1007/s10898-007-9137-1
-      \endverb
-      \verb{url}
-      \verb https://link.springer.com/article/10.1007/s10898-007-9137-1
-      \endverb
-      \keyw{Computer Science,Operations Research/Decision Theory,Optimization,Real Functions,Subject,The,Vector equilibrium problem {\textperiodcentered{}},Weak duality,Weak duality 2000,general}
-    \endentry
     \entry{Li2005}{article}{}
       \name{author}{2}{}{%
         {{hash=bc20e54573d2db853852f86802ab83de}{%
@@ -2793,7 +2841,7 @@
       \strng{authorbibnamehash}{b7cde363f2955dda55992a5bbeda51af}
       \strng{authornamehash}{b7cde363f2955dda55992a5bbeda51af}
       \strng{authorfullhash}{b7cde363f2955dda55992a5bbeda51af}
-      \field{extraname}{2}
+      \field{extraname}{1}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
       \field{labelnamesource}{author}
@@ -2819,56 +2867,6 @@
       \verb{url}
       \verb https://doi.org/10.1017/S000497270003495X
       \endverb
-    \endentry
-    \entry{Li2010}{article}{}
-      \name{author}{2}{}{%
-        {{hash=bc20e54573d2db853852f86802ab83de}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={Jun},
-           giveni={J\bibinitperiod}}}%
-        {{hash=6f7203fe3dbae0d75271d282dcbda955}{%
-           family={Mastroeni},
-           familyi={M\bibinitperiod},
-           given={Giandomenico},
-           giveni={G\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{e85fda39efadad2d661865468801267a}
-      \strng{fullhash}{e85fda39efadad2d661865468801267a}
-      \strng{bibnamehash}{e85fda39efadad2d661865468801267a}
-      \strng{authorbibnamehash}{e85fda39efadad2d661865468801267a}
-      \strng{authornamehash}{e85fda39efadad2d661865468801267a}
-      \strng{authorfullhash}{e85fda39efadad2d661865468801267a}
-      \field{sortinit}{L}
-      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{In this paper, by using the scalarization approach of Konnov, several kinds of strong and weak scalar variational inequalities (SVI and WVI) are introduced for studying strong and weak vector variational inequalities (SVVI and WVVI) with set-valued mappings, and their gap functions are suggested. The equivalence among SVVI, WVVI, SVI, WVI is then established under suitable conditions and the relations among their gap functions are analyzed. These results are finally applied to the error bounds for gap functions. Some existence theorems of global error bounds for gap functions are obtained under strong monotonicity and several characterizations of global (respectively local) error bounds for the gap functions are derived.}
-      \field{issn}{00223239}
-      \field{journaltitle}{Journal of Optimization Theory and Applications}
-      \field{month}{5}
-      \field{number}{2}
-      \field{title}{{Vector variational inequalities involving set-valued mappings via scalarization with applications to error bounds for gap functions}}
-      \field{volume}{145}
-      \field{year}{2010}
-      \field{pages}{355\bibrangedash 372}
-      \range{pages}{18}
-      \verb{doi}
-      \verb 10.1007/S10957-009-9625-1
-      \endverb
-      \verb{file}
-      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Li, Mastroeni - 2010 - Vector Variational Inequalities Involving Set-valued Mappings via Scalarization with Applications to Error Bounds.pdf:pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1007/S10957-009-9625-1
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1007/S10957-009-9625-1
-      \endverb
-      \keyw{Error bounds,Gap functions,Scalarization,Set-valued mappings,Vector variational inequalities}
     \endentry
     \entry{Li2006}{article}{}
       \name{author}{4}{}{%
@@ -2929,6 +2927,107 @@
       \verb https://link.springer.com/article/10.1007/s10898-005-2193-5
       \endverb
       \keyw{Computer Science,Operations Research/Decision Theory,Optimization,Real Functions,general}
+    \endentry
+    \entry{Li2007}{article}{}
+      \name{author}{2}{}{%
+        {{hash=bc20e54573d2db853852f86802ab83de}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Jun},
+           giveni={J\bibinitperiod}}}%
+        {{hash=2689f5b80f6a3bd210e2b07c6af63632}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Nan\bibnamedelima Jing},
+           giveni={N\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{b7cde363f2955dda55992a5bbeda51af}
+      \strng{fullhash}{b7cde363f2955dda55992a5bbeda51af}
+      \strng{bibnamehash}{b7cde363f2955dda55992a5bbeda51af}
+      \strng{authorbibnamehash}{b7cde363f2955dda55992a5bbeda51af}
+      \strng{authornamehash}{b7cde363f2955dda55992a5bbeda51af}
+      \strng{authorfullhash}{b7cde363f2955dda55992a5bbeda51af}
+      \field{extraname}{2}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper, the notion of gap functions is extended from scalar case to vector one. Then, gap functions and generalized functions for several kinds of vector equilibrium problems are shown. As an application, the dual problem of a class of optimization problems with a system of vector equilibrium constraints (in short, OP) is established, the concavity of the dual function, the weak duality of (OP) and the saddle point sufficient condition are derived by using generalized gap functions.}
+      \field{issn}{1573-2916}
+      \field{journaltitle}{Journal of Global Optimization}
+      \field{month}{2}
+      \field{number}{2}
+      \field{title}{{An extension of gap functions for a system of vector equilibrium problems with applications to optimization problems}}
+      \field{volume}{39}
+      \field{year}{2007}
+      \field{pages}{247\bibrangedash 260}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1007/S10898-007-9137-1
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Li, Huang - 2007 - An extension of gap functions for a system of vector equilibrium problems with applications to optimization problems.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/article/10.1007/s10898-007-9137-1
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/article/10.1007/s10898-007-9137-1
+      \endverb
+      \keyw{Computer Science,Operations Research/Decision Theory,Optimization,Real Functions,Subject,The,Vector equilibrium problem {\textperiodcentered{}},Weak duality,Weak duality 2000,general}
+    \endentry
+    \entry{Li2010}{article}{}
+      \name{author}{2}{}{%
+        {{hash=bc20e54573d2db853852f86802ab83de}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Jun},
+           giveni={J\bibinitperiod}}}%
+        {{hash=6f7203fe3dbae0d75271d282dcbda955}{%
+           family={Mastroeni},
+           familyi={M\bibinitperiod},
+           given={Giandomenico},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{e85fda39efadad2d661865468801267a}
+      \strng{fullhash}{e85fda39efadad2d661865468801267a}
+      \strng{bibnamehash}{e85fda39efadad2d661865468801267a}
+      \strng{authorbibnamehash}{e85fda39efadad2d661865468801267a}
+      \strng{authornamehash}{e85fda39efadad2d661865468801267a}
+      \strng{authorfullhash}{e85fda39efadad2d661865468801267a}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper, by using the scalarization approach of Konnov, several kinds of strong and weak scalar variational inequalities (SVI and WVI) are introduced for studying strong and weak vector variational inequalities (SVVI and WVVI) with set-valued mappings, and their gap functions are suggested. The equivalence among SVVI, WVVI, SVI, WVI is then established under suitable conditions and the relations among their gap functions are analyzed. These results are finally applied to the error bounds for gap functions. Some existence theorems of global error bounds for gap functions are obtained under strong monotonicity and several characterizations of global (respectively local) error bounds for the gap functions are derived.}
+      \field{issn}{00223239}
+      \field{journaltitle}{Journal of Optimization Theory and Applications}
+      \field{month}{5}
+      \field{number}{2}
+      \field{title}{{Vector variational inequalities involving set-valued mappings via scalarization with applications to error bounds for gap functions}}
+      \field{volume}{145}
+      \field{year}{2010}
+      \field{pages}{355\bibrangedash 372}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1007/S10957-009-9625-1
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Li, Mastroeni - 2010 - Vector Variational Inequalities Involving Set-valued Mappings via Scalarization with Applications to Error Bounds.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/S10957-009-9625-1
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/S10957-009-9625-1
+      \endverb
+      \keyw{Error bounds,Gap functions,Scalarization,Set-valued mappings,Vector variational inequalities}
     \endentry
     \entry{Lin2019}{inproceedings}{}
       \name{author}{5}{}{%
@@ -3042,49 +3141,6 @@
       \verb http://doi.org/10.1007/s10107-008-0208-y
       \endverb
       \keyw{Error bound,Merit function,Weak domination property,Weakly efficient solution}
-    \endentry
-    \entry{Mangasarian1993}{article}{}
-      \name{author}{2}{}{%
-        {{hash=1630fca73a93198e4bfa3687bb8b3de3}{%
-           family={Mangasarian},
-           familyi={M\bibinitperiod},
-           given={Olvi\bibnamedelima L.},
-           giveni={O\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
-        {{hash=4a98f1e2b7ad6a8742ce834f972d7ccd}{%
-           family={Solodov},
-           familyi={S\bibinitperiod},
-           given={Mikhail\bibnamedelima V.},
-           giveni={M\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer-Verlag}%
-      }
-      \strng{namehash}{2584432f1c0c1b0834f7688adcbac5b6}
-      \strng{fullhash}{2584432f1c0c1b0834f7688adcbac5b6}
-      \strng{bibnamehash}{2584432f1c0c1b0834f7688adcbac5b6}
-      \strng{authorbibnamehash}{2584432f1c0c1b0834f7688adcbac5b6}
-      \strng{authornamehash}{2584432f1c0c1b0834f7688adcbac5b6}
-      \strng{authorfullhash}{2584432f1c0c1b0834f7688adcbac5b6}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{The nonlinear complementarity problem is cast as an unconstrained minimization problem that is obtained from an augmented Lagrangian formulation. The dimensionality of the unconstrained problem is the same as that of the original problem, and the penalty parameter need only be greater than one. Another feature of the unconstrained problem is that it has global minima of zero at precisely all the solution points of the complementarity problem without any monotonicity assumption. If the mapping of the complementarity problem is differentiable, then so is the objective of the unconstrained problem, and its gradient vanishes at all solution points of the complementarity problem. Under assumptions of nondegeneracy and linear independence of gradients of active constraints at a complementarity problem solution, the corresponding global unconstrained minimum point is locally unique. A Wolfe dual to a standard constrained optimization problem associated with the nonlinear complementarity problem is also formulated under a monotonicity and differentiability assumption. Most of the standard duality results are established even though the underlying constrained optimization problem may be nonconvex. Preliminary numerical tests on two small nonmonotone problems from the published literature converged to degenerate or nondegenerate solutions from all attempted starting points in 7 to 28 steps of a BFGS quasi-Newton method for unconstrained optimization. {{$\copyright$}} 1993 The Mathematical Programming Society, Inc.}
-      \field{issn}{00255610}
-      \field{journaltitle}{Mathematical Programming}
-      \field{month}{2}
-      \field{number}{1-3}
-      \field{title}{{Nonlinear complementarity as unconstrained and constrained minimization}}
-      \field{volume}{62}
-      \field{year}{1993}
-      \field{pages}{277\bibrangedash 297}
-      \range{pages}{21}
-      \verb{doi}
-      \verb 10.1007/BF01585171
-      \endverb
-      \verb{file}
-      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Mangasarian, Solodov - 1993 - Nonlinear complementarity as unconstrained and constrained minimization.pdf:pdf
-      \endverb
     \endentry
     \entry{Mastroeni2003}{article}{}
       \name{author}{1}{}{%
@@ -3270,38 +3326,58 @@
       \verb http://mi.mathnet.ru/eng/dan/v269/i3/p543
       \endverb
     \endentry
-    \entry{Polyak1967}{article}{}
-      \name{author}{1}{}{%
-        {{hash=2bad1be7cd84eab3968cd6c52a0fd906}{%
-           family={Polyak},
+    \entry{Parikh2014}{book}{}
+      \name{author}{2}{}{%
+        {{hash=2e1b520f90d2b5de02de6cf5f9896399}{%
+           family={Parikh},
            familyi={P\bibinitperiod},
-           given={Boris\bibnamedelima Teodorovich},
-           giveni={B\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+           given={Neal},
+           giveni={N\bibinitperiod}}}%
+        {{hash=ec94d94cc487dd71939a90cbeaaf47d0}{%
+           family={Boyd},
+           familyi={B\bibinitperiod},
+           given={Stephen},
+           giveni={S\bibinitperiod}}}%
       }
-      \strng{namehash}{2bad1be7cd84eab3968cd6c52a0fd906}
-      \strng{fullhash}{2bad1be7cd84eab3968cd6c52a0fd906}
-      \strng{bibnamehash}{2bad1be7cd84eab3968cd6c52a0fd906}
-      \strng{authorbibnamehash}{2bad1be7cd84eab3968cd6c52a0fd906}
-      \strng{authornamehash}{2bad1be7cd84eab3968cd6c52a0fd906}
-      \strng{authorfullhash}{2bad1be7cd84eab3968cd6c52a0fd906}
-      \field{extraname}{1}
+      \list{location}{1}{%
+        {Boston - Delft}%
+      }
+      \list{publisher}{1}{%
+        {Now Publishers, Inc.}%
+      }
+      \strng{namehash}{05c18423218cfff8f407fe111419ae33}
+      \strng{fullhash}{05c18423218cfff8f407fe111419ae33}
+      \strng{bibnamehash}{05c18423218cfff8f407fe111419ae33}
+      \strng{authorbibnamehash}{05c18423218cfff8f407fe111419ae33}
+      \strng{authornamehash}{05c18423218cfff8f407fe111419ae33}
+      \strng{authorfullhash}{05c18423218cfff8f407fe111419ae33}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Doklady Akademii Nauk SSSR}
-      \field{number}{1}
-      \field{title}{{A general method for solving extremal problems}}
-      \field{volume}{174}
-      \field{year}{1967}
-      \field{pages}{33\bibrangedash 36}
-      \range{pages}{4}
+      \field{abstract}{Proximal Algorithms}
+      \field{booktitle}{Foundations and Trends{\textregistered{}} in Optimization}
+      \field{isbn}{9781601987174}
+      \field{issn}{2167-3888}
+      \field{number}{3}
+      \field{title}{{Proximal Algorithms}}
+      \field{volume}{1}
+      \field{year}{2014}
+      \field{pages}{127\bibrangedash 239}
+      \range{pages}{113}
+      \verb{doi}
+      \verb 10.1561/2400000003
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Parikh, Boyd - 2014 - Proximal Algorithms.pdf:pdf
+      \endverb
       \verb{urlraw}
-      \verb http://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=dan&paperid=33049&option_lang=eng
+      \verb https://doi.org/10.1561/2400000003
       \endverb
       \verb{url}
-      \verb http://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=dan&paperid=33049&option_lang=eng
+      \verb https://doi.org/10.1561/2400000003
       \endverb
+      \keyw{Machine Learning,Optimization}
     \endentry
     \entry{Polyak1963}{article}{}
       \name{author}{1}{}{%
@@ -3317,7 +3393,7 @@
       \strng{authorbibnamehash}{2bad1be7cd84eab3968cd6c52a0fd906}
       \strng{authornamehash}{2bad1be7cd84eab3968cd6c52a0fd906}
       \strng{authorfullhash}{2bad1be7cd84eab3968cd6c52a0fd906}
-      \field{extraname}{2}
+      \field{extraname}{1}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{labelnamesource}{author}
@@ -3340,6 +3416,39 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1016/0041-5553(63)90382-3
+      \endverb
+    \endentry
+    \entry{Polyak1967}{article}{}
+      \name{author}{1}{}{%
+        {{hash=2bad1be7cd84eab3968cd6c52a0fd906}{%
+           family={Polyak},
+           familyi={P\bibinitperiod},
+           given={Boris\bibnamedelima Teodorovich},
+           giveni={B\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{2bad1be7cd84eab3968cd6c52a0fd906}
+      \strng{fullhash}{2bad1be7cd84eab3968cd6c52a0fd906}
+      \strng{bibnamehash}{2bad1be7cd84eab3968cd6c52a0fd906}
+      \strng{authorbibnamehash}{2bad1be7cd84eab3968cd6c52a0fd906}
+      \strng{authornamehash}{2bad1be7cd84eab3968cd6c52a0fd906}
+      \strng{authorfullhash}{2bad1be7cd84eab3968cd6c52a0fd906}
+      \field{extraname}{2}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Doklady Akademii Nauk SSSR}
+      \field{number}{1}
+      \field{title}{{A general method for solving extremal problems}}
+      \field{volume}{174}
+      \field{year}{1967}
+      \field{pages}{33\bibrangedash 36}
+      \range{pages}{4}
+      \verb{urlraw}
+      \verb http://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=dan&paperid=33049&option_lang=eng
+      \endverb
+      \verb{url}
+      \verb http://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=dan&paperid=33049&option_lang=eng
       \endverb
     \endentry
     \entry{Polyak1969}{article}{}
@@ -3726,21 +3835,21 @@
     \endentry
     \entry{Svaiter2018}{article}{}
       \name{author}{1}{}{%
-        {{hash=696a4bec40f681832390dae0b6456d6f}{%
+        {{hash=975a8e0ef61c5aca1bf497aac32c8c43}{%
            family={Svaiter},
            familyi={S\bibinitperiod},
-           given={Benar\bibnamedelima F.},
+           given={Benar\bibnamedelima Fux},
            giveni={B\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {North-Holland}%
       }
-      \strng{namehash}{696a4bec40f681832390dae0b6456d6f}
-      \strng{fullhash}{696a4bec40f681832390dae0b6456d6f}
-      \strng{bibnamehash}{696a4bec40f681832390dae0b6456d6f}
-      \strng{authorbibnamehash}{696a4bec40f681832390dae0b6456d6f}
-      \strng{authornamehash}{696a4bec40f681832390dae0b6456d6f}
-      \strng{authorfullhash}{696a4bec40f681832390dae0b6456d6f}
+      \strng{namehash}{975a8e0ef61c5aca1bf497aac32c8c43}
+      \strng{fullhash}{975a8e0ef61c5aca1bf497aac32c8c43}
+      \strng{bibnamehash}{975a8e0ef61c5aca1bf497aac32c8c43}
+      \strng{authorbibnamehash}{975a8e0ef61c5aca1bf497aac32c8c43}
+      \strng{authornamehash}{975a8e0ef61c5aca1bf497aac32c8c43}
+      \strng{authorfullhash}{975a8e0ef61c5aca1bf497aac32c8c43}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{labelnamesource}{author}
@@ -3848,7 +3957,6 @@
       \strng{authorbibnamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
       \strng{authornamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
       \strng{authorfullhash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \field{extraname}{1}
       \field{sortinit}{T}
       \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
       \field{labelnamesource}{author}
@@ -3871,142 +3979,6 @@
       \verb{url}
       \verb https://doi.org/10.48550/arXiv.2202.10994
       \endverb
-    \endentry
-    \entry{Tanabe2022}{article}{}
-      \name{author}{3}{}{%
-        {{hash=fe79ff046b379ee499d9981349434f9c}{%
-           family={Tanabe},
-           familyi={T\bibinitperiod},
-           given={Hiroki},
-           giveni={H\bibinitperiod}}}%
-        {{hash=c5ce024500fe29b568503d51a3c9d530}{%
-           family={Fukuda},
-           familyi={F\bibinitperiod},
-           given={Ellen\bibnamedelima Hidemi},
-           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
-        {{hash=e93d47fe50ff15742fad700a20e29a10}{%
-           family={Yamashita},
-           familyi={Y\bibinitperiod},
-           given={Nobuo},
-           giveni={N\bibinitperiod}}}%
-      }
-      \strng{namehash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \strng{fullhash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \strng{bibnamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \strng{authorbibnamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \strng{authornamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \strng{authorfullhash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \field{extraname}{2}
-      \field{sortinit}{T}
-      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{In 2019, Tanabe et al. proposed proximal gradient methods for multiobjective optimization. Under reasonable assumptions, they proved that the accumulation points of the sequences generated by these methods are Pareto stationary. However, the convergence rates were not established in that paper. Here, we show global convergence rates for multiobjective proximal gradient methods, matching what is known in scalar optimization. More specifically, by using merit functions as a way to measure the complexity, we prove the rates for non-convex problems ($O(\sqrt{1 / k})$), convex ones ($O(1 / k)$), and strongly convex ones ($O(r^k)$ for some$\sim$$r \in (0, 1)$). We also extend the so-called Polyak-{\L{}}ojasiewicz (PL) inequality for multiobjective optimization and establish the rate for multiobjective problems that satisfy such inequalities ($O(r^k)$ for some$\sim$$r \in (0, 1)$).}
-      \field{issn}{1862-4472}
-      \field{journaltitle}{Optimization Letters, in press}
-      \field{month}{4}
-      \field{title}{{Convergence rates analysis of a multiobjective proximal gradient method}}
-      \field{year}{2022}
-      \verb{doi}
-      \verb 10.1007/s11590-022-01877-7
-      \endverb
-      \verb{file}
-      \verb :Users/zalgo/Downloads/Tanabe2022_Article_ConvergenceRatesAnalysisOfAMul.pdf:pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1007/s11590-022-01877-7
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1007/s11590-022-01877-7
-      \endverb
-    \endentry
-    \entry{Tanabe2019}{article}{}
-      \name{author}{3}{}{%
-        {{hash=fe79ff046b379ee499d9981349434f9c}{%
-           family={Tanabe},
-           familyi={T\bibinitperiod},
-           given={Hiroki},
-           giveni={H\bibinitperiod}}}%
-        {{hash=c5ce024500fe29b568503d51a3c9d530}{%
-           family={Fukuda},
-           familyi={F\bibinitperiod},
-           given={Ellen\bibnamedelima Hidemi},
-           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
-        {{hash=e93d47fe50ff15742fad700a20e29a10}{%
-           family={Yamashita},
-           familyi={Y\bibinitperiod},
-           given={Nobuo},
-           giveni={N\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer US}%
-      }
-      \strng{namehash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \strng{fullhash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \strng{bibnamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \strng{authorbibnamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \strng{authornamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \strng{authorfullhash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \field{extraname}{3}
-      \field{sortinit}{T}
-      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{We propose new descent methods for unconstrained multiobjective optimization problems, where each objective function can be written as the sum of a continuously differentiable function and a proper convex but not necessarily differentiable one. The methods extend the well-known proximal gradient algorithms for scalar-valued nonlinear optimization, which are shown to be efficient for particular problems. Here, we consider two types of algorithms: with and without line searches. Under mild assumptions, we prove that each accumulation point of the sequence generated by these algorithms, if exists, is Pareto stationary. Moreover, we present their applications in constrained multiobjective optimization and robust multiobjective optimization, which is a problem that considers uncertainties. In particular, for the robust case, we show that the subproblems of the proximal gradient algorithms can be seen as quadratic programming, second-order cone programming, or semidefinite programming problems. Considering these cases, we also carry out some numerical experiments, showing the validity of the proposed methods.}
-      \field{issn}{15732894}
-      \field{journaltitle}{Computational Optimization and Applications}
-      \field{month}{3}
-      \field{number}{2}
-      \field{title}{{Proximal gradient methods for multiobjective optimization and their applications}}
-      \field{volume}{72}
-      \field{year}{2019}
-      \field{pages}{339\bibrangedash 361}
-      \range{pages}{23}
-      \verb{doi}
-      \verb 10.1007/s10589-018-0043-x
-      \endverb
-      \verb{file}
-      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Tanabe, Fukuda, Yamashita - 2019 - Proximal gradient methods for multiobjective optimization and their applications.pdf:pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1007/s10589-018-0043-x
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1007/s10589-018-0043-x
-      \endverb
-      \keyw{Multiobjective optimization,Pareto stationarity,Proximal gradient method,Robust optimization}
-    \endentry
-    \entry{Tseng2010}{article}{}
-      \name{author}{1}{}{%
-        {{hash=0de9e02af0123ef3a5e6efb649a72e15}{%
-           family={Tseng},
-           familyi={T\bibinitperiod},
-           given={Paul},
-           giveni={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{0de9e02af0123ef3a5e6efb649a72e15}
-      \strng{fullhash}{0de9e02af0123ef3a5e6efb649a72e15}
-      \strng{bibnamehash}{0de9e02af0123ef3a5e6efb649a72e15}
-      \strng{authorbibnamehash}{0de9e02af0123ef3a5e6efb649a72e15}
-      \strng{authornamehash}{0de9e02af0123ef3a5e6efb649a72e15}
-      \strng{authorfullhash}{0de9e02af0123ef3a5e6efb649a72e15}
-      \field{sortinit}{T}
-      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Convex optimization problems arising in applications, possibly as approximations of intractable problems, are often structured and large scale. When the data are noisy, it is of interest to bound the solution error relative to the (unknown) solution of the original noiseless problem. Related to this is an error bound for the linear convergence analysis of first-order gradient methods for solving these problems. Example applications include compressed sensing, variable selection in regression, TV-regularized image denoising, and sensor network localization. {{$\copyright$}} 2010 Springer and Mathematical Optimization Society.}
-      \field{issn}{00255610}
-      \field{journaltitle}{Mathematical Programming}
-      \field{number}{2}
-      \field{title}{{Approximation accuracy, gradient methods, and error bound for structured convex optimization}}
-      \field{volume}{125}
-      \field{year}{2010}
-      \field{pages}{263\bibrangedash 295}
-      \range{pages}{33}
-      \verb{doi}
-      \verb 10.1007/s10107-010-0394-2
-      \endverb
-      \keyw{Approximation accuracy,Compressed sensing,Convex optimization,Error bound,L1-regularization,Linear convergence,Nuclear/trace norm,Proximal gradient method,Regression,Sensor network localization,Variable selection}
     \endentry
     \entry{Villa2013}{article}{}
       \name{author}{4}{}{%
@@ -4107,6 +4079,49 @@
       \verb https://doi.org/10.2307/2317434
       \endverb
     \endentry
+    \entry{Yang2002}{article}{}
+      \name{author}{2}{}{%
+        {{hash=ed6f1cd802fbd72f9d2ba807fe42c15c}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Xiao\bibnamedelima Qi},
+           giveni={X\bibinitperiod\bibinitdelim Q\bibinitperiod}}}%
+        {{hash=13fe5796c5051f169c118de5b1f5046b}{%
+           family={Yao},
+           familyi={Y\bibinitperiod},
+           given={Jen-Chih},
+           giveni={J\bibinithyphendelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York LLC}%
+      }
+      \strng{namehash}{4fa2b5391e6000d0dcdba2325c699935}
+      \strng{fullhash}{4fa2b5391e6000d0dcdba2325c699935}
+      \strng{bibnamehash}{4fa2b5391e6000d0dcdba2325c699935}
+      \strng{authorbibnamehash}{4fa2b5391e6000d0dcdba2325c699935}
+      \strng{authornamehash}{4fa2b5391e6000d0dcdba2325c699935}
+      \strng{authorfullhash}{4fa2b5391e6000d0dcdba2325c699935}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The variational inequality problem with set-valued mappings is very useful in economics and nonsmooth optimization. In this paper, we study the existence of solutions and the formulation of solution methods for vector variational inequalities (VVI) with set-valued mappings. We introduce gap functions and establish necessary and sufficient conditions for the existence of a solution of the VVI. It is shown that the optimization problem formulated by using gap functions can be transformed into a semi-infinite programming problem. We investigate also the existence of a solution for the generalized VVI with a set-valued mapping by virtue of the existence of a solution of the VVI with a single-valued function and a continuous selection theorem.}
+      \field{issn}{00223239}
+      \field{journaltitle}{Journal of Optimization Theory and Applications}
+      \field{number}{2}
+      \field{title}{{Gap functions and existence of solutions to set-valued vector variational inequalities}}
+      \field{volume}{115}
+      \field{year}{2002}
+      \field{pages}{407\bibrangedash 417}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1023/A:1020844423345
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Yang, Yao - 2002 - Gap functions and existence of solutions to set-valued vector variational inequalities.pdf:pdf
+      \endverb
+      \keyw{Vector variational inequalities,existence of a solution,gap functions,semi-infinite programming,set-valued mappings}
+    \endentry
     \entry{Yang2003}{article}{}
       \name{author}{1}{}{%
         {{hash=ed6f1cd802fbd72f9d2ba807fe42c15c}{%
@@ -4151,49 +4166,6 @@
       \endverb
       \keyw{Lagrangian functions,Variational inequalities,gap functions,linear fractional functions}
     \endentry
-    \entry{Yang2002}{article}{}
-      \name{author}{2}{}{%
-        {{hash=ed6f1cd802fbd72f9d2ba807fe42c15c}{%
-           family={Yang},
-           familyi={Y\bibinitperiod},
-           given={Xiao\bibnamedelima Qi},
-           giveni={X\bibinitperiod\bibinitdelim Q\bibinitperiod}}}%
-        {{hash=13fe5796c5051f169c118de5b1f5046b}{%
-           family={Yao},
-           familyi={Y\bibinitperiod},
-           given={Jen-Chih},
-           giveni={J\bibinithyphendelim C\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer New York LLC}%
-      }
-      \strng{namehash}{4fa2b5391e6000d0dcdba2325c699935}
-      \strng{fullhash}{4fa2b5391e6000d0dcdba2325c699935}
-      \strng{bibnamehash}{4fa2b5391e6000d0dcdba2325c699935}
-      \strng{authorbibnamehash}{4fa2b5391e6000d0dcdba2325c699935}
-      \strng{authornamehash}{4fa2b5391e6000d0dcdba2325c699935}
-      \strng{authorfullhash}{4fa2b5391e6000d0dcdba2325c699935}
-      \field{sortinit}{Y}
-      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{The variational inequality problem with set-valued mappings is very useful in economics and nonsmooth optimization. In this paper, we study the existence of solutions and the formulation of solution methods for vector variational inequalities (VVI) with set-valued mappings. We introduce gap functions and establish necessary and sufficient conditions for the existence of a solution of the VVI. It is shown that the optimization problem formulated by using gap functions can be transformed into a semi-infinite programming problem. We investigate also the existence of a solution for the generalized VVI with a set-valued mapping by virtue of the existence of a solution of the VVI with a single-valued function and a continuous selection theorem.}
-      \field{issn}{00223239}
-      \field{journaltitle}{Journal of Optimization Theory and Applications}
-      \field{number}{2}
-      \field{title}{{Gap functions and existence of solutions to set-valued vector variational inequalities}}
-      \field{volume}{115}
-      \field{year}{2002}
-      \field{pages}{407\bibrangedash 417}
-      \range{pages}{11}
-      \verb{doi}
-      \verb 10.1023/A:1020844423345
-      \endverb
-      \verb{file}
-      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Yang, Yao - 2002 - Gap functions and existence of solutions to set-valued vector variational inequalities.pdf:pdf
-      \endverb
-      \keyw{Vector variational inequalities,existence of a solution,gap functions,semi-infinite programming,set-valued mappings}
-    \endentry
     \entry{Zadeh1963}{article}{}
       \name{author}{1}{}{%
         {{hash=596c823166720165ec6627a9c36a9b7d}{%
@@ -4232,6 +4204,53 @@
       \verb{url}
       \verb https://doi.org/10.1109/TAC.1963.1105511
       \endverb
+    \endentry
+    \entry{Zou2005}{article}{}
+      \name{author}{2}{}{%
+        {{hash=f15b129e88b4820c7ed982265e79986b}{%
+           family={Zou},
+           familyi={Z\bibinitperiod},
+           given={Hui},
+           giveni={H\bibinitperiod}}}%
+        {{hash=0cb8fe4210baa81c4b0e67913b4d2768}{%
+           family={Hastie},
+           familyi={H\bibinitperiod},
+           given={Trevor},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{c346171da05683239c65d0053413406e}
+      \strng{fullhash}{c346171da05683239c65d0053413406e}
+      \strng{bibnamehash}{c346171da05683239c65d0053413406e}
+      \strng{authorbibnamehash}{c346171da05683239c65d0053413406e}
+      \strng{authornamehash}{c346171da05683239c65d0053413406e}
+      \strng{authorfullhash}{c346171da05683239c65d0053413406e}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We propose the elastic net, a new regularization and variable selection method. Real world data and a simulation study show that the elastic net often outperforms the lasso, while enjoying a similar sparsity of representation. In addition, the elastic net encourages a grouping effect, where strongly correlated predictors tend to be in or out of the model together. The elastic net is particularly useful when the number of predictors (p) is much bigger than the number of observations (n). By contrast, the lasso is not a very satisfactory variable selection method in the p ≫ n case. An algorithm called LARS-EN is proposed for computing elastic net regularization paths efficiently, much like algorithm LARS does for the lasso. {{$\copyright$}} 2005 Royal Statistical Society.}
+      \field{issn}{1369-7412}
+      \field{journaltitle}{Journal of the Royal Statistical Society: Series B (Statistical Methodology)}
+      \field{month}{4}
+      \field{number}{2}
+      \field{title}{{Regularization and variable selection via the elastic net}}
+      \field{volume}{67}
+      \field{year}{2005}
+      \field{pages}{301\bibrangedash 320}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1111/j.1467-9868.2005.00503.x
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Zou, Hastie - 2005 - Regularization and variable selection via the elastic net.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1111/j.1467-9868.2005.00503.x
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1111/j.1467-9868.2005.00503.x
+      \endverb
+      \keyw{Grouping effect,LARS algorithm,Lasso,Penalization,Variable selection,p≫n problem}
     \endentry
   \enddatalist
 \endrefsection

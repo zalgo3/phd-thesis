@@ -4,60 +4,60 @@
 \subsection{Merit functions for variational inequalities}
 Merit functions have evolved in the context of reformulating variational inequalities (VIs) and complementarity problems (CPs) as optimization problems~\cite{Fukushima1996}.
 The \emph{variational inequality} (VI) consists in finding~$x \in C$ such that
-\[ \label{eq:VI}
+\begin{equation} \label{eq:VI}
     \innerp{T(x)}{y - x} \ge 0 \forallcondition{y \in C}
-,\] 
+,\end{equation} 
 where~$C \subseteq \setR^n$ is nonempty, closed, and convex, and~$T \colon \setR^n \to \setR^n$ is continuous.
-We can also rewrite~\cref{eq:VI} as the following \emph{complementarity problem} (CP):
-\[ \label{eq:CP}
+We can also rewrite~\zcref{eq:VI} as the following \emph{complementarity problem} (CP):
+\begin{equation} \label{eq:CP}
     T(x) \ge 0, \quad x \ge 0, \eqand \innerp{T(x)}{x} \ge 0
-.\] 
-In particular, if~$T$ is affine, the we call~\cref{eq:CP} the \emph{linear complementarity problem} (LCP).
+.\end{equation} 
+In particular, if~$T$ is affine, the we call~\zcref{eq:CP} the \emph{linear complementarity problem} (LCP).
 There are many merit functions for VIs and CPs, but here we illustrate the most basic two merit functions for VIs.
 
-\begin{example}[Merit functions for the VI~\cref{eq:VI}] \label{ex:merit_VI}
+\begin{example}[Merit functions for the VI~\zcref{eq:VI}] \zlabel{ex:merit_VI}
     \begin{description}
         \item[The classical gap function~\cite{Auslender1976,Hearn1982}]
             We call the function~$G_0 \colon \setR^m \to \setR \cup \set{\infty}$ the \emph{classical gap function}:
-            \[ \label{eq:gap}
+            \begin{equation} \label{eq:gap}
                 G_0(x) \coloneqq \sup_{y \in C} \innerp{T(x)}{x - y}
-            .\] 
+            .\end{equation} 
             It has the following properties:
             \begin{itemize}
                 \item $G_0(x) \ge 0$ for all~$x \in C$;
-                \item $G_0(x) = 0$ and~$x \in C$ if and only if~$x$ satisfies~\cref{eq:VI};
+                \item $G_0(x) = 0$ and~$x \in C$ if and only if~$x$ satisfies~\zcref{eq:VI};
                 \item If~$C$ is bounded,~$G_0$ is finite everywhere.
             \end{itemize}
-            The top two indecate that~$G_0$ is a merit function for the VI~\cref{eq:VI}.
+            The top two indecate that~$G_0$ is a merit function for the VI~\zcref{eq:VI}.
         \item[The regularized gap function~\cite{Fukushima1992,Auchmuty1989}]
             For a given parameter~$\alpha > 0$, we can consider the \emph{regularized gap function}~$G_\alpha \colon \setR^n \to \setR$ defined by
-            \[ \label{eq:reg_gap}
+            \begin{equation} \label{eq:reg_gap}
                 G_\alpha(x) \coloneqq \max_{y \in C} \left[ \innerp{T(x)}{x - y} - \frac{\alpha}{2} \norm{x - y}_2^2 \right] 
-            ,\] 
-            which is a merit function for the VI~\cref{eq:VI}, too.
-            Since~\cref{eq:reg_gap} maximizes a strongly concave function on a nonempty, closed, and convex set, even if~$C$ is unbounded, an unique point attains the maximum, and~$G_\alpha$ is finite everywhere.
+            ,\end{equation} 
+            which is a merit function for the VI~\zcref{eq:VI}, too.
+            Since~\zcref{eq:reg_gap} maximizes a strongly concave function on a nonempty, closed, and convex set, even if~$C$ is unbounded, an unique point attains the maximum, and~$G_\alpha$ is finite everywhere.
             Moreover, denoting such a maximizer by~$H_\alpha(x)$, if~$T$ is continuously differentiable,~$G_\alpha$ is also differentiable at any point~$x$, and we have
-            \[
+            \begin{equation}
                 \nabla G_\alpha(x) = T(x) - [ \jdv{T}{x} - \alpha I_n ] (H_\alpha(x) - x)
-            .\] 
+            .\end{equation} 
             Note that
-            \[
+            \begin{equation}
                 H_\alpha(x) = \proj_C(x - \alpha^{-1} T(x))
-            .\] 
+            .\end{equation} 
             Furthermore, if the Jacobian~$\jdv{T}{x}$ is positive definite on~$C$, any stationary point of the problem
-            \[
+            \begin{equation}
                 \min_{x \in C} \quad G_\alpha(x)
-            \] 
-            solves the VI~\cref{eq:VI}~\cite{Fukushima1992}.
+            \end{equation} 
+            solves the VI~\zcref{eq:VI}~\cite{Fukushima1992}.
             In addition, if~$T$ is strongly monotone with modulus~$\mu > 0$, i.e.,
-            \[
+            \begin{equation}
                 \innerp{T(x) - T(x')}{x - x'} > \mu \norm{x - x'}^2 \forallcondition{x, x' \in \setR^n}
-            ,\]
+            ,\end{equation}
             and if~$\alpha < 2 \mu$, then~$G_\alpha$ has the following error bound property~\cite{Taji1993}:
-            \[
+            \begin{equation}
                 \norm{x - x^\ast} \le \sqrt{\frac{G_\alpha(x)}{\mu - \alpha / 2}} \forallcondition{x \in S}
-            ,\] 
-            where~$x^\ast$ is the unique solution of the VI~\cref{eq:VI}.
+            ,\end{equation} 
+            where~$x^\ast$ is the unique solution of the VI~\zcref{eq:VI}.
     \end{description}
 \end{example}
 

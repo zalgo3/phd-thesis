@@ -3,14 +3,14 @@
 \begin{document}
 \section{H\"older and Lipschitz continuity}
 We call~$h \colon \setR^p \to \setR$ to be \emph{locally H\"older continuous} with exponent~$\alpha > 0$ if for every bounded set~$\Omega \subseteq \setR^p$ there exists~$L_h > 0$ such that
-\[
+\begin{equation}
     \abs{h(x) - h(y)} \le L_h \norm{x - y}_2^\alpha \forallcondition{x, y \in \Omega}
-.\] 
+.\end{equation} 
 In particular, when~$L_h$ does not depend on~$\Omega$, we say that~$h$ is H\"older continuous with exponent~$\alpha > 0$.
 Moreover, we refer to the (local) H\"older continuity with exponent~$1$ as the \emph{(local) Lipschitz continuity}.
 When~$h$ is Lipschitz continuous, we call~$L_h$ the \emph{Lipschitz constant}, and we also say that~$h$ is \emph{$L_h$-Lipschitz continuous}.
 As the following lemma shows, many functions with \emph{good} properties are locally Lipschitz continuous.
-\begin{lemma} \label{thm:local_Lipschitz}
+\begin{lemma} \zlabel{thm:local_Lipschitz}
     Continuously differentiable functions and finite-valued convex functions are locally Lipschitz continuous.
 \end{lemma}
 \begin{proof}
@@ -19,12 +19,12 @@ As the following lemma shows, many functions with \emph{good} properties are loc
 
 Furthermore, if~$h$ is continuously differentiable and~$\nabla h$ is $L_h$-Lipschitz continuous, we say that~$h$ is~$L_h$-smooth.
 We now recall the so-called descent lemma~\cite[Proposition A.24]{Bertsekas1999} as follows:
-\begin{lemma}[Descent Lemma~{\cite[Proposition A.24]{Bertsekas1999}}] \label{thm:descent}
+\begin{lemma}[Descent Lemma~{\cite[Proposition A.24]{Bertsekas1999}}] \zlabel{thm:descent}
     Let~$h \colon \setR^p \to \setR$ is~$L_h$-smooth on~$\setR^p$ with~$L_h > 0$.
     Then, we have
-    \[
+    \begin{equation}
         \abs{h(y) - h(x) - \innerp{\nabla h(x)}{y - x}} \le \frac{L_h}{2} \norm{x - y}_2^2 \forallcondition{x, y \in \setR^p}
-    .\] 
+    .\end{equation} 
 \end{lemma}
 
 \end{document}

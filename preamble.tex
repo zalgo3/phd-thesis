@@ -2,20 +2,14 @@
 \author{\TheAuthor}
 \date{\TheDate}
 
-\makeatletter
-\let\blx@noerroretextools\@empty
-\makeatother
+\usepackage{ifdraft}
+\usepackage{ifthen}
 
-\ifdraft
+\ifdraft{
     \usepackage[style=draft,maxnames=99]{biblatex}
-\else
+}{
     \usepackage[maxnames=99]{biblatex}
-\fi
-
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{exscale}
-\usepackage{grffile}
+}
 
 \usepackage{graphicx}
 \usepackage{adjustbox}
@@ -33,15 +27,12 @@
 \usepackage{derivative}
 \usepackage[ntheorem]{empheq}
 \usepackage{mathtools}
-\usepackage[amsmath,thmmarks,amsthm]{ntheorem}
+\mathtoolsset{showonlyrefs}
+\usepackage[amsmath,amsthm,thmmarks]{ntheorem}
+\usepackage{zref-titleref}
+\usepackage{zref-clever}
 \usepackage{hyperref}
-\usepackage[capitalize,nameinlink]{cleveref}
-\let\etoolboxcsvloop\csvloop
-\let\csvloop\relax
-\let\etoolboxforlistloop\forlistloop
-\usepackage{autonum}
-\let\csvloop\etoolboxcsvloop
-\let\forlistloop\etoolboxforlistloop
+\usepackage{mleftright}
 
 
 \usepackage[top=4cm, bottom=4cm, left=3cm, right=3cm]{geometry}
@@ -73,8 +64,10 @@
 
 \DeclareMathOperator*\argmax{argmax}
 \DeclareMathOperator*\argmin{argmin}
-\DeclareMathOperator*\myliminf{liminf}
-\renewcommand\liminf\myliminf
+\let\liminf\relax
+\let\limsup\relax
+\DeclareMathOperator*\liminf{liminf}
+\DeclareMathOperator*\limsup{limsup}
 \DeclareMathOperator\dist{dist}
 \DeclareMathOperator\interior{int}
 \DeclareMathOperator\conv{conv}
@@ -135,153 +128,136 @@
 \renewcommand\algorithmicensure{\textbf{Output:}}
 
 \renewcommand\baselinestretch{1.2}
+\mleftright
 
 
 \theoremclass{Theorem}
 \theoremstyle{break}
 \newtheorem{theorem}{Theorem}[chapter]
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
 \newtheorem{definition}{Definition}[chapter]
 \newtheorem{example}{Example}[chapter]
 \newtheorem{remark}{Remark}[chapter]
 \newtheorem{assumption}{Assumption}[chapter]
+\AtEndEnvironment{proof}{\qedsymbol{\Box}~\qed}
 
 
+\zcsetup{
+nameinlink,
+}
 \setlist[description]{style=nextline}
 \setlist[enumerate]{
     label=(\roman*)
 }
-\AtBeginEnvironment{theorem}{
-    \setlist[enumerate]{
-        label=(\roman*),
-        ref=Theorem~\thetheorem~(\roman*)
-    }
+\zcRefTypeSetup{claim}{
+    Name-sg = Claim,
+    name-sg = claim,
+    Name-pl = Claims,
+    name-pl = claims,
 }
-\AtEndEnvironment{theorem}{
-    \setlist[enumerate]{
-        label=(\roman*),
-        ref=(\roman*)
-    }
+\zcRefTypeSetup{equation}{
+    name-sg = ,
+    name-pl = ,
+    +refbounds={,(,),},
 }
-\AtBeginEnvironment{lemma}{
-    \setlist[enumerate]{
-        label=(\roman*),
-        ref=Lemma~\thelemma~(\roman*)
-    }
+\zcRefTypeSetup{assumption}{
+    Name-sg = Assumption,
+    name-sg = assumption,
+    Name-pl = Assumptions,
+    name-pl = assumptions,
 }
-\AtEndEnvironment{lemma}{
-    \setlist[enumerate]{
-        label=(\roman*),
-        ref=(\roman*)
-    }
-}
-\AtBeginEnvironment{proposition}{
-    \setlist[enumerate]{
-        label=(\roman*),
-        ref=Proposition~\theproposition~(\roman*)
-    }
-}
-\AtEndEnvironment{proposition}{
-    \setlist[enumerate]{
-        label=(\roman*),
-        ref=(\roman*)
-    }
-}
-\AtBeginEnvironment{corollary}{
-    \setlist[enumerate]{
-        label=(\roman*),
-        ref=Corollary~\thecorollary~(\roman*)
-    }
-}
-\AtEndEnvironment{corollary}{
-    \setlist[enumerate]{
-        label=(\roman*),
-        ref=(\roman*)
-    }
-}
-\AtBeginEnvironment{remark}{
-    \setlist[enumerate]{
-        label=(\roman*),
-        ref=Remark~\theremark~(\roman*)
-    }
-}
-\AtEndEnvironment{remark}{
-    \setlist[enumerate]{
-        label=(\roman*),
-        ref=(\roman*)
-    }
-}
-\AtBeginEnvironment{definition}{
-    \setlist[enumerate]{
-        label=(\roman*),
-        ref=Definition~\thedefinition~(\roman*)
-    }
-}
-\AtEndEnvironment{definition}{
-    \setlist[enumerate]{
-        label=(\roman*),
-        ref=(\roman*)
-    }
-}
-\AtBeginEnvironment{assumption}{
-    \setlist[enumerate]{
-        label=(\roman*),
-        ref=Assumption~\theassumption~(\roman*)
-    }
-}
-\AtEndEnvironment{assumption}{
-    \setlist[enumerate]{
-        label=(\roman*),
-        ref=(\roman*)
-    }
-}
-\AtBeginEnvironment{example}{
-    \setlist[enumerate]{
-        label=(\roman*),
-        ref=Example~\theexample~(\roman*)
-    }
-}
-\AtEndEnvironment{example}{
-    \setlist[enumerate]{
-        label=(\roman*),
-        ref=(\roman*)
-    }
-}
-
-
-\crefname{equation}{}{}
-\Crefname{equation}{Eq.}{Eqs.}
-\crefname{enumi}{}{}
-\crefname{figure}{Figure}{Figures}
-\crefname{assumption}{Assumption}{Assumptions}
-\crefname{line}{line}{lines}
-\newcommand{\crefrangeconjunction}{--}
-
-\newcounter{subcreftmpcnt}
-\newcommand\romansubformat[1]{(\roman{#1})}
+\zcRefTypeSetup{theorem}{cap}
+\zcRefTypeSetup{lemma}{cap}
+\zcRefTypeSetup{proposition}{cap}
+\zcRefTypeSetup{corollary}{cap}
+\zcRefTypeSetup{definition}{cap}
+\zcRefTypeSetup{example}{cap}
+\zcRefTypeSetup{remark}{cap}
+\zcRefTypeSetup{assumption}{cap}
+\zcRefTypeSetup{algorithm}{cap}
+\zcRefTypeSetup{chapter}{cap}
+\zcRefTypeSetup{section}{cap}
+\zcRefTypeSetup{table}{cap}
+\zcRefTypeSetup{figure}{cap}
 \makeatletter
-\newcommand\subcref[2][\romansubformat]{
-\ifcsname r@#2@cref\endcsname
-  \cref@getcounter {#2}{\mylabel}
-  \setcounter{subcreftmpcnt}{\mylabel}
-  \hyperref[#2]{claim~#1{subcreftmpcnt}}
- \else ?? \fi}
-\newcommand\sublabelcref[2][\romansubformat]{
-\ifcsname r@#2@cref\endcsname
-  \cref@getcounter {#2}{\mylabel}
-  \setcounter{subcreftmpcnt}{\mylabel}
-  \hyperref[#2]{#1{subcreftmpcnt}}
- \else ?? \fi}
-\newcommand\subCref[2][\romansubformat]{
-\ifcsname r@#2@cref\endcsname
-  \cref@getcounter {#2}{\mylabel}
-  \setcounter{subcreftmpcnt}{\mylabel}
-  \hyperref[#2]{Claim~#1{subcreftmpcnt}}
- \else ?? \fi}
+\zref@newprop{theorem}{}
+\zref@newprop{lemma}{}
+\zref@newprop{proposition}{}
+\zref@newprop{corollary}{}
+\zref@newprop{definition}{}
+\zref@newprop{example}{}
+\zref@newprop{remark}{}
+\zref@newprop{assumption}{}
+\zref@newprop{thmtype}{}
+\zref@addprops{main}{theorem,lemma,proposition,corollary,definition,example,remark,assumption,thmtype}
+\BeforeBeginEnvironment{theorem}{
+    \zref@setcurrent{theorem}{\thetheorem}
+    \zref@setcurrent{thmtype}{theorem}
+}
+\BeforeBeginEnvironment{lemma}{
+    \zref@setcurrent{lemma}{\thelemma}
+    \zref@setcurrent{thmtype}{lemma}
+}
+\BeforeBeginEnvironment{proposition}{
+    \zref@setcurrent{proposition}{\theproposition}
+    \zref@setcurrent{thmtype}{proposition}
+}
+\BeforeBeginEnvironment{corollary}{
+    \zref@setcurrent{corollary}{\thecorollary}
+    \zref@setcurrent{thmtype}{corollary}
+}
+\BeforeBeginEnvironment{definition}{
+    \zref@setcurrent{definition}{\thedefinition}
+    \zref@setcurrent{thmtype}{definition}
+}
+\BeforeBeginEnvironment{example}{
+    \zref@setcurrent{example}{\theexample}
+    \zref@setcurrent{thmtype}{example}
+}
+\BeforeBeginEnvironment{remark}{
+    \zref@setcurrent{remark}{\theremark}
+    \zref@setcurrent{thmtype}{remark}
+}
+\BeforeBeginEnvironment{assumption}{
+    \zref@setcurrent{assumption}{\theassumption}
+    \zref@setcurrent{thmtype}{assumption}
+}
+\BeforeBeginEnvironment{algorithmic}{
+    \zref@setcurrent{zc@type}{line}
+}
+\AfterEndEnvironment{proof}{
+    \zref@setcurrent{thmtype}{}
+}
+\AtBeginEnvironment{enumerate}{
+    \ifthenelse{\NOT \equal{\zref@getcurrent{thmtype}}{}}{
+        \zref@setcurrent{zc@type}{claim}
+    }{}
+}
+\newcommand\ChangeEnumRefProps[1]{%
+    \ifthenelse{\equal{\zref@extract{#1}{zc@type}}{claim}}{%
+        \zref@def@extract{\thmtype}{#1}{thmtype}% label's theorem type
+        \zref@def@extract{\thethm}{#1}{\thmtype}% label's theorem number
+        \zref@def@extract{\theclaimi}{#1}{default}% label's claim number
+        \ifthenelse{\(\NOT \equal{\thmtype}{\zref@getcurrent{thmtype}}\) \OR \(\NOT \equal{\thethm}{\zref@getcurrent{\thmtype}}\)}{%
+            \edef\mypatchzctype{\noexpand\patchcmd{\expandafter\noexpand\csname Z@R@#1\endcsname}{\noexpand\zc@type{claim}}{\noexpand\zc@type{\thmtype}}{}{}}%
+            \edef\mypatchdefault{\noexpand\patchcmd{\expandafter\noexpand\csname Z@R@#1\endcsname}{\noexpand\default{\theclaimi}}{\noexpand\default{{\thethm~\theclaimi}}}{}{}}%
+            \mypatchzctype%
+            \mypatchdefault%
+        }{}%
+    }{}%
+}
+\let\savezcref\zcref
+\ExplSyntaxOn
+\NewDocumentCommand\newzcref{s O{} m}{%
+    \seq_set_from_clist:Nn \l__newzcref_labels_seq {#3}%
+    \seq_map_function:NN \l__newzcref_labels_seq \ChangeEnumRefProps%
+    \IfBooleanTF{#1}{\savezcref*[#2]{#3}}{\savezcref[#2]{#3}}%
+}
+\ExplSyntaxOff
+\let\zcref\newzcref
 \makeatother
-
 
 \hypersetup{
     colorlinks=true,

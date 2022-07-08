@@ -1,23 +1,23 @@
 \documentclass[../../main]{subfiles}
 
 \begin{document}
-\subsection{The proximal gradient method} \label{sec:intro:composite:pgm}
-The \emph{proximal gradient method}~\cite{Fukushima1981} is one of the most common algorithms for solving~\cref{eq:composite}.
+\subsection{The proximal gradient method} \zlabel{sec:intro:composite:pgm}
+The \emph{proximal gradient method}~\cite{Fukushima1981} is one of the most common algorithms for solving~\zcref{eq:composite}.
 For a given~$x^0 \in \interior (\dom (F))$, it recursively update~$\set{x^k} $ by
-\[
+\begin{equation}
     x^{k + 1} = \prox_{\lambda g} \left( x^k - \lambda \nabla f(x^k) \right) 
-,\] 
+,\end{equation} 
 where~$\prox$ is the \emph{proximal operator} of~$g$ with parameter~$\lambda > 0$ defined by
-\[
+\begin{equation}
     \prox_{\lambda g}(x) \coloneqq \argmin_{y \in \setR^n} \left[ g(x) + \frac{1}{2 \lambda} \norm{x - y}_2^2 \right] 
-.\] 
+.\end{equation} 
 If we can estimate the Lipschitz constant~$L_f$, we can use a constant stepsize~$\lambda \in (0, 1 / L_f]$.
 Otherwise, we can determine~$\lambda$ in each iteration by backtracking.
 
 The description of the algorithm now follows.
 \begin{algorithm}[hbtp]
     \caption{The proximal gradient method}
-    \label{alg:pgm}
+    \zlabel{alg:pgm}
     \begin{algorithmic}[1]
         \Require $x^0 \in \interior (\dom (F)), \varepsilon > 0$
         \State $k \gets 0$

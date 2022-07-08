@@ -19,3 +19,5 @@
 
 *.bbl
 !main.bbl
+
+*.bib

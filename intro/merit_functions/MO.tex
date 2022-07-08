@@ -1,36 +1,36 @@
 \documentclass[../../main]{subfiles}
 
 \begin{document}
-\subsection{Merit functions for multi-objective problems} \label{sec:intro:merit:MO}
-The history of research on merit functions for multi-objective problems are relatively new, beginning in 1998 with \textcite{Chen1998} on~\cref{eq:MOO} under the assumptions of polyhedrality of~$C$ and convexity of~$F$.
+\subsection{Merit functions for multi-objective problems} \zlabel{sec:intro:merit:MO}
+The history of research on merit functions for multi-objective problems are relatively new, beginning in 1998 with \textcite{Chen1998} on~\zcref{eq:MOO} under the assumptions of polyhedrality of~$C$ and convexity of~$F$.
 Afterward, various merit functions have appeared for multi-objective problems, including multi-objective optimization~\cite{Liu2009,Dutta2017}, (finite-dimensional) vector variational inequalities~\cite{Chen2000,Konnov2005,Li2005,Yang2002,Yang2003,Charitha2010,Li2010}, and (finite-dimensional) vector equilibrium problems~\cite{Huang2007,Li2005,Li2007,Li2006,Mastroeni2003}.
-Below we pick up generalizations of \cref{ex:merit_VI} to the \emph{weak Stamnpacchia type vector variational inequality} $(SVVI)^w$, which consists in finding~$x \in C$ such that
-\[ \label{eq:SVVIw}
+Below we pick up generalizations of \zcref{ex:merit_VI} to the \emph{weak Stamnpacchia type vector variational inequality} $(SVVI)^w$, which consists in finding~$x \in C$ such that
+\begin{equation} \label{eq:SVVIw}
     (\innerp{T_1(x)}{y - x}, \dots, \innerp{T_m(x)}{y - x}) \notin - \interior(\setRpos^m) \forallcondition{y \in C}
-,\] 
+,\end{equation} 
 where~$C \subseteq \setR^n$ is a nonempty, closed, convex, and $T_i \colon \setR^n \to \setR^n, i = 1, \dots, m$.
-Note that~$x$ satisfies~\cref{eq:SVVIw} if and only if~$x$ is weakly Pareto optimal for~\cref{eq:MOO} when~$F_i$ is differentiable and~$T_i = \nabla F_i$ for each~$i = 1, \dots, m$.
-\begin{example} \label{ex:merit_MO}
+Note that~$x$ satisfies~\zcref{eq:SVVIw} if and only if~$x$ is weakly Pareto optimal for~\zcref{eq:MOO} when~$F_i$ is differentiable and~$T_i = \nabla F_i$ for each~$i = 1, \dots, m$.
+\begin{example} \zlabel{ex:merit_MO}
     \begin{description}
         \item[The gap function for $(SVVI)^w$~\cite{Charitha2010,Li2010}]
-            We can write the gap function~$G_0 \colon \setR^n \to \setR \cup \set{\infty}$ for~\cref{eq:SVVIw} as
-            \[
+            We can write the gap function~$G_0 \colon \setR^n \to \setR \cup \set{\infty}$ for~\zcref{eq:SVVIw} as
+            \begin{equation}
                 G_0(x) \coloneqq \min_{\lambda \in \simplex^m} \sup_{y \in C} \innerp*{\sum_{i = 1}^{m} \lambda_i T_i(x)}{x - y}
-            .\] 
-            When~$m = 1$, it correpsponds to~\cref{eq:gap}.
-            Like~\cref{eq:gap},~$G_0$ is a merit function for~\cref{eq:SVVIw}, i.e.,
+            .\end{equation} 
+            When~$m = 1$, it correpsponds to~\zcref{eq:gap}.
+            Like~\zcref{eq:gap},~$G_0$ is a merit function for~\zcref{eq:SVVIw}, i.e.,
             \begin{itemize}
                 \item $G_0(x) \ge 0$ for all~$x \in C$;
-                \item $G_0(x) = 0, x \in C$ if and only if~$x$ solves~\cref{eq:SVVIw},
+                \item $G_0(x) = 0, x \in C$ if and only if~$x$ solves~\zcref{eq:SVVIw},
             \end{itemize}
             and it is finite-valued if~$C$ is bounded.
         \item[The regularized gap function for~$(SVVI)^w$~\cite{Charitha2010}]
-            We can define the regularized gap function~$G_\alpha \colon \setR^n \to \setR$ with~$\alpha > 0$ for~\cref{eq:SVVIw} by
-            \[
+            We can define the regularized gap function~$G_\alpha \colon \setR^n \to \setR$ with~$\alpha > 0$ for~\zcref{eq:SVVIw} by
+            \begin{equation} \label{eq:reg_gap_SVVIw}
                 G_\alpha(x) \coloneqq \min_{\lambda \in \simplex^m} \max_{y \in C} \left[ \innerp*{\sum_{i = 1}^{m} \lambda_i T_i(x)}{x - y} - \frac{\alpha}{2} \norm{x - y}_2^2 \right] 
-            ,\] 
-            matching~\cref{eq:reg_gap} when~$m = 1$.
-            It also satisfies the two propeties as a merit function for~\cref{eq:SVVIw}.
+            ,\end{equation} 
+            matching~\zcref{eq:reg_gap} when~$m = 1$.
+            It also satisfies the two propeties as a merit function for~\zcref{eq:SVVIw}.
             Moreover, if each~$T_i, i = 1, \dots, m$ is continuously differentiable, then~$G_\alpha$ is directionally differentiable in any direction~$d \in \setR^n$, and
             \begin{multline}
                 G_\alpha'(x;d) = \min_{\lambda \in \Lambda(x)} \Bigg[ \innerp*{\sum_{i = 1}^{m} \lambda_i T_i(x) - \sum_{i = 1}^{m} \lambda_i \jdv{T_i}{x} (H_\alpha(x, \lambda) - x)}{d} \\
@@ -48,10 +48,10 @@ Note that~$x$ satisfies~\cref{eq:SVVIw} if and only if~$x$ is weakly Pareto opti
                 = \sum_{i = 1}^{m} \lambda(x)_i T_i(x) - \sum_{i = 1}^{m} \lambda(x)_i \jdv{T_i}{x} [H_\alpha(x, \lambda(x)) - x] + \alpha [H_\alpha(x, \lambda(x)) - x]
             .\end{multline}
             Furthermore, if each~$T_i, i = 1, \dots, m$ is strongly monotone with modulus~$\mu_i > 0$, and if~$\alpha < 2 \mu$ with~$\mu \coloneqq \min_{i = 1, \dots, m} \mu_i$, then~$G_\alpha$ provides the error bound:
-            \[
+            \begin{equation}
                 \dist(x, sol(SVVI)^w) \le \sqrt{\frac{G_\alpha(x)}{\mu - \alpha / 2}} \forallcondition{x \in C}
-            ,\] 
-            where~$sol(SVVI)^w$ denotes the solution set of~\cref{eq:SVVIw}.
+            ,\end{equation} 
+            where~$sol(SVVI)^w$ denotes the solution set of~\zcref{eq:SVVIw}.
     \end{description}
 \end{example}
 

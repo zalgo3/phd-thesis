@@ -1,14 +1,4 @@
-\RequirePackage{fix-cm}
-
-\newif\ifdraft
-%\drafttrue
-\draftfalse
-
-\ifdraft
-    \documentclass[12pt,a4paper,openright,draft]{book}
-\else
-    \documentclass[12pt,a4paper,openright]{book}
-\fi
+\documentclass[12pt,a4paper,openright,draft]{book}
 
 \newcommand{\TheTitle}{Non-smooth, particularly composite, multi-objective optimization}
 \newcommand{\TheSubTitle}{Theory and algorithms}
@@ -17,7 +7,6 @@
 
 \input{preamble}
 \begin{document}
-
 \pagestyle{empty}
 \pagenumbering{roman}
 \subfile{frontback/front}
