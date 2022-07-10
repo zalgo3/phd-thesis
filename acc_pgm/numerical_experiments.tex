@@ -2,7 +2,7 @@
 
 \begin{document}
 \section{Numerical experiments} \zlabel{sec:acc_pgm:experiments}
-This section compares the performance between \zcref{alg:acc_pgm_MO} with various~$a$ and~$b$ and \zcref{alg:acc_pgm_MO} ($a = 0, b = 1 / 4$) through numerical experiments.
+This section compares the performance of \zcref{alg:acc_pgm_MO} with various~$a$ and~$b$ through numerical experiments.
 We run all experiments in Python 3.9.9 on a machine with 2.3 GHz Intel Core i7 CPU and 32 GB memory.
 For each example, we test 15 different hyperparameters combining~$a = 0, 1 / 6, 1 / 4, 1 / 2, 3 / 4$ and~$b = a^2 / 4, (a^2 + 1) / 8, 1 / 4$, i.e.,
 \begin{equation}
@@ -19,7 +19,7 @@ For each example, we test 15 different hyperparameters combining~$a = 0, 1 / 6, 
 and we set~$\varepsilon = 10^{-5}$ for the stopping criteria.
 
 \subsection{Artificial test problems (bi-objective and tri-objective)}
-First, we solve the multi-objective test problems in the form~\zcref{eq:MOO} used in~\cite{Tanabe2022a}, modifications from~\cite{Jin2001,Fliege2009}, whose objective functions are defined by
+First, we solve the multi-objective test problems in the form~\zcref{eq:MOO}, modifications from~\cite{Jin2001,Fliege2009}, whose objective functions are defined by
 \begin{align}
     &f_1(x) = \frac{1}{n} \norm*{x}^2,
     f_2(x) = \frac{1}{n} \norm*{x - 2}^2,
@@ -44,8 +44,8 @@ First, we solve the multi-objective test problems in the form~\zcref{eq:MOO} use
 \end{align}
 where~$x \in \setR^n, n = 50$ and~$\indicator_{\setRpos^n}$ is an indicator function~\zcref{eq:indicator} of the nonnegative orthant.
 We choose~$1000$ initial points, commonly for all pairs~$(a, b)$, and randomly with a uniform distribution between~$\underline{c}$ and~$\overline{c}$, where~$\underline{c} = (-2, \dots, -2)^\T$ and~$\overline{c} = (4, \dots, 4)^\T$ for~\zcref{eq:JOS1,eq:JOS1_L1},~$\underline{c} = (-2, \dots, -2)^\T$ and~$\overline{c} = (2, \dots, 2)^\T$ for~\zcref{eq:FDS}, and~$\underline{c} = (0, \dots, 0)^\T$ and~$\overline{c} = (2, \dots, 2)^\T$ for~\zcref{eq:FDS_CONSTRAINED}.
-Moreover, we use backtracking for updating~$\ell$, with~$1$ as the initial value of~$\ell$ and~$2$ as the constant multiplied into~$\ell$ at each iteration (cf.~\cite[Remark~4.1~(v)]{Tanabe2022a}).
-Furthermore, at each iteration, we transform the subproblem~\zcref{eq:acc prox subprob} into their dual as suggested in~\cite{Tanabe2022a} and solve them with the trust-region interior point method~\cite{Byrd1999} using the scientific library SciPy.
+Moreover, we use backtracking for updating~$\alpha$ to satisfy~\zcref{eq:acc_pgm_sdc}, with~$1$ as the initial value of~$\alpha$ and~$0.5$ as the constant multiplied into~$\alpha$ at each iteration.
+Furthermore, at each iteration, we transform the subproblem~\zcref{eq:acc_pgm_subprob} into their dual like~\zcref{eq:dual_reg_lin_gap} and solve them with the trust-region interior point method~\cite{Byrd1999} using the scientific library SciPy.
 
 \zcref{fig:Pareto,tab:Average computational costs} present the experimental results.
 \zcref{fig:Pareto} plots the solutions only for the cases~$(a, b) = (0, 1 / 4), (3 / 4, 1 / 4)$, but other combinations also yield similar plots, including a wide range of Pareto solutions.
@@ -192,13 +192,13 @@ Letting~$\theta, B,$ and~$W$ be the observed image, the blur matrix, and the inv
     f_1(x) \coloneqq \norm*{BWx - \theta}^2 \eqand g_1(x)=\lambda \norm*{x}_1
 ,\end{equation} 
 where~$\lambda \coloneqq 2 \times 10^{-5}$ is a regularization parameter.
-Unlike in the previous subsection, we can compute~$\nabla f$'s Lipschitz constant by calculating~$(BW)^\T(BW)$'s eigenvalues using the two-dimensional cosine transform~\cite{Hansen2006}, so we use it constantly as~$\ell$.
+Unlike in the previous subsection, we can compute~$\nabla f$'s Lipschitz constant by calculating~$(BW)^\T(BW)$'s eigenvalues using the two-dimensional cosine transform~\cite{Hansen2006}, so we use it constantly as~$\alpha^{-1}$.
 Moreover, we use the observed image's Wavelet transform as the initial point.
 
 \zcref{fig:deblurred} shows the reconstructed image from the obtained solution.
 Images produced by all hyperparameters are similar, so we present only~$(a, b) = (0, 1 / 4)$ and~$(1 / 2, 1 / 4)$.
 Moreover, we summarize the numerical performance in \zcref{tab:cam_deblur,fig:cameraman_plot}.
-Like the last subsection, this example also suggests that our new momentum factors may occasionally improve the algorithm's performance even for single-objective problems.
+Like the last subsection, this example suggests that our new momentum factors may occasionally improve the algorithm's performance even for single-objective problems.
 
 \begin{figure}[htpb]
     \centering
@@ -234,7 +234,7 @@ Like the last subsection, this example also suggests that our new momentum facto
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=\textwidth]{figs/cameraman_plot.pdf}
-    \caption{Values of~$u_0(x^k) = F_1(x) - F_1(x^\ast)$, where~$x^\ast$ is the optimal solution estimated from the original image}
+    \caption{Values of~$u_\infty\left(x^k\right) = F_1(x) - F_1(x^\ast)$, where~$x^\ast$ is the optimal solution estimated from the original image}
     \zlabel{fig:cameraman_plot}
 \end{figure}
 

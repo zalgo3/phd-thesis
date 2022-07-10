@@ -2,15 +2,15 @@
 
 \begin{document}
 \section{The multi-objective proximal PL inequality and error bounds} \zlabel{sec:merit:eb}
-For the multi-objective composite problem~\zcref{eq:composite_MO}, this section provides an extension of the proximal-PL inequality introduced in \zcref{sec:preliminaries:PL} and shows that it induces the proposed merit function's error bound.
+For the multi-objective composite problem~\zcref{eq:composite_MO}, this section extends the proximal-PL inequality introduced in \zcref{sec:preliminaries:PL} and shows that it induces the proposed merit function's error bound.
 We first define the \emph{multi-objective proximal-PL inequality}.
 \begin{definition}[Multi-objective proximal-PL inequality] \zlabel{def:proximal_PL_MO}
     Assume that~$f_i, i = 1, \dots, m$ is~$L_{f_i}$-smooth with~$L_{f_i} > 0$ and let~$L_f \coloneqq \max_{i = 1, \dots, m} L_{f_i}$.
     We say that~\zcref{eq:composite_MO} satisfies the multi-objective proximal-PL inequality if there exists~$\tau > 0$ such that
     \begin{equation} \label{eq:proximal_PL_MO}
-        w_{L_f}(x) \ge \tau u_0(x) \forallcondition{x \in \setR^n}
+        w_{L_f^{-1}}(x) \ge \tau u_\infty(x) \forallcondition{x \in \setR^n}
     \end{equation}
-    with~$u_0$ and~$w_{L_f}$ given by~\zcref{eq:gap_MO,eq:reg_lin_gap_MO}.
+    with~$u_\infty$ and~$w_{L_f^{-1}}$ given by~\zcref{eq:gap_MO,eq:reg_lin_gap_MO}.
 \end{definition}
 If~$m = 1$, \zcref{eq:proximal_PL_MO} reduces to the proximal-PL inequality for scalar optimization~\zcref{eq:proximal_PL}.
 We state below some sufficient conditions for~\zcref{eq:proximal_PL_MO}.
@@ -25,15 +25,15 @@ We state below some sufficient conditions for~\zcref{eq:proximal_PL_MO}.
     \zcref[S]{thm:proximal_PL_MO_sufficient:sc}:
     Since~$f_i$ is strongly convex, \zcref{thm:merit_between:convex} gives
     \begin{equation}
-        u_0(x) \le w_\mu(x) \forallcondition{x \in \setR^n}
+        u_\infty(x) \le w_\mu(x) \forallcondition{x \in \setR^n}
     .\end{equation}
     Applying \zcref{thm:merit_inner} to the above inequality implies
     \begin{equation}
-        u_0(x) \le \max \left( \frac{L_f}{\mu_f}, 1 \right) w_{L_f}(x) \forallcondition{x \in \setR^n}
+        u_\infty(x) \le \max \left( \frac{L_f}{\mu_f}, 1 \right) w_{L_f^{-1}}(x) \forallcondition{x \in \setR^n}
     ,\end{equation}
     which means
     \begin{equation}
-        w_{L_f}(x) \ge \min \left( \frac{\mu_f}{L_f}, 1 \right) u_0(x) \forallcondition{x \in \setR^n}
+        w_{L_f^{-1}}(x) \ge \min \left( \frac{\mu_f}{L_f}, 1 \right) u_\infty(x) \forallcondition{x \in \setR^n}
     .\end{equation}
 
     \zcref[S]{thm:proximal_PL_MO_sufficient:sc_linear}:
@@ -50,7 +50,7 @@ We state below some sufficient conditions for~\zcref{eq:proximal_PL_MO}.
                  &> h_i\left( A_i \left( \frac{1}{2} x^1 + \frac{1}{2} x^2 \right) \right) = f_i\left( \frac{1}{2} x^1 + \frac{1}{2} x^2 \right)  
     ,\end{align}
     which contradicts the fact that~$x^1 \in X_i^*$.
-    Therefore, we can use Hoffman's error bound~\cite{Hoffman1952}, and so there exists some~$\rho_i > 0$ such that for any~$x \in \setR^n$ there exists~$x_i^* \in X_i^*$ with
+    Therefore, we can use Hoffman's error bound~\cite{Hoffman1952}, and so there exists some~$\rho_i > 0$ such that for any~$x \in \setR^n$, there exists~$x_i^* \in X_i^*$ with
     \begin{equation}
         \norm*{x - x_i^*}_2 \le \rho_i \norm*{\max \left[ \begin{pmatrix} B_i \\ A_i \\ - A_i \end{pmatrix} x - \begin{pmatrix} c_i \\ z_i \\ - z_i \end{pmatrix}, 0 \right] }_2
     .\end{equation}
@@ -68,15 +68,15 @@ We state below some sufficient conditions for~\zcref{eq:proximal_PL_MO}.
         \norm*{x - \proj_{X_i^*}(x)}_2^2 \le \norm*{x - x_i^*}_2^2 \le \rho_i^2 \norm*{A_i \left(x - \proj_{X_i^*}(x)\right)}_2^2 \forallcondition{x \in \dom(F)}
     .\end{equation}
     Now, suppose that~$x \in \dom(F)$.
-    From the definition~\zcref{eq:gap_MO} of~$u_0$, we get
+    From the definition~\zcref{eq:gap_MO} of~$u_\infty$, we get
     \begin{align}
-        u_0(x) &= \sup_{z \in \setR^n} \min_{i = 1, \dots, m} [F_i(x) - F_i(z)] \\
+        u_\infty(x) &= \sup_{z \in \setR^n} \min_{i = 1, \dots, m} [F_i(x) - F_i(z)] \\
                &\le \min_{i = 1, \dots, m} \sup_{z \in \setR^n} [F_i(x) - F_i(z)] = \min_{i = 1, \dots, m} \left[ F_i(x) - F_i\left( \proj_{X_i^*}(x) \right) \right] 
     ,\end{align}
     where the second equality holds because~$\proj_{X_i^*}(x) = \argmin_{x \in \setR^n} F_i(x)$.
     Assuming that~$h_i$ is $\sigma_{h_i}$-convex with~$\sigma_{h_i} > 0$, it follows that
     \begin{align}
-        u_0(x) &= \min_{i = 1, \dots, m}
+        u_\infty(x) &= \min_{i = 1, \dots, m}
         \begin{multlined}[t] \Biggl[ 
                 \innerp*{\nabla h_i(A_i x)}{A_i \left(x - \proj_{X_i^*}(x)\right)} \\
                 + g_i(x) - g_i\left( \proj_{X_i^*}(x) \right) - \frac{\sigma_{h_i}}{2} \norm*{A_i\left( x - \proj_{X_i^*}(x) \right) }_2^2 \Biggr] 
@@ -89,7 +89,7 @@ We state below some sufficient conditions for~\zcref{eq:proximal_PL_MO}.
     \end{align}
     Applying~\zcref{eq:proximal_PL_MO_sufficient:sc_linear:linear_trans_ineq} to the above inequality leads to
     \begin{equation}
-        u_0(x) \le \min_{i = 1, \dots, m}
+        u_\infty(x) \le \min_{i = 1, \dots, m}
             \begin{multlined}[t]
                 \Biggl[ \innerp*{\nabla f_i(x)}{x - \proj_{X_i^*}(x)} + g_i(x) - g_i\left( \proj_{X_i^*}(x) \right) \\
                     - \frac{\sigma_{h_i}}{2 \rho_i^2} \norm*{x - \proj_{X_i^*}(x)}_2^2 \Biggr]
@@ -98,7 +98,7 @@ We state below some sufficient conditions for~\zcref{eq:proximal_PL_MO}.
     Let~$e \in \simplex^m$ with~$\simplex^m$ given by~\zcref{eq:simplex}.
     Since~$\min_{i = 1, \dots, m} v_i = \min_{e \in \simplex^m} \sum_{i = 1}^{m} e_i v_i$ for any~$v \in \setR^m$, we get
     \begin{align}
-        u_0(x) &\le \min_{e \in \simplex^m} \sum_{i = 1}^{m} e_i
+        u_\infty(x) &\le \min_{e \in \simplex^m} \sum_{i = 1}^{m} e_i
             \begin{multlined}[t]
                 \Biggl[ \innerp*{\nabla f_i(x)}{x - \proj_{X_i^*}(x)} + g_i(x) - g_i\left( \proj_{X_i^*}(x) \right) \\
                     - \frac{\sigma_{h_i}}{2 \rho_i^2} \norm*{x - \proj_{X_i^*}(x)}_2^2 \Biggr]
@@ -106,70 +106,71 @@ We state below some sufficient conditions for~\zcref{eq:proximal_PL_MO}.
         &\le \min_{e \in \simplex^m} \sup_{z \in \setR^n} \sum_{i = 1}^{m} e_i \left[ \innerp*{\nabla f_i(x)}{x - z} + g_i(x) - g_i(z) - \frac{\sigma_{h_i}}{2 \rho_i^2} \norm{x - z}_2^2 \right] \\
         &= \sup_{z \in \setR^n} \min_{e \in \simplex^m} \sum_{i = 1}^{m} e_i \left[ \innerp*{\nabla f_i(x)}{x - z} + g_i(x) - g_i(z) - \frac{\sigma_{h_i}}{2 \rho_i^2} \norm{x - z}_2^2 \right] \\
         &= \sup_{z \in \setR^n} \min_{i = 1, \dots, m} \left[ \innerp*{\nabla f_i(x)}{x - z} + g_i(x) - g_i(z) - \frac{\sigma_{h_i}}{2 \rho_i^2} \norm{x - z}_2^2 \right] \\
-        &\le w_{\min\limits_{i = 1, \dots, m} \sigma_{h_i} / \rho_i^2}(x)
+        &\le w_{\rho_i^2 / \min\limits_{i = 1, \dots, m} \sigma_{h_i}}(x)
     ,\end{align}
-    where the first equality follows from the Sion's minimax theorem~\cite{Sion1958}, and the third equality comes from the definition~\zcref{eq:reg_lin_gap_MO} of~$w_{\min\limits_{i = 1, \dots, m} \sigma_{h_i} / \rho_i^2}$.
+    where the first equality follows from the Sion's minimax theorem~\cite{Sion1958}, and the third equality comes from the definition~\zcref{eq:reg_lin_gap_MO} of~$w_{\rho_i^2 / \min\limits_{i = 1, \dots, m} \sigma_{h_i}}$.
     Thus, \zcref{thm:merit_inner} gives
     \begin{equation}
-        u_0(x) \le \max \left( \frac{L_f}{\min\limits_{i = 1, \dots, m} \sigma_{h_i} / \rho_i^2} , 1 \right) w_{L_f}(x)
+        u_\infty(x) \le \max \left( \frac{L_f \rho_i^2}{\min\limits_{i = 1, \dots, m} \sigma_{h_i}} , 1 \right) w_{L_f^{-1}}(x)
     ,\end{equation}
     which completes the proof.
 \end{proof}
 
-We now show that the multi-objective proximal-PL inequality~\zcref{eq:proximal_PL_MO} leads to the error bound property.
+We now show that the multi-objective proximal-PL inequality~\zcref{eq:proximal_PL_MO} leads to the error-bound property.
 \begin{theorem} \zlabel{thm:proximal_PL_MO_EB}
     Let~$x \in \setR^n$.
-    Suppose that~$f_i$ is~$L_{f_i}$-smooth with~$L_{f_i} > 0$ for~$i = 1, \dots, m$,~$L_f \coloneqq \max_{i = 1, \dots, m} L_{f_i}$, and~\zcref{eq:proximal_PL_MO} holds with~$\tau > 0$.
-    Then, the trajectory~$\set{W_{L_f}^k(x) \coloneqq \overbrace{W_{L_f} \circ \dots \circ W_{L_f}}^{m}(x)}$ converges linearly to a weakly Pareto optimal point~$x^*$ and
+    Suppose that~$f_i$ is~$L_{f_i}$-smooth with~$L_{f_i} > 0$ for each~$i = 1, \dots, m$,~$L_f \coloneqq \max_{i = 1, \dots, m} L_{f_i}$, and the multi-objective proximal-PL inequality~\zcref{eq:proximal_PL_MO} holds with~$\tau > 0$.
+    Then, the trajectory~$\set*{W_{L_f^{-1}}^k(x) \coloneqq \overbrace{W_{L_f^{-1}} \circ \dots \circ W_{L_f^{-1}}}^{m}(x)}$ converges linearly to a weakly Pareto optimal point~$x^*$ and
     \begin{equation}
-        u_0(x) \ge \frac{\tau L_f}{8} \norm{x - x^*}_2^2
+        u_\infty(x) \ge \frac{\tau L_f}{8} \norm{x - x^*}_2^2
     ,\end{equation}
-    where~$u_0$ and~$W_{L_f}$ are given by~\zcref{eq:gap_MO,eq:reg_lin_gap_MO_sol}, respectively.
+    where~$u_\infty$ and~$W_{L_f^{-1}}$ are given by~\zcref{eq:gap_MO,eq:reg_lin_gap_MO_sol}, respectively.
 \end{theorem}
 \begin{proof}
-    Recall that~$u_0$ is non-negative due to \zcref{thm:gap}.
+    Recall that~$u_\infty$ is non-negative due to \zcref{thm:gap_MO}.
     We have
     \begin{equation}
-        \sqrt{u_0(x)} - \sqrt{u_0\left(W_{L_f}(x)\right)} = \frac{u_0(x) - u_0\left(W_{L_f}(x)\right)}{\sqrt{u_0(x)} + \sqrt{u_0\left(W_{L_f}(x)\right)}}
+        \sqrt{u_\infty(x)} - \sqrt{u_\infty\left(W_{L_f^{-1}}(x)\right)} = \frac{u_\infty(x) - u_\infty\left(W_{L_f^{-1}}(x)\right)}{\sqrt{u_\infty(x)} + \sqrt{u_\infty\left(W_{L_f^{-1}}(x)\right)}}
     .\end{equation}
-    The definition~\zcref{eq:gap_MO} of~$u_0$ gives
+    The definition~\zcref{eq:gap_MO} of~$u_\infty$ gives
     \begin{equation}
-        u_0(x) - u_0\left(W_{L_f}(x)\right) \ge \min_{i = 1, \dots, m} [F_i(x) - F_i\left(W_{L_f}(x)\right)] \ge w_{L_f}(x)
+        u_\infty(x) - u_\infty\left(W_{L_f^{-1}}(x)\right) \ge \min_{i = 1, \dots, m} \left[F_i(x) - F_i\left(W_{L_f^{-1}}(x)\right)\right] \ge w_{L_f^{-1}}(x)
     ,\end{equation}
     where the second inequality follows from~\zcref{thm:descent,eq:reg_lin_gap_MO,eq:reg_lin_gap_MO_sol}.
-    Note that this inequality, together with~\zcref{eq:proximal_PL_MO}, proves that~$\set{W_{L_f}^k(x)}$ converges linearly to zero.
-    On the other hand, since~$u_0(x) \ge u_0\left(W_{L_f}(x)\right)$ because of \zcref{thm:reg_lin_gap} and the above inequality, we get
+    Note that this inequality, together with~\zcref{eq:proximal_PL_MO}, proves that~$\set*{W_{L_f^{-1}}^k(x)}$ converges linearly to zero.
+    On the other hand, since~$u_\infty(x) \ge u_\infty\left(W_{L_f^{-1}}(x)\right)$ because of \zcref{thm:reg_lin_gap} and the above inequality, we get
     \begin{equation}
-        \sqrt{u_0(x)} + \sqrt{u_0\left(W_{L_f}(x)\right)} \le 2 \sqrt{u_0(x)} \le 2 \sqrt{w_{L_f}(x) / \tau}
+        \sqrt{u_\infty(x)} + \sqrt{u_\infty\left(W_{L_f^{-1}}(x)\right)} \le 2 \sqrt{u_\infty(x)} \le 2 \sqrt{w_{L_f^{-1}}(x) / \tau}
     ,\end{equation}
     where the second inequality comes from~\zcref{eq:proximal_PL_MO}.
     Then, the above three inequalities show
     \begin{equation}
-        \sqrt{u_0(x)} - \sqrt{u_0\left(W_{L_f}(x)\right)} \ge \frac{w_{L_f}(x)}{2 \sqrt{w_{L_f}(x) / \tau}} = \frac{1}{2} \sqrt{\tau w_{L_f}(x)}
+        \sqrt{u_\infty(x)} - \sqrt{u_\infty\left(W_{L_f^{-1}}(x)\right)} \ge \frac{w_{L_f^{-1}}(x)}{2 \sqrt{w_{L_f^{-1}}(x) / \tau}} = \frac{1}{2} \sqrt{\tau w_{L_f^{-1}}(x)}
     .\end{equation}
     Therefore, it follows from~\zcref{eq:reg_lin_gap_MO_LB} that
     \begin{equation}
-        \sqrt{u_0(x)} - \sqrt{u_0\left(W_{L_f}(x)\right)} \ge \frac{\sqrt{\tau L_f}}{2 \sqrt{2}} \norm*{x - W_{L_f}(x)}_2
+        \sqrt{u_\infty(x)} - \sqrt{u_\infty\left(W_{L_f^{-1}}(x)\right)} \ge \frac{\sqrt{\tau L_f}}{2 \sqrt{2}} \norm*{x - W_{L_f^{-1}}(x)}_2
     .\end{equation}
     More generally, we arrive at
     \begin{equation}
-        \sqrt{u_0\left(W_{L_f}^k(x)\right)} - \sqrt{u_0\left(W_{L_f}^{k + 1}(x)\right)} \ge \frac{\sqrt{\tau L_f}}{2 \sqrt{2}} \norm*{W_{L_f}^k(x) - W_{L_f}^{k + 1}(x)}_2 \forallcondition{k \ge 0}
-    .\end{equation}
+        \sqrt{u_\infty\left(W_{L_f^{-1}}^k(x)\right)} - \sqrt{u_\infty\left(W_{L_f^{-1}}^{k + 1}(x)\right)} \ge \frac{\sqrt{\tau L_f}}{2 \sqrt{2}} \norm*{W_{L_f^{-1}}^k(x) - W_{L_f^{-1}}^{k + 1}(x)}_2
+    \end{equation}
+    for all~$k = 0, 1, \dots$.
     Adding up the above inequality from~$k = k_1$ to~$k = k_2 - 1$ yields
     \begin{equation}
-        \sqrt{u_0\left(W_{L_f}^{k_1}(x)\right)} - \sqrt{u_0\left(W_{L_f}^{k_2}(x)\right)} \ge \frac{\sqrt{\tau L_f}}{2 \sqrt{2}} \sum_{k = k_1}^{k_2 - 1} \norm*{W_{L_f}^k(x) - W_{L_f}^{k + 1}(x)}_2
+        \sqrt{u_\infty\left(W_{L_f^{-1}}^{k_1}(x)\right)} - \sqrt{u_\infty\left(W_{L_f^{-1}}^{k_2}(x)\right)} \ge \frac{\sqrt{\tau L_f}}{2 \sqrt{2}} \sum_{k = k_1}^{k_2 - 1} \norm*{W_{L_f^{-1}}^k(x) - W_{L_f^{-1}}^{k + 1}(x)}_2
     .\end{equation}
     Thus, the triangle inequality implies
     \begin{equation} \label{eq:proximal_PL_MO_EB:sq_gap_Cauchy}
-        \sqrt{u_0\left(W_{L_f}^{k_1}(x)\right)} - \sqrt{u_0\left(W_{L_f}^{k_2}(x)\right)} \ge \frac{\sqrt{\tau L_f}}{2 \sqrt{2}} \norm*{W_{L_f}^{k_1}(x) - W_{L_f}^{k_2}(x)}_2
+        \sqrt{u_\infty\left(W_{L_f^{-1}}^{k_1}(x)\right)} - \sqrt{u_\infty\left(W_{L_f^{-1}}^{k_2}(x)\right)} \ge \frac{\sqrt{\tau L_f}}{2 \sqrt{2}} \norm*{W_{L_f^{-1}}^{k_1}(x) - W_{L_f^{-1}}^{k_2}(x)}_2
     .\end{equation}
     As~$k_1, k_2 \to \infty$, the left-hand side tends to zero.
     Therefore, the right-hand side also tends to zero because of the non-negativity of the norm.
-    This means that~$\set{W_{L_f}^k(x)}$ is the Cauchy sequence, which is convergent to some weakly Pareto optimal point~$x^*$.
+    This means that~$\set{W_{L_f^{-1}}^k(x)}$ is the Cauchy sequence, which is convergent to some weakly Pareto optimal point~$x^*$.
     Substituting~$k_1 = 0$ and~$k_2 = \infty$ into~\zcref{eq:proximal_PL_MO_EB:sq_gap_Cauchy} leads to
     \begin{equation}
-        \sqrt{u_0(x)} \ge \frac{\sqrt{\tau L_f}}{2 \sqrt{2}} \norm{x - x^*}_2
+        \sqrt{u_\infty(x)} \ge \frac{\sqrt{\tau L_f}}{2 \sqrt{2}} \norm{x - x^*}_2
     .\end{equation}
 \end{proof}
-This theorem also presents the error bound property of~$w_\alpha$ and~$u_\alpha$ for any~$\alpha > 0$ because of~\zcref{eq:proximal_PL_MO,thm:merit_inner,thm:merit_between:Lipschitz}.
+This theorem also presents the error-bound property of~$w_\alpha$ and~$u_\alpha$ for any~$\alpha > 0$ because of~\zcref{eq:proximal_PL_MO,thm:merit_inner,thm:merit_between:Lipschitz}.
 \end{document}

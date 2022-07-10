@@ -6,7 +6,7 @@
 \begin{equation} \label{eq:composite}
     \min_{x \in \setR^n} \quad F(x) \coloneqq f(x) + g(x)
 ,\end{equation} 
-where~$f \colon \setR^n \to \setR$ is $L_f$-smooth with some~$L_f > 0$, and~$g \colon \setR^n \to \setR \cup \set{\infty}$ is closed, proper, and convex.
+where~$f \colon \setR^n \to \setR$ is $L_f$-smooth with some~$L_f > 0$, and~$g \colon \setR^n \to (-\infty, +\infty]$ is closed, proper, and convex.
 When~$f$ is convex, we call~\zcref{eq:composite} \emph{convex composite}.
 This model has many applications, particularly in machine learning.
 In detail,~$f$ and~$g$ often represent the loss function and the regularization term, respectively.

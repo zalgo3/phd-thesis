@@ -11,20 +11,21 @@ We summarize the results obtained here as follows:
             \item the regularized gap function for convex multi-objective optimization; \zlabel{sec:conclusions:merit:reg_gap}
             \item the regularized and partially linearized gap function for composite multi-objective optimization. \zlabel{sec:conclusions:merit:reg_lin_gap}
         \end{enumerate*}
-        First, we have shown that they actually satisy the propeties as merit functions and proved the lower semi-continuity of~\zcref{sec:conclusions:merit:gap} and the locally Lipschitz continuity of~\zcref{sec:conclusions:merit:reg_gap,sec:conclusions:merit:reg_lin_gap}.
-        We have also confirmed the differentiability of~\zcref{sec:conclusions:merit:reg_gap,sec:conclusions:merit:reg_lin_gap} under reasonable assumptions and that the stationary points of~\zcref{sec:conclusions:merit:reg_gap,sec:conclusions:merit:reg_lin_gap} solve the original multi-objective problem under strict convexity.
+        First, we have shown that they satisfy the properties as merit functions and proved the lower semi-continuity of the~\zcref{sec:conclusions:merit:gap} and the locally Lipschitz continuity of the~\zcref{sec:conclusions:merit:reg_gap,sec:conclusions:merit:reg_lin_gap}.
+        We have also confirmed the differentiability of the~\zcref{sec:conclusions:merit:reg_gap,sec:conclusions:merit:reg_lin_gap} under reasonable assumptions and that the stationary points of the~\zcref{sec:conclusions:merit:reg_gap,sec:conclusions:merit:reg_lin_gap} solve the original multi-objective problem under strict convexity.
         Secondly, we have derived inequalities among different merit functions under certain conditions.
-        We thirdly have demonstrated that the level-boundedness of the objective functions implies the level-boundedness of the associated merit functions, and we finally proved that the objective functions' strong convexity provides the error bound property of the merit functions.
+        We thirdly have demonstrated that the level-boundedness of the objective functions implies the level-boundedness of the associated merit functions.
+        Finally, we proposed the multi-objective proximal-PL condition, weaker than the strong convexity, and proved that it provides the error-bound property of the proposed merit functions.
 
     \item In \zcref{sec:pgm}, we have developed the proximal gradient method for composite multi-objective optimization.
         We have shown that every accumulation point of the generated sequence, if it exists, is Pareto stationary.
-        Moreover, we presented global convergence rates for the proposed algorithm, matching what we know in scalar optimization for non-convex~$O(\sqrt{1 / k})$, convex~$O(1 / k)$, strongly convex~$O(r^k)$ for some~$r \in (0, 1)$.
-        We also have extended the so-called Polyak-{\L}ojasieqicz (PL) inequality for multi-objective optimziation and established the linear convergence rate for multi-objecvive problems that satisfy such inequalities.
-        Furthermore, we have converted the subproblems to well-known convex optimization problems for robust multi-objective problem.
+        Moreover, we presented global convergence rates for the proposed algorithm, matching what we know in scalar optimization for non-convex~$O(\sqrt{1 / k})$ and convex~$O(1 / k)$ ones.
+        We also have extended the so-called Polyak-{\L}ojasieqicz (PL) inequality for multi-objective optimization and established the linear convergence rate for multi-objective problems that satisfy such inequalities.
+        Furthermore, we have converted the subproblems to well-known convex optimization problems for the robust multi-objective problem.
         Finally, we have reported some numerical results.
 
     \item In \zcref{sec:acc_pgm}, we have proposed the accelerated proximal gradient method for convex composite multi-objective optimization.
-        We have proved the proposed methods'~$O(1 / k^2)$ convergence rate, together with the global convergence property.
+        We have proved the proposed methods'~$O(1 / k^2)$ convergence rate and the global convergence property.
         This method includes some hyperparameters, which is new even for single-objective cases.
         We finally have reported some numerical results, showing that some of these choices give better results than the classical algorithms.
 \end{enumerate}
@@ -34,14 +35,18 @@ However, there are still many open problems.
 We conclude this thesis by describing future works related to our results.
 \begin{enumerate}
     \item We can consider our proposed merit function's natural extension to infinite-dimensional vector optimization.
-        We can also regard other famous merit functions' generalization to multi-objective or vector problems, such as the implicit Lagrangian and the squared Fischer-Burmeister function.
-        Moreover, it would be interesting to develop new multi-objective algorithm using such merit functions.
+        We can also regard other famous merit functions' generalization to multi-objective or vector problems, such as the implicit Lagrangian~\cite{Mangasarian1993} and the squared Fischer-Burmeister function~\cite{Kanzow1996}.
+        Moreover, developing a new multi-objective algorithm using such merit functions would be interesting.
 
     \item Extending the many variants of the proximal gradient method in single-objective optimization to multi-objective optimization problems is a challenge that needs addressing.
         Obtaining a theoretically sound extension will not be straightforward for any method.
         However, we believe that finding practical applications of composite multi-objective optimization, such as machine learning, will significantly impact this field.
 
-    \item It is also crucial to extend the variants of the accelerated proximal gradient method to multi-objective optimization.
+    \item Our proposed method has the potential to achieve finite-time manifold (active set) identification~\cite{Sun2019} without the assumption of the strong convexity (or its generalizations such as PL conditions or error bounds~\cite{Karimi2016}).
+        Moreover, we took a single update rule of~$t_k$ for all iterations in this work, but the adaptive change of the strategy in each iteration is conceivable, which has the potential to guarantee linear convergence under PL conditions, as in~\cite{Aujol2021}.
+        It might also be interesting to estimate the Lipschitz constant simultaneously with that change, like in~\cite{Scheinberg2014}.
+        In addition, an extension to the inexact scheme like~\cite{Villa2013} would be significant.
+        Furthermore, it is crucial to extend the variants of the accelerated proximal gradient method to multi-objective optimization.
         Moreover, applying our acceleration techniques to large-scale problems like stochastic accelerated gradient descent would be interesting.
         Developing internal techniques, such as a warm start for subproblems and inexact methods, would also be necessary for applications.
 \end{enumerate}

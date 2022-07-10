@@ -2,14 +2,9 @@
 
 \begin{document}
 \section{Conclusions}
-We have generalized the momentum factor of the multi-objective accelerated proximal gradient algorithm~\cite{Tanabe2022a} in a form that is even new in the single-objective context and includes the known FISTA momentum factors~\cite{Beck2009,Chambolle2015}.
+We have successfully accelerated the proximal gradient method for multi-objective optimization by putting information on the previous points into the subproblem.
+Moreover, we have generalized the momentum factor in a form that is even new in the single-objective context and includes the known FISTA momentum factors~\cite{Beck2009,Chambolle2015}.
 Furthermore, with the proposed momentum factor, we proved under reasonable assumptions that the algorithm has an~$O(1/k^2)$ convergence rate and that the iterates converge to Pareto solutions.
 Moreover, the numerical results reinforced these theoretical properties and suggested the potential for our new momentum factor to improve the performance.
-
-Our proposed method has the potential to achieve finite-time manifold (active set) identification~\cite{Sun2019} without the assumption of the strong convexity (or its generalizations such as PL conditions or error bounds~\cite{Karimi2016}).
-Moreover, we took a single update rule of~$t_k$ for all iterations in this work, but the adaptive change of the strategy in each iteration is conceivable.
-It might also be interesting to estimate the Lipschitz constant simultaneously with that change, like in~\cite{Scheinberg2014}.
-In addition, an extension to the inexact scheme like~\cite{Villa2013} would be significant.
-Those are issues to be addressed in the future.
 
 \end{document}

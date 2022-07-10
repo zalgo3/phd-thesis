@@ -10,25 +10,25 @@ Below we provide typical descent methods for~\zcref{eq:MOO}.
 \begin{example} \zlabel{ex:descent}
     \begin{description}
         \item[The steepest descent method~\cite{Fliege2000}] Consider a smooth unconstrained multi-objective optimization, i.e.,~$C = \setR^n$ and each~$F_i$ is differentiable in~\zcref{eq:MOO}.
-            Then, the steepest descent method updates~$\set{x^k}$ by the following operations:
+            Then, the steepest descent method updates~$\set*{x^k}$ by the following operations:
             \begin{align} \label{eq:steepest_descent}
-                d^k &\coloneqq \argmin_{d \in \setR^n} \left[ \max_{i = 1, \dots, m} \innerp*{\nabla F_i(x^k)}{d} + \frac{1}{2 \lambda_k} \norm{d}_2^2 \right], \\
+                d^k &\coloneqq \argmin_{d \in \setR^n} \left[ \max_{i = 1, \dots, m} \innerp*{\nabla F_i\left(x^k\right)}{d} + \frac{1}{2 \alpha_k} \norm{d}_2^2 \right], \\
                 x^{k + 1} &\coloneqq x^k + s_k d^k
             \end{align}
-            with~$\lambda_k > 0$ and~$s_k > 0$.
-            When~$m = 1$, we have~$d^k = - \lambda_k \nabla F_1(x)$, which is the steepest descent direction for the scalar optimization~\cite{Cauchy1847}.
-        \item[The projected gradient method~\cite{Grana-Drummond2004,Fukuda2013}] For a convex-constrained smooth multi-objective optimization, i.e.,~$C \subseteq \setR^n$ is non-empty, closed, and convexand every~$F_i$ is differentiable in~\zcref{eq:MOO}, we can use the projected gradient method described by
+            with~$\alpha_k > 0$ and~$s_k > 0$.
+            When~$m = 1$, we have~$d^k = - \alpha_k \nabla F_1(x)$, which is the steepest descent direction for the scalar optimization~\cite{Cauchy1847}.
+        \item[The projected gradient method~\cite{Grana-Drummond2004,Fukuda2013}] For a convex-constrained smooth multi-objective optimization, i.e.,~$C \subseteq \setR^n$ is non-empty, closed, and convex, and every~$F_i$ is differentiable in~\zcref{eq:MOO}, we can use the projected gradient method described by
             \begin{equation} \label{eq:proj_grad}
                 \begin{aligned} 
-                    z^k &\coloneqq \argmin_{z \in C} \left[ \max_{i = 1, \dots, m} \innerp*{\nabla F_i(x^k)}{z - x^k} + \frac{1}{2 \lambda_k} \norm*{z - x^k}_2^2 \right], \\
+                    z^k &\coloneqq \argmin_{z \in C} \left[ \max_{i = 1, \dots, m} \innerp*{\nabla F_i\left(x^k\right)}{z - x^k} + \frac{1}{2 \alpha_k} \norm*{z - x^k}_2^2 \right], \\
                     x^{k + 1} &\coloneqq x^k + s_k \left(z^k - x^k \right)
                 \end{aligned}
             \end{equation} 
-            with~$\lambda_k > 0$ and~$s_k > 0$.
+            with~$\alpha_k > 0$ and~$s_k > 0$.
             When~$m = 1$,~\zcref{eq:proj_grad} reduces to the projected gradient method for scalar optimization~\cite{Polyak1963,Goldstein1964,Goldstein1967,McCormick1969}, i.e.,
             \begin{equation}
                 \begin{aligned}
-                    z^k &\coloneqq \proj_C (x^k - \lambda_k \nabla F_1(x^k)), \\
+                    z^k &\coloneqq \proj_C (x^k - \alpha_k \nabla F_1\left(x^k\right)), \\
                     x^{k + 1} &\coloneqq x^k + s_k \left( z^k - x^k \right)
                 ,\end{aligned}
             \end{equation} 
@@ -43,11 +43,11 @@ Below we provide typical descent methods for~\zcref{eq:MOO}.
             \begin{equation}
                 \beta_k > 0, \quad \sum_{k = 0}^{\infty} \beta_k = \infty, \eqand \sum_{k = 0}^{\infty} \beta_k^2 < \infty 
             \end{equation} 
-            and generates~$\set{x^k}$ by
+            and generates~$\set*{x^k}$ by
             \begin{equation}
                     x^{k + 1} \coloneqq \argmin_{z \in C} \left[ \frac{1}{2} \norm{z - x^k}_2^2 + \frac{\beta_k}{\eta_k} \max_{i = 1, \dots, m} \innerp{\xi^k_i}{z - x^k} \right] 
             ,\end{equation} 
-            where~$\xi^k_i \in \partial F_i(x^k)$ and
+            where~$\xi^k_i \in \partial F_i\left(x^k\right)$ and
             \begin{equation}
                 \eta_k \coloneqq \max_{i = 1, \dots, m} \norm{\xi_i}
             .\end{equation} 

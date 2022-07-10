@@ -6,9 +6,9 @@
 \usepackage{ifthen}
 
 \ifdraft{
-    \usepackage[style=draft,maxnames=99]{biblatex}
+    \usepackage[style=draft,maxnames=99,giveninits]{biblatex}
 }{
-    \usepackage[maxnames=99]{biblatex}
+    \usepackage[maxnames=99,giveninits]{biblatex}
 }
 
 \usepackage{graphicx}
@@ -33,6 +33,7 @@
 \usepackage{zref-clever}
 \usepackage{hyperref}
 \usepackage{mleftright}
+\usepackage{mathrsfs}
 
 
 \usepackage[top=4cm, bottom=4cm, left=3cm, right=3cm]{geometry}
@@ -68,9 +69,9 @@
 \let\limsup\relax
 \DeclareMathOperator*\liminf{liminf}
 \DeclareMathOperator*\limsup{limsup}
+\DeclareMathOperator*\conv{conv}
 \DeclareMathOperator\dist{dist}
 \DeclareMathOperator\interior{int}
-\DeclareMathOperator\conv{conv}
 \DeclareMathOperator\dom{dom}
 \DeclareMathOperator\proj{\mathbf{proj}}
 \DeclareMathOperator\prox{\mathbf{prox}}
@@ -121,7 +122,9 @@
 \nomenclature{$\simplex^n$}{the unit $n$-simplex}
 \nomenclature{$\interior(C)$}{the interior of~$C$}
 \nomenclature{$\conv(C)$}{the convex hull of~$C$}
-\nomenclature{$\dist{x, C}$}{the distance between~$x$ and~$C$}
+\nomenclature{$\dist(x, C)$}{the distance between~$x$ and~$C$}
+\nomenclature{$\dim(X)$}{the dimension of a space~$X$}
+\nomenclature{$\ker(A)$}{the kernel of a matrix~$A$}
 
 
 \renewcommand\algorithmicrequire{\textbf{Input:}}
@@ -148,8 +151,11 @@
 nameinlink,
 }
 \setlist[description]{style=nextline}
-\setlist[enumerate]{
+\setlist[enumerate,1]{
     label=(\roman*)
+}
+\setlist[enumerate,2]{
+    label=(\alph*)
 }
 \zcRefTypeSetup{claim}{
     Name-sg = Claim,
@@ -275,7 +281,7 @@ nameinlink,
 \fancyhead[LO]{\rightmark} % chapter
 \fancyhead[RO]{\thepage}
 \fancyfoot[C]{}
-\setlength\headheight{27.5pt}
+\setlength\headheight{28pt}
 
 
 \makeatletter
@@ -332,3 +338,5 @@ nameinlink,
 
 
 \addbibresource{library.bib}
+
+\sloppy

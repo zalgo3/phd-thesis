@@ -27,7 +27,7 @@ For the convergence rate analysis, we assume the Lipschitz gradient condition.
 %with a positive constant~$\ell > 0$.
 %Note that we have
 %\begin{equation} \label{eq:psi w_ell}
-%    \psi_{x^k}(d^k) + \frac{\ell}{2} \norm*{ d^k }^2 = - w_\ell(x^k),
+%    \psi_{x^k}(d^k) + \frac{\ell}{2} \norm*{ d^k }^2 = - w_\ell\left(x^k\right),
 %\end{equation}
 %where~$w_\ell$ is defined by~\zcref{eq:reg_lin_gap_MO}.
 %We suppose that the algorithm generates an infinite sequence of iterates from now on.
@@ -40,11 +40,11 @@ For the convergence rate analysis, we assume the Lipschitz gradient condition.
 %\end{lemma}
 %If~$\ell > L$, from \zcref{thm:descent}, for all $i = 1, \dots, m$ we have
 %\begin{equation} \label{eq:descent}
-%    F_i(x^{k + 1}) - F_i(x^k) \le \innerp{\nabla f_i(x^k)}{d^k} + g_i(x^{k + 1}) - g_i(x^k) + \frac{\ell}{2}\norm*{d^k}.
+%    F_i\left(x^{k + 1}\right) - F_i\left(x^k\right) \le \innerp{\nabla f_i\left(x^k\right)}{d^k} + g_i\left(x^{k + 1}\right) - g_i\left(x^k\right) + \frac{\ell}{2}\norm*{d^k}.
 %\end{equation}
 %The right-hand side of~\zcref{eq:descent} is less than zero since~$d^k$ is the optimal solution of~\zcref{eq:subprob}, so we get
 %\begin{equation} \label{eq:nonincreasing}
-%    F_i(x^{k + 1}) \le F_i(x^k).
+%    F_i\left(x^{k + 1}\right) \le F_i\left(x^k\right).
 %\end{equation}
 %\begin{remark}
 %    When the Lipschitz constant~$L$ is unknown or incomputable, we can use~$\ell$ for~\zcref{eq:subprob} calculated by backtracking instead, i.e., we can set the initial value of~$\ell$ appropriately and multiply~$\ell$ by a prespecified scalar~$\gamma > 1$ at each iteration until~\zcref{eq:descent} is satisfied.

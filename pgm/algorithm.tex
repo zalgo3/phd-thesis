@@ -17,21 +17,9 @@ Let us write such a solution as~$p_\alpha(x)$ and let~$\theta_\alpha(x)$ be its 
 .\end{equation}
 Note that
 \begin{equation} \label{eq:pgm_merit}
-    p_\alpha = W_{\alpha^{-1}} \eqand \theta_\alpha = - w_{\alpha^{-1}}
+    p_\alpha = W_\alpha \eqand \theta_\alpha = - w_\alpha
 \end{equation}
-for~$w_{\alpha^{-1}}$ and~$W_{\alpha^{-1}}$ defined by~\zcref{eq:reg_lin_gap_MO,eq:reg_lin_gap_MO_sol}.
-Moreover, the optimality condition of~\zcref{eq:pgm_subproblem} implies that
-\begin{equation} \label{eq:pgm_optimality}
-    \frac{1}{\alpha} [ x - p_\alpha(x) ] \in \conv_{i \in \mathcal{I}_\alpha(x)} [ \nabla f_i(x) + \partial g_i(p_\alpha(x)) ] \forallcondition{x \in \setR^n}
-,\end{equation} 
-where
-\begin{equation} \label{eq:pgm_active_set}
-    \mathcal{I}_\alpha(x) \coloneqq \argmax_{i = 1, \dots, m} [ \innerp{\nabla f_i(x)}{p_\alpha(x) - x} + g_i(p_\alpha(x)) - g_i(x) ]
-.\end{equation} 
-In particular, the following inequality derived from them are useful for the subsequent analysis.
-\begin{equation} \label{eq:pgm_optimal_function_ub}
-    \theta_\alpha(x) \le - \frac{1}{2 \alpha} \norm{x - p_\alpha(x)}_2^2 \forallcondition{x \in \setR^n}
-.\end{equation} 
+for~$w_\alpha$ and~$W_\alpha$ defined by~\zcref{eq:reg_lin_gap_MO,eq:reg_lin_gap_MO_sol}.
 The following proposition shows that~$p_\alpha(x)$ and~$\theta_\alpha(x)$ help to characterize the Pareto stationarity of~\zcref{eq:composite_MO}.
 \begin{lemma} \zlabel{thm:pgm_stop}
     Let $p_\alpha$ and $\theta_\alpha$ be defined in \zcref{eq:pgm_optimal_function}.
@@ -51,8 +39,8 @@ The following proposition shows that~$p_\alpha(x)$ and~$\theta_\alpha(x)$ help t
     We can prove the claims immediately from \zcref{thm:reg_lin_gap,thm:cont_w_alpha}.
 \end{proof}
 
-From \zcref{thm:pgm_stop}, we can treat~$\norm*{p_\alpha(x) - x}_\infty < \varepsilon$ for some~$\varepsilon > 0$ as a stopping criteria.
-Let us present our proposed algorithm in \zcref{alg:pgm_MO}
+From \zcref{thm:pgm_stop}, we can treat~$\norm*{p_\alpha(x) - x}_\infty < \varepsilon$ for some~$\varepsilon > 0$ as a stopping criterion.
+Let us present our proposed algorithm in \zcref{alg:pgm_MO}.
 \begin{algorithm}[hbtp]
     \caption{The proximal gradient method for multi-objective optimization}
     \zlabel{alg:pgm_MO}
@@ -60,11 +48,11 @@ Let us present our proposed algorithm in \zcref{alg:pgm_MO}
         \Require $x^0 \in \interior (\dom (F)), \varepsilon > 0$
         \State $k \gets 0$
         \Loop
-        \State $z^k \gets p_{\alpha_k}(x^k)$ with some stepsize~$\alpha_k > 0$ \zlabel{alg:pgm_MO:subproblem}
-        \If{$\norm{z^k - x^k}_\infty < \varepsilon$}
+        \State $z^k \gets p_{\alpha_k}\left(x^k\right)$ with some stepsize~$\alpha_k > 0$ \zlabel{alg:pgm_MO:subproblem}
+        \If{$\norm*{z^k - x^k}_\infty < \varepsilon$}
         \State \Return $x^k$
         \EndIf
-        \State $x^{k + 1} \gets x^k + s_k (z^k - x^k)$ with some stepsize~$s_k \in (0, 1]$ \zlabel{alg:pgm_MO:update}
+        \State $x^{k + 1} \gets x^k + s_k \left(z^k - x^k\right)$ with some stepsize~$s_k \in (0, 1]$ \zlabel{alg:pgm_MO:update}
         \State $k \gets k + 1$
         \EndLoop
     \end{algorithmic}
@@ -72,16 +60,16 @@ Let us present our proposed algorithm in \zcref{alg:pgm_MO}
 We can consider the following three stepsize selection procedures.
 Note that every rule guarantees the objective functions' non-incrementality, i.e.,
 \begin{equation} \label{eq:pgm_nonincrementality}
-    F_i(x^{k + 1}) \le F_i(x^k) \forallcondition{i = 1, \dots, m, k \geq 0}
+    F_i\left(x^{k + 1}\right) \le F_i\left(x^k\right) \forallcondition{i = 1, \dots, m, k \geq 0}
 .\end{equation}
-\subsection{Armijo rule along the deasible direction} \zlabel{sec:pgm:algorithm:armijo}
+\subsection{Armijo rule along the feasible direction} \zlabel{sec:pgm:algorithm:armijo}
 We fix~$\alpha_k \coloneqq \alpha$ with some constant~$\alpha > 0$ for every~$k = 0, 1, \dots$ and compute~$s_k$ by 
 \begin{equation} \label{eq:pgm_armijo_step}
     s_k \coloneqq \xi^{j_k}
 ,\end{equation}
 where~$j_k$ is the smallest non-negative integer satisfying
 \begin{equation} \label{eq:pgm_armijo_rule}
-    F_i(x^k + \xi^{j_k} (z^k - x^k)) \le F_i(x^k) + \rho \xi^{j_k} \left[\theta_\alpha(x^k) - \frac{1}{2 \alpha} \norm{z^k - x^k}_2^2\right]
+    F_i(x^k + \xi^{j_k} \left(z^k - x^k\right)) \le F_i\left(x^k\right) + \rho \xi^{j_k} \left[\theta_\alpha\left(x^k\right) - \frac{1}{2 \alpha} \norm*{z^k - x^k}_2^2\right]
 \end{equation} 
 with predifined constants~$\rho, \xi \in (0, 1)$ for each~$i = 1, \dots, m$.
 The following lemma demonstrates the existence of the stepsize~$s_k$ satisfying this rule.
@@ -118,18 +106,18 @@ Suppose that~$\nabla f_i$ is locally Lipschitz continuous for~$i = 1, \dots, m$.
 Let~$s_k = 1$ for all~$k = 0, 1, \dots$ and~$\alpha_{-1} > 0$.
 For each iteration, we find the smallest non-negative integer~$j_k$ such that
 \begin{equation} \label{eq:pgm_sdc}
-    F_i(p_{\xi^{j_k} \alpha_{k - 1}}(x^k)) \le F_i(x^k) + \theta_{\xi^{j_k} \alpha_{k - 1}}(x^k) \forallcondition{i = 1, \dots, m}
+    F_i(p_{\xi^{j_k} \alpha_{k - 1}}\left(x^k\right)) \le F_i\left(x^k\right) + \theta_{\xi^{j_k} \alpha_{k - 1}}\left(x^k\right) \forallcondition{i = 1, \dots, m}
 \end{equation} 
 with some constant~$\xi \in (0, 1)$ for any~$i = 1, \dots, m$ and set
 \begin{equation} \label{eq:pgm_sdc_step}
-    \alpha_k = \xi^{j_k} \alpha_{k - 1}.
-\end{equation}
+    \alpha_k = \xi^{j_k} \alpha_{k - 1}
+.\end{equation}
 
 \subsection{Constant stepsize} \zlabel{sec:pgm:algorithm:constant}
 When~$\nabla f_i, i = 1, \dots, m$ is $L_{f_i}$-Lipschitz continuous and~$L_f \coloneqq \max_{i = 1, \dots, m} L_{f_i}$, we set~$s_k = 1$ and~$\alpha_k = \alpha$ with~$\alpha \in (0, 1 / L_f]$ for each~$i = 1, \dots, m$.
 Then, \zcref{thm:descent} ensures that
 \begin{equation} \label{eq:pgm_constant}
-    F_i(p_\alpha(x^k)) \le F_i(x^k) + \theta_\alpha(x^k) \forallcondition{i = 1, \dots, m \text{ and } k = 0, 1, \dots}
-\end{equation} 
+    F_i(p_\alpha\left(x^k\right)) \le F_i\left(x^k\right) + \theta_\alpha\left(x^k\right) \forallcondition{i = 1, \dots, m \text{ and } k = 0, 1, \dots}
+.\end{equation} 
 
 \end{document}

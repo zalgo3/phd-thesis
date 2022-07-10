@@ -2,10 +2,10 @@
 
 \begin{document}
 \subsection{The accelerated proximal gradient method} \zlabel{sec:intro:composite:acc_pgm}
-When~$f$ is convex, the accelerated proximal gradient method, also known as Fast Iterative Shrinkage-Thresholding Algorithm (FISTA)~\cite{Beck2009}, can solve~\zcref{eq:composite} with an~$O(1 / k^2)$ rate of convergence, while the proximal gradient method achieves a rate of~$O(1 / k)$.
+When~$f$ is convex, the accelerated proximal gradient method, also known as the Fast Iterative Shrinkage-Thresholding Algorithm (FISTA)~\cite{Beck2009}, can solve~\zcref{eq:composite} with an~$O(1 / k^2)$ rate of convergence, while the proximal gradient method achieves a rate of~$O(1 / k)$.
 
 We describe below the algorithm.
-Like the proximal gradient method, the stepsize~$\lambda$ may be fixed at a constant or updated by the backtracking procedure.
+Like the proximal gradient method, the stepsize~$\alpha_k$ may be fixed at a constant or updated by the backtracking procedure.
 \begin{algorithm}[hbtp]
     \caption{The accelerated proximal gradient method}
     \zlabel{alg:acc_pgm}
@@ -15,8 +15,8 @@ Like the proximal gradient method, the stepsize~$\lambda$ may be fixed at a cons
         \State $y^1 \gets x^0$
         \State $t_1 \gets 1$
         \Repeat
-        \State pick~$\lambda > 0$
-        \State $x^k \gets \prox_{\lambda g}(y^k - \lambda \nabla f(y^k)$
+        \State pick~$\alpha_k > 0$
+        \State $x^k \gets \prox_{\alpha_k g}(y^k - \alpha_k \nabla f\left(y^k\right))$
         \State $t_{k + 1} \gets \sqrt{t_k^2 + 1 / 4} + 1 / 2$
         \State $\gamma_k \gets (t_k - 1) / t_{k + 1}$
         \State $y^{k + 1} \gets x^k + \gamma_k (x^k - x^{k - 1})$
@@ -26,7 +26,7 @@ Like the proximal gradient method, the stepsize~$\lambda$ may be fixed at a cons
     \end{algorithmic}
 \end{algorithm}
 
-With \zcref{alg:acc_pgm}, $\set{F(x^k) - F(x^\ast)}$ for the global minima~$x^\ast$ converges to zero with a rate of~$O(1 / k^2)$~\cite{Beck2009}, but the convergence of iterates remains unknown.
-With a slite modification, that is, changing the update rule of the momentum factor with~$t_k = (k + a - 1) / a$ for some~$a > 2$, we can prove that~$\set*{x^k}$ converges to the minima while keeping the convergence rate of~$O(1 / k^2)$.
+With \zcref{alg:acc_pgm}, $\set{F\left(x^k\right) - F(x^\ast)}$ for the global minima~$x^\ast$ converges to zero with a rate of~$O(1 / k^2)$~\cite{Beck2009}, but the convergence of iterates remains unknown.
+With a slite modification, that is, changing the update rule of the momentum factor with~$t_k = (k + a - 1) / a$ for some~$a > 2$, we can prove that~$\set*{x^k}$ converges to the minima while keeping the convergence rate of~$O(1 / k^2)$~\cite{Chambolle2015}.
 
 \end{document}

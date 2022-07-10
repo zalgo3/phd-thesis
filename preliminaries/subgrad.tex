@@ -4,7 +4,7 @@
 \section{Directional derivatives and subgradients}
 A function~$h \colon \setR^p \to (-\infty, +\infty]$ is \emph{directionally differentiable} at~$x \in \setR^p$ in a direction~$d \in \setR^p$ if
 \begin{equation} \label{eq:dir_deriv}
-    h'(x; d) \coloneqq \lim_{\alpha \searrow 0} \frac{h(x + \alpha d) - h(x)}{\alpha}
+    h'(x; d) \coloneqq \lim_{\beta \searrow 0} \frac{h(x + \beta d) - h(x)}{\beta}
 \end{equation} 
 exists, and then we call~$h'(x; d)$ the \emph{directional derivative} at~$x$ in a direction~$d$.
 When~$h$ is differentiable at~$x$, we have~$h'(x; d) = \innerp{\nabla h(x)}{d}$ for all~$d \in \setR^p$.
@@ -13,12 +13,12 @@ As the following lemma implies, convex functions are directionally differentiabl
     Let~$h \colon \setR^p \to (-\infty, +\infty]$ be convex.
     Then, the function~$h_{x, d} \colon (0, +\infty) \to (-\infty, +\infty]$ defined by
     \begin{equation}
-        h_{x, d}(\alpha) \coloneqq \frac{h(x + \alpha d) - h(x)}{\alpha}
+        h_{x, d}(\beta) \coloneqq \frac{h(x + \beta d) - h(x)}{\beta}
     \end{equation} 
     is non-decreasing.
     In particular, it follows that
     \begin{equation}
-        h'(x; d) \le h_{x, d}(\alpha) \le h(x + d) - h(x) \forallcondition{x, d \in \setR^p, \alpha \in (0, 1]}
+        h'(x; d) \le h_{x, d}(\beta) \le h(x + d) - h(x) \forallcondition{x, d \in \setR^p, \beta \in (0, 1]}
     .\end{equation} 
 \end{lemma}
 On the other hand, for a proper and convex function~$h \colon \setR^p \to (-\infty, +\infty]$, we call~$\xi \in \setR^p$ a \emph{subgradient} of~$h$ at~$x \in \setR^p$ if

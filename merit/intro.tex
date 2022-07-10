@@ -12,7 +12,7 @@ In detail, it proposes the following three merit functions for~\zcref{eq:MOO}:
     \item the regularized and partially linearized gap function for composite multi-objective optimization. \zlabel{enum:reg_lin_gap_MO}
 \end{enumerate}
 In \zcref{tab:merit}, we summarize the properties of those merit functions, which will be shown in the subsequent sections.
-There, `Sol.' represents the types of Pareto solutions for~\zcref{eq:MOO} corresponding to the minima (zero points) of the merit functions.
+There, `Sol.' represents the types of Pareto solutions for~\zcref{eq:MOO} corresponding to the merit functions' minima (zero points).
 Moreover, `SP,' `LB,' and `EB' indicate each~$F_i$'s sufficient conditions so that stationary points of the merit functions can solve~\zcref{eq:MOO}, the merit functions are level-bounded, and the merit functions provide error bounds, respectively.
 The gap function~\zcref[noname]{enum:gap_MO} connects its minima and the weak Pareto solutions of~\zcref{eq:MOO} but does not have good properties in other aspects.
 The regularized gap function~\zcref[noname]{enum:reg_gap_MO} has better properties but requires the convexity of~$F_i$.
@@ -41,7 +41,7 @@ The regularized and partially linearized gap function~\zcref[noname]{enum:reg_li
             Sol. & Solutions \\
             Cont. & Continuity \\
             Diff. & Differentiability \\
-            SP & Statioary points \\
+            SP & Stationary points \\
             LB & Level-boundedness \\
             EB & Error bounds \\
             Cont. & Continuity \\
@@ -59,7 +59,7 @@ The regularized and partially linearized gap function~\zcref[noname]{enum:reg_li
 \end{table}
 
 We summarize the structure of the rest of this chapter.
-\zcref{sec:merit:merit} proposes different merit functions for multi-objective optimization with continuous objectives, convex objectives, and composite objectives, along with methods for evaluating the function values, the differentiability, and the stationary point properties.
-Furthermore, sufficient conditions for them to be level-bounded and to provide error bounds are given in \zcref{sec:merit:lb,sec:merit:eb}, respectively.
+\zcref{sec:merit:merit} proposes different merit functions for multi-objective optimization with continuous, convex, and composite objectives, respectively, along with methods for evaluating the function values, the differentiability, and the stationary point properties.
+Furthermore, sufficient conditions for them to be level-bounded and to provide error bounds are given in \zcref{sec:merit:lb,sec:merit:eb}, respectively, introducing the extension of the proximal-PL inequality~\cite{Chambolle2015} to multi-objective problems.
 
 \end{document}

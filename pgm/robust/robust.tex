@@ -20,18 +20,18 @@ First, let us reformulate the subproblem~\zcref{eq:pgm_subproblem} by using an e
 \begin{equation}
     \begin{aligned}
         \min_{\gamma, z} \quad   &\gamma + \frac{1}{2 \alpha}\norm{z - x}_2^2  \\ 
-        \st    \quad   &\innerp{\nabla f_i(x)}{z - x} + g_i(x+d) - g_i(x) \leq \gamma, \quad i = 1,\ldots,m.
+        \st    \quad   &\innerp{\nabla f_i(x)}{z - x} + g_i(z) - g_i(x) \leq \gamma, \quad i = 1,\ldots,m.
     \end{aligned}
 \end{equation}
-Note that $g_i$ is not easy to calculate, and thus, the subproblem is difficult to solve.
-When $\hat{g}_i$ and $\mathcal{U}_i$ have some special structure, the constraints can be written as explicit formulae by using the duality of~\zcref{eq:g_i}.
+Note that $g_i$ is not easy to calculate; thus, the subproblem is challenging to solve.
+When $\hat{g}_i$ and $\mathcal{U}_i$ have some particular structure, the constraints can be written as explicit formulae using the duality of~\zcref{eq:g_i}.
 Now, assume that the dual problem of the maximization problem \zcref{eq:g_i} is written as follows:
 \begin{align}
 \min_{w^i} \quad &\tilde{g}_i (x, w^i)  \\ 
 \st    \quad   &w^i \in \tilde{\mathcal{U}}_i (x),
 \end{align}
 where $\tilde{g}_i \colon \setR^n \times \setR^m \to (-\infty, +\infty]$ and $\displaystyle \tilde{\mathcal{U}}_i \colon \setR^n \to 2^{\setR^m}$.
-If strong duality holds, then we see that the subproblem \zcref{eq:pgm_subproblem} is equivalent to
+If the strong duality holds, then we see that the subproblem \zcref{eq:pgm_subproblem} is equivalent to
 \begin{equation} \label{eq:subproblem}
     \begin{aligned}
         \min_{\gamma, z, w^1, \dots, w^m} \quad   &\gamma + \frac{1}{2 \alpha} \norm{z - x}_2^2   \\ 
@@ -40,9 +40,9 @@ If strong duality holds, then we see that the subproblem \zcref{eq:pgm_subproble
     \end{aligned}
 \end{equation}
 When $\tilde{g}_i$ and $\tilde{\mathcal{U}}_i$ have some explicit form, this problem is tractable.
-As we mention below, in this case, we can convert the above subproblem to some well-known convex optimization problems.
-This idea can be also seen in~\cite{Ben-tal1998}.
-In the following, we will introduce some robust multi-objective optimization problems where the subproblems can be written as quadratic programming, second-order cone programming or semi-definite programming problems.
+As we mention below, we can convert the above subproblem to some well-known convex optimization problems in this case.
+This idea can also be seen in~\cite{Ben-tal1998}.
+In the following, we will introduce some robust multi-objective optimization problems where the subproblems can be written as quadratic programming, second-order cone programming, or semi-definite programming problems.
 
 \subfile{QP}
 

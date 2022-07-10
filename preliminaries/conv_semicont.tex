@@ -27,25 +27,25 @@ In particular, the \emph{strong convexity} (with modulus~$\mu_f$) denotes the~$\
 We also note that the~$0$-convexity is equivalent to the usual convexity.
 Moreover, if~$\dom(h) \neq \emptyset$ for some convex function~$h \colon (- \infty, + \infty]$, we say that~$h$ is \emph{proper} and convex.
 On the other hand, we call~$h$ to be concave if~$- h$ is convex.
-Every definition and argument relating convex functions also holds for concave functions by appropriately interchenging~$\le$ and~$\ge$,~$+ \infty$ and~$- \infty$,~$\sup$ and~$\inf$, etc.
+Every definition and argument relating to convex functions also holds for concave functions by appropriately interchanging~$\le$ and~$\ge$,~$+ \infty$ and~$- \infty$,~$\sup$ and~$\inf$, etc.
 
 Let us now introduce the semi-continuity of functions.
-For all~$\set{x^k} \subseteq \setR^p$ converging to~$x \in \setR^p$, a function~$h \colon \setR^p \to (-\infty, +\infty]$ is \emph{upper semi-continuous} if
+For all~$\set*{x^k} \subseteq \setR^p$ converging to~$x \in \setR^p$, a function~$h \colon \setR^p \to (-\infty, +\infty]$ is \emph{upper semi-continuous} at~$x$ if
 \begin{equation}
-    h(x) \ge \limsup_{k \to \infty} h(x^k) 
+    h(x) \ge \limsup_{k \to \infty} h\left(x^k\right) 
 \end{equation} 
 and \emph{lower semi-continuous} if
 \begin{equation}
-    h(x) \le \liminf_{k \to \infty} h(x^k) 
+    h(x) \le \liminf_{k \to \infty} h\left(x^k\right) 
 .\end{equation} 
 A necessary and sufficient condition for~$h$ to be lower semi-continuous is that the level set~$\level_c(h)$ given by
 \begin{equation} \label{eq:level}
     \level_c(h) \coloneqq \Set{x \in \setR^p}{h(x) \le c}
 \end{equation} 
 is closed for any~$c \in \setR$.
-We refer to lower-semicontinuous, proper, and convex functions as \emph{closed, proper, and convex} functions.
+We refer to lower-semi-continuous, proper, and convex functions as \emph{closed, proper, and convex} functions.
 The level sets of convex functions are convex, and the level sets of closed, proper, and convex functions are closed and convex.
 Note that if~$\level_c(h)$ is bounded for all~$c \in \setR$, we say that~$h$ is \emph{level-bounded}.
 For example, every strongly convex function is level-bounded.
-Note also that~\zcref{eq:level} is applicable as the definiiton of the level set for the vector-valued function~$h \colon \setR^p \to \setR^q$ and~$c \in \setR^q$.
+Note also that~\zcref{eq:level} is applicable as the definition of the level set for the vector-valued function~$h \colon \setR^p \to \setR^q$ and~$c \in \setR^q$.
 \end{document}

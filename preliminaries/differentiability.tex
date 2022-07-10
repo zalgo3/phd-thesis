@@ -5,7 +5,7 @@
 Suppose that~$h \colon \setR^p \to (-\infty, +\infty]$ is finite-valued in an appropriate neighborhood of~$x \in \setR^p$.
 If~$h$ has the partial derivative
 \begin{equation} \label{eq:pdv}
-    \pdv{h(x)}{x_i} \coloneqq \lim_{\alpha \to 0} \frac{h(x + \alpha e^i) - h(x)}{\alpha} \forallcondition{i = 1, \dots, p}
+    \pdv{h(x)}{x_i} \coloneqq \lim_{\alpha \to 0} \frac{h\left(x + \alpha e^i\right) - h(x)}{\alpha} \forallcondition{i = 1, \dots, p}
 \end{equation} 
 with $e^i$ being the unit vector along the~$x_i$-axis, and if
 \begin{equation} \label{eq:first_order_approximation}
@@ -19,10 +19,10 @@ with~$o \colon [0, +\infty) \to \setR$ satisfying~$\lim_{t \to 0} o(t) / t = 0$ 
     \end{bmatrix}
 ,\end{equation} 
 then~$h$ is \emph{differentiable} at~$x$, and we call~$\nabla h(x) \in \setR^p$ a \emph{gradient} of~$h$ at~$x$.
-Particularly, if~$\nabla h(x)$ is continuous at~$x$, we say that~$h$ is \emph{continuously differentiable} at~$x$.
+If~$\nabla h(x)$ is continuous at~$x$, we say that~$h$ is \emph{continuously differentiable} at~$x$.
 Again, if~$h$ has second-order derivatives and
 \begin{equation}
-    h(x + \varepsilon) = h(x) + \innerp{\nabla h(x)}{\varepsilon} + \frac{1}{2} \innerp{\varepsilon}{\nabla^2 h(x) \varepsilon} + o(\norm{h}_2^2)
+    h(x + \varepsilon) = h(x) + \innerp{\nabla h(x)}{\varepsilon} + \frac{1}{2} \innerp*{\varepsilon}{\nabla^2 h(x) \varepsilon} + o\left(\norm{h}_2^2\right)
 \end{equation} 
 with
 \begin{equation} \label{eq:hess}

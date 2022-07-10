@@ -13,6 +13,7 @@
 *.synctex.gz
 *.thm
 *.toc
+*.ilg
 
 *.pdf
 !**/figs/*.pdf

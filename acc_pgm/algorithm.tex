@@ -3,258 +3,197 @@
 \begin{document}
 \section{The algorithm} \zlabel{sec:acc_pgm:algorithm}
 This section proposes an accelerated version of the proximal gradient method for multi-objective optimization.
-Similarly to the non-accelerated version given in the last section, a subproblem is considered in each iteration.
-More specifically, the proposed method solves the following subproblem for given~$x \in \dom F$,~$y \in \setR^n$, and~$\ell \ge L$:
-\begin{equation} \label{eq:acc prox subprob}
-    \min_{z \in \setR^n} \quad \varphi^\acc_\ell(z; x, y) 
+Similar to the non-accelerated version given in the last section, a subproblem is considered in each iteration.
+More specifically, the proposed method solves the following subproblem for given~$x \in \dom(F)$,~$y \in \setR^n$, and~$\alpha > 0$:
+\begin{equation} \label{eq:acc_pgm_subprob}
+    \min_{z \in \setR^n} \quad \varphi^\acc_\alpha(z; x, y) 
 ,\end{equation}
 where
-\begin{equation} \label{eq:varphi acc}
-    \varphi^\acc_\ell(z; x, y) \coloneqq \max_{i = 1, \dots, m} \left[ \innerp{\nabla f_i(y)}{z - y} + g_i(z) + f_i(y) - F_i(x) \right] + \frac{\ell}{2} \norm{z - y}^2
+\begin{equation} \label{eq:acc_pgm_obj}
+    \varphi^\acc_\alpha(z; x, y) \coloneqq \max_{i = 1, \dots, m} \left[ \innerp{\nabla f_i(y)}{z - y} + g_i(z) + f_i(y) - F_i(x) \right] + \frac{1}{2 \alpha} \norm{z - y}_2^2
 .\end{equation}
-Note that when~$y = x$,~\zcref{eq:acc prox subprob} is reduced to the subproblem~\zcref{eq:pgm_subproblem} of the proximal gradient method.
+Note that when~$y = x$,~\zcref{eq:acc_pgm_subprob} is reduced to the subproblem~\zcref{eq:pgm_subproblem} of the proximal gradient method.
 Note also that when~$m = 1$, the subproblem becomes
-\begin{equation} \label{eq:single}
-    \min_{z \in \setR^n} \quad \innerp*{\nabla f_1(y)}{z - y} + g_1(z) + \frac{\ell}{2} \norm{z - y}^2
+\begin{equation} \label{eq:single_fista_subprob}
+    \min_{z \in \setR^n} \quad \innerp*{\nabla f_1(y)}{z - y} + g_1(z) + \frac{1}{2 \alpha} \norm{z - y}_2^2
 ,\end{equation}
-which is the subproblem of the single-objective FISTA~\cite{Beck2009}.
-The distinctive feature of our proposal~\zcref{eq:acc prox subprob} is the term~$f_i(y) - f_i(x)$, whereas the easy analogy from the single-objective subproblem~\zcref{eq:single} is
+which is the subproblem of the single-objective FISTA (\zcref{alg:acc_pgm}).
+The distinctive feature of our proposal~\zcref{eq:acc_pgm_subprob} is the term~$f_i(y) - f_i(x)$, whereas the easy analogy from the single-objective subproblem~\zcref{eq:single_fista_subprob} is
 \begin{equation}
-    \min_{z \in \setR^n} \quad \max_{i = 1, \dots, m} \left[ \innerp{\nabla f_i(y)}{z - y} + g_i(z) \right] + \frac{\ell}{2} \norm{z - y}^2
+    \min_{z \in \setR^n} \quad \max_{i = 1, \dots, m} \left[ \innerp{\nabla f_i(y)}{z - y} + g_i(z) \right] + \frac{1}{2 \alpha} \norm{z - y}_2^2
 .\end{equation} 
 By putting such a term, the inside of the~$\max$ operator approximates~$F_i(z) - F_i(x)$ rather than~$F_i(z) - F_i(y)$.
-This is a negligible difference in the single-objective case, but deeply affects the proof in the multi-objective case.
+This is a negligible difference in the single-objective case but profoundly affects the proof in the multi-objective case.
 
-Since~$g_i$ is convex for all~$i = 1, \dots, m$, $z \mapsto \varphi^\acc_\ell(z; x, y)$ is strongly convex.
-Thus, the subproblem~\zcref{eq:acc prox subprob} has a unique optimal solution~$p^\acc_\ell(x, y)$ and takes the optimal function value~$\theta^\acc_\ell(x, y)$, i.e.,
-\begin{equation} \label{eq:p theta acc}
-    p^\acc_\ell(x, y) \coloneqq \argmin_{z \in \setR^n} \varphi^\acc_\ell(z; x, y) \eqand \theta^\acc_\ell(x, y) \coloneqq \min_{z \in \setR^n} \varphi^\acc_\ell(z; x, y)
+Since~$g_i$ is convex for all~$i = 1, \dots, m$, $z \mapsto \varphi^\acc_\alpha(z; x, y)$ is strongly convex.
+Thus, the subproblem~\zcref{eq:acc_pgm_subprob} has a unique optimal solution~$p^\acc_\alpha(x, y)$ and takes the optimal function value~$\theta^\acc_\alpha(x, y)$, i.e.,
+\begin{equation} \label{eq:acc_pgm_optimal_function}
+    p^\acc_\alpha(x, y) \coloneqq \argmin_{z \in \setR^n} \varphi^\acc_\alpha(z; x, y) \eqand \theta^\acc_\alpha(x, y) \coloneqq \min_{z \in \setR^n} \varphi^\acc_\alpha(z; x, y)
 .\end{equation}
-Moreover, the optimality condition of~\zcref{eq:acc prox subprob} implies that for all $x \in \dom F$ and~$y \in \setR^n$ there exists~$\eta(x, y) \in \partial g(p^\acc_\ell(x, y))$ and a Lagrange multiplier~$\lambda(x, y) \in \setR^m$ such that
-\begin{subequations} \label{eq:kkt}
-    \begin{gather} 
-        \sum_{i = 1}^m \lambda_i(x, y) \left[ \nabla f_i(y) + \eta_i(x, y) \right] = - \ell \left[ p^\acc_\ell(x, y) - y \right] \label{eq:optimal} \\
-        \lambda(x, y) \in \Delta^m, \quad \lambda_j(x, y) = 0 \forallcondition{j \notin \mathcal{I}(x, y)} \label{eq:lambda}
-    ,\end{gather}
-\end{subequations}
-where~$\Delta^m$ denotes the standard simplex~\zcref{eq:simplex} and
-\begin{equation} \label{eq:I}
-    \mathcal{I}(x, y) \coloneqq \argmax_{i = 1, \dots, m} \left[ \innerp{\nabla f_i(y)}{p^\acc_\ell(x, y) - y} + g_i(p^\acc_\ell(x, y)) + f_i(y) - F_i(x) \right]
+Moreover, the optimality condition of~\zcref{eq:acc_pgm_subprob} implies
+\begin{equation}
+    \frac{1}{\alpha} [ y - p^\acc_\alpha(x, y) ] \in \conv_{i \in \mathcal{I}_\alpha(x, y)} [ \nabla f_i(y) + \partial g_i(p^\acc_\alpha(x, y)) ] \forallcondition{x, y \in \setR^n}
+\end{equation}
+with
+\begin{equation} \label{eq:acc_pgm_active}
+    \mathcal{I}_\alpha(x, y) \coloneqq \argmax_{i = 1, \dots, m} [ \innerp{\nabla f_i(y)}{p^\acc_\alpha(x, y) - y} + g_i(p^\acc_\alpha(x, y)) + f_i(y) - F_i(x) ]
 .\end{equation}
-Now, we introduce a relation useful for the subsequent analysis.
-\begin{lemma} \zlabel{thm:useful relation}
-    Let~$p^\acc_\ell$ and~$\theta^\acc_\ell$ be defined by~\zcref{eq:p theta acc}.
-    Then, we have
-    \begin{align}
-        \MoveEqLeft - \frac{\ell}{2} \left[ \norm{p^\acc_\ell(x, y) - z}^2 - \norm{y - z}^2 \right] \\
-        &\ge \theta^\acc_\ell(x, y) + \sum_{i = 1}^{m} \lambda_i(x, y) \left[ \innerp{\nabla f_i(y)}{y - z} - g_i(z) - f_i(y) + F_i(x) \right] 
-    \end{align}
-    for all~$x, z \in \dom F$ and~$y \in \setR^n$.
-\end{lemma}
-\begin{proof}
-    Let~$x, z \in \dom F$ and~$y \in \setR^n$.
-    From~\zcref{eq:optimal} and the definition~\zcref{eq:subgrad} of the subgradient, we get
-    \begin{align}
-        \MoveEqLeft - \ell \innerp{p^\acc_\ell(x, y) - y}{p^\acc_\ell(x, y) - z} \\
-        \ge{}& \sum_{i = 1}^{m} \lambda_i(x, y) \left[ \innerp{\nabla f_i(y)}{p^\acc_\ell(x, y) - z} + g_i(p^\acc_\ell(x, y)) - g_i(z) \right] \\
-        ={}& \sum_{i = 1}^{m} \lambda_i(x, y) \left[ \innerp{\nabla f_i(y)}{p^\acc_\ell(x, y) - y} + g_i(p^\acc_\ell(x, y)) + f_i(y) - F_i(x) \right] \\
-         &+ \sum_{i = 1}^{m} \lambda_i(x, y) \left[ \innerp{\nabla f_i(y)}{y - z} - g_i(z) - f_i(y) + F_i(x) \right] \\
-        ={}& \max_{i = 1, \dots, m} \left[ \innerp{\nabla f_i(y)}{p^\acc_\ell(x, y) - y} + g_i(p^\acc_\ell(x, y)) + f_i(y) - F_i(x) \right] \\
-         &+ \sum_{i = 1}^{m} \lambda_i(x, y) \left[ \innerp{\nabla f_i(y)}{y - z} - g_i(z) - f_i(y) + F_i(x) \right]
-    ,\end{align}
-    where the second equality comes from~\zcref{eq:lambda,eq:I}.
-    Adding~$(\ell / 2) \norm{p^\acc_\ell(x, y) - y}^2$ to both sides and the definition~\zcref{eq:p theta acc} of~$p^\acc_\ell$ and~$\theta^\acc_\ell$ lead to
-    \begin{align}
-        \MoveEqLeft - \frac{\ell}{2} \left[ 2 \innerp{p^\acc_\ell(x, y) - y}{p^\acc_\ell(x, y) - z} - \norm{p^\acc_\ell(x, y) - y}^2 \right] \\
-        &\ge \theta^\acc_\ell(x, y) + \sum_{i = 1}^{m} \lambda_i(x, y) \left[ \innerp{\nabla f_i(y)}{y - z} - g_i(z) - f_i(y) + F_i(x) \right]
-    .\end{align}
-    The left-hand side of this inequality is equal to
-    \begin{equation}
-        - \frac{\ell}{2} \left[ 2 \innerp{p^\acc_\ell(x, y) - y}{y - z} + \norm{p^\acc_\ell(x, y) - y}^2 \right]
-    .\end{equation}
-    Hence, applying~\zcref{eq:Pythagoras} with~$(a, b, c) \coloneqq (y, z, p^\acc_\ell(x, y))$, we get the desired inequality.
-\end{proof}
-We also note that by taking~$z = y$ in the objective function of~\zcref{eq:acc prox subprob}, we have
-\begin{equation} \label{eq:acc prox subprob optimality}
-    \theta^\acc_\ell(x, y) \le \varphi^\acc_\ell(y; x, y) = \max_{i = 1, \dots, m}\left\{ F_i(y) - F_i(x) \right\}
+Hence, for any~$x, y, z \in \setR^n$, there exists~$\lambda(x, y) \in \simplex^m$ such that~$\lambda_j(x, y) = 0$ for~$j \notin \mathcal{I}_\alpha(x, y)$ and
+\begin{multline} \label{eq:acc_pgm_opt}
+    \frac{1}{\alpha} \innerp{y - p^\acc_\alpha(x, y)}{z - p^\acc_\ell(x, y)} \\
+    \le \sum_{i = 1}^{m} \lambda_i(x, y) [\innerp{\nabla f_i(y)}{z - p^\acc_\alpha(x, y)} + g_i(z) - g_i(p^\acc_\alpha(x, y))]
+,\end{multline}
+where~$\simplex^m$ denotes the unit $m$-simplex~\zcref{eq:simplex}.
+We also note that by taking~$z = y$ in the objective function of~\zcref{eq:acc_pgm_subprob}, we have
+\begin{equation} \label{eq:acc_pgm_opt_triv}
+    \theta^\acc_\alpha(x, y) \le \varphi^\acc_\alpha(y; x, y) = \max_{i = 1, \dots, m}\left[ F_i(y) - F_i(x) \right]
 \end{equation}
-for all~$x \in \dom F$ and~$y \in \setR^n$.
-Moreover, from \zcref{thm:nondecreasing,thm:descent}, and the fact that~$\ell \ge L$, it follows that
-\begin{equation} \label{eq:acc approx ineq}
-    \theta^\acc_\ell(x, y) \ge \max_{i = 1, \dots, m}\left\{ F_i(p^\acc_\ell(x, y)) - F_i(x) \right\}
-\end{equation}
-for all~$x \in \dom F$ and~$y \in \setR^n$.
-We now characterize weak Pareto optimality in terms of the mappings~$p^\acc_\ell$ and $\theta^\acc_\ell$, similarly to \zcref{thm:pgm_stop} for the proximal gradient method.
+for all~$x \in \dom(F)$ and~$y \in \setR^n$.
+We now characterize weak Pareto optimality in terms of the mappings~$p^\acc_\alpha$ and $\theta^\acc_\alpha$, similarly to \zcref{thm:pgm_stop} for the proximal gradient method.
 \begin{proposition} \zlabel{thm:acc_pgm_stop}
-    Let~$p^\acc_\ell(x, y)$ and~$\theta^\acc_\ell(x, y)$ be defined by~\zcref{eq:p theta acc}.
+    Let~$p^\acc_\alpha(x, y)$ and~$\theta^\acc_\alpha(x, y)$ be defined by~\zcref{eq:acc_pgm_optimal_function}.
     Then, the statements below hold.
     \begin{enumerate}
         \item The following three conditions are equivalent: 
             \begin{enumerate}
-                \item $y \in \setR^n$ is weakly Pareto optimal for~\zcref{eq:MOO};
-                \item $p^\acc_\ell(x, y) = y$ for some~$x \in \setR^n$;
-                \item $\theta^\acc_\ell(x, y) = \max_{i = 1, \dots, m} [ F_i(y) - F_i(x) ]$ for some~$x \in \setR^n$.
-            \end{enumerate}\zlabel{enum: acc prox optimality}
-%            (a) $y \in \setR^n$ is weakly Pareto optimal for~\zcref{eq:MOO}, (b) $p^\acc_\ell(x, y) = y$ for some~$x \in \setR^n$, and (c) $\theta^\acc_\ell(x, y) = \max_{i = 1, \dots, m}\left\{ F_i(y) - F_i(x) \right\}$ for some~$x \in \setR^n$. \zlabel{enum: acc prox optimality}
-%        \item If~$\theta^\acc_\ell(x, y) = \max_{i = 1, \dots, m}\left\{ F_i(p^\acc_\ell(x, y)) - F_i(x) \right\}$ for some~$x, y \in \setR^n$, then~$p^\acc_\ell(x, y)$ is weakly Pareto optimal for~\zcref{eq:MOO}. \zlabel{enum: acc termination}
-%        \item The mappings~$p^\acc_\ell$ and~$\theta^\acc_\ell$ are both continuous. \zlabel{enum: continuity}
-        \item The mappings~$p^\acc_\ell$ and~$\theta^\acc_\ell$ are locally H\"{o}lder continuous with exponent~$1 / 2$ and locally Lipschitz continuous, respectively, i.e., for any bounded set~$W \subseteq \setR^n$, there exists~$M_p > 0$ and~$M_\theta > 0$ such that
-            \begin{align}
-                \norm{p^\acc_\ell(\hat{x}, \hat{y}) - p^\acc_\ell(\check{x}, \check{y})} &\le M_p \norm{(\hat{x}, \hat{y}) - (\check{x}, \check{y})}^{1 / 2}, \\
-                \abs{\theta^\acc_\ell(\hat{x}, \hat{y}) - \theta^\acc_\ell(\check{x}, \check{y})} &\le  M_\theta \norm{(\hat{x}, \hat{y}) - (\check{x}, \check{y})}
-            \end{align}
-            for all~$\hat{x}, \hat{y}, \check{x}, \check{y} \in W$. \zlabel{enum: continuity}
+                \item $y \in \setR^n$ is weakly Pareto optimal for~\zcref{eq:MOO}; \zlabel{thm:acc_pgm_stop:equivalence:Pareto}
+                \item $p^\acc_\alpha(x, y) = y$ for some~$x \in \setR^n$; \zlabel{thm:acc_pgm_stop:equivalence:sol}
+                \item $\theta^\acc_\alpha(x, y) = \max_{i = 1, \dots, m} [ F_i(y) - F_i(x) ]$ for some~$x \in \setR^n$. \zlabel{thm:acc_pgm_stop:equivalence:fun}
+            \end{enumerate}\zlabel{thm:acc_pgm_stop:equivalence}
+        \item The mappings~$p^\acc_\alpha$ and~$\theta^\acc_\alpha$ are continuous.
+            Particularly, if~$\nabla f_i$ is locally Lipschitz continuous,~$p^\acc_\alpha$ and~$\theta^\acc_\alpha$ are locally H\"older continuous with exponent~$1 / 2$ and locally Lipschitz continuous, respectively. \zlabel{thm:acc_pgm_stop:cont}
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    \zcref{enum: acc prox optimality}: From~\zcref{eq:acc prox subprob optimality} and the fact that~$\theta^\acc_\ell(x, y) = \varphi^\acc_\ell(p^\acc_\ell(x, y); x, y)$, the equivalence between~(b) and~(c) is apparent.
-    Now, let us show that~(a) and~(b) are equivalent.
-    When~$y$ is weakly Pareto optimal, we can immediately see from \zcref{thm:pgm_stop} that~$p^\acc_\ell(x, y) = p_\ell(y) = y$ by letting~$x = y$.
-    Conversely, suppose that~$p^\acc_\ell(x, y) = y$ for some~$x \in \setR^n$.
-    Let~$z \in \setR^n$ and~$\alpha \in (0, 1)$.
-    The optimality of~$p^\acc_\ell(x, y) = y$ for~\zcref{eq:acc prox subprob} gives
+    \zcref[S]{thm:acc_pgm_stop:equivalence}: From~\zcref{eq:acc_pgm_opt_triv} and the fact that~$\theta^\acc_\alpha(x, y) = \varphi^\acc_\alpha(p^\acc_\alpha(x, y); x, y)$, the equivalence between~\zcref[noname]{thm:acc_pgm_stop:equivalence:sol,thm:acc_pgm_stop:equivalence:fun} is apparent.
+    Let us show that~\zcref[noname]{thm:acc_pgm_stop:equivalence:Pareto,thm:acc_pgm_stop:equivalence:sol} are equivalent.
+    When~$y$ is weakly Pareto optimal, we can immediately see from \zcref{thm:pgm_stop} that~$p^\acc_\alpha(x, y) = p_\alpha(y) = y$ by letting~$x = y$.
+    Conversely, suppose that~$p^\acc_\alpha(x, y) = y$ for some~$x \in \setR^n$.
+    Let~$z \in \setR^n$ and~$\beta \in (0, 1)$.
+    The optimality of~$p^\acc_\alpha(x, y) = y$ for~\zcref{eq:acc_pgm_subprob} gives
     \begin{multline}
-        \max_{i = 1, \dots, m} \left\{ F_i(y) - F_i(x) \right\} \le \varphi^\acc_\ell(y + \alpha (z - y); x, y) \\
-        = \max_{i = 1, \dots, m} \left\{ \innerp*{\nabla f_i(y)}{\alpha (z - y)} + g_i(y + \alpha (z - y)) + f_i(y) - F_i(x) \right\} \\
-        + \frac{\ell}{2} \norm*{\alpha (z - y)}^2
+        \max_{i = 1, \dots, m} [ F_i(y) - F_i(x) ] \le \varphi^\acc_\alpha(y + \beta (z - y); x, y) \\
+        = \max_{i = 1, \dots, m} [ \innerp{\nabla f_i(y)}{\beta (z - y)} + g_i(y + \beta (z - y)) + f_i(y) - F_i(x) ] \\
+        + \frac{1}{2 \alpha} \norm*{\beta (z - y)}_2^2
     .\end{multline}
     Thus, from the convexity of~$f_i$, we get
     \begin{equation}
-            \max_{i = 1, \dots, m}\left\{ F_i(y) - F_i(x) \right\} \le \max_{i = 1, \dots, m}\left\{ F_i(y + \alpha (z - y)) - F_i(x) \right\} + \frac{\ell}{2} \norm*{\alpha (z - y)}^2
+            \max_{i = 1, \dots, m}[ F_i(y) - F_i(x) ] \le \max_{i = 1, \dots, m}[ F_i(y + \beta (z - y)) - F_i(x) ] + \frac{1}{2 \alpha} \norm*{\beta (z - y)}_2^2
     .\end{equation}
     Moreover, the convexity of~$F_i$ yields
     \begin{multline}
-        \max_{i = 1, \dots, m}\left\{ F_i(y) - F_i(x) \right\} \\
+        \max_{i = 1, \dots, m}[ F_i(y) - F_i(x) ] \\
         \begin{split}
-        &\le \max_{i = 1, \dots, m}\left\{  \alpha F_i(z) + (1 - \alpha) F_i(y) - F_i(x)  \right\} + \frac{\ell}{2} \norm*{\alpha (z - y) }^2 \\
-        &\le \alpha \max_{i = 1, \dots, m}\left\{  F_i(z) - F_i(y) \right\} + \max_{i = 1, \dots, m}\left\{ F_i(y) - F_i(x)  \right\} + \frac{\ell}{2} \norm*{\alpha (z - y) }^2
+        &\le \max_{i = 1, \dots, m}[ \beta F_i(z) + (1 - \beta) F_i(y) - F_i(x) ] + \frac{1}{2 \alpha} \norm*{\beta (z - y) }_2^2 \\
+        &\le \beta \max_{i = 1, \dots, m}[  F_i(z) - F_i(y) ] + \max_{i = 1, \dots, m}[ F_i(y) - F_i(x) ] + \frac{1}{2 \alpha} \norm*{\beta (z - y) }_2^2
         .\end{split}
     \end{multline}
     Therefore, we get
     \begin{equation}
-        \max_{i = 1, \dots, m}\left\{  F_i(z) - F_i(y)  \right\} \ge - \frac{\ell \alpha}{2} \norm*{z - y }^2
+        \max_{i = 1, \dots, m}[  F_i(z) - F_i(y)  ] \ge - \frac{\beta}{2 \alpha} \norm*{z - y }_2^2
     .\end{equation}
-    Taking~$\alpha \searrow 0$, we obtain
+    Taking~$\beta \searrow 0$, we obtain
     \begin{equation}
-        \max_{i = 1, \dots, m}\left\{  F_i(z) - F_i(y)  \right\} \ge 0
+        \max_{i = 1, \dots, m}[  F_i(z) - F_i(y)  ] \ge 0
     ,\end{equation}
     which implies the weak Pareto optimality of~$y$.
 
-    \zcref{enum: continuity}:
-    Take~$\hat{x}, \hat{y}, \check{x}, \check{y} \in W$.
-    Adding the two inequalities of~\zcref{thm:useful relation} with~$(x, y, z) \coloneqq (\hat{x}, \hat{y}, p^\acc_\ell(\check{x}, \check{y})), (\check{x}, \check{y}, p^\acc_\ell(\hat{x}, \hat{y}))$ gives
+    \zcref[S]{thm:acc_pgm_stop:cont}:
+    Let~$\Omega$ be a bounded subset of~$\setR^n$ and take~$\hat{x}, \hat{y}, \check{x}, \check{y} \in \Omega$.
+    Adding~\zcref{eq:acc_pgm_opt} with~$(x, y, z) \coloneqq (\hat{x}, \hat{y}, p^\acc_\alpha(\check{x}, \check{y})), (\check{x}, \check{y}, p^\acc_\alpha(\hat{x}, \hat{y}))$ gives
     \begin{align}
-        \MoveEqLeft - \ell \norm{p^\acc_\ell(\hat{x}, \hat{y}) - p^\acc_\ell(\check{x}, \check{y})}^2 + \frac{\ell}{2} \norm{p^\acc_\ell(\check{x}, \check{y}) - \hat{y}}^2 + \frac{\ell}{2} \norm{p^\acc_\ell(\hat{x}, \hat{y}) - \check{y}}^2 \\
-        \ge{}& \theta^\acc_\ell(\hat{x}, \hat{y}) + \theta^\acc_\ell(\check{x}, \check{y}) \\
-           &+ \sum_{i = 1}^{m} \lambda_i(\hat{x}, \hat{y}) \left[ \innerp{\nabla f_i(\hat{y})}{\hat{y} - p^\acc_\ell(\check{x}, \check{y})} - g_i(p^\acc_\ell(\check{x}, \check{y})) - f_i(\hat{y}) + F_i(\hat{x}) \right] \\
-           &+ \sum_{i = 1}^{m} \lambda_i(\check{x}, \check{y}) \left[ \innerp{\nabla f_i(\check{y})}{\check{y} - p^\acc_\ell(\hat{x}, \hat{y})} - g_i(p^\acc_\ell(\hat{x}, \hat{y})) - f_i(\check{y}) + F_i(\check{x}) \right]  
+        \MoveEqLeft \frac{1}{\alpha} \innerp{p^\acc_\alpha(\hat{x}, \hat{y}) - p^\acc_\alpha(\check{x}, \check{y}) - (\hat{y} - \check{y})}{p^\acc_\alpha(\hat{x}, \hat{y}) - p^\acc_\alpha(\check{x}, \check{y})} \\
+        \le{}& \sum_{i = 1}^{m} \lambda_i(\hat{x}, \hat{y}) [\innerp{\nabla f_i(\hat{y})}{p^\acc_\alpha(\check{x}, \check{y}) - p^\acc_\alpha(\hat{x}, \hat{y})} + g_i(p^\acc_\alpha(\check{x}, \check{y})) - g_i(p^\acc_\alpha(\hat{x}, \hat{y}))] \\
+             &+ \sum_{i = 1}^{m} \lambda_i(\check{x}, \check{y}) [\innerp{\nabla f_i(\check{y})}{p^\acc_\alpha(\hat{x}, \hat{y}) - p^\acc_\alpha(\check{x}, \check{y})} + g_i(p^\acc_\alpha(\hat{x}, \hat{y})) - g_i(p^\acc_\alpha(\check{x}, \check{y}))] \\
+        \le{}& \sum_{i = 1}^{m} \lambda_i(\hat{x}, \hat{y}) [\innerp{\nabla f_i(\hat{y})}{\hat{y} - p^\acc_\alpha(\hat{x}, \hat{y})} - g_i(p^\acc_\alpha(\hat{x}, \hat{y})) - f_i(\hat{y}) + F_i(\hat{x})] \\ 
+                &+ \sum_{i = 1}^{m} \lambda_i(\check{x}, \check{y}) [\innerp{\nabla f_i(\check{y})}{\check{y} - p^\acc_\alpha(\check{x}, \check{y})} - g_i(p^\acc_\alpha(\check{x}, \check{y})) - f_i(\check{y}) + F_i(\check{x})] \\
+                &+ \sum_{i = 1}^{m} \lambda_i(\hat{x}, \hat{y}) [\innerp{\nabla f_i(\hat{y})}{p^\acc_\alpha(\check{x}, \check{y}) - \hat{y}} + g_i(p^\acc_\alpha(\check{x}, \check{y})) + f_i(\hat{y}) - F_i(\hat{x})] \\
+                &+ \sum_{i = 1}^{m} \lambda_i(\check{x}, \check{y}) [\innerp{\nabla f_i(\check{y})}{p^\acc_\alpha(\hat{x}, \hat{y}) - \check{y}} + g_i(p^\acc_\alpha(\hat{x}, \hat{y})) + f_i(\check{y}) - F_i(\check{x})]
     .\end{align}
-    From the definition~\zcref{eq:p theta acc} of~$p^\acc_\ell$ and~$\theta^\acc_\ell$ and~\zcref{eq:lambda}, we have
+    Since~$\lambda_j(x, y)$ for~$j \in \mathcal{I}_\alpha(x)$ with~$\mathcal{I}_\alpha$ given by~\zcref{eq:acc_pgm_active}, we get
     \begin{align}
-        \MoveEqLeft - \ell \norm*{p^\acc_\ell(\hat{x}, \hat{y}) - p^\acc_\ell(\check{x}, \check{y})}^2 \\
-        \ge{}& \sum_{i = 1}^{m} \lambda_i(\check{x}, \check{y}) \left[ \innerp{\nabla f_i(\hat{y})}{p^\acc_\ell(\hat{x}, \hat{y}) - \hat{y}} + g_i(p^\acc_\ell(\hat{x}, \hat{y})) + f_i(\hat{y}) - F_i(\hat{x}) \right] \\ 
-             &+ \sum_{i = 1}^{m} \lambda_i(\hat{x}, \hat{y}) \left[ \innerp{\nabla f_i(\check{y})}{p^\acc_\ell(\check{x}, \check{y}) - \check{y}} + g_i(p^\acc_\ell(\check{x}, \check{y})) + f_i(\check{y}) - F_i(\check{x}) \right] \\
-             &+ \sum_{i = 1}^{m} \lambda_i(\hat{x}, \hat{y}) \left[ \innerp{\nabla f_i(\hat{y})}{\hat{y} - p^\acc_\ell(\check{x}, \check{y})} - g_i(p^\acc_\ell(\check{x}, \check{y})) - f_i(\hat{y}) + F_i(\hat{x}) \right] \\
-             &+ \sum_{i = 1}^{m} \lambda_i(\check{x}, \check{y}) \left[ \innerp{\nabla f_i(\check{y})}{\check{y} - p^\acc_\ell(\hat{x}, \hat{y})} - g_i(p^\acc_\ell(\hat{x}, \hat{y})) - f_i(\check{y}) + F_i(\check{x}) \right] \\
-             &- \frac{\ell}{2} 
-             \begin{multlined}[t]
-                 \Big[  \norm{p^\acc_\ell(\hat{x}, \hat{y}) - \check{y}}^2 - \norm{p^\acc_\ell(\hat{x}, \hat{y}) - \hat{y}}^2 \\
-                  + \norm{p^\acc_\ell(\check{x}, \check{y}) - \hat{y}}^2 - \norm{p^\acc_\ell(\check{x}, \check{y}) - \check{y}}^2 \Big]
-             \end{multlined} \\
-        ={} & \sum_{i = 1}^{m} \lambda_i(\hat{x}, \hat{y})
-        \begin{multlined}[t]
-            [ \innerp{\nabla f_i(\hat{y})}{\hat{y}- \check{y}} + \innerp{\nabla f_i(\hat{y}) - \nabla f_i(\check{y})}{\check{y} - p^\acc_\ell(\check{x}, \check{y})} \\
-            - f_i(\hat{y}) + f_i(\check{y}) + F_i(\hat{x}) - F_i(\check{x}) ] 
-        \end{multlined} \\
-        &+ \sum_{i = 1}^{m} \lambda_i(\check{x}, \check{y})
-        \begin{multlined}[t]
-            [ \innerp{\nabla f_i(\check{y})}{\check{y}- \hat{y}} + \innerp{\nabla f_i(\check{y}) - \nabla f_i(\hat{y})}{\hat{y} - p^\acc_\ell(\hat{x}, \hat{y})} \\
-            - f_i(\check{y}) + f_i(\hat{y}) + F_i(\check{x}) - F_i(\hat{x}) ]
-        \end{multlined} \\
-        &- \ell \innerp{p^\acc_\ell(\hat{x}, \hat{y}) - p^\acc_\ell(\check{x}, \check{y})}{\hat{y} - \check{y}}
+        \MoveEqLeft \frac{1}{\alpha} \innerp{p^\acc_\alpha(\hat{x}, \hat{y}) - p^\acc_\alpha(\check{x}, \check{y}) - (\hat{y} - \check{y})}{p^\acc_\alpha(\hat{x}, \hat{y}) - p^\acc_\alpha(\check{x}, \check{y})} \\
+        \le{}& \min_{i = 1, \dots, m} [\innerp{\nabla f_i(\hat{y})}{\hat{y} - p^\acc_\alpha(\hat{x}, \hat{y})} - g_i(p^\acc_\alpha(\hat{x}, \hat{y})) - f_i(\hat{y}) + F_i(\hat{x})] \\ 
+                &+ \min_{i = 1, \dots, m} [\innerp{\nabla f_i(\check{y})}{\check{y} - p^\acc_\alpha(\check{x}, \check{y})} - g_i(p^\acc_\alpha(\check{x}, \check{y})) - f_i(\check{y}) + F_i(\check{x})] \\
+                &+ \sum_{i = 1}^{m} \lambda_i(\hat{x}, \hat{y}) [\innerp{\nabla f_i(\hat{y})}{p^\acc_\alpha(\check{x}, \check{y}) - \hat{y}} + g_i(p^\acc_\alpha(\check{x}, \check{y})) + f_i(\hat{y}) - F_i(\hat{x})] \\
+                &+ \sum_{i = 1}^{m} \lambda_i(\check{x}, \check{y}) [\innerp{\nabla f_i(\check{y})}{p^\acc_\alpha(\hat{x}, \hat{y}) - \check{y}} + g_i(p^\acc_\alpha(\hat{x}, \hat{y})) + f_i(\check{y}) - F_i(\check{x})] \\
+        \le{}& \sum_{i = 1}^{m} \lambda_i(\check{x}, \check{y}) [\innerp{\nabla f_i(\hat{y})}{\hat{y} - p^\acc_\alpha(\hat{x}, \hat{y})} - g_i(p^\acc_\alpha(\hat{x}, \hat{y})) - f_i(\hat{y}) + F_i(\hat{x})] \\ 
+                &+ \sum_{i = 1}^{m} \lambda_i(\hat{x}, \hat{y}) [\innerp{\nabla f_i(\check{y})}{\check{y} - p^\acc_\alpha(\check{x}, \check{y})} - g_i(p^\acc_\alpha(\check{x}, \check{y})) - f_i(\check{y}) + F_i(\check{x})] \\
+                &+ \sum_{i = 1}^{m} \lambda_i(\hat{x}, \hat{y}) [\innerp{\nabla f_i(\hat{y})}{p^\acc_\alpha(\check{x}, \check{y}) - \hat{y}} + g_i(p^\acc_\alpha(\check{x}, \check{y})) + f_i(\hat{y}) - F_i(\hat{x})] \\
+                &+ \sum_{i = 1}^{m} \lambda_i(\check{x}, \check{y}) [\innerp{\nabla f_i(\check{y})}{p^\acc_\alpha(\hat{x}, \hat{y}) - \check{y}} + g_i(p^\acc_\alpha(\hat{x}, \hat{y})) + f_i(\check{y}) - F_i(\check{x})] 
     .\end{align}
-    Thus, \zcref{eq:lambda} and Cauchy-Schwarz inequalities applied in each inner product that appears in the right-hand side of the above expression imply
+    Thus, quick calculations imply
     \begin{align}
-        \MoveEqLeft - \ell \norm*{p^\acc_\ell(\hat{x}, \hat{y}) - p^\acc_\ell(\check{x}, \check{y})}^2 \\
-        \ge{} & - 2 \max_{i = 1, \dots, m} \norm{\nabla f_i(\hat{y})} \norm{\hat{y} - \check{y}} \\
-              &- \Big[ \norm{\hat{y} - p^\acc_\ell(\hat{x}, \hat{y})} + \norm{\check{y} - p^\acc_\ell(\check{x}, \check{y})} \Big] \max_{i = 1, \dots, m} \norm{\nabla f_i(\hat{y}) - \nabla f_i(\check{y})} \\
-              &- 2 \max_{i = 1, \dots, m} \abs{f_i(\hat{y}) - f_i(\check{y})} - 2 \max_{i = 1, \dots, m} \abs{F_i(\hat{x}) - F_i(\check{x})} \\
-              &- \ell \norm{p^\acc_\ell(\hat{x}, \hat{y}) - p^\acc_\ell(\check{x}, \check{y})} \norm{\hat{y} - \check{y}}
+    \MoveEqLeft \frac{1}{\alpha} \norm*{p^\acc_\alpha(\hat{x}, \hat{y}) - p^\acc_\alpha(\check{x}, \check{y})}_2^2 \le \frac{1}{\alpha} \innerp*{p^\acc_\alpha(\hat{x}, \hat{y}) - p^\acc_\alpha(\check{x}, \check{y})}{\hat{y} - \check{y}} \\
+    \le{}& \sum_{i = 1}^{m} \lambda_i(\hat{x}, \hat{y}) [\innerp{\nabla f_i(\hat{y}) - \nabla f_i(\check{y})}{p^\acc_\alpha(\check{x}, \check{y})} + f_i(\hat{y}) - f_i(\check{y}) - (F_i(\hat{x}) - F_i(\check{x}))] \\
+         &+ \sum_{i = 1}^{m} \lambda_i(\check{x}, \check{y}) [\innerp{\nabla f_i(\check{y}) - \nabla f_i(\hat{y})}{p^\acc_\alpha(\hat{x}, \hat{y})} + f_i(\check{y}) - f_i(\hat{x}) - (F_i(\check{x}) - F_i(\hat{x}))] \\
+         &+ \sum_{i = 1}^{m} \left[ \lambda_i(\check{x}, \check{y}) - \lambda_i(\hat{x}, \hat{y}) \right] \left[ \innerp{\nabla f_i(\hat{y}) - \nabla f_i(\check{y})}{\hat{y}} + \innerp{\nabla f_i(\check{y})}{\hat{y} - \check{y}}\right] 
     .\end{align}
-    Let us now show that each term of the right-hand side of the above inequality is bounded by a positive constant multiple of~$- \norm{\hat{x} - \check{x}}$ or~$- \norm{\hat{y} - \check{y}}$.
-    The first term is direct because the boundedness of~$W$ implies~$\max_{i = 1, \dots, m} \norm{\nabla f_i(\hat{y})} < + \infty$.
-    Since~$W$ is bounded and the objective function of~\zcref{eq:acc prox subprob} is strongly convex,~$p^\acc_\ell(x, y)$ also belongs to some bounded set for all~$x, y \in W$, thus~$\norm{\hat{y} - p^\acc_\ell(\hat{x}, \hat{y})} < + \infty$ and~$\norm{\check{y} - p^\acc_\ell(\check{x}, \check{y})} < + \infty$.
-    Thus, the Lipschitz continuity of~$\nabla f_i$ shows such a boundedness of the second term.
-    Moreover, the locally Lipschitz continuity of~$f_i$ and~$F_i$ derived by the continuous differentiability of~$f_i$ and convexity~$F_i$ lead to the similar property for the third and fourth terms.
-    Hence, $p^\acc_\ell$ is H\"{o}lder continuous with exponent~$1 / 2$ on~$W$.
+    When~$(\hat{x}, \hat{y}) \to (\check{x}, \check{y})$, the right-hand side tends to zero, so~$p^\acc_\alpha$ and~$\theta^\acc_\alpha$ are continuous.
+    Moreover, assume that~$\nabla f_i$ is locally Lipschitz continuous for~$i = 1, \dots, m$.
+    Since~$f_i, g_i, F_i$ are also locally Lipschitz, the above inequality shows that~$p^\acc_\alpha$ is locally H\"older continuous with exponent~$1 / 2$.
 
-    On the other hand, the definition~\zcref{eq:p theta acc} of~$p^\acc_\ell$ and~$\theta^\acc_\ell$ gives
+    On the other hand, the definition~\zcref{eq:acc_pgm_optimal_function} of~$p^\acc_\alpha$ and~$\theta^\acc_\alpha$ gives
     \begin{align}
-        \MoveEqLeft \theta^\acc_\ell(\hat{x}, \hat{y}) - \theta^\acc_\ell(\check{x}, \check{y}) \le \varphi^\acc_\ell(p^\acc_\ell(\check{x}, \check{y}); \hat{x}, \hat{y}) - \varphi^\acc_\ell(p^\acc_\ell(\check{x}, \check{y}); \check{x}, \check{y})  \\
-        ={} & \max_{i = 1, \dots, m} [\innerp{\nabla f_i(\hat{y})}{p^\acc_\ell(\check{x}, \check{y}) - \hat{y}} + g_i(p^\acc_\ell(\check{x}, \check{y})) + f_i(\hat{y}) - F_i(\hat{x})] \\
-            &- \max_{i = 1, \dots, m} [\innerp{\nabla f_i(\check{y})}{p^\acc_\ell(\check{x}, \check{y}) - \check{y}} + g_i(p^\acc_\ell(\check{x}, \check{y})) + f_i(\check{y}) - F_i(\check{x})] \\
-           &+ \frac{\ell}{2} \Big[ \norm{p^\acc_\ell(\check{x}, \check{y}) - \hat{y}}^2 - \norm{p^\acc_\ell(\check{x}, \check{y}) - \check{y}}^2 \Big] \\
+        \MoveEqLeft \theta^\acc_\alpha(\hat{x}, \hat{y}) - \theta^\acc_\alpha(\check{x}, \check{y}) \le \varphi^\acc_\alpha(p^\acc_\alpha(\check{x}, \check{y}); \hat{x}, \hat{y}) - \varphi^\acc_\alpha(p^\acc_\alpha(\check{x}, \check{y}); \check{x}, \check{y})  \\
+        ={} & \max_{i = 1, \dots, m} [\innerp{\nabla f_i(\hat{y})}{p^\acc_\alpha(\check{x}, \check{y}) - \hat{y}} + g_i(p^\acc_\alpha(\check{x}, \check{y})) + f_i(\hat{y}) - F_i(\hat{x})] \\
+            &- \max_{i = 1, \dots, m} [\innerp{\nabla f_i(\check{y})}{p^\acc_\alpha(\check{x}, \check{y}) - \check{y}} + g_i(p^\acc_\alpha(\check{x}, \check{y})) + f_i(\check{y}) - F_i(\check{x})] \\
+           &+ \frac{1}{2 \alpha} \Big[ \norm{p^\acc_\alpha(\check{x}, \check{y}) - \hat{y}}_2^2 - \norm{p^\acc_\alpha(\check{x}, \check{y}) - \check{y}}_2^2 \Big] \\
        \le{} & \max_{i = 1, \dots, m} 
        \begin{multlined}[t]
-           [ \innerp{\nabla f_i(\check{y})}{\check{y} - \hat{y}} + \innerp{\nabla f_i(\hat{y}) - \nabla f_i(\check{y})}{p^\acc_\ell(\check{x}, \check{y}) - \hat{y}} \\
+           [ \innerp{\nabla f_i(\check{y})}{\check{y} - \hat{y}} + \innerp{\nabla f_i(\hat{y}) - \nabla f_i(\check{y})}{p^\acc_\alpha(\check{x}, \check{y}) - \hat{y}} \\
            + f_i(\hat{y}) - f_i(\check{y}) - F_i(\hat{x}) + F_i(\check{x}) ]
        \end{multlined} \\
-             &+ \frac{\ell}{2} \innerp{2 p^\acc_\ell(\check{x}, \check{y}) - \hat{y} - \check{y}}{\check{y} - \hat{y}} \\
-       \le{} & \max_{i = 1, \dots, m} \norm{\nabla f_i(\check{y})} \norm{\hat{y} - \check{y}} + \norm{\hat{y} - p^\acc_\ell(\check{x}, \check{y})} \max_{i = 1, \dots, m} \norm{\nabla f_i(\hat{y}) - \nabla f_i(\check{y})} \\
+             &+ \frac{1}{2 \alpha} \innerp{2 p^\acc_\alpha(\check{x}, \check{y}) - \hat{y} - \check{y}}{\check{y} - \hat{y}} \\
+       \le{} & \max_{i = 1, \dots, m} \norm{\nabla f_i(\check{y})}_2 \norm{\hat{y} - \check{y}}_2 + \norm{\hat{y} - p^\acc_\alpha(\check{x}, \check{y})}_2 \max_{i = 1, \dots, m} \norm{\nabla f_i(\hat{y}) - \nabla f_i(\check{y})}_2 \\
              &+ \max_{i = 1, \dots, m} \abs{f_i(\hat{y}) - f_i(\check{y})} + \max_{i = 1, \dots, m} \abs{F_i(\hat{x}) - F_i(\check{x})} \\
-             &+ \frac{\ell}{2} \norm{2 p^\acc_\ell(\check{x}, \check{y}) - \hat{y} - \check{y}} \norm{\hat{y} - \check{y}}
+             &+ \frac{1}{2 \alpha} \norm{2 p^\acc_\alpha(\check{x}, \check{y}) - \hat{y} - \check{y}}_2 \norm{\hat{y} - \check{y}}_2
    ,\end{align}
-   where the second inequality follows from the relation
-   \begin{equation}
-       \max_{i = 1, \dots, m} a_i - \max_{i = 1, \dots, m} b_i \le \max_{i = 1, \dots, m} (a_i - b_i) \forallcondition{a, b \in \setR^m}
-   ,\end{equation} and the third inequality comes from~\zcref{eq:lambda} and Cauchy-Schwarz inequalites.
-   Since the above inequality holds even if we interchange~$(\hat{x}, \hat{y})$ and~$(\check{x}, \check{y})$, we can show the Lipschitz continuity of~$\theta^\acc_\ell$ on~$W$ in the same way as in the previous paragraph.
-         %    The objective function of~\zcref{eq:acc prox subprob} is continuous for~$x$, $y$, and~$z$.
-         %    Thus, the optimal value function~$\theta^\acc_\ell$ is also continuous from~\cite[Maximum Theorem]{Berge63}.
-         %    Furthermore, since the optimal set mapping~$p^\acc_\ell$ is unique,~$p^\acc_\ell$ is continuous from~\cite[Corollary 8.1]{Hogan73}.
+   where the second inequality follows from~\zcref{eq:min_diff_ineq}, and the third inequality comes from the Cauchy-Schwarz inequalities.
+   Since the above inequality holds even if we interchange~$(\hat{x}, \hat{y})$ and~$(\check{x}, \check{y})$, we can show the Lipschitz continuity of~$\theta^\acc_\alpha$ on~$\Omega$ in the same way as in the previous paragraph.
      \end{proof}
-     Note that the H\"{o}lder exponent~$1 / 2$ mentioned in \zcref{enum: continuity} is optimal, i.e., for some~$F_i$,~$p^\acc_\ell$ is not H\"{o}lder continuous with exponent~$\alpha > 1 / 2$.
-     In fact, this result was also proved for multi-objective steepest direction in~\cite{Svaiter2018}.
-
-     \zcref{thm:acc_pgm_stop} suggests that we can use~$\norm*{p^\acc_\ell(x, y) - y}_\infty < \varepsilon$ for some~$\varepsilon > 0$ as a stopping criteria.
+     \zcref[S]{thm:acc_pgm_stop} suggests that we can use~$\norm*{p^\acc_\alpha(x, y) - y}_\infty < \varepsilon$ for some~$\varepsilon > 0$ as a stopping criterion.
 Now, we state below the proposed algorithm.
 
 \begin{algorithm}[hbtp]
     \caption{Accelerated proximal gradient method with general stepsizes for~\zcref{eq:MOO}}
     \zlabel{alg:acc_pgm_MO}
     \begin{algorithmic}[1]
-        \Require Set~$x^0 = y^1 \in \dom F, \ell \ge L, \varepsilon > 0, a \in [0, 1), b \in [a^2 / 4, 1 / 4]$.
+        \Require $x^0 = y^1 \in \dom(F), a \in [0, 1), b \in [a^2 / 4, 1 / 4], \varepsilon > 0$.
         \Ensure $x^\ast$: A weakly Pareto optimal point
         \State $k \gets 1$
-        \State $t_1 \gets 1$ \zlabel{line:t ini}
-        \While{$\norm*{p^\acc_\ell(x^{k - 1}, y^k) - y^k}_\infty \ge \varepsilon$}
-        \State $x^k \gets p^\acc_\ell(x^{k - 1}, y^k)$
-        \State $t_{k + 1} \gets \sqrt{t_k^2 - a t_k + b} + 1/2$ \zlabel{line:t rr}
-        \State $\gamma_k \gets (t_k - 1) / t_{k + 1}$ \zlabel{line:gamma}
-        \State $y^{k + 1} \gets x^k + \gamma_k (x^k - x^{k - 1})$ \zlabel{line:y}
+        \State $t_1 \gets 1$ \zlabel{alg:acc_pgm_MO:mom_fac_ini}
+        \Loop
+        \State $x^k \gets p^\acc_\alpha(x^{k - 1}, y^k)$ for some stepsize~$\alpha > 0$
+        \If{$\norm{x^k - y^k}_\infty < \varepsilon$}
+        \State \Return $x^k$
+        \EndIf
+        \State $t_{k + 1} \gets \sqrt{t_k^2 - a t_k + b} + 1/2$ \zlabel{alg:acc_pgm_MO:mom_fac_rr}
+        \State $\gamma_k \gets (t_k - 1) / t_{k + 1}$ \zlabel{alg:acc_pgm_MO:mom_fac2}
+        \State $y^{k + 1} \gets x^k + \gamma_k (x^k - x^{k - 1})$ \zlabel{alg:acc_pgm_MO:seq2}
         \State $k \gets k + 1$
-        \EndWhile
+        \EndLoop
     \end{algorithmic}
 \end{algorithm}
 
-The sequence~$\set{t_k}$ defined in~\zcref{line:t ini,line:t rr} of \zcref{alg:acc_pgm_MO} generalizes the well-known momentum factors in single-objective accelerated methods.
+The sequence~$\set{t_k}$ defined in~\zcref{alg:acc_pgm_MO:mom_fac_ini,alg:acc_pgm_MO:mom_fac_rr} of \zcref{alg:acc_pgm_MO} generalizes the well-known momentum factors in single-objective accelerated methods.
 For example, when~$a = 0$ and~$b = 1 / 4$, they coincide with the one in \zcref{alg:acc_pgm_MO} and the original FISTA~\cite{Nesterov1983,Beck2009} ($t_1 = 1$ and~$t_{k + 1} = (1 + \sqrt{1 + 4 t_k^2}) / 2$).
 Moreover, if~$b = a^2 / 4$, then~$\set{t_k}$ has the general term~$t_k = (1 - a) k / 2 + (1 + a) / 2$, which corresponds to the one used in~\cite{Chambolle2015,Su2016,Attouch2016,Attouch2018}.
-This means that our generalization allows a finer tuning of the algorithm by varying~$a$ and~$b$.
+This means that our generalization allows finer algorithm tuning by varying~$a$ and~$b$.
 We show below some properties of~$\set*{t_k}$ and~$\set*{\gamma_k}$.
-\begin{lemma} \zlabel{thm:t}
-    Let~$\set{t_k}$ and~$\set*{\gamma_k}$ be defined by \zcref{line:t ini,line:t rr,line:gamma} in \zcref{alg:acc_pgm_MO} for arbitrary~$a \in [0, 1)$ and~$b \in [a^2 / 4, 1 / 4]$.
+\begin{lemma} \zlabel{thm:mom_fac}
+    Let~$\set{t_k}$ and~$\set{\gamma_k}$ be defined by \zcref{alg:acc_pgm_MO:mom_fac_ini,alg:acc_pgm_MO:mom_fac_rr,alg:acc_pgm_MO:mom_fac2} in \zcref{alg:acc_pgm_MO} for arbitrary~$a \in [0, 1)$ and~$b \in [a^2 / 4, 1 / 4]$.
     Then, the following inequalities hold for all~$k \ge 1$.
     \begin{enumerate}
-        \item $t_{k + 1} \ge t_k + \dfrac{1 - a}{2}$ and~$t_k \ge \dfrac{1 - a}{2} k + \dfrac{1 + a}{2}$; \zlabel{thm:t:t geq}
-        \item $t_{k + 1} \le t_k + \dfrac{1 - a + \sqrt{4b - a^2}}{2}$ and~$t_k \le \dfrac{1 - a + \sqrt{4b - a^2}}{2} (k - 1) + 1 \le k$; \zlabel{thm:t:t leq}
-        \item $t_k^2 - t_{k + 1}^2 + t_{k + 1} = a t_k - b + \dfrac{1}{4} \ge a t_k$; \zlabel{thm:t:t over-relax geq}
-        \item $0 \le \gamma_k \le \dfrac{k - 1}{k + 1 / 2}$; \zlabel{thm:t:gamma}
-        \item $1 - \gamma_k^2 \ge \dfrac{1}{t_k}$. \zlabel{thm:t:t moment}
+        \item $t_{k + 1} \ge t_k + \dfrac{1 - a}{2}$ and~$t_k \ge \dfrac{1 - a}{2} k + \dfrac{1 + a}{2}$; \zlabel{thm:mom_fac:ge}
+        \item $t_{k + 1} \le t_k + \dfrac{1 - a + \sqrt{4b - a^2}}{2}$ and~$t_k \le \dfrac{1 - a + \sqrt{4b - a^2}}{2} (k - 1) + 1 \le k$; \zlabel{thm:mom_fac:le}
+        \item $t_k^2 - t_{k + 1}^2 + t_{k + 1} = a t_k - b + \dfrac{1}{4} \ge a t_k$; \zlabel{thm:mom_fac:gratio}
+        \item $0 \le \gamma_k \le \dfrac{k - 1}{k + 1 / 2}$; \zlabel{thm:mom_fac:fac2}
+        \item $1 - \gamma_k^2 \ge \dfrac{1}{t_k}$. \zlabel{thm:mom_fac:fac2_le1}
     \end{enumerate}
 \end{lemma}
 \begin{proof}
-    \zcref{thm:t:t geq}:
+    \zcref[S]{thm:mom_fac:ge}:
     From the definition of~$\set{t_k}$, we have
     \begin{equation} \label{eq:t cs} 
         t_{k + 1} = \sqrt{t_k^2 - a t_k + b} + \frac{1}{2}
@@ -274,8 +213,8 @@ We show below some properties of~$\set*{t_k}$ and~$\set*{\gamma_k}$.
         t_k \ge \frac{1 - a}{2} (k - 1) + t_1 = \frac{1 - a}{2} k + \frac{1 + a}{2}
     .\end{equation}
 
-    \zcref{thm:t:t leq}:
-    From~\zcref{eq:t cs} and the relation~$\sqrt{\alpha + \beta} \le \sqrt{\alpha} + \sqrt{\beta}$ with~$\alpha, \beta \ge 0$, we get the first inequality.
+    \zcref[S]{thm:mom_fac:le}:
+    From~\zcref{eq:t cs} and the relation~$\sqrt{\beta_1 + \beta_2} \le \sqrt{\beta_1} + \sqrt{\beta_2}$ with~$\beta_1, \beta_2 \ge 0$, we get the first inequality.
     Using it recursively, it follows that
     \begin{equation}
         t_k \le \frac{1 - a + \sqrt{4 b - a^2}}{2} (k - 1) + t_1 = \frac{1 - a + \sqrt{4 b - a^2}}{2} (k - 1) + 1
@@ -286,7 +225,7 @@ We show below some properties of~$\set*{t_k}$ and~$\set*{\gamma_k}$.
     .\end{equation} 
     Hence, the above two inequalities lead to the desired result.
 
-    \zcref{thm:t:t over-relax geq}:
+    \zcref[S]{thm:mom_fac:gratio}:
     An easy computation shows that
     \begin{equation}
         \begin{split}
@@ -296,13 +235,13 @@ We show below some properties of~$\set*{t_k}$ and~$\set*{\gamma_k}$.
     \end{equation} 
     where the inequality holds since~$b \le 1 / 4$.
 
-    \zcref{thm:t:gamma}:
-    The first inequlity is clear from the definition of~$\gamma_k$ since \zcref{thm:t:t geq} yields~$t_k \ge 1$.
-    Again, the definition of~$\gamma_k$ and \zcref{thm:t:t geq} give
+    \zcref[S]{thm:mom_fac:fac2}:
+    The first inequality is clear from the definition of~$\gamma_k$ since \zcref{thm:mom_fac:ge} yields~$t_k \ge 1$.
+    Again, the definition of~$\gamma_k$ and \zcref{thm:mom_fac:ge} give
     \begin{equation}
         \gamma_k = \frac{t_k - 1}{t_{k + 1}} \le \frac{t_k - 1}{t_k + (1 - a) / 2} = 1 - \frac{3 - a}{2 t_k + 1 - a}
     .\end{equation} 
-    Combining with \zcref{thm:t:t leq}, we get
+    Combining with the \zcref{thm:mom_fac:le}, we get
     \begin{equation} \label{eq:gamma}
         \begin{split}
             \gamma_k &\le 1 - \frac{3 - a}{\left(1 - a + \sqrt{4 b - a^2} \right)(k - 1) + 3 - a} \\
@@ -320,8 +259,8 @@ We show below some properties of~$\set*{t_k}$ and~$\set*{\gamma_k}$.
     .\end{equation}  
     Combining~\zcref{eq:gamma,eq:min a b}, we obtain~$\gamma_k \le (k - 1) / (k + 1 / 2)$.
 
-    \zcref{thm:t:t moment}:
-    \zcref{thm:t:t geq} implies that~$t_{k + 1} > t_k \ge 1$.
+    \zcref[S]{thm:mom_fac:fac2_le1}:
+    \zcref{thm:mom_fac:ge} implies that~$t_{k + 1} > t_k \ge 1$.
     Thus, the definition of~$\gamma_k$ implies that
     \begin{equation}
         1 - \gamma_k^2 = 1 - \left( \frac{t_k - 1}{t_{k + 1}} \right)^2 \ge 1 - \left( \frac{t_k - 1}{t_k} \right)^2
@@ -332,17 +271,15 @@ We show below some properties of~$\set*{t_k}$ and~$\set*{\gamma_k}$.
 We end this section by noting some remarks about the proposed algorithm.
 \begin{remark} \zlabel{rem: acc-pgm}
     \begin{enumerate}
-        \item Since~$x \in \dom F$ implies~$p^\acc_\ell(x, y) \in \dom F$, every~$x^k$ computed by the above algorithm is in~$\dom F$.
-            However,~$y^k$ is not necessarily in~$\dom F$.
-        \item Since $y^1 = x^0$, it follows from~\zcref{eq:acc prox subprob optimality} that
+        \item Since~$x \in \dom(F)$ implies~$p^\acc_\alpha(x, y) \in \dom(F)$, every~$x^k$ computed by the above algorithm is in~$\dom(F)$.
+            However,~$y^k$ is not necessarily in~$\dom(F)$.
+        \item Since $y^1 = x^0$, it follows from~\zcref{eq:acc_pgm_opt_triv} that
             \begin{equation} \label{eq:subprob ineq}
-                \theta^\acc_\ell(x^0, y^1) \le 0
+                \theta^\acc_\alpha(x^0, y^1) \le 0
             ,\end{equation}
-            but the inequality~$\theta^\acc_\ell(x^{k - 1}, y^k) \le 0$ does not necessarily hold for~$k \ge 2$.
-        \item When~$m = 1$, we can remove the term~$f_i(y) - F_i(x)$ from the subproblem~\zcref{eq:acc prox subprob}, so \zcref{alg:acc_pgm_MO} corresponds to the Fast Iterative Shrinkage-Thresholding Algorithm (FISTA)~\cite{Beck2009} for single-objective optimization.
+            but the inequality~$\theta^\acc_\alpha(x^{k - 1}, y^k) \le 0$ does not necessarily hold for~$k \ge 2$.
+        \item When~$m = 1$, we can remove the term~$f_i(y) - F_i(x)$ from the subproblem~\zcref{eq:acc_pgm_subprob}, so \zcref{alg:acc_pgm_MO} corresponds to the Fast Iterative Shrinkage-Thresholding Algorithm (FISTA)~\cite{Beck2009} for single-objective optimization.
         \item \zcref{alg:acc_pgm_MO} induces the accelerated versions of first-order algorithms such as the steepest descent~\cite{Fliege2000}, proximal point~\cite{Bonnel2005}, and projected gradient methods~\cite{Grana-Drummond2004}.
-        \item Even if it is difficult to estimate~$L$, we can update the constant~$\ell$ to satisfy~$F_i(p^\acc_\ell(x^{k - 1}, y^k)) - F_i(x^{k - 1}) \le \theta^\acc_\ell(x^{k - 1}, y^k)$ for all~$i = 1, \dots, m$ in each iteration by a finite number of backtracking steps.
-            Moreover, we can restrict the assumption of~$\nabla f_i$'s Lipschitz continuity on the level set~$\level_F(F(x^0))$ without affecting the analysis in the subsequent sections.
     \end{enumerate}
 \end{remark}
 

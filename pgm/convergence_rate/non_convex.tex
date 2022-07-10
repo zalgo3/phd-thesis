@@ -5,14 +5,14 @@
 We present below the main theorem of this subsection.
 \begin{theorem} \zlabel{thm:pgm_rate_nonconvex}
     Assume that at least one of the functions~$F_1, \dots, F_m$ is bounded from below.
-    Then, under \zcref{asm:pgm_Lipschitz_gradient}, \zcref{alg:pgm_MO} with the stepsize selection rule given by any of \zcref{sec:pgm:algorithm:armijo,sec:pgm:algorithm:sdc,sec:pgm:algorithm:constant} generates a sequence~$\set{x^k}$ such that~$\set{w_1(x^k)}$ is summable, where~$w_1$ is given by~\zcref{eq:reg_lin_gap_MO}.
+    Then, under \zcref{asm:pgm_Lipschitz_gradient}, \zcref{alg:pgm_MO} with the stepsize selection rule given by any of \zcref{sec:pgm:algorithm:armijo,sec:pgm:algorithm:sdc,sec:pgm:algorithm:constant} generates a sequence~$\set*{x^k}$ such that~$\set*{w_1\left(x^k\right)}$ is summable, where~$w_1$ is given by~\zcref{eq:reg_lin_gap_MO}.
     In particular,
     \begin{equation}
-        \liminf_{k \to \infty} (k \log k) w_1(x^k) = 0
+        \liminf_{k \to \infty} (k \log k) w_1\left(x^k\right) = 0
     \end{equation} 
     and
     \begin{equation}
-        \min_{0 \le j \le k - 1} w_1(x^j) = O(1 / k)
+        \min_{0 \le j \le k - 1} w_1\left(x^j\right) = O(1 / k)
     \end{equation} 
     with~$O \colon [0, + \infty) \to \setR$ such that~$\limsup_{t \to \infty} O(t) / t < \infty$.
 \end{theorem}
@@ -30,23 +30,23 @@ Before proving \zcref{thm:pgm_rate_nonconvex}, we first show the existence of a 
     Thus, suppose that~$j_k \ge 1$.
     Since~$j_k$ is the smallest non-negative integer satisfying~\zcref{eq:pgm_armijo_rule}, there exists~$i_k = 1, \dots, m$ such that
     \begin{equation}
-        F_{i_k}(x^k + \xi^{j_k - 1} (z^k - x^k)) > F_{i_k}(x^k) + \rho \xi^{j_k - 1} \left[ \theta_\alpha(x^k) - \frac{1}{2\alpha} \norm{z^k - x^k}_2^2 \right]
+        F_{i_k}(x^k + \xi^{j_k - 1} \left(z^k - x^k\right)) > F_{i_k}\left(x^k\right) + \rho \xi^{j_k - 1} \left[ \theta_\alpha\left(x^k\right) - \frac{1}{2\alpha} \norm*{z^k - x^k}_2^2 \right]
     .\end{equation} 
     On the other hand,~$L_{f_{i_k}}$-Lipschitz continuity of~$\nabla f_{i_k}$ and \zcref{thm:descent} give
     \begin{align}
-        \MoveEqLeft F_{i_k}(x^k + \xi^{j_k - 1} (z^k - x^k)) \le F_{i_k}(x^k) + \innerp*{\nabla f_{i_k}(x^k)}{\xi^{j_k - 1} (z^k - x^k)} \\
-        &+ g_{i_k}(x^k + \xi^{j_k - 1} (z^k - x^k)) - g_{i_k}(x^k) + \frac{L_{f_{i_k}}}{2} \norm*{\xi^{j_k - 1} (z^k - x^k)}_2^2 \\
-        \le{}& F_{i_k}(x^k) + \xi^{j_k - 1} \left[ \innerp*{\nabla f_{i_k}(x^k)}{z^k - x^k} + g_{i_k}(z^k) - g_{i_k}(x^k) \right] + \frac{L_f}{2} \norm{\xi^{j_k - 1} (z^k - x^k)}_2^2 \\
-    \le{}& F_{i_k}(x^k) + \xi^{j_k - 1} \left[ \theta_\alpha(x^k) - \frac{1}{2 \alpha} \norm{z^k - x^k}_2^2 \right] + \frac{L_f \xi^{2 (j_k - 1)}}{2} \norm{z^k - x^k}_2^2
+        \MoveEqLeft F_{i_k}(x^k + \xi^{j_k - 1} \left(z^k - x^k\right)) \le F_{i_k}\left(x^k\right) + \innerp*{\nabla f_{i_k}\left(x^k\right)}{\xi^{j_k - 1} \left(z^k - x^k\right)} \\
+        &+ g_{i_k}(x^k + \xi^{j_k - 1} \left(z^k - x^k\right)) - g_{i_k}\left(x^k\right) + \frac{L_{f_{i_k}}}{2} \norm*{\xi^{j_k - 1} \left(z^k - x^k\right)}_2^2 \\
+        \le{}& F_{i_k}\left(x^k\right) + \xi^{j_k - 1} \left[ \innerp*{\nabla f_{i_k}\left(x^k\right)}{z^k - x^k} + g_{i_k}\left(z^k\right) - g_{i_k}\left(x^k\right) \right] + \frac{L_f}{2} \norm*{\xi^{j_k - 1} \left(z^k - x^k\right)}_2^2 \\
+    \le{}& F_{i_k}\left(x^k\right) + \xi^{j_k - 1} \left[ \theta_\alpha\left(x^k\right) - \frac{1}{2 \alpha} \norm*{z^k - x^k}_2^2 \right] + \frac{L_f \xi^{2 (j_k - 1)}}{2} \norm*{z^k - x^k}_2^2
     ,\end{align}
     where the second inequality comes from the convexity of~$g_{i_k}$ and \zcref{eq:pgm_Lipschitz_constant}, and the third one follows from~\zcref{eq:pgm_optimal_function} and \zcref{alg:pgm_MO:update} of \zcref{alg:pgm_MO}.
     Combining the above two inequalities lead to
     \begin{equation}
-        (1 - \rho) \xi^{j_k - 1} \left[ \theta_\alpha(x^k) - \frac{1}{2 \alpha} \norm{z^k - x^k}_2^2 \right] + \frac{L_f \xi^{2 (j_k - 1)}}{2} \norm{z^k - x^k}_2^2 > 0
+        (1 - \rho) \xi^{j_k - 1} \left[ \theta_\alpha\left(x^k\right) - \frac{1}{2 \alpha} \norm*{z^k - x^k}_2^2 \right] + \frac{L_f \xi^{2 (j_k - 1)}}{2} \norm*{z^k - x^k}_2^2 > 0
     .\end{equation} 
-    Thus, \zcref{eq:pgm_optimal_function_ub} yields
+    Thus, \zcref{eq:reg_lin_gap_MO_LB} yields
     \begin{equation}
-        - \frac{(1 - \rho) \xi^{j_k - 1}}{\alpha} \norm{z^k - x^k}_2^2 + \frac{L_f \xi^{2 (j_k - 1)}}{2} \norm{z^k - x^k}_2^2 > 0
+        - \frac{(1 - \rho) \xi^{j_k - 1}}{\alpha} \norm*{z^k - x^k}_2^2 + \frac{L_f \xi^{2 (j_k - 1)}}{2} \norm*{z^k - x^k}_2^2 > 0
     .\end{equation} 
     Therefore, we have
     \begin{equation}
@@ -71,18 +71,18 @@ We now show the main theorem as follows:
     Let~$k \ge 0$ and take~$i$ such that~$F_i$ is bounded from below.
     \zcref[S]{eq:pgm_armijo_step,eq:pgm_armijo_rule} give
     \begin{align}
-        F_i(x^{k + 1}) - F_i(x^k) &\le \rho s_k \left[ \theta_\alpha(x^k) - \frac{1}{2 \alpha} \norm{z^k - x^k}_2^2 \right] \\
-                                  &\le - \rho s_{\min} w_{\alpha^{-1}}(x^k) \\
-                                  &\le - \rho s_{\min} \max ( 1, \alpha^{-1} ) w_1(x^k)
+        F_i\left(x^{k + 1}\right) - F_i\left(x^k\right) &\le \rho s_k \left[ \theta_\alpha\left(x^k\right) - \frac{1}{2 \alpha} \norm*{z^k - x^k}_2^2 \right] \\
+                                  &\le - \rho s_{\min} w_\alpha\left(x^k\right) \\
+                                  &\le - \rho s_{\min} \max ( 1, \alpha^{-1} ) w_1\left(x^k\right)
     ,\end{align}
     where the second inequality follows from~\zcref{eq:pgm_merit,thm:pgm_armijo_stepsize_lb}, and the third one comes from \zcref{thm:merit_inner}.
-    Since~$F_i$ is bounded from below, adding up the inequality from~$k = 0$ to~$k = \infty$ lead to the summability of~$\set{w_1(x^k)}$.
+    Since~$F_i$ is bounded from below, adding up the inequality from~$k = 0$ to~$k = \infty$ lead to the summability of~$\set*{w_1\left(x^k\right)}$.
 
     \zcref[ref=title,noname,S]{sec:pgm:algorithm:sdc}:
     Let~$k \ge 0$ and let~$i = 1, \dots, m$ be an index such that~$F_i$ is bounded from below.
     \zcref[S]{thm:pgm_sdc_stepsize_lb} imply that
     \begin{equation}
-        F_i(x^{k + 1}) - F_i(x^k) \le - w_{\alpha_{\min}^{-1}}(x^k)
+        F_i\left(x^{k + 1}\right) - F_i\left(x^k\right) \le - w_{\alpha_{\min}}\left(x^k\right)
     .\end{equation} 
     The proof from here is the same as in the previous paragraph.
 
@@ -91,8 +91,9 @@ We now show the main theorem as follows:
 \end{proof}
 \begin{remark}
     When~$g_i = 0$ for all~$i$, references~\cite{Calderon2020,Fliege2019,Grapiglia2015} present the convergence rate of various multi-objective optimization methods.
-    However, as we have mentioned in the introduction, they all evaluate the convergence rate with measures that depend on the subproblems or variables used in their algorithms.
-    This means that the comparison in terms of complexity between different methods is not easy by using those measures.
+    However, they all evaluate the convergence rate with measures that depend on the subproblems or variables used in their algorithms.
+    This means that the comparison in terms of complexity between different methods is not easy using those measures.
     However, \zcref{thm:pgm_rate_nonconvex} analyzes the convergence rate using the merit function~$w_1$, which can be defined uniformly by~\zcref{eq:reg_lin_gap_MO} for multi-objective optimization problems with a structure like~\zcref{eq:composite_MO}.
+    In the subsequent discussions, our convergence rate analyses have similar advantages.
 \end{remark}
 \end{document}

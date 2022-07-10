@@ -10,11 +10,11 @@ Let us introduce the concept of optimality for the multi-objective optimization 
         \item \emph{weakly Pareto optimal} if there does not exist~$y \in C$ such that~$F(y) < F(x)$. \zlabel{def:Pareto:weak}
     \end{enumerate}
 \end{definition}
-By definition, weak Pareto optimality containss Pareto optimality, though both definitions reduce to the usual optimality when~$m = 1$.
+By definition, weak Pareto optimality contains Pareto optimality, though both definitions reduce to the usual optimality when~$m = 1$.
 On the other hand, if the objective functions are non-convex, it is challenging to find Pareto minima or weak Pareto minima.
-In such cases, optimization algorithms basically aim to get Pareto stationary points defined as follows:
+In such cases, optimization algorithms aim to get Pareto stationary points defined as follows:
 \begin{definition}[Pareto stationarity] \zlabel{def:Pareto_stationary}
-    Assume that~$F_i$ is directionally differentiable for every~$i = 1, \dots, m$ and~$C$ is non-empty, closed, and convex.
+    Assume that~$F_i$ is directionally differentiable for every~$i = 1, \dots, m$, and~$C$ is non-empty, closed, and convex.
     Then, we call~$x \in C$ \emph{Pareto stationary} if~
     \begin{equation}
         \max_{i = 1, \dots, m} F_i'(x; y - x) \ge 0 \forallcondition{y \in C}
@@ -22,12 +22,12 @@ In such cases, optimization algorithms basically aim to get Pareto stationary po
 \end{definition}
 We state below the relation among the three concepts given by~\zcref{def:Pareto,def:Pareto_stationary}
 \begin{lemma} \zlabel{thm:Pareto}
-    Suppose that~$F_i$ is directionally differentiable for every~$i = 1, \dots, m$ and~$C$ is non-empty, closed, and convex.
+    Suppose that~$F_i$ is directionally differentiable for every~$i = 1, \dots, m$, and~$C$ is non-empty, closed, and convex.
     Then, the following three claims hold.
     \begin{enumerate}
         \item If~$x \in C$ is weakly Pareto optimal for~\zcref{eq:MOO}, then~$x$ is Pareto stationary for~\zcref{eq:MOO}. \zlabel{thm:Pareto:weak_stationary}
         \item Let every~$F_i, i = 1, \dots, m$ be convex. Then, all Pareto stationary points of~\zcref{eq:MOO} are weakly Pareto optimal for~\zcref{eq:MOO}. \zlabel{thm:Pareto:convex}
-        \item Suppose that~$F_i$ is strictly convex for any~$i = 1, \dots, m$. Then, every Pareto stationary points of~\zcref{eq:MOO} is Pareto optimal for~\zcref{eq:MOO}. \zlabel{thm:Pareto:strict_convex}
+        \item Suppose that~$F_i$ is strictly convex for any~$i = 1, \dots, m$. Then, every Pareto stationary point of~\zcref{eq:MOO} is Pareto optimal for~\zcref{eq:MOO}. \zlabel{thm:Pareto:strict_convex}
     \end{enumerate}
 \end{lemma}
 \begin{proof}
@@ -36,9 +36,9 @@ We state below the relation among the three concepts given by~\zcref{def:Pareto,
     \zcref[S]{thm:Pareto:weak_stationary}:
     Assume that~$x \in C$ is not Pareto stationary.
     Then, \zcref{def:Pareto_stationary} shows that for some~$y \in C$ we have~$\max_{i = 1, \dots, m} F_i'(x; y - x) < 0$.
-    By the definition~\zcref{eq:dir_deriv} of the directional derivative, for a sufficiently small scalar~$\alpha > 0$, we obtain
+    By the definition~\zcref{eq:dir_deriv} of the directional derivative, for a sufficiently small scalar~$\beta > 0$, we obtain
     \begin{equation}
-        \max_{i = 1, \dots, m} [ F_i(x + \alpha (y - x)) - F_i(x) ] < 0 
+        \max_{i = 1, \dots, m} [ F_i(x + \beta (y - x)) - F_i(x) ] < 0 
     ,\end{equation} 
     which means that~$x$ is not weakly Pareto optimal from \zcref{def:Pareto:weak}.
 
@@ -60,11 +60,11 @@ We state below the relation among the three concepts given by~\zcref{def:Pareto,
     From \zcref{def:Pareto:Pareto}, there exists~$y \in C$ such that~$F(y) \le F(x)$ and~$F(y) \neq F(x)$.
     Since~$F_i$ is strictly convex for every~$i = 1, \dots, m$, we have
     \begin{equation}
-        F(x + \alpha(y - x)) < F(x) + \alpha (F(y) - F(x)) \forallcondition{\alpha \in (0, 1)}
+        F(x + \beta(y - x)) < F(x) + \beta (F(y) - F(x)) \forallcondition{\beta \in (0, 1)}
     .\end{equation} 
-    Reducing~$F(x)$ and dividing by~$\alpha$ from both sides lead to
+    Reducing~$F(x)$ and dividing by~$\beta$ from both sides lead to
     \begin{equation}
-        \frac{F(x + \alpha(y - x)) - F(x)}{\alpha} < F(y) - F(x) \le 0
+        \frac{F(x + \beta(y - x)) - F(x)}{\beta} < F(y) - F(x) \le 0
     .\end{equation} 
     Applying \zcref{thm:nondecreasing} to each component yields
     \begin{equation}

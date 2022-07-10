@@ -1,13 +1,13 @@
 \documentclass[../main]{subfiles}
 
 \begin{document}
-\section{Polyak-{\L}ojasiewicz (PL) inequality and proximal-PL inequality} \zlabel{sec:preliminaries:PL}
+\section{Polyak-{\L}ojasiewicz inequality and proximal-PL inequality} \zlabel{sec:preliminaries:PL}
 We focus on the following unconstrained optimization problem:
 \begin{equation} \label{eq:differentiable_OP}
     \min_{x \in \setR^n} \quad f(x)
 ,\end{equation}
 where~$f \colon \setR^n \to \setR$ is continuously differentiable.
-Assume that \zcref{eq:differentiable_OP} has a optimal solution, and let~$f^*$ denote the optimal function value.
+Assume that \zcref{eq:differentiable_OP} has an optimal solution, and let~$f^*$ denote the optimal function value.
 Then, we say that~$f$ satisfies the Polyak-{\L}ojasiewicz (PL) inequality if there exists~$\mu_f > 0$ such that
 \begin{equation} \label{eq:PL}
     \frac{1}{2} \norm{\nabla f(x)}_2^2 \ge \mu_f (f(x) - f^*) \forallcondition{x \in \setR^n}
@@ -22,7 +22,7 @@ If there exists~$\mu_{f, g} > 0$ such that
 ,\end{equation}
 where
 \begin{equation}
-    \mathcal{D}_g(x, \alpha) \coloneqq - 2 \alpha \min_{y \in \setR^n} \left[ \innerp{\nabla f(x)}{y - x} + g(y) - g(x) + \frac{\alpha}{2} \norm{y - x}_2^2 \right] 
+    \mathcal{D}_g(x, \beta) \coloneqq - 2 \beta \min_{y \in \setR^n} \left[ \innerp{\nabla f(x)}{y - x} + g(y) - g(x) + \frac{\beta}{2} \norm{y - x}_2^2 \right] 
 .\end{equation}
 Like~\zcref{eq:PL}, the strong convexity of~$g$ is the sufficient condition of~\zcref{eq:proximal_PL}.
 With~\zcref{eq:proximal_PL}, the proximal gradient method described by~\zcref{alg:pgm} for~\zcref{eq:composite} converges linearly~\cite{Karimi2016}.
