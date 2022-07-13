@@ -13,9 +13,12 @@
 *.synctex.gz
 *.thm
 *.toc
+*.ilg
 
 *.pdf
 !**/figs/*.pdf
 
 *.bbl
 !main.bbl
+
+*.bib

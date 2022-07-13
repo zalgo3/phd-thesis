@@ -1,30 +1,30 @@
 \documentclass[../../main]{subfiles}
 
 \begin{document}
-\subsection{Linearly constrained quadratic programming} \label{sec:pgm:robust:QP}
-Suppose that $\hat{g}_i (x,u) = u^\T x$ and ${\mathcal{U}}_i = \{ u \in \setR^n \mid A_i u \leq b_i \}$, where $A_i \in \setR^{d \times n}$ and $b_i \in \setR^d$, that is, $\hat{g}_i$ is linear in $x$, and $\mathcal{U}_i$ is a polyhedron. Suppose also that $\mathcal{U}_i$ is nonempty and bounded. Then, we can rewrite \cref{eq:g_i} as the following linear programming problem:
+\subsection{Linearly constrained quadratic programming} \zlabel{sec:pgm:robust:QP}
+Suppose that~$\hat{g}_i (x,u) = \innerp{x}{u}$ and ${\mathcal{U}}_i = \Set*{ u \in \setR^n }{ A_i u \le b^i }$, where $A_i \in \setR^{d \times n}$ and $b^i \in \setR^d$, that is, $\hat{g}_i$ is linear in $x$, and $\mathcal{U}_i$ is a polyhedron. Suppose also that $\mathcal{U}_i$ is nonempty and bounded.
+Then, we can rewrite \zcref{eq:g_i} as the following linear programming problem:
 \begin{align}\label{eq:lp}
 \begin{aligned}
-\max_u \quad   & x^\T u \\ 
-\st    \quad   & A_i u \leq b_i.
+\max_u \quad   & \innerp{x}{u} \\ 
+\st    \quad   & A_i u \le b^i.
 \end{aligned}
 \end{align}
 Its dual problem is given by
 \begin{align}
 \begin{aligned}
-\min_w \quad   & b_i^\T w \\ 
+\min_w \quad   & \innerp*{b^i}{w} \\ 
 \st    \quad   & A_i^\T w = x, \\
 &w \geq 0.
 \end{aligned}
 \end{align}
-Since the strong duality holds, we can convert the subproblem \cref{eq:prox subprob} (or, equivalently \cref{eq:subproblem}) to a linearly constrained quadratic programming problem:
+Since the strong duality holds, we can convert the subproblem \zcref{eq:pgm_subproblem} (or, equivalently \zcref{eq:subproblem}) to a linearly constrained quadratic programming problem:
 \begin{align}\label{eq:qp}
 \begin{aligned}
-\min_{\gamma, d, w_i} \quad   &\gamma + \frac{\ell}{2}\|d\|^2  \\ 
-\st    \quad   &\nabla f_i(x)^\T d + b_i^\T w_i - g_i(x) \leq \gamma, \\
-& A_i^\T w_i = x + d, \\
-&w_i \geq 0, \quad i = 1,\ldots,m.
+\min_{\gamma, z, w^1, \dots, w^m} \quad   &\gamma + \frac{1}{2 \alpha}\norm{z - x}_2^2  \\ 
+\st    \quad   &\innerp{\nabla f_i(x)}{z - x} + \innerp*{b^i}{w^i} - g_i(x) \le \gamma, \\
+& A_i^\T w^i = z, \\
+&w^i \geq 0, \quad i = 1,\dots,m.
 \end{aligned}
 \end{align}
-
 \end{document}

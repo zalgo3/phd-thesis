@@ -1,85 +1,176 @@
 \documentclass[../main]{subfiles}
 
 \begin{document}
-\section{Error bounds of the proposed merit functions} \label{sec:merit:eb}
-This section shows that our proposed merit functions provide global error bounds for~\cref{eq:MOO}, i.e., for any given point~$x$, they can bound the distance between~$x$ and the Pareto optimal solution set at~$x$ multiplied by some positive constant.
-\begin{theorem} \label{thm:error bound}
-    For an arbitrary~$\alpha > 0$, let~$w_\alpha$ be defined by~\cref{eq:w_alpha}.
-    Assume that~$F$ has the composite structure~\cref{eq:composite_MO}, and at least one of the following conditions holds for all~$i = 1, \dots, m$:
+\section{The multi-objective proximal PL inequality and error bounds} \zlabel{sec:merit:eb}
+For the multi-objective composite problem~\zcref{eq:composite_MO}, this section extends the proximal-PL inequality introduced in \zcref{sec:preliminaries:PL} and shows that it induces the proposed merit function's error bound.
+We first define the \emph{multi-objective proximal-PL inequality}.
+\begin{definition}[Multi-objective proximal-PL inequality] \zlabel{def:proximal_PL_MO}
+    Assume that~$f_i, i = 1, \dots, m$ is~$L_{f_i}$-smooth with~$L_{f_i} > 0$ and let~$L_f \coloneqq \max_{i = 1, \dots, m} L_{f_i}$.
+    We say that~\zcref{eq:composite_MO} satisfies the multi-objective proximal-PL inequality if there exists~$\tau > 0$ such that
+    \begin{equation} \label{eq:proximal_PL_MO}
+        w_{L_f^{-1}}(x) \ge \tau u_\infty(x) \forallcondition{x \in \setR^n}
+    \end{equation}
+    with~$u_\infty$ and~$w_{L_f^{-1}}$ given by~\zcref{eq:gap_MO,eq:reg_lin_gap_MO}.
+\end{definition}
+If~$m = 1$, \zcref{eq:proximal_PL_MO} reduces to the proximal-PL inequality for scalar optimization~\zcref{eq:proximal_PL}.
+We state below some sufficient conditions for~\zcref{eq:proximal_PL_MO}.
+\begin{proposition} \zlabel{thm:proximal_PL_MO_sufficient}
     \begin{enumerate}
-        \item $f_i$ is~$\mu_i$-convex for some~$\mu_i \in \setR$,~$F_i$ is~$\sigma_i$-convex for some~$\sigma_i > 0$, and~$\rho_i \coloneqq \sigma_i + \mu_i > 0$;
-        \item $\nabla f_i$ is~$L_i$-Lipschitz continuous for some~$L_i > 0$,~$F_i$ is~$\sigma_i$-convex for some~$\sigma_i > 0$, and~$\rho_i \coloneqq \sigma_i - L_i > 0$.
+        \item When~$f_i$ is $\mu_{f_i}$-convex with~$\mu_{f_i} > 0$,~\zcref{eq:proximal_PL_MO} holds with~$\tau \coloneqq \min (\mu_f / L_f, 1)$, where~$\mu_f \coloneqq \min_{i = 1, \dots, m} \mu_{f_i}$. \zlabel{thm:proximal_PL_MO_sufficient:sc}
+        \item Assume that~$f_i(x) \coloneqq h(A_i x)$ with some strongly convex function~$h_i$ and linear transformation~$A_i$, and~$g_i \coloneqq \indicator_{\mathcal{X}_i}$ with~$\mathcal{X}_i$ being a polyhedral set and~$\indicator_{\mathcal{X}_i}$ given by~\zcref{eq:indicator}.
+            If each~$\min_{x \in \setR^n} F_i(x)$ has a nonempty set~$X_i^*$ for~$i = 1, \dots, m$, then~\zcref{eq:proximal_PL_MO} holds with some constant~$\tau$. \zlabel{thm:proximal_PL_MO_sufficient:sc_linear}
     \end{enumerate}
-    Then, we have
-    \[
-        w_\alpha(x) \ge \kappa(\rho) \inf_{x^\ast \in X^\ast} \norm*{x - x^\ast}_2^2 \forallcondition{x \in C}
-    ,\]
-    where~$X^\ast$ is the set of Pareto optimal solutions for~\cref{eq:MOO},~$\rho \coloneqq \min_{i = 1, \dots, n} \rho_i$, and
-    \[
-        \kappa(\rho) \coloneqq \begin{dcases}
-            \frac{\rho - \alpha}{2}, & \text{if } \alpha < \rho / 2, \\
-            \frac{\rho^2}{8 \alpha}, & \text{otherwise}
-        .\end{dcases}
-    \]
-\end{theorem}
+\end{proposition}
 \begin{proof}
-    Let~$x \in C$ and~$r \coloneqq \min ( \alpha, \rho / 2 )$.
-    Since~$r \le \alpha$ and~$\kappa(\rho) = (r / \alpha) (\rho - r) / 2$, from \cref{thm:merit inner}, it suffices to show that
-    \begin{equation} \label{eq:eb sufficient}
-        w_r(x) \ge \frac{\rho - r}{2} \inf_{x^\ast \in X^\ast} \norm*{x - x^\ast}_2^2
-    .\end{equation} 
-    Recall the min-max reformulation~\cref{eq:w_alpha Sion} of~$w_r$ given by
-    \[
-        w_r(x) = \min_{\gamma \in \Delta^m} \max_{y \in C} \sum_{i = 1}^m \gamma_i \left[ \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{r}{2} \norm{x - y}_2^2 \right]
-    ,\]
-    where~$\Delta^m$ denotes the standard simplex~\cref{eq:simplex}.
-    Since~$\Delta^m$ is compact, there exists~$\gamma^\ast \in \Delta^m$ such that
-    \[
-        w_r(x) = \max_{y \in C} \sum_{i = 1}^m \gamma_i^\ast \left[ \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{r}{2} \norm{x - y}_2^2 \right].
-    \]
-    Let~$x^\ast \in C$ be the solution of
-    \begin{equation} \label{eq:eb:weighted}
-        \min_{x \in C} \quad \sum_{i = 1}^m \gamma_i^\ast F_i(x)
+    \zcref[S]{thm:proximal_PL_MO_sufficient:sc}:
+    Since~$f_i$ is strongly convex, \zcref{thm:merit_between:convex} gives
+    \begin{equation}
+        u_\infty(x) \le w_\mu(x) \forallcondition{x \in \setR^n}
     .\end{equation}
-    Note that~$x^\ast$ is unique since~$F_i$ is strongly convex.
-    Then, we obtain
+    Applying \zcref{thm:merit_inner} to the above inequality implies
+    \begin{equation}
+        u_\infty(x) \le \max \left( \frac{L_f}{\mu_f}, 1 \right) w_{L_f^{-1}}(x) \forallcondition{x \in \setR^n}
+    ,\end{equation}
+    which means
+    \begin{equation}
+        w_{L_f^{-1}}(x) \ge \min \left( \frac{\mu_f}{L_f}, 1 \right) u_\infty(x) \forallcondition{x \in \setR^n}
+    .\end{equation}
+
+    \zcref[S]{thm:proximal_PL_MO_sufficient:sc_linear}:
+    Since~$\mathcal{X}_i$ is polyhedral, we can write it as~$\Set{x \in \setR^n}{B_i x \le c_i}$ for some matrix~$B_i$ and vector~$c_i$ for~$i = 1, \dots, m$.
+    We now show that for all~$i = 1, \dots, m$ there exists some~$z_i$ such that
+    \begin{equation}
+        X_i^* = \Set{x \in \setR^n}{B_i x \le c_i \text{ and } A_i x = z_i}
+    .\end{equation}
+    To obtain a contradiction, suppose that there exists~$x^1 \in X_i^*$ and~$x^2 \in X_i^*$ such that~$A_i x^1 \neq A_i x^2$.
+    Clearly, we have~$f_i(x^1) = f_i(x^2)$.
+    Since~$h_i$ is strongly convex, we get
     \begin{align}
-        w_r(x) &\ge \sum_{i = 1}^m \gamma_i^\ast \left\{ \nabla f_i(x)^\T (x - x^\ast) + g_i(x) - g_i(x^\ast) - \frac{r}{2} \norm*{x - x^\ast}_2^2 \right\} \\
-               &\ge \sum_{i = 1}^m \gamma_i^\ast \left\{ F_i(x) - F_i(x^\ast) + \frac{\rho_i - \sigma_i - r}{2} \norm*{x - x^\ast}_2^2 \right\} \\
-               &\ge \sum_{i = 1}^m \gamma_i^\ast \frac{\rho_i - r}{2} \norm*{x - x^\ast}_2^2 \ge \frac{\rho - r}{2} \norm*{x - x^\ast}_2^2
+        f_i(x^1) &= \frac{1}{2} f_i(x^1) + \frac{1}{2} f_i(x^2) = \frac{1}{2} h_i(A_i x^1) + \frac{1}{2} h_i(A_i x^2) \\
+                 &> h_i\left( A_i \left( \frac{1}{2} x^1 + \frac{1}{2} x^2 \right) \right) = f_i\left( \frac{1}{2} x^1 + \frac{1}{2} x^2 \right)  
     ,\end{align}
-    where the second inequality follows from the definition of~$\rho_i$ and~$\mu_i$-convexity of~$f_i$ or~$L_i$-Lipschitz continuity of~$\nabla f_i$, the third one comes from the~$\sigma_i$-convexity of~$F_i$, and the fourth one is obtained by the definition of~$\rho$ and the fact that~$\gamma^\ast \in \Delta^m$.
-    Since~\cref{eq:eb:weighted} is a weighting scalarization of~\cref{eq:MOO}, $x^\ast$ is Pareto optimal for~\cref{eq:MOO}~\cite[Theorem 3.1.3]{Miettinen1998}, i.e.,~$x^\ast \in X^\ast$.
-    Therefore, we get~\cref{eq:eb sufficient}, which completes the proof.
+    which contradicts the fact that~$x^1 \in X_i^*$.
+    Therefore, we can use Hoffman's error bound~\cite{Hoffman1952}, and so there exists some~$\rho_i > 0$ such that for any~$x \in \setR^n$, there exists~$x_i^* \in X_i^*$ with
+    \begin{equation}
+        \norm*{x - x_i^*}_2 \le \rho_i \norm*{\max \left[ \begin{pmatrix} B_i \\ A_i \\ - A_i \end{pmatrix} x - \begin{pmatrix} c_i \\ z_i \\ - z_i \end{pmatrix}, 0 \right] }_2
+    .\end{equation}
+    Note that we take the $\max$ operator componentwise on the right-hand side.
+    Since~$B_i x - c_i \le 0$ for all~$x \in \dom(F)$, we have
+    \begin{equation}
+        \norm*{x - x_i^*}_2 \le \rho_i \norm*{\max \left[ \begin{pmatrix} A_i \\ - A_i \end{pmatrix} x - \begin{pmatrix} z_i \\ - z_i \end{pmatrix} , 0 \right] }_2 \forallcondition{x \in \dom(F)}
+    ,\end{equation}
+    which yields
+    \begin{equation}
+        \norm*{x - x_i^*}_2^2 \le \rho_i^2 \norm*{A_i x - z_i}_2^2 \forallcondition{x \in \dom(F)}
+    .\end{equation}
+    Since~$\proj_{X_i^*}(x) \in X_i^*$, it follows that
+    \begin{equation} \label{eq:proximal_PL_MO_sufficient:sc_linear:linear_trans_ineq}
+        \norm*{x - \proj_{X_i^*}(x)}_2^2 \le \norm*{x - x_i^*}_2^2 \le \rho_i^2 \norm*{A_i \left(x - \proj_{X_i^*}(x)\right)}_2^2 \forallcondition{x \in \dom(F)}
+    .\end{equation}
+    Now, suppose that~$x \in \dom(F)$.
+    From the definition~\zcref{eq:gap_MO} of~$u_\infty$, we get
+    \begin{align}
+        u_\infty(x) &= \sup_{z \in \setR^n} \min_{i = 1, \dots, m} [F_i(x) - F_i(z)] \\
+               &\le \min_{i = 1, \dots, m} \sup_{z \in \setR^n} [F_i(x) - F_i(z)] = \min_{i = 1, \dots, m} \left[ F_i(x) - F_i\left( \proj_{X_i^*}(x) \right) \right] 
+    ,\end{align}
+    where the second equality holds because~$\proj_{X_i^*}(x) = \argmin_{x \in \setR^n} F_i(x)$.
+    Assuming that~$h_i$ is $\sigma_{h_i}$-convex with~$\sigma_{h_i} > 0$, it follows that
+    \begin{align}
+        u_\infty(x) &= \min_{i = 1, \dots, m}
+        \begin{multlined}[t] \Biggl[ 
+                \innerp*{\nabla h_i(A_i x)}{A_i \left(x - \proj_{X_i^*}(x)\right)} \\
+                + g_i(x) - g_i\left( \proj_{X_i^*}(x) \right) - \frac{\sigma_{h_i}}{2} \norm*{A_i\left( x - \proj_{X_i^*}(x) \right) }_2^2 \Biggr] 
+            \end{multlined} \\
+               &= \min_{i = 1, \dots, m} 
+               \begin{multlined}[t]
+               \Biggl[ \innerp*{\nabla f_i(x)}{x - \proj_{X_i^*}(x)} + g_i(x) - g_i\left( \proj_{X_i^*}(x) \right) \\
+               - \frac{\sigma_{h_i}}{2} \norm*{A_i \left( x - \proj_{X_i^*}(x) \right) }_2^2 \Biggr] 
+               .\end{multlined}
+    \end{align}
+    Applying~\zcref{eq:proximal_PL_MO_sufficient:sc_linear:linear_trans_ineq} to the above inequality leads to
+    \begin{equation}
+        u_\infty(x) \le \min_{i = 1, \dots, m}
+            \begin{multlined}[t]
+                \Biggl[ \innerp*{\nabla f_i(x)}{x - \proj_{X_i^*}(x)} + g_i(x) - g_i\left( \proj_{X_i^*}(x) \right) \\
+                    - \frac{\sigma_{h_i}}{2 \rho_i^2} \norm*{x - \proj_{X_i^*}(x)}_2^2 \Biggr]
+            .\end{multlined}
+    \end{equation}
+    Let~$e \in \simplex^m$ with~$\simplex^m$ given by~\zcref{eq:simplex}.
+    Since~$\min_{i = 1, \dots, m} v_i = \min_{e \in \simplex^m} \sum_{i = 1}^{m} e_i v_i$ for any~$v \in \setR^m$, we get
+    \begin{align}
+        u_\infty(x) &\le \min_{e \in \simplex^m} \sum_{i = 1}^{m} e_i
+            \begin{multlined}[t]
+                \Biggl[ \innerp*{\nabla f_i(x)}{x - \proj_{X_i^*}(x)} + g_i(x) - g_i\left( \proj_{X_i^*}(x) \right) \\
+                    - \frac{\sigma_{h_i}}{2 \rho_i^2} \norm*{x - \proj_{X_i^*}(x)}_2^2 \Biggr]
+            \end{multlined} \\
+        &\le \min_{e \in \simplex^m} \sup_{z \in \setR^n} \sum_{i = 1}^{m} e_i \left[ \innerp*{\nabla f_i(x)}{x - z} + g_i(x) - g_i(z) - \frac{\sigma_{h_i}}{2 \rho_i^2} \norm{x - z}_2^2 \right] \\
+        &= \sup_{z \in \setR^n} \min_{e \in \simplex^m} \sum_{i = 1}^{m} e_i \left[ \innerp*{\nabla f_i(x)}{x - z} + g_i(x) - g_i(z) - \frac{\sigma_{h_i}}{2 \rho_i^2} \norm{x - z}_2^2 \right] \\
+        &= \sup_{z \in \setR^n} \min_{i = 1, \dots, m} \left[ \innerp*{\nabla f_i(x)}{x - z} + g_i(x) - g_i(z) - \frac{\sigma_{h_i}}{2 \rho_i^2} \norm{x - z}_2^2 \right] \\
+        &\le w_{\rho_i^2 / \min\limits_{i = 1, \dots, m} \sigma_{h_i}}(x)
+    ,\end{align}
+    where the first equality follows from the Sion's minimax theorem~\cite{Sion1958}, and the third equality comes from the definition~\zcref{eq:reg_lin_gap_MO} of~$w_{\rho_i^2 / \min\limits_{i = 1, \dots, m} \sigma_{h_i}}$.
+    Thus, \zcref{thm:merit_inner} gives
+    \begin{equation}
+        u_\infty(x) \le \max \left( \frac{L_f \rho_i^2}{\min\limits_{i = 1, \dots, m} \sigma_{h_i}} , 1 \right) w_{L_f^{-1}}(x)
+    ,\end{equation}
+    which completes the proof.
 \end{proof}
 
-We can easily introduce error bound property of~$u_\alpha$ by setting~$f_i = 0$ in \cref{thm:error bound}.
-
-\begin{corollary} \label{thm:eb_cor}
-    For an arbitrary~$\alpha \ge 0$, let~$u_\alpha$ be defined by~\cref{eq:u_alpha}.
-    Assume that~$F_i$ is $\sigma_i$-convex with~$\sigma_i > 0$ for all~$i = 1, \dots, m$.
-    Then, we have
-    \[
-        u_\alpha(x) \ge \upsilon(\sigma) \inf_{x^\ast \in X^\ast} \norm*{x - x^\ast}_2^2 \forallcondition{x \in C}
-    ,\]
-    where~$X^\ast$ is the set of Pareto optimal solutions for~\cref{eq:MOO},~$\sigma \coloneqq \min_{i = 1, \dots, m} \sigma_i$, and
-    \[
-        \upsilon(\sigma) \coloneqq \begin{dcases}
-            \frac{\sigma - \alpha}{2}, & \text{if } \alpha < \sigma / 2, \\
-            \frac{\sigma^2}{8 \alpha}, & \text{otherwise}
-        .\end{dcases}
-    \] 
-\end{corollary}
-
-When~$F_i$ is strongly convex, the min-max reformulation similar to~\cref{eq:w_alpha Sion} is also applicable to~$u_0$, so we can likewise derive the error bounds for~$u_0$ by setting~$f_i = 0$ and~$r = 0$ after~\cref{eq:eb sufficient} in the proof of~\cref{thm:error bound}.
-\begin{corollary}
-    Let~$u_0$ be defined by~\cref{eq:u_0}.
-    Assume that~$F_i$ is $\sigma_i$-convex with~$\sigma_i > 0$ for all~$i = 1, \dots, m$.
-    Then, we have
-    \[
-        u_0(x) \ge \frac{\sigma}{2} \inf_{x^\ast \in X^\ast} \norm*{x - x^\ast}_2^2 \forallcondition{x \in C}
-    ,\]
-    where~$X^\ast$ is the set of Pareto optimal solutions for~\cref{eq:MOO}, and~$\sigma \coloneqq \min_{i = 1, \dots, m} \sigma_i$.
-\end{corollary}
-
+We now show that the multi-objective proximal-PL inequality~\zcref{eq:proximal_PL_MO} leads to the error-bound property.
+\begin{theorem} \zlabel{thm:proximal_PL_MO_EB}
+    Let~$x \in \setR^n$.
+    Suppose that~$f_i$ is~$L_{f_i}$-smooth with~$L_{f_i} > 0$ for each~$i = 1, \dots, m$,~$L_f \coloneqq \max_{i = 1, \dots, m} L_{f_i}$, and the multi-objective proximal-PL inequality~\zcref{eq:proximal_PL_MO} holds with~$\tau > 0$.
+    Then, the trajectory~$\set*{W_{L_f^{-1}}^k(x) \coloneqq \overbrace{W_{L_f^{-1}} \circ \dots \circ W_{L_f^{-1}}}^{m}(x)}$ converges linearly to a weakly Pareto optimal point~$x^*$ and
+    \begin{equation}
+        u_\infty(x) \ge \frac{\tau L_f}{8} \norm{x - x^*}_2^2
+    ,\end{equation}
+    where~$u_\infty$ and~$W_{L_f^{-1}}$ are given by~\zcref{eq:gap_MO,eq:reg_lin_gap_MO_sol}, respectively.
+\end{theorem}
+\begin{proof}
+    Recall that~$u_\infty$ is non-negative due to \zcref{thm:gap_MO}.
+    We have
+    \begin{equation}
+        \sqrt{u_\infty(x)} - \sqrt{u_\infty\left(W_{L_f^{-1}}(x)\right)} = \frac{u_\infty(x) - u_\infty\left(W_{L_f^{-1}}(x)\right)}{\sqrt{u_\infty(x)} + \sqrt{u_\infty\left(W_{L_f^{-1}}(x)\right)}}
+    .\end{equation}
+    The definition~\zcref{eq:gap_MO} of~$u_\infty$ gives
+    \begin{equation}
+        u_\infty(x) - u_\infty\left(W_{L_f^{-1}}(x)\right) \ge \min_{i = 1, \dots, m} \left[F_i(x) - F_i\left(W_{L_f^{-1}}(x)\right)\right] \ge w_{L_f^{-1}}(x)
+    ,\end{equation}
+    where the second inequality follows from~\zcref{thm:descent,eq:reg_lin_gap_MO,eq:reg_lin_gap_MO_sol}.
+    Note that this inequality, together with~\zcref{eq:proximal_PL_MO}, proves that~$\set*{W_{L_f^{-1}}^k(x)}$ converges linearly to zero.
+    On the other hand, since~$u_\infty(x) \ge u_\infty\left(W_{L_f^{-1}}(x)\right)$ because of \zcref{thm:reg_lin_gap} and the above inequality, we get
+    \begin{equation}
+        \sqrt{u_\infty(x)} + \sqrt{u_\infty\left(W_{L_f^{-1}}(x)\right)} \le 2 \sqrt{u_\infty(x)} \le 2 \sqrt{w_{L_f^{-1}}(x) / \tau}
+    ,\end{equation}
+    where the second inequality comes from~\zcref{eq:proximal_PL_MO}.
+    Then, the above three inequalities show
+    \begin{equation}
+        \sqrt{u_\infty(x)} - \sqrt{u_\infty\left(W_{L_f^{-1}}(x)\right)} \ge \frac{w_{L_f^{-1}}(x)}{2 \sqrt{w_{L_f^{-1}}(x) / \tau}} = \frac{1}{2} \sqrt{\tau w_{L_f^{-1}}(x)}
+    .\end{equation}
+    Therefore, it follows from~\zcref{eq:reg_lin_gap_MO_LB} that
+    \begin{equation}
+        \sqrt{u_\infty(x)} - \sqrt{u_\infty\left(W_{L_f^{-1}}(x)\right)} \ge \frac{\sqrt{\tau L_f}}{2 \sqrt{2}} \norm*{x - W_{L_f^{-1}}(x)}_2
+    .\end{equation}
+    More generally, we arrive at
+    \begin{equation}
+        \sqrt{u_\infty\left(W_{L_f^{-1}}^k(x)\right)} - \sqrt{u_\infty\left(W_{L_f^{-1}}^{k + 1}(x)\right)} \ge \frac{\sqrt{\tau L_f}}{2 \sqrt{2}} \norm*{W_{L_f^{-1}}^k(x) - W_{L_f^{-1}}^{k + 1}(x)}_2
+    \end{equation}
+    for all~$k = 0, 1, \dots$.
+    Adding up the above inequality from~$k = k_1$ to~$k = k_2 - 1$ yields
+    \begin{equation}
+        \sqrt{u_\infty\left(W_{L_f^{-1}}^{k_1}(x)\right)} - \sqrt{u_\infty\left(W_{L_f^{-1}}^{k_2}(x)\right)} \ge \frac{\sqrt{\tau L_f}}{2 \sqrt{2}} \sum_{k = k_1}^{k_2 - 1} \norm*{W_{L_f^{-1}}^k(x) - W_{L_f^{-1}}^{k + 1}(x)}_2
+    .\end{equation}
+    Thus, the triangle inequality implies
+    \begin{equation} \label{eq:proximal_PL_MO_EB:sq_gap_Cauchy}
+        \sqrt{u_\infty\left(W_{L_f^{-1}}^{k_1}(x)\right)} - \sqrt{u_\infty\left(W_{L_f^{-1}}^{k_2}(x)\right)} \ge \frac{\sqrt{\tau L_f}}{2 \sqrt{2}} \norm*{W_{L_f^{-1}}^{k_1}(x) - W_{L_f^{-1}}^{k_2}(x)}_2
+    .\end{equation}
+    As~$k_1, k_2 \to \infty$, the left-hand side tends to zero.
+    Therefore, the right-hand side also tends to zero because of the non-negativity of the norm.
+    This means that~$\set{W_{L_f^{-1}}^k(x)}$ is the Cauchy sequence, which is convergent to some weakly Pareto optimal point~$x^*$.
+    Substituting~$k_1 = 0$ and~$k_2 = \infty$ into~\zcref{eq:proximal_PL_MO_EB:sq_gap_Cauchy} leads to
+    \begin{equation}
+        \sqrt{u_\infty(x)} \ge \frac{\sqrt{\tau L_f}}{2 \sqrt{2}} \norm{x - x^*}_2
+    .\end{equation}
+\end{proof}
+This theorem also presents the error-bound property of~$w_\alpha$ and~$u_\alpha$ for any~$\alpha > 0$ because of~\zcref{eq:proximal_PL_MO,thm:merit_inner,thm:merit_between:Lipschitz}.
 \end{document}

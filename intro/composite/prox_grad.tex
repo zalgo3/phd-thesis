@@ -1,38 +1,35 @@
 \documentclass[../../main]{subfiles}
 
 \begin{document}
-\subsection{The proximal gradient method} \label{sec:intro:composite:pgm}
-The \emph{proximal gradient method}~\cite{Fukushima1981} is one of the most common algorithms for solving~\cref{eq:composite}.
-For a given~$x^0 \in \interior (\dom (F))$, it recursively update~$\set{x^k} $ by
-\[
-    x^{k + 1} = \prox_{\lambda g} \left( x^k - \lambda \nabla f(x^k) \right) 
-,\] 
-where~$\prox$ is the \emph{proximal operator} of~$g$ with parameter~$\lambda > 0$ defined by
-\[
-    \prox_{\lambda g}(x) \coloneqq \argmin_{y \in \setR^n} \left[ g(x) + \frac{1}{2 \lambda} \norm{x - y}_2^2 \right] 
-.\] 
-If we can estimate the Lipschitz constant~$L_f$, we can use a constant stepsize~$\lambda \in (0, 1 / L_f]$.
-Otherwise, we can determine~$\lambda$ in each iteration by backtracking.
+\subsection{The proximal gradient method} \zlabel{sec:intro:composite:pgm}
+The \emph{proximal gradient method}~\cite{Fukushima1981} is one of the most common algorithms for solving~\zcref{eq:composite}.
+For a given~$x^0 \in \interior (\dom (F))$, it recursively update~$\set*{x^k} $ by
+\begin{equation}
+    x^{k + 1} = \prox_{\alpha_k g} \left( x^k - \alpha_k \nabla f\left(x^k\right) \right) 
+,\end{equation} 
+where~$\prox$ is the \emph{proximal operator}, which we will define in~\zcref{eq:prox}.
+If we can estimate the Lipschitz constant~$L_f$, we can use a constant stepsize~$\alpha_k \in (0, 1 / L_f]$.
+Otherwise, we can determine~$\alpha_k$ in each iteration by backtracking.
 
 The description of the algorithm now follows.
 \begin{algorithm}[hbtp]
     \caption{The proximal gradient method}
-    \label{alg:pgm}
+    \zlabel{alg:pgm}
     \begin{algorithmic}[1]
         \Require $x^0 \in \interior (\dom (F)), \varepsilon > 0$
         \State $k \gets 0$
         \Repeat
-        \State pick~$\lambda > 0$
-        \State $x^{k + 1} \gets \prox_{\lambda g}(x^k - \lambda \nabla f(x^k))$
+        \State pick~$\alpha_k > 0$
+        \State $x^{k + 1} \gets \prox_{\alpha_k g}(x^k - \alpha_k \nabla f\left(x^k\right))$
         \State $k \gets k + 1$
         \Until{$\norm{x^k - x^{k - 1}}_\infty < \varepsilon$}
         \State \Return $x^k$
     \end{algorithmic}
 \end{algorithm}
 
-With this algorithm,~$\set{\norm{x^{k + 1} - x^k}}$ converges to zero with a rate of~$O(\sqrt{1 / k})$ and every accumulation point of~$\set*{x^k}$, if it exists, is stationary point~\cite{Beck2017}.
-When~$f$ is convex,~$\set{x^k}$ converges to the global minima~$x^\ast$, and~$\set{F(x^k) - F(x^\ast)}$ converges to zero with a rate of~$O(1 / k)$~\cite{Beck2017}.
-Moreover, when~$f$ is strongly convex,~$\set{x^k}$ converges linearly to~$x^\ast$~\cite{Beck2017}.
-Furthermore, if we assume the so-called proximal-PL condition,~$\set*{F(x^k)}$ converges linearly to~$F(x^\ast)$~\cite{Karimi2016}.
+With this algorithm,~$\set*{\norm{x^{k + 1} - x^k}_2}$ converges to zero with a rate of~$O\left(\sqrt{1 / k}\right)$ and every accumulation point of~$\set*{x^k}$, if it exists, is a stationary point~\cite{Beck2017}.
+When~$f$ is convex,~$\set*{x^k}$ converges to the global minima~$x^\ast$, and~$\set*{F\left(x^k\right) - F(x^\ast)}$ converges to zero with a rate of~$O(1 / k)$~\cite{Beck2017}.
+Moreover, when~$f$ is strongly convex,~$\set*{x^k}$ converges linearly to~$x^\ast$~\cite{Beck2017}.
+Furthermore, if we assume the so-called proximal-PL condition, which we will define by~\zcref{eq:proximal_PL},~$\set*{F\left(x^k\right)}$ converges linearly to~$F(x^\ast)$~\cite{Karimi2016}.
 
 \end{document}

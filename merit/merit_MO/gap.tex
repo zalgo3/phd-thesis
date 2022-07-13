@@ -1,52 +1,52 @@
 \documentclass[../../main]{subfiles}
 
 \begin{document}
-\subsection{A gap function for continuous multi-objective optimization} \label{sec:merit:merit:gap}
-First, we assume only continuity on~$F$ other than continuity and propose a gap function~$u_0 \colon C \to (-\infty, +\infty]$ as follows:
-\begin{equation} \label{eq:u_0}
-    u_0(x) \coloneqq \sup_{y \in C} \min_{i = 1, \dots, m} [ F_i(x) - F_i(y) ] 
+\subsection{A gap function for continuous multi-objective optimization} \zlabel{sec:merit:merit:gap}
+First, we assume only continuity on~$F$ other than continuity and propose a gap function~$u_\infty \colon C \to (-\infty, +\infty]$ as follows:
+\begin{equation} \label{eq:gap_MO}
+    u_\infty(x) \coloneqq \sup_{y \in C} \min_{i = 1, \dots, m} [ F_i(x) - F_i(y) ] 
 .\end{equation}
 When~$F$ is linear, this merit function has already been discussed in~\cite{Liu2009}, but here we consider the more general nonlinear cases.
-We now show that $u_0$ is a merit function in the sense of weak Pareto optimality.
-\begin{theorem} \label{thm:u_0}
-    Let~$u_0$ be defined by~\cref{eq:u_0}.
-    Then, we have~$u_0(x) \ge 0$ for all~$x \in C$.
-    Moreover,~$x \in C$ is weakly Pareto optimal for~\cref{eq:MOO} if and only if~$u_0(x) = 0$.
+We now show that $u_\infty$ is a merit function in the sense of weak Pareto optimality.
+\begin{theorem} \zlabel{thm:gap_MO}
+    Let~$u_\infty$ be defined by~\zcref{eq:gap_MO}.
+    Then, we have~$u_\infty(x) \ge 0$ for all~$x \in C$.
+    Moreover,~$x \in C$ is weakly Pareto optimal for~\zcref{eq:MOO} if and only if~$u_\infty(x) = 0$.
 \end{theorem}
 \begin{proof}
     Let~$x \in C$.
-    By the definition~\cref{eq:u_0} of~$u_0$, we get
-    \[
-        u_0(x) = \sup_{y \in C} \min_{i = 1, \dots, m} [ F_i(x) - F_i(y) ]
+    By the definition~\zcref{eq:gap_MO} of~$u_\infty$, we get
+    \begin{equation}
+        u_\infty(x) = \sup_{y \in C} \min_{i = 1, \dots, m} [ F_i(x) - F_i(y) ]
                  \ge \min_{i = 1, \dots, m} [ F_i(x) - F_i(x) ] = 0
-    .\] 
-    On the other hand, again considering the definition~\cref{eq:u_0} of~$u_0$, we obtain
-    \[
-        u_0(x) = 0 \iff \min_{i = 1, \dots, m} [ F_i(x) - F_i(y) ] \le 0 \forallcondition{y \in C}
-    .\] 
+    .\end{equation} 
+    On the other hand, again, considering the definition~\zcref{eq:gap_MO} of~$u_\infty$, we obtain
+    \begin{equation}
+        u_\infty(x) = 0 \iff \min_{i = 1, \dots, m} [ F_i(x) - F_i(y) ] \le 0 \forallcondition{y \in C}
+    .\end{equation} 
     This is equivalent to the existence of~$i = 1, \dots, m$ such that
-    \[
+    \begin{equation}
         F_i(x) - F_i(y) \le 0 \forallcondition{y \in C}
-    ,\] 
+    ,\end{equation} 
     i.e., there does not exist~$y \in C$ such that
-    \[
+    \begin{equation}
         F_i(x) - F_i(y) > 0 \forallcondition{i = 1, \dots, m}
-    ,\] 
-    which means that~$x$ is weakly Pareto optimal for~\cref{eq:MOO} by \cref{def:Pareto:Pareto}.
+    ,\end{equation} 
+    which means that~$x$ is weakly Pareto optimal for~\zcref{eq:MOO} by \zcref{def:Pareto:Pareto}.
 \end{proof}
 
 The following theorem is clear from the continuity of~$F_i$.
-\begin{theorem} \label{thm:cont_u_0}
-    The function~$u_0$ defined by~\cref{eq:u_0} is lower semicontinuous on~$C$.
+\begin{theorem} \zlabel{thm:gap_MO_cont}
+    The function~$u_\infty$ defined by~\zcref{eq:gap_MO} is lower semi-continuous on~$C$.
 \end{theorem}
-\Cref{thm:cont_u_0,thm:u_0} imply that if~$u_0(x^k) \to 0$ holds for some bounded sequence~$\set{x^k}$, its accumulation points are weakly Pareto optimal.
-Thus, we can use~$u_0$ to measure the complexity of multi-objective optimization methods.
+\zcref{thm:gap_MO_cont,thm:gap_MO} imply that if~$u_\infty\left(x^k\right) \to 0$ holds for some bounded sequence~$\set*{x^k}$, its accumulation points are weakly Pareto optimal.
+Thus, we can use~$u_\infty$ to measure the complexity of multi-objective optimization methods.
 
-Moreover, \cref{thm:u_0} implies that we can get weakly Pareto optimal solutions via the following single-objective optimization problem:
-\[
-    \min_{x \in C} \quad u_0(x)
-.\] 
-However, if~$F_i$ is not bounded from below on~$S$, we cannot guarantee that~$u_0$ is finite-valued.
-Moreover, even if~$u_0$ is finite-valued,~$u_0$ does not preserve the differentiability of the original objective function~$F$.
+Moreover, \zcref{thm:gap_MO} implies that we can get weakly Pareto optimal solutions via the following single-objective optimization problem:
+\begin{equation}
+    \min_{x \in C} \quad u_\infty(x)
+.\end{equation} 
+However, if~$F_i$ is not bounded from below on~$C$, we cannot guarantee that~$u_\infty$ is finite-valued.
+Moreover, even if~$u_\infty$ is finite-valued,~$u_\infty$ does not preserve the differentiability of the original objective function~$F$.
 
 \end{document}

@@ -1,274 +1,274 @@
 \documentclass[../../main]{subfiles}
 
 \begin{document}
-\subsection{A regularized gap function for convex multi-objective optimization} \label{sec:merit:merit:reg_gap}
-Here, we suppose that each component~$F_i$ of the objective function~$F$ of~\cref{eq:MOO} is convex.
+\subsection{A regularized gap function for convex multi-objective optimization} \zlabel{sec:merit:merit:reg_gap}
+Here, we suppose that each component~$F_i$ of the objective function~$F$ of~\zcref{eq:MOO} is convex.
 Then, we define a regularized gap function~$u_\alpha \colon C \to \setR$ with a given constant~$\alpha > 0$, which overcomes the shortcomings mentioned at the end of the previous subsection, as follows:
-\begin{equation} \label{eq:u_alpha}
-    u_\alpha(x) \coloneqq \max_{y \in C} \min_{i = 1, \dots, m} \left[ F_i(x) - F_i(y) - \frac{\alpha}{2}\norm{x - y}_2^2 \right] 
+\begin{equation} \label{eq:reg_gap_MO}
+    u_\alpha(x) \coloneqq \max_{y \in C} \min_{i = 1, \dots, m} \left[ F_i(x) - F_i(y) - \frac{1}{2 \alpha}\norm{x - y}_2^2 \right] 
 .\end{equation} 
-Note that the strong concavity of the function inside~$\max_{y \in C}$ implies that~$u_\alpha$ is finite-valued and there exists a unique solution that attains this maximum in~$C$.
-Like~$u_0$, we can show that~$u_\alpha$ is also a merit function in the sense of weak Pareto optimality.
-\begin{theorem} \label{thm:u_alpha}
-    Let~$u_\alpha$ be defined by~\cref{eq:u_alpha} for some~$\alpha > 0$.
+Note that the strong concavity of the function inside~$\max_{y \in C}$ implies that~$u_\alpha$ is finite-valued, and there exists a unique solution that attains this maximum in~$C$.
+Like~$u_\infty$, we can show that~$u_\alpha$ is also a merit function in the sense of weak Pareto optimality.
+\begin{theorem} \zlabel{thm:reg_gap_MO}
+    Let~$u_\alpha$ be defined by~\zcref{eq:reg_gap_MO} for some~$\alpha > 0$.
     Then, we have~$u_\alpha(x) \ge 0$ for all~$x \in C$.
-    Moreover,~$x \in C$ is weakly Pareto optimal for~\cref{eq:MOO} if and only if~$u_\alpha(x) = 0$.
+    Moreover,~$x \in C$ is weakly Pareto optimal for~\zcref{eq:MOO} if and only if~$u_\alpha(x) = 0$.
 \end{theorem}
 \begin{proof}
     Let~$x \in C$.
-    The definition~\cref{eq:u_alpha} of~$u_\alpha$ yields
-    \[
+    The definition~\zcref{eq:reg_gap_MO} of~$u_\alpha$ yields
+    \begin{equation}
         \begin{split}
-            u_\alpha(x) &= \max_{y \in C} \min_{i = 1, \dots, m} \left[ F_i(x) - F_i(y) - \frac{\alpha}{2} \norm{x - y}_2^2 \right] \\
-                      &\ge \min_{i = 1, \dots, m} \left[ F_i(x) - F_i(x) - \frac{\alpha}{2} \norm{x - y}_2^2 \right] = 0
+            u_\alpha(x) &= \max_{y \in C} \min_{i = 1, \dots, m} \left[ F_i(x) - F_i(y) - \frac{1}{2 \alpha} \norm{x - y}_2^2 \right] \\
+                      &\ge \min_{i = 1, \dots, m} \left[ F_i(x) - F_i(x) - \frac{1}{2 \alpha} \norm{x - y}_2^2 \right] = 0
         ,\end{split}
-    \] 
+    \end{equation} 
     which proves the first statement.
 
     We now show the second statement.
     First, assume that~$u_\alpha(x) = 0$.
-    Then, \cref{eq:u_alpha} again gives
-    \[
-        \min_{i = 1, \dots, m} \left[ F_i(x) - F_i(y) - \frac{\alpha}{2} \norm{x - y}_2^2 \right] \forallcondition{y \in C}
-    .\] 
-    Let~$z \in C$ and~$\alpha \in (0, 1)$.
-    Since the convexity of~$C$ implies that~$x + \alpha (z - x) \in C$, substituting~$y = x + \alpha (z - x)$ into the above inequality, we get
-    \[
-        \min_{i = 1, \dots, m} \left[ F_i(x) - F_i(x + \alpha(z - x)) - \frac{\alpha}{2} \norm{\alpha (z - x)}_2^2 \right] \le 0
-    .\] 
+    Then, \zcref{eq:reg_gap_MO} again gives
+    \begin{equation}
+        \min_{i = 1, \dots, m} \left[ F_i(x) - F_i(y) - \frac{1}{2 \alpha} \norm{x - y}_2^2 \right] \forallcondition{y \in C}
+    .\end{equation} 
+    Let~$z \in C$ and~$\beta \in (0, 1)$.
+    Since the convexity of~$C$ implies that~$x + \beta (z - x) \in C$, substituting~$y = x + \alpha (z - x)$ into the above inequality, we get
+    \begin{equation}
+        \min_{i = 1, \dots, m} \left[ F_i(x) - F_i(x + \beta (z - x)) - \frac{1}{2 \alpha} \norm{\beta (z - x)}_2^2 \right] \le 0
+    .\end{equation} 
     The convexity of~$F_i$ leads to
-    \[
-        \min_{i = 1, \dots, m} \left[ \alpha (F_i(x) - F_i(z)) - \frac{\alpha}{2} \norm{\alpha (z - x)}_2^2 \right] \le 0
-    .\] 
-    Dividing both sides by~$\alpha$ and letting~$\alpha \searrow 0$, we have
-    \[
+    \begin{equation}
+        \min_{i = 1, \dots, m} \left[ \beta (F_i(x) - F_i(z)) - \frac{1}{2 \alpha} \norm{\beta (z - x)}_2^2 \right] \le 0
+    .\end{equation} 
+    Dividing both sides by~$\beta$ and letting~$\beta \searrow 0$, we have
+    \begin{equation}
         \min_{i = 1, \dots, m} [ F_i(x) - F_i(z) ] \le 0
-    .\] 
-    Since~$z$ can take an arbitrary point in~$C$, it follows from~\cref{eq:u_0} that~$u_0(x) = 0$.
-    Therefore, from \cref{thm:u_0},~$x$ is weakly Pareto optimal.
+    .\end{equation} 
+    Since~$z$ can take an arbitrary point in~$C$, it follows from~\zcref{eq:gap_MO} that~$u_\infty(x) = 0$.
+    Therefore, from \zcref{thm:gap_MO},~$x$ is weakly Pareto optimal.
 
     Now, suppose that~$x$ is weakly Pareto optimal.
-    Then, it follows again from \cref{thm:u_0} that~$u_0(x) = 0$.
-    It is clear that~$u_\alpha(x) \le u_0(x)$ from the definitions~\cref{eq:u_0,eq:u_alpha} of~$u_0$ and~$u_\alpha$, so we get~$u_\alpha(x) = 0$.
+    Then, it follows again from \zcref{thm:gap_MO} that~$u_\infty(x) = 0$.
+    It is clear that~$u_\alpha(x) \le u_\infty(x)$ from the definitions~\zcref{eq:gap_MO,eq:reg_gap_MO} of~$u_\infty$ and~$u_\alpha$, so we get~$u_\alpha(x) = 0$.
 \end{proof}
 Let us now write
-\begin{equation} \label{eq:U_alpha}
-    U_\alpha(x) \coloneqq \argmax_{y \in C} \min_{i = 1, \dots, m} \left[ F_i(x) - F_i(y) - \frac{\alpha}{2}\norm{x - y}_2^2 \right] 
+\begin{equation} \label{eq:reg_gap_MO_sol}
+    U_\alpha(x) \coloneqq \argmax_{y \in C} \min_{i = 1, \dots, m} \left[ F_i(x) - F_i(y) - \frac{1}{2 \alpha}\norm{x - y}_2^2 \right] 
 .\end{equation} 
+The optimality condition of the maximization problem associated with~\zcref{eq:reg_gap_MO,eq:reg_gap_MO_sol} gives
+\begin{equation}
+    \frac{1}{\alpha}  [ x - U_\alpha(x) ] \in \conv_{i \in \mathscr{I}_\alpha(x)} \partial F_i(U_\alpha(x)) + N_C(U_\alpha(x)) \forallcondition{x \in C}
+,\end{equation}
+where~$N_C$ denotes the normal cone to the convex set~$C$ and
+\begin{equation}
+    \mathscr{I}_\alpha(x) = \argmin_{i = 1, \dots, m} [ F_i(x) - F_i(U_\alpha(x)) ]
+.\end{equation}
+Thus, for all~$x \in C$ there exists~$e(x) \in \simplex^m$, where~$\simplex^m$ is the unit $m$-simplex given by~\zcref{eq:simplex}, such that~$e_j(x) = 0$ for all~$j \notin \mathscr{I}_\alpha(x)$ and
+\begin{equation} \label{eq:reg_gap_MO_opt}
+    \frac{1}{\alpha} \innerp{x - U_\alpha(x)}{z - U_\alpha(x)} \le \sum_{i = 1}^{m} e_i(x) [ F_i(z) - F_i(U_\alpha(x)) ] \forallcondition{z \in C}
+.\end{equation} 
+
 Then, we can also show the continuity of~$u_\alpha$ and~$U_\alpha$ without any particular assumption.
-\begin{theorem} \label{thm:cont_u_alpha}
-    For all~$\alpha > 0$,~$u_\alpha$ and~$U_\alpha$ defined by~\cref{eq:u_alpha,eq:U_alpha} are locally Lipschitz continuous and locally H\"older continuous with exponent~$1 / 2$ on~$C$, respectively.
+\begin{theorem} \zlabel{thm:reg_gap_MO_cont}
+    For all~$\alpha > 0$,~$u_\alpha$ and~$U_\alpha$ defined by~\zcref{eq:reg_gap_MO,eq:reg_gap_MO_sol} are locally Lipschitz continuous and locally H\"older continuous with exponent~$1 / 2$ on~$C$, respectively.
 \end{theorem}
 \begin{proof}
-    The optimality condition of the maximization problem associated with~\cref{eq:u_alpha,eq:U_alpha} gives
-    \[
-        \alpha [ x - U_\alpha(x) ] \in \conv_{i \in \mathcal{I}(x)} \partial F_i(U_\alpha(x)) + N_C(U_\alpha(x)) \forallcondition{x \in C}
-    ,\]
-    where~$N_C$ denotes the normal cone to the convex set~$C$ and
-    \[
-        \mathcal{I}(x) = \argmin_{i = 1, \dots, m} [ F_i(x) - F_i(U_\alpha(x)) ]
-    .\]
-    Thus, for all~$x \in C$ there exists~$\lambda(x) \in \simplex^m$, where~$\simplex^m$ is the unit simplex given by~\cref{eq:simplex}, such that~$\lambda_j(x) \neq 0$ for all~$j \notin \mathcal{I}(x)$ and
-    \[
-        \alpha \innerp{x - U_\alpha(x)}{z - U_\alpha(x)} \le \sum_{i = 1}^{m} \lambda_i(x) [ F_i(z) - F_i(U_\alpha(x)) ] \forallcondition{z \in C}
-    .\] 
     For any bounded set~$\Omega \subseteq C$, let~$x^1, x^2 \in \Omega$.
-    Adding the two inequalities obtained by substituting~$(x, z) = (x^1, U_\alpha(x^2))$ and~$(x, z) = (x^2, U_\alpha(x^1))$ into the above inequality, we get
+    Adding the two inequalities obtained by substituting~$(x, z) = (x^1, U_\alpha\left(x^2\right))$ and~$(x, z) = (x^2, U_\alpha\left(x^1\right))$ into~\zcref{eq:reg_gap_MO_opt}, we get
     \begin{align}
-        \MoveEqLeft \alpha \innerp*{U_\alpha(x^1) - U_\alpha(x^2) - (x^1 - x^2)}{U_\alpha(x^1) - U_\alpha(x^2)} \\
-        \le{}& \sum_{i = 1}^{m} \left[\lambda_i(x^2) - \lambda_i(x^1)\right] \left[ F_i(U_\alpha(x^1)) - F_i(U_\alpha(x^2)) \right] \\
-        ={}& \sum_{i = 1}^{m} \lambda_i(x^1) \left[ F_i(x^1) - F_i(U_\alpha(x^1)) \right] + \sum_{i = 1}^{m} \lambda_i(x^2) \left[ F_i(x^2) - F_i(U_\alpha(x^2)) \right] \\
-           &+ \sum_{i = 1}^{m} \lambda_i(x^1) \left[ F_i(U_\alpha(x^2)) - F_i(x^1) \right] + \sum_{i = 1}^{m} \lambda_i(x^2) \left[ F_i(U_\alpha(x^1)) - F_i(x^2) \right]
+        \MoveEqLeft \frac{1}{\alpha} \innerp*{U_\alpha\left(x^1\right) - U_\alpha\left(x^2\right) - \left(x^1 - x^2\right)}{U_\alpha\left(x^1\right) - U_\alpha\left(x^2\right)} \\
+        \le{}& \sum_{i = 1}^{m} \left[e_i\left(x^2\right) - e_i\left(x^1\right)\right] \left[ F_i\left(U_\alpha\left(x^1\right)\right) - F_i\left(U_\alpha\left(x^2\right)\right) \right] \\
+        ={}& \sum_{i = 1}^{m} e_i\left(x^1\right) \left[ F_i\left(x^1\right) - F_i\left(U_\alpha\left(x^1\right)\right) \right] + \sum_{i = 1}^{m} e_i\left(x^2\right) \left[ F_i\left(x^2\right) - F_i\left(U_\alpha\left(x^2\right)\right) \right] \\
+           &+ \sum_{i = 1}^{m} e_i\left(x^1\right) \left[ F_i\left(U_\alpha\left(x^2\right)\right) - F_i\left(x^1\right) \right] + \sum_{i = 1}^{m} e_i\left(x^2\right) \left[ F_i\left(U_\alpha\left(x^1\right)\right) - F_i\left(x^2\right) \right]
     .\end{align}
-    Since~$\lambda(x) \in \simplex^m$ and~$\lambda_j(x) \neq 0$ for all~$j \in \mathcal{I}(x)$, we have
+    Since~$e(x) \in \simplex^m$ and~$e_j(x) \neq 0$ for all~$j \in \mathscr{I}_\alpha(x)$, we have
     \begin{align}
-        \MoveEqLeft \alpha \innerp*{U_\alpha(x^1) - U_\alpha(x^2) - (x^1 - x^2)}{U_\alpha(x^1) - U_\alpha(x^2)} \\
-        ={}& \min_{i = 1, \dots, m} \left[ F_i(x^1) - F_i(U_\alpha(x^1)) \right] + \min_{i = 1, \dots, m} \left[ F_i(x^2) - F_i(U_\alpha(x^2)) \right] \\
-           &+ \sum_{i = 1}^{m} \lambda_i(x^1) \left[ F_i(U_\alpha(x^2)) - F_i(x^1) \right] + \sum_{i = 1}^{m} \lambda_i(x^2) \left[ F_i(U_\alpha(x^1)) - F_i(x^2) \right]
+        \MoveEqLeft \frac{1}{\alpha} \innerp*{U_\alpha\left(x^1\right) - U_\alpha\left(x^2\right) - \left(x^1 - x^2\right)}{U_\alpha\left(x^1\right) - U_\alpha\left(x^2\right)} \\
+        ={}& \min_{i = 1, \dots, m} \left[ F_i\left(x^1\right) - F_i\left(U_\alpha\left(x^1\right)\right) \right] + \min_{i = 1, \dots, m} \left[ F_i\left(x^2\right) - F_i\left(U_\alpha\left(x^2\right)\right) \right] \\
+           &+ \sum_{i = 1}^{m} e_i\left(x^1\right) \left[ F_i\left(U_\alpha\left(x^2\right)\right) - F_i\left(x^1\right) \right] + \sum_{i = 1}^{m} e_i\left(x^2\right) \left[ F_i\left(U_\alpha\left(x^1\right)\right) - F_i\left(x^2\right) \right]
     \end{align}
-    Again using the fact that~$\lambda(x) \in \simplex^m$, we get
+    Again using the fact that~$e(x) \in \simplex^m$, we get
     \begin{align}
-        \MoveEqLeft \alpha \innerp*{U_\alpha(x^1) - U_\alpha(x^2) - (x^1 - x^2)}{U_\alpha(x^1) - U_\alpha(x^2)} \\
-        \le{}& \sum_{i = 1}^{m} \lambda_i(x^2) \left[ F_i(x^1) - F_i(U_\alpha(x^1)) \right] + \sum_{i = 1}^{m} \lambda_i(x^1) \left[ F_i(x^2) - F_i(U_\alpha(x^2)) \right] \\
-           &+ \sum_{i = 1}^{m} \lambda_i(x^1) \left[ F_i(U_\alpha(x^2)) - F_i(x^1) \right] + \sum_{i = 1}^{m} \lambda_i(x^2) \left[ F_i(U_\alpha(x^1)) - F_i(x^2) \right] \\
-        ={}& \sum_{i = 1}^{m} \left[ \lambda_i(x^2) - \lambda_i(x^1) \right] \left[ F_i(x^1) - F_i(x^2) \right] 
-        \le 2 \max_{i = 1, \dots, m} \abs*{F_i(x^1) - F_i(x^2)}
+        \MoveEqLeft \frac{1}{\alpha} \innerp*{U_\alpha\left(x^1\right) - U_\alpha\left(x^2\right) - \left(x^1 - x^2\right)}{U_\alpha\left(x^1\right) - U_\alpha\left(x^2\right)} \\
+        \le{}& \sum_{i = 1}^{m} e_i\left(x^2\right) \left[ F_i\left(x^1\right) - F_i\left(U_\alpha\left(x^1\right)\right) \right] + \sum_{i = 1}^{m} e_i\left(x^1\right) \left[ F_i\left(x^2\right) - F_i\left(U_\alpha\left(x^2\right)\right) \right] \\
+           &+ \sum_{i = 1}^{m} e_i\left(x^1\right) \left[ F_i\left(U_\alpha\left(x^2\right)\right) - F_i\left(x^1\right) \right] + \sum_{i = 1}^{m} e_i\left(x^2\right) \left[ F_i\left(U_\alpha\left(x^1\right)\right) - F_i\left(x^2\right) \right] \\
+        ={}& \sum_{i = 1}^{m} \left[ e_i\left(x^2\right) - e_i\left(x^1\right) \right] \left[ F_i\left(x^1\right) - F_i\left(x^2\right) \right] 
+        \le 2 \max_{i = 1, \dots, m} \abs*{F_i\left(x^1\right) - F_i\left(x^2\right)}
     .\end{align}
-    Dividing by~$\alpha$ and adding~$(1 / 4) \norm*{x^1 - x^2}^2$ in both sides of the inequality, it follows that
-    \[
-        \norm*{U_\alpha(x^1) - U_\alpha(x^2) - \frac{1}{2} \left( x^1 - x^2 \right) }_2^2 \le \frac{1}{4} \norm*{x^1 - x^2}^2 + \frac{2}{\alpha} \max_{i = 1, \dots, m} \abs*{F_i(x^1) - F_i(x^2)}
-    .\] 
+    Multiplying by~$\alpha$ and adding~$(1 / 4) \norm*{x^1 - x^2}^2$ in both sides of the inequality, it follows that
+    \begin{equation}
+        \norm*{U_\alpha\left(x^1\right) - U_\alpha\left(x^2\right) - \frac{1}{2} \left( x^1 - x^2 \right) }_2^2 \le \frac{1}{4} \norm*{x^1 - x^2}^2 + 2 \alpha \max_{i = 1, \dots, m} \abs*{F_i\left(x^1\right) - F_i\left(x^2\right)}
+    .\end{equation} 
     Taking the square root of both sides, we obtain
-    \[
-        \norm*{U_\alpha(x^1) - U_\alpha(x^2) - \frac{1}{2} \left( x^1 - x^2 \right) }_2 \le \sqrt{\frac{1}{4} \norm*{x^1 - x^2}^2 + \frac{2}{\alpha} \max_{i = 1, \dots, m} \abs*{F_i(x^1) - F_i(x^2)}}
-    .\] 
+    \begin{equation}
+        \norm*{U_\alpha\left(x^1\right) - U_\alpha\left(x^2\right) - \frac{1}{2} \left( x^1 - x^2 \right) }_2 \le \sqrt{\frac{1}{4} \norm*{x^1 - x^2}^2 + 2 \alpha \max_{i = 1, \dots, m} \abs*{F_i\left(x^1\right) - F_i\left(x^2\right)}}
+    .\end{equation} 
     Then, it follows from the triangle inequality that
-    \[
-        \norm*{U_\alpha(x^1) - U_\alpha(x^2)}_2 \le \frac{1}{2} \norm*{x^1 - x^2}_2 + \sqrt{\frac{1}{4} \norm*{x^1 - x^2}_2^2 + \frac{2}{\alpha} \max_{i = 1, \dots, m} \abs*{F_i(x^1) - F_i(x^2)}}
-    .\] 
-    Since \cref{thm:local_Lipschitz} implies that~$F_i$ locally Lipschitz continuous, there exists~$L_i > 0$ such that
-    \[ \label{eq:cont_u_alpha:local_Lipschitz}
-        \abs{F_i(x^1) - F_i(x^2)} \le L_i \norm{x^1 - x^2}_2
-    .\] 
+    \begin{equation}
+        \norm*{U_\alpha\left(x^1\right) - U_\alpha\left(x^2\right)}_2 \le \frac{1}{2} \norm*{x^1 - x^2}_2 + \sqrt{\frac{1}{4} \norm*{x^1 - x^2}_2^2 + 2 \alpha \max_{i = 1, \dots, m} \abs*{F_i\left(x^1\right) - F_i\left(x^2\right)}}
+    .\end{equation} 
+    Since \zcref{thm:local_Lipschitz} implies that~$F_i$ locally Lipschitz continuous, there exists~$L_{F_i}(\Omega) > 0$ such that
+    \begin{equation} \label{eq:cont_u_alpha:local_Lipschitz}
+        \abs*{F_i\left(x^1\right) - F_i\left(x^2\right)} \le L_{F_i}(\Omega) \norm{x^1 - x^2}_2
+    .\end{equation} 
     Hence, the above two inequalities show~$U_\alpha$'s local H\"older continuity with exponent~$1 / 2$.
 
-    On the other hand, the definition~\cref{eq:u_alpha} of~$u_\alpha$ gives
+    On the other hand, the definition~\zcref{eq:reg_gap_MO} of~$u_\alpha$ gives
     \begin{align}
-        u_\alpha(x^1) &= \max_{y \in C} \min_{i = 1, \dots, m} \left[ F_i(x^1) - F_i(y) - \frac{\alpha}{2} \norm{x^1 - y}_2^2 \right] \\
-                      &\ge \min_{i = 1, \dots, m} [F_i(x^1) - F_i(U_\alpha(x^2)] - \frac{\alpha}{2} \norm{x^1 - U_\alpha(x^2)}_2^2
+        u_\alpha\left(x^1\right) &= \max_{y \in C} \min_{i = 1, \dots, m} \left[ F_i\left(x^1\right) - F_i(y) - \frac{1}{2 \alpha} \norm*{x^1 - y}_2^2 \right] \\
+                      &\ge \min_{i = 1, \dots, m} \left[F_i\left(x^1\right) - F_i(U_\alpha\left(x^2\right)\right] - \frac{1}{2 \alpha} \norm*{x^1 - U_\alpha\left(x^2\right)}_2^2
     .\end{align}
-    Reducing~$u_\alpha(x^2)$ from both sides yields
-    \[
-        u_\alpha(x^1) - u_\alpha(x^2) \ge \min_{i = 1, \dots, m} \left[F_i(x^1) - F_i(U_\alpha(x^2)) - \frac{\alpha}{2} \norm*{x^1 - U_\alpha(x^2)}_2^2\right] - u_\alpha(x^2)
-    .\] 
-    \Cref{eq:u_alpha,eq:U_alpha} lead to
+    Reducing~$u_\alpha\left(x^2\right)$ from both sides yields
+    \begin{equation}
+        u_\alpha\left(x^1\right) - u_\alpha\left(x^2\right) \ge \min_{i = 1, \dots, m} \left[F_i\left(x^1\right) - F_i\left(U_\alpha\left(x^2\right)\right) - \frac{1}{2 \alpha} \norm*{x^1 - U_\alpha\left(x^2\right)}_2^2\right] - u_\alpha\left(x^2\right)
+    .\end{equation} 
+    \zcref{eq:reg_gap_MO,eq:reg_gap_MO_sol} lead to
     \begin{align}
-        u_\alpha(x^1) - u_\alpha(x^2) \ge{}& \min_{i = 1, \dots, m} \left[F_i(x^1) - F_i(U_\alpha(x^2)) - \frac{\alpha}{2} \norm*{x^1 - U_\alpha(x^2)}_2^2\right] \\
-    &- \min_{i = 1, \dots, m} \left[F_i(x^1) - F_i(U_\alpha(x^2)) - \frac{\alpha}{2} \norm*{x^2 - U_\alpha(x^2)}_2^2 \right]
+        u_\alpha\left(x^1\right) - u_\alpha\left(x^2\right) \ge{}& \min_{i = 1, \dots, m} \left[F_i\left(x^1\right) - F_i\left(U_\alpha\left(x^2\right)\right) - \frac{1}{2 \alpha} \norm*{x^1 - U_\alpha\left(x^2\right)}_2^2\right] \\
+    &- \min_{i = 1, \dots, m} \left[F_i\left(x^1\right) - F_i\left(U_\alpha\left(x^2\right)\right) - \frac{1}{2 \alpha} \norm*{x^2 - U_\alpha\left(x^2\right)}_2^2 \right]
     .\end{align}
-    From the relation~$\min_{i = 1, \dots, m} v^1_i - \min_{i = 1, \dots, m} v^2_i \ge \min_{i = 1, \dots, m} (v^1_i - v^2_i)$ for all~$v^1, v^2 \in \setR^m$, we obtain
-    \[
-        u_\alpha(x^1) - u_\alpha(x^2) \ge \min_{i = 1, \dots, m} \left[ F_i(x^1) - F_i(x^2) - \frac{\alpha}{2} \innerp*{x^1 + x^2 - 2 U_\alpha(x^2)}{x^1 - x^2} \right] 
-    .\] 
-    Cauchy-Schwarz inequality and~\cref{eq:cont_u_alpha:local_Lipschitz} implies
-    \[
-        u_\alpha(x^1) - u_\alpha(x^2) \ge - \left[ \max_{i = 1, \dots, m} L_i + \frac{\alpha}{2} \norm*{x^1 + x^2 - 2 U_\alpha(x^2)}_2\right] \norm*{x^1 - x^2}_2
-    .\] 
-    Since the above inquality holds even if we interchange~$x^1$ and~$x^2$, we can show the local Lipschitz continuity of~$u_\alpha$.
+    From~\zcref{eq:min_diff_ineq}, we obtain
+    \begin{equation}
+        u_\alpha\left(x^1\right) - u_\alpha\left(x^2\right) \ge \min_{i = 1, \dots, m} \left[ F_i\left(x^1\right) - F_i\left(x^2\right) - \frac{1}{2 \alpha} \innerp*{x^1 + x^2 - 2 U_\alpha\left(x^2\right)}{x^1 - x^2} \right] 
+    .\end{equation} 
+    Cauchy-Schwarz inequality and~\zcref{eq:cont_u_alpha:local_Lipschitz} implies
+    \begin{equation}
+        u_\alpha\left(x^1\right) - u_\alpha\left(x^2\right) \ge - \left[ \max_{i = 1, \dots, m} L_{F_i}(\Omega) + \frac{1}{2 \alpha} \norm*{x^1 + x^2 - 2 U_\alpha\left(x^2\right)}_2\right] \norm*{x^1 - x^2}_2
+    .\end{equation} 
+    Since~$U_\alpha(x)$ is bounded for~$x \in \Omega$ due to the continuity, and the above inequality holds even if we interchange~$x^1$ and~$x^2$, we can show the local Lipschitz continuity of~$u_\alpha$.
 \end{proof}
 
-On the other hand, using the unit simplex~$\simplex^m$ defined by~\cref{eq:simplex}, $u_\alpha$ given by~\cref{eq:u_alpha} can also be expressed as
-\[
-    u_\alpha(x) = \max_{y \in C} \min_{\lambda \in \simplex^m} \sum_{i = 1}^{m} \lambda_i \left[ F_i(x) - F_i(y) - \frac{\alpha}{2} \norm{x - y}_2^2 \right] 
-.\] 
-We can see that~$C$ is convex,~$\simplex^m$ is compact and convex, and the function inside~$\min_{\lambda \in \simplex^m}$ is convex for~$\lambda$ and concave for~$y$.
+On the other hand, using the unit $m$-simplex~$\simplex^m$ defined by~\zcref{eq:simplex}, $u_\alpha$ given by~\zcref{eq:reg_gap_MO} can also be expressed as
+\begin{equation}
+    u_\alpha(x) = \max_{y \in C} \min_{e \in \simplex^m} \sum_{i = 1}^{m} e_i \left[ F_i(x) - F_i(y) - \frac{1}{2 \alpha} \norm{x - y}_2^2 \right] 
+.\end{equation} 
+We can see that~$C$ is convex,~$\simplex^m$ is compact and convex, and the function inside~$\min_{e \in \simplex^m}$ is convex for~$e$ and concave for~$y$.
 Therefore, Sion's minimax theorem~\cite{Sion1958} leads to
 \begin{equation} \label{eq:u dual}
     \begin{split}
-        u_\alpha(x) &= \min_{\lambda \in \simplex^m} \max_{y \in C} \sum_{i = 1}^{m} \lambda_i \left[ F_i(x) - F_i(y) - \frac{\alpha}{2} \norm{x - y}_2^2 \right] \\
-                  &= \min_{\lambda \in \simplex^m} \left[ \sum_{i = 1}^{m} \lambda_i F_i(x) - \alpha \envelope_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C} (x) \right]
+        u_\alpha(x) &= \min_{e \in \simplex^m} \max_{y \in C} \sum_{i = 1}^{m} e_i \left[ F_i(x) - F_i(y) - \frac{1}{2 \alpha} \norm{x - y}_2^2 \right] \\
+                  &= \min_{e \in \simplex^m} \left[ \sum_{i = 1}^{m} e_i F_i(x) - \alpha^{-1} \envelope_{\alpha \sum\limits_{i = 1}^{m} e_i F_i + \indicator_C} (x) \right]
     ,\end{split}
 \end{equation}
-where~$\envelope$ and~$\indicator$ denote the Moreau envelope and the indicator function defined by~\cref{eq:Moreau_env,eq:indicator}, respectively.
+where~$\envelope$ and~$\indicator_C$ denote the Moreau envelope and the indicator function defined by~\zcref{eq:Moreau_env,eq:indicator}, respectively.
 Thus, we can evaluate~$u_\alpha$ through the following~$m$-dimensional, simplex-constrained, and convex optimization problem:
 \begin{equation} \label{eq:dual_reg_gap}
     \begin{aligned}
-        \min_{\lambda \in \setR^m} &&& \sum_{i = 1}^{m} \lambda_i F_i(x) - \alpha \envelope_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x) \\
-        \st &&& \lambda \ge 0 \eqand \sum_{i = 1}^{m} \lambda_i = 1 
+        \min_{e \in \setR^m} &&& \sum_{i = 1}^{m} e_i F_i(x) - \alpha^{-1} \envelope_{\alpha \sum\limits_{i = 1}^{m} e_i F_i + \indicator_C}(x) \\
+        \st &&& e \ge 0 \eqand \sum_{i = 1}^{m} e_i = 1 
     .\end{aligned}
 \end{equation} 
-As the following theorem shows,~\cref{eq:dual_reg_gap} is also differentiable.
-\begin{theorem} \label{thm:dual_reg_gap_smooth}
-    The objective function of~\cref{eq:dual_reg_gap} is continuously differentiable at every~$\lambda \in \setR^m$ and
-    \[
-        \nabla_\lambda \left[ \sum_{i = 1}^{m} \lambda_i F_i(x) - \alpha \envelope_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} F_i + \indicator_C}(x) \right] = F(x) - F\left( \prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x) \right)
-    ,\] 
-    where~$\prox$ denotes the proximal operator~\cref{eq:prox}.
+As the following theorem shows,~\zcref{eq:dual_reg_gap} is also differentiable.
+\begin{theorem} \zlabel{thm:dual_reg_gap_smooth}
+    The objective function of~\zcref{eq:dual_reg_gap} is continuously differentiable at every~$e \in \setR^m$ and
+    \begin{equation}
+        \nabla_e \left[ \sum_{i = 1}^{m} e_i F_i(x) - \alpha^{-1} \envelope_{\alpha \sum\limits_{i = 1}^{m} e_i F_i + \indicator_C}(x) \right] = F(x) - F\left( \prox_{\alpha \sum\limits_{i = 1}^{m} e_i F_i + \indicator_C}(x) \right)
+    ,\end{equation} 
+    where~$\prox$ denotes the proximal operator~\zcref{eq:prox}.
 \end{theorem}
 \begin{proof}
     Define
-    \[
-        h(y, \lambda) \coloneqq \sum_{i = 1}^{m} \lambda_i F_i(y) + \frac{\alpha}{2} \norm{x - y}_2^2
-    .\] 
+    \begin{equation}
+        h(y, e) \coloneqq \sum_{i = 1}^{m} e_i F_i(y) + \frac{1}{2 \alpha} \norm{x - y}_2^2
+    .\end{equation} 
     Clearly,~$h$ is continuous.
     Moreover,~$h_y(\cdot) \coloneqq h(y, \cdot)$ is continuously differentiable and
-    \[
-        \nabla_\lambda h_y(\lambda) = F(y)
-    .\] 
-    Furthermore,~$\prox_{\frac{1}{\alpha} \sum_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x) = \argmin_{y \in C} h(y, \lambda)$ is also continuous at every~$\lambda \in \setR^m$ from~\cite[Excercise 7.38]{Rockafellar1998}.
-    Therefore, all the assumptions of \cref{thm:sensitivity} are satisfied.
-    Since~$\prox_{\frac{1}{\alpha} \sum_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x)$ is unique, we obtain the desired result.
+    \begin{equation}
+        \nabla_e h_y(e) = F(y)
+    .\end{equation} 
+    Furthermore,~$\prox_{\alpha \sum_{i = 1}^{m} e_i F_i + \indicator_C}(x) = \argmin_{y \in C} h(y, e)$ is also continuous at every~$e \in \setR^m$ from~\cite[Excercise 7.38]{Rockafellar1998}.
+    Therefore, all the assumptions of \zcref{thm:sensitivity} are satisfied.
+    Since~$\prox_{\alpha \sum_{i = 1}^{m} e_i F_i + \indicator_C}(x)$ is unique, we obtain the desired result.
 \end{proof}
-Therefore, when~$\prox_{\frac{1}{\alpha} \sum_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x)$ is easy to compute, we can solve~\cref{eq:dual_reg_gap} using well-known convex optimization techniques such as the interior point method~\cite{Bertsekas1999}.
-If~$n \gg m$, this is usually faster than solving the~$n$-dimensional problem directly to compute~\cref{eq:u_alpha}.
+Therefore, when~$\prox_{\alpha \sum_{i = 1}^{m} e_i F_i + \indicator_C}(x)$ is easy to compute, we can solve~\zcref{eq:dual_reg_gap} using well-known convex optimization techniques such as the interior point method~\cite{Bertsekas1999}.
+If~$n \gg m$, this is usually faster than solving the~$n$-dimensional problem directly to compute~\zcref{eq:reg_gap_MO}.
 
-Let us now write the optimal solution set of~\cref{eq:dual_reg_gap} by
+Let us now write the optimal solution set of~\zcref{eq:dual_reg_gap} by
 \begin{equation} \label{eq:Lambda}
-    \Lambda(x) \coloneqq \argmin_{\lambda \in \simplex^m} \left[ \sum_{i = 1}^{m} \lambda_i F_i(x) - \alpha \envelope_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C} (x) \right]
+    \mathcal{E}(x) \coloneqq \argmin_{e \in \simplex^m} \left[ \sum_{i = 1}^{m} e_i F_i(x) - \alpha^{-1} \envelope_{\alpha \sum\limits_{i = 1}^{m} e_i F_i + \indicator_C} (x) \right]
 .\end{equation} 
-Then, we can show the directional differentiability of~$u_\alpha$, as in the following theorem.
-\begin{theorem} \label{thm:smooth_reg_gap}
+Then, we can show the (directional) differentiability of~$u_\alpha$, as in the following theorem.
+\begin{theorem} \zlabel{thm:smooth_reg_gap}
     Let~$x \in C$.
-    For all~$\alpha > 0$, the regularized gap function function~$u_\alpha$ defined by~\cref{eq:u_alpha} has a directional derivative
-    \[
-        u_\alpha'(x; z - x) = \inf_{\lambda \in \Lambda(x)} \left[ \sum_{i = 1}^{m} \lambda_i F_i'(x; z - x) - \alpha \innerp*{x - \prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x)}{z - x} \right] 
-    \] 
-    for all~$z \in C$, where~$\Lambda(x)$ is given by~\cref{eq:Lambda}, and~$\prox$ denotes the proximal operator~\cref{eq:prox}.
-    In particular, if~$\Lambda(x)$ is a singleton, i.e.,~$\Lambda(x) = \set*{\lambda(x)}$, and~$F_i$ is continuously differentiable at~$x$, then~$u_\alpha$ is continuously differentiable at~$x$, and we have
-    \[
-        \nabla u_\alpha(x) = \sum_{i = 1}^{m} \lambda_i(x) \nabla F_i(x) - \alpha \left( x - \prox_{\frac{1}{\alpha} \sum_{i = 1}^{m} \lambda_i(x) F_i + \indicator_C} \right) 
-    .\] 
+    For all~$\alpha > 0$, the regularized gap function~$u_\alpha$ defined by~\zcref{eq:reg_gap_MO} is directionally differentiable at~$x$ and
+    \begin{equation}
+        u_\alpha'(x; z - x) = \inf_{e \in \mathcal{E}(x)} \left[ \sum_{i = 1}^{m} e_i F_i'(x; z - x) - \alpha^{-1} \innerp*{x - \prox_{\alpha \sum\limits_{i = 1}^{m} e_i F_i + \indicator_C}(x)}{z - x} \right] 
+    \end{equation} 
+    for all~$z \in C$, where~$\mathcal{E}(x)$ is given by~\zcref{eq:Lambda}, and~$\prox$ denotes the proximal operator~\zcref{eq:prox}.
+    In particular, if~$\mathcal{E}(x)$ is a singleton, i.e.,~$\mathcal{E}(x) = \set*{e(x)}$, and~$F_i$ is continuously differentiable at~$x$, then~$u_\alpha$ is continuously differentiable at~$x$, and we have
+    \begin{equation}
+        \nabla u_\alpha(x) = \sum_{i = 1}^{m} e_i(x) \nabla F_i(x) - \alpha^{-1} \left( x - \prox_{\alpha \sum\limits_{i = 1}^{m} e_i(x) F_i + \indicator_C} \right) 
+    .\end{equation} 
 \end{theorem}
 \begin{proof}
     Let
-    \[
-        h(x, \lambda) \coloneqq \sum_{i = 1}^{m} \lambda_i F_i(x) - \alpha \envelope_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C} (x)
-    .\] 
-    Since~$\envelope_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C} (x)$ is continuous at every~$(x, \lambda) \in C \times \simplex^m$ from~\cite[Theorem~7.37]{Rockafellar1998},~$h$ is also continuous on~$C \times \simplex^m$.
-    Moreover, \cref{thm:Moreau_smooth} implies that for all~$x, z \in C$ the function~$h_\lambda(\cdot) \coloneqq h(\cdot, \lambda)$ has a directional derivative:
-    \[
-        h_\lambda'(x; z - x) = \sum_{i = 1}^{m} \lambda_i F_i'(x; z - x) - \alpha x - \innerp*{\prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x)}{z - x}
-    .\] 
-    Because~$\prox_{\frac{1}{\alpha} \sum_{i = 1}^{m} \lambda_i F_i + \indicator_C} (x)$ is continuous at every~$(x, \lambda) \in C \times \simplex^m$ (cf.~\cite[Exercise~7.38]{Rockafellar1998}),~$h_\lambda'(x; z - x)$ is also continuous at every~$(x, z, \lambda) \in C \times C \times \simplex^m$.
-    The discussion above and the compactness of~$\simplex^m$ show that all assumptions of \cref{thm:sensitivity} are satisfied, so we get the desired result.
+    \begin{equation}
+        h(x, e) \coloneqq \sum_{i = 1}^{m} e_i F_i(x) - \alpha^{-1} \envelope_{\alpha \sum\limits_{i = 1}^{m} e_i F_i + \indicator_C} (x)
+    .\end{equation} 
+    Since~$\envelope_{\alpha \sum_{i = 1}^{m} e_i F_i + \indicator_C} (x)$ is continuous at every~$(x, e) \in C \times \simplex^m$ from~\cite[Theorem~7.37]{Rockafellar1998},~$h$ is also continuous on~$C \times \simplex^m$.
+    Moreover, \zcref{thm:Moreau_smooth} implies that for all~$x, z \in C$ the function~$h_e(\cdot) \coloneqq h(\cdot, e)$ has a directional derivative:
+    \begin{equation}
+        h_e'(x; z - x) = \sum_{i = 1}^{m} e_i F_i'(x; z - x) - \alpha^{-1} \innerp*{\prox_{\alpha \sum\limits_{i = 1}^{m} e_i F_i + \indicator_C}(x)}{z - x}
+    .\end{equation} 
+    Because~$\prox_{\alpha \sum_{i = 1}^{m} e_i F_i + \indicator_C} (x)$ is continuous at every~$(x, e) \in C \times \simplex^m$ (cf.~\cite[Exercise~7.38]{Rockafellar1998}),~$h_e'(x; z - x)$ is also continuous at every~$(x, z, e) \in C \times C \times \simplex^m$.
+    The discussion above and the compactness of~$\simplex^m$ show that all assumptions of \zcref{thm:sensitivity} are satisfied, so we get the desired result.
 \end{proof}
 
-From \cref{thm:u_alpha,thm:smooth_reg_gap}, the weakly Pareto optimal solutions for~\cref{eq:MOO} are the globally optimal solutions of the following (directionally) differentiable single-objective optimization problem:
+From \zcref{thm:reg_gap_MO,thm:smooth_reg_gap}, the weakly Pareto optimal solutions for~\zcref{eq:MOO} are the globally optimal solutions of the following (directionally) differentiable single-objective optimization problem:
 \begin{equation} \label{eq:min_reg_gap}
     \min_{x \in C} \quad u_\alpha(x)
 .\end{equation} 
-Since~$u_\alpha$ is generally non-convex,~\cref{eq:min_reg_gap} may have local optimal solutions or stationary points that are not globally optimal.
-As the following example shows, such stationary points are not necessarily Pareto stationary for~\cref{eq:MOO}.
-\begin{example} \label{ex:min_reg_gap}
-    Let~$m = 1, \alpha = 1, S = \setR$ and~$F_1(x) = \abs{x}$.
+Since~$u_\alpha$ is generally non-convex,~\zcref{eq:min_reg_gap} may have local optimal solutions or stationary points that are not globally optimal.
+As the following example shows, such stationary points are not necessarily Pareto stationary for~\zcref{eq:MOO}.
+\begin{example} \zlabel{ex:min_reg_gap}
+    Let~$m = 1, \alpha = 1, C = \setR$ and~$F_1(x) = \abs{x}$.
     Then, we have
-    \[
+    \begin{equation}
         \envelope_{F_1}(x) = \begin{dcases}
             x^2 / 2, & \text{if } \abs{x} < 1, \\
             \abs{x} - 1 / 2, & \otherwise
         .\end{dcases}
-    \]
+    \end{equation}
     Hence, we can evaluate~$u_1$ as follows:
-    \[
+    \begin{equation}
         u_1(x) = \begin{dcases}
             \abs{x} - x^2 / 2, & \text{if } \abs{x} < 1, \\
             1 / 2, & \otherwise
         .\end{dcases}
-    \] 
-    It is stationary for~\cref{eq:min_reg_gap} at~$\abs{x} \ge 1$ and~$x = 0$ but minimal only at~$x = 0$.
+    \end{equation} 
+    It is stationary for~\zcref{eq:min_reg_gap} at~$\abs{x} \ge 1$ and~$x = 0$ but minimal only at~$x = 0$.
     Furthermore, the stationary point of~$F_1$ is only~$x = 0$.
 \end{example}
-However, if we assume the strict convexity of each~$F_i$, the stationary point of~\cref{eq:min_reg_gap} is Pareto optimal for~\cref{eq:MOO} and hence global optimal for~\cref{eq:min_reg_gap}.
+However, if we assume the strict convexity of each~$F_i$, the stationary point of~\zcref{eq:min_reg_gap} is Pareto optimal for~\zcref{eq:MOO} and hence global optimal for~\zcref{eq:min_reg_gap}.
 Note that this assumption does not assert the convexity of~$u_\alpha$.
-\begin{theorem} \label{thm:stationary_reg_gap}
+\begin{theorem} \zlabel{thm:stationary_reg_gap}
     Suppose that~$F_i$ is strictly convex for all~$i = 1, \dots, m$.
-    If~$x \in C$ is a stationary point of~\cref{eq:min_reg_gap}, i.e.,
-    \[
+    If~$x \in C$ is a stationary point of~\zcref{eq:min_reg_gap}, i.e.,
+    \begin{equation}
         u_\alpha'(x; z - x) \ge 0 \forallcondition{z \in C}
-    ,\]
-    then~$x$ is Pareto optimal for~\cref{eq:MOO}.
+    ,\end{equation}
+    then~$x$ is Pareto optimal for~\zcref{eq:MOO}.
 \end{theorem}
 \begin{proof}
-    Let~$\lambda \in \Lambda(x)$, where~$\Lambda(x)$ is given by~\cref{eq:Lambda}.
-    Then, \cref{thm:smooth_reg_gap} gives
-    \[
-        \sum_{i = 1}^{m} \lambda_i F_i'(x; z - x) - \alpha \innerp*{ x - \prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x) }{z - x} \ge 0 \forallcondition{z \in C}
-    .\] 
-    Substituting~$z = \prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x)$ into the above inequality, we get
-    \[
-        \sum_{i = 1}^{m} \lambda_i F_i' \left(x; \prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x) - x \right) + \alpha \norm*{ x - \prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x) }_2^2 \ge 0
-    .\]
-    On the other hand, \cref{thm:second_prox} yields
-    \[
-        \norm*{x - \prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x)}_2^2 \le \frac{1}{\alpha} \sum_{i = 1}^{m} \lambda_i \left[ F_i(x) - F_i\left(\prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x)\right) \right] 
-    .\]
+    Let~$e \in \mathcal{E}(x)$, where~$\mathcal{E}(x)$ is given by~\zcref{eq:Lambda}.
+    Then, \zcref{thm:smooth_reg_gap} gives
+    \begin{equation}
+        \sum_{i = 1}^{m} e_i F_i'(x; z - x) - \alpha^{-1} \innerp*{ x - \prox_{\alpha \sum\limits_{i = 1}^{m} e_i F_i + \indicator_C}(x) }{z - x} \ge 0 \forallcondition{z \in C}
+    .\end{equation} 
+    Substituting~$z = \prox_{\alpha \sum\limits_{i = 1}^{m} e_i F_i + \indicator_C}(x)$ into the above inequality, we get
+    \begin{equation}
+        \sum_{i = 1}^{m} e_i F_i' \left(x; \prox_{\alpha \sum\limits_{i = 1}^{m} e_i F_i + \indicator_C}(x) - x \right) + \alpha^{-1} \norm*{ x - \prox_{\alpha \sum\limits_{i = 1}^{m} e_i F_i + \indicator_C}(x) }_2^2 \ge 0
+    .\end{equation}
+    On the other hand, \zcref{thm:second_prox} yields
+    \begin{equation}
+        \norm*{x - \prox_{\alpha \sum\limits_{i = 1}^{m} e_i F_i + \indicator_C}(x)}_2^2 \le \alpha \sum_{i = 1}^{m} e_i \left[ F_i(x) - F_i\left(\prox_{\alpha \sum\limits_{i = 1}^{m} e_i F_i + \indicator_C}(x)\right) \right] 
+    .\end{equation}
     Combining the above two inequalities, we have
     \begin{multline}
-        \sum_{i = 1}^{m} \lambda_i F_i' \left(x; \prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x) - x \right) \\
-        \ge \sum_{i = 1}^{m} \lambda_i \left[ F_i\left(\prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x)\right) - F_i(x) \right] 
+        \sum_{i = 1}^{m} e_i F_i' \left(x; \prox_{\alpha \sum\limits_{i = 1}^{m} e_i F_i + \indicator_C}(x) - x \right) \\
+        \ge \sum_{i = 1}^{m} e_i \left[ F_i\left(\prox_{\alpha \sum\limits_{i = 1}^{m} e_i F_i + \indicator_C}(x)\right) - F_i(x) \right] 
     .\end{multline}
-    Since~$F_i$ is strictly convex for all~$i = 1, \dots, m$, the above inequality implies that~$x = \prox_{\frac{1}{\alpha} \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x)$, and hence~$u_\alpha(x) = 0$.
-    This means that~$x$ is Pareto optimal for~\cref{eq:MOO} from the strict convexity of~$F_i$, \cref{thm:Pareto:weak_stationary},~\sublabelcref{thm:Pareto:strict_convex}, and \cref{thm:u_alpha}.
+    Since~$F_i$ is strictly convex for all~$i = 1, \dots, m$, the above inequality implies that~$x = \prox_{\alpha \sum_{i = 1}^{m} e_i F_i + \indicator_C}(x)$, and hence~$u_\alpha(x) = 0$.
+    This means that~$x$ is Pareto optimal for~\zcref{eq:MOO} from the strict convexity of~$F_i$, \zcref{thm:Pareto:weak_stationary,thm:Pareto:strict_convex,thm:reg_gap_MO}.
 \end{proof}
-
 \end{document}

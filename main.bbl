@@ -330,6 +330,43 @@
       \verb https://doi.org/10.1080/01630568908816335
       \endverb
     \endentry
+    \entry{Aujol2021}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=9f89761b51d3031a996e818afff055dc}{%
+           family={Aujol},
+           familyi={A\bibinitperiod},
+           given={Jean-Fran\c{c}ois},
+           giveni={J\bibinithyphendelim F\bibinitperiod}}}%
+        {{hash=bd33384632289703381b32e50974752d}{%
+           family={Dossal},
+           familyi={D\bibinitperiod},
+           given={Charles},
+           giveni={C\bibinitperiod}}}%
+        {{hash=3ad6214614597483ac102f234c0cbbf1}{%
+           family={Rondepierre},
+           familyi={R\bibinitperiod},
+           given={Aude},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{68eab38a5f3393c411234ef7706d33fc}
+      \strng{fullhash}{68eab38a5f3393c411234ef7706d33fc}
+      \strng{bibnamehash}{68eab38a5f3393c411234ef7706d33fc}
+      \strng{authorbibnamehash}{68eab38a5f3393c411234ef7706d33fc}
+      \strng{authornamehash}{68eab38a5f3393c411234ef7706d33fc}
+      \strng{authorfullhash}{68eab38a5f3393c411234ef7706d33fc}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{FISTA is an automatic geometrically optimized algorithm for strongly convex functions}}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://hal.archives-ouvertes.fr/hal-03491527/
+      \endverb
+      \verb{url}
+      \verb https://hal.archives-ouvertes.fr/hal-03491527/
+      \endverb
+    \endentry
     \entry{Auslender1976}{book}{}
       \name{author}{1}{}{%
         {{hash=6c36b3069cd0cdbe6c80d1286b46f709}{%
@@ -669,6 +706,9 @@
            given={Alexander},
            giveni={A\bibinitperiod}}}%
       }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
       \list{publisher}{1}{%
         {Springer New York}%
       }
@@ -750,6 +790,66 @@
       \verb https://doi.org/10.1137/S1052623403429093
       \endverb
       \keyw{Inexact algorithm,Proximal point,Vector optimization}
+    \endentry
+    \entry{Burachik1995}{article}{}
+      \name{author}{4}{}{%
+        {{hash=ff6ffa5ab73884ae4d01c25b27875ce2}{%
+           family={Burachik},
+           familyi={B\bibinitperiod},
+           given={Regina\bibnamedelima Sandra},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=79b9d0386837e14eb2455f224b15bec4}{%
+           family={{Gra\~{n}a Drummond}},
+           familyi={G\bibinitperiod},
+           given={Luis\bibnamedelima Mauricio},
+           giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=0eba3dfea4ed61f5a6bdfb2e6016fb1d}{%
+           family={Iusem},
+           familyi={I\bibinitperiod},
+           given={Alfredo\bibnamedelima Noel},
+           giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=975a8e0ef61c5aca1bf497aac32c8c43}{%
+           family={Svaiter},
+           familyi={S\bibinitperiod},
+           given={Benar\bibnamedelima Fux},
+           giveni={B\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Gordon}%
+        {Breach Science Publishers}%
+      }
+      \strng{namehash}{36cc6a98fc9d1b62f19970feb2fb8df2}
+      \strng{fullhash}{36cc6a98fc9d1b62f19970feb2fb8df2}
+      \strng{bibnamehash}{36cc6a98fc9d1b62f19970feb2fb8df2}
+      \strng{authorbibnamehash}{36cc6a98fc9d1b62f19970feb2fb8df2}
+      \strng{authornamehash}{36cc6a98fc9d1b62f19970feb2fb8df2}
+      \strng{authorfullhash}{36cc6a98fc9d1b62f19970feb2fb8df2}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Several finite procedures for determining the step size of the steepest descent method for unconstrained optimization, without performing exact one-dimensional minimizations, have been considered i...}
+      \field{issn}{10294945}
+      \field{journaltitle}{Optimization}
+      \field{number}{2}
+      \field{title}{{Full convergence of the steepest descent method with inexact line searches}}
+      \field{volume}{32}
+      \field{year}{1995}
+      \field{pages}{137\bibrangedash 146}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1080/02331939508844042
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Burachik et al. - 1995 - Full convergence of the steepest descent method with inexact line searches.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1080/02331939508844042
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1080/02331939508844042
+      \endverb
+      \keyw{Convex Programming,Inexact Line Searches,Steepest Descent Method}
     \endentry
     \entry{Byrd1999}{article}{}
       \name{author}{3}{}{%
@@ -1912,6 +2012,47 @@
       \endverb
       \keyw{Multiobjective optimization,Projected gradient method,Vector optimization,Weak efficiency}
     \endentry
+    \entry{Fukuda2011}{article}{}
+      \name{author}{2}{}{%
+        {{hash=c5ce024500fe29b568503d51a3c9d530}{%
+           family={Fukuda},
+           familyi={F\bibinitperiod},
+           given={Ellen\bibnamedelima Hidemi},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=79b9d0386837e14eb2455f224b15bec4}{%
+           family={{Gra\~{n}a Drummond}},
+           familyi={G\bibinitperiod},
+           given={Luis\bibnamedelima Mauricio},
+           giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{6426ccad8f899ff65f01d0d766d647da}
+      \strng{fullhash}{6426ccad8f899ff65f01d0d766d647da}
+      \strng{bibnamehash}{6426ccad8f899ff65f01d0d766d647da}
+      \strng{authorbibnamehash}{6426ccad8f899ff65f01d0d766d647da}
+      \strng{authornamehash}{6426ccad8f899ff65f01d0d766d647da}
+      \strng{authorfullhash}{6426ccad8f899ff65f01d0d766d647da}
+      \field{extraname}{3}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In 2004, Gra\~{n}a Drummond and Iusem proposed an extension of the projected gradient method for constrained vector optimization problems. Using this method, an Armijo-like rule, implemented with a backtracking procedure, was used in order to determine the step lengths. The authors just showed stationarity of all cluster points and, for another version of the algorithm (with exogenous step lengths), under some additional assumptions, they proved convergence to weakly efficient solutions. In this work, first we correct a slight mistake in the proof of a certain continuity result in that 2004 article, and then we extend its convergence analysis. Indeed, under some reasonable hypotheses, for convex objective functions with respect to the ordering cone, we establish full convergence to optimal points of any sequence produced by the projected gradient method with an Armijo-like rule, no matter how poor the initial guesses may be. {{$\copyright$}} 2011 Copyright Taylor and Francis Group, LLC.}
+      \field{issn}{02331934}
+      \field{journaltitle}{Optimization}
+      \field{number}{8-9}
+      \field{title}{{On the convergence of the projected gradient method for vector optimization}}
+      \field{volume}{60}
+      \field{year}{2011}
+      \field{pages}{1009\bibrangedash 1021}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1080/02331934.2010.522710
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Fukuda, Gra{\~{n}}a Drummond - 2011 - On the convergence of the projected gradient method for vector optimization.pdf:pdf
+      \endverb
+      \keyw{convexity with respect to cones,projected gradient method,quasi-F\'{e}jer convergence,vector optimization,weak efficiency}
+    \endentry
     \entry{Fukushima1992}{article}{}
       \name{author}{1}{}{%
         {{hash=2cedf89bdcdd2232e1b2b6fa56667310}{%
@@ -2233,7 +2374,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Vector optimization problems are a significant extension of multiobjective optimization, which has a large number of real life applications. In vector optimization the preference order is related to an arbitrary closed and convex cone, rather than the nonnegative orthant. We consider extensions of the projected gradient gradient method to vector optimization, which work directly with vector-valued functions, without using scalar-valued objectives. We provide a direction which adequately substitutes for the projected gradient, and establish results which mirror those available for the scalar-valued case, namely stationarity of the cluster points (if any) without convexity assumptions, and convergence of the full sequence generated by the algorithm to a weakly efficient optimum in the convex case, under mild assumptions. We also prove that our results still hold when the search direction is only approximately computed.}
-      \field{issn}{0926-6003}
+      \field{issn}{09266003}
       \field{journaltitle}{Computational Optimization and Applications}
       \field{month}{4}
       \field{number}{1}
@@ -2396,6 +2537,45 @@
       \verb :Users/zalgo/Downloads/1-s2.0-0167637782900499-main.pdf:pdf
       \endverb
       \keyw{Convex programming,duality,duality gap}
+    \endentry
+    \entry{Hoffman1952}{article}{}
+      \name{author}{1}{}{%
+        {{hash=ec929e099920301f79cf5c57d8dc8f53}{%
+           family={Hoffman},
+           familyi={H\bibinitperiod},
+           given={Alan\bibnamedelima J},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{ec929e099920301f79cf5c57d8dc8f53}
+      \strng{fullhash}{ec929e099920301f79cf5c57d8dc8f53}
+      \strng{bibnamehash}{ec929e099920301f79cf5c57d8dc8f53}
+      \strng{authorbibnamehash}{ec929e099920301f79cf5c57d8dc8f53}
+      \strng{authornamehash}{ec929e099920301f79cf5c57d8dc8f53}
+      \strng{authorfullhash}{ec929e099920301f79cf5c57d8dc8f53}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Let Ax^b be a consistent system of linear inequalities. The principal result is a quantitative formulation of the fact that if JC ''almost" satisfies the inequalities, then x is "close" to a solution. It is further shown how it is possible in certain cases to estimate the size of the vector joining JC to the nearest solution from the magnitude of the positive coordinates of Ax-b.}
+      \field{journaltitle}{Journal of Research of the National Bureau of Standards}
+      \field{number}{4}
+      \field{title}{{On approximate solutions of systems of linear inequalities}}
+      \field{volume}{49}
+      \field{year}{1952}
+      \field{pages}{263\bibrangedash 265}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1142/9789812796936_0018
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Hoffman - 1952 - On Approximate Solutions of Systems of Linear Inequalities.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1142/9789812796936_0018
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1142/9789812796936_0018
+      \endverb
     \endentry
     \entry{Huang2007}{article}{}
       \name{author}{3}{}{%
@@ -3270,6 +3450,59 @@
       \verb http://mi.mathnet.ru/eng/dan/v269/i3/p543
       \endverb
     \endentry
+    \entry{Parikh2014}{book}{}
+      \name{author}{2}{}{%
+        {{hash=2e1b520f90d2b5de02de6cf5f9896399}{%
+           family={Parikh},
+           familyi={P\bibinitperiod},
+           given={Neal},
+           giveni={N\bibinitperiod}}}%
+        {{hash=ec94d94cc487dd71939a90cbeaaf47d0}{%
+           family={Boyd},
+           familyi={B\bibinitperiod},
+           given={Stephen},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boston - Delft}%
+      }
+      \list{publisher}{1}{%
+        {Now Publishers, Inc.}%
+      }
+      \strng{namehash}{05c18423218cfff8f407fe111419ae33}
+      \strng{fullhash}{05c18423218cfff8f407fe111419ae33}
+      \strng{bibnamehash}{05c18423218cfff8f407fe111419ae33}
+      \strng{authorbibnamehash}{05c18423218cfff8f407fe111419ae33}
+      \strng{authornamehash}{05c18423218cfff8f407fe111419ae33}
+      \strng{authorfullhash}{05c18423218cfff8f407fe111419ae33}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Proximal Algorithms}
+      \field{booktitle}{Foundations and Trends{\textregistered{}} in Optimization}
+      \field{isbn}{9781601987174}
+      \field{issn}{2167-3888}
+      \field{number}{3}
+      \field{title}{{Proximal Algorithms}}
+      \field{volume}{1}
+      \field{year}{2014}
+      \field{pages}{127\bibrangedash 239}
+      \range{pages}{113}
+      \verb{doi}
+      \verb 10.1561/2400000003
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Parikh, Boyd - 2014 - Proximal Algorithms.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1561/2400000003
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1561/2400000003
+      \endverb
+      \keyw{Machine Learning,Optimization}
+    \endentry
     \entry{Polyak1967}{article}{}
       \name{author}{1}{}{%
         {{hash=2bad1be7cd84eab3968cd6c52a0fd906}{%
@@ -3724,51 +3957,6 @@
       \verb http://proceedings.mlr.press/v89/sun19a.html
       \endverb
     \endentry
-    \entry{Svaiter2018}{article}{}
-      \name{author}{1}{}{%
-        {{hash=696a4bec40f681832390dae0b6456d6f}{%
-           family={Svaiter},
-           familyi={S\bibinitperiod},
-           given={Benar\bibnamedelima F.},
-           giveni={B\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {North-Holland}%
-      }
-      \strng{namehash}{696a4bec40f681832390dae0b6456d6f}
-      \strng{fullhash}{696a4bec40f681832390dae0b6456d6f}
-      \strng{bibnamehash}{696a4bec40f681832390dae0b6456d6f}
-      \strng{authorbibnamehash}{696a4bec40f681832390dae0b6456d6f}
-      \strng{authornamehash}{696a4bec40f681832390dae0b6456d6f}
-      \strng{authorfullhash}{696a4bec40f681832390dae0b6456d6f}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{The aim of this manuscript is to characterize the continuity properties of the multiobjective steepest descent direction (vector field) for smooth objective functions. We will show that this vector field is H\"{o}lder continuous with optimal exponent 1/2. In particular, this vector field fails to be Lipschitz continuous even for polynomial objectives.}
-      \field{issn}{01676377}
-      \field{journaltitle}{Operations Research Letters}
-      \field{month}{7}
-      \field{number}{4}
-      \field{title}{{The multiobjective steepest descent direction is not Lipschitz continuous, but is H\"{o}lder continuous}}
-      \field{volume}{46}
-      \field{year}{2018}
-      \field{pages}{430\bibrangedash 433}
-      \range{pages}{4}
-      \verb{doi}
-      \verb 10.1016/j.orl.2018.05.008
-      \endverb
-      \verb{file}
-      \verb :Users/zalgo/Downloads/1-s2.0-S0167637718300816-main.pdf:pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1016/j.orl.2018.05.008
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1016/j.orl.2018.05.008
-      \endverb
-      \keyw{H\"{o}lder continuity,Lipschitz continuity,Multiobjective optimization,Pareto optimality,Steepest descent direction}
-    \endentry
     \entry{Taji1993}{article}{}
       \name{author}{3}{}{%
         {{hash=95d0371d22ec6c347dad0e7bb2369cee}{%
@@ -3848,7 +4036,6 @@
       \strng{authorbibnamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
       \strng{authornamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
       \strng{authorfullhash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \field{extraname}{1}
       \field{sortinit}{T}
       \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
       \field{labelnamesource}{author}
@@ -3871,142 +4058,6 @@
       \verb{url}
       \verb https://doi.org/10.48550/arXiv.2202.10994
       \endverb
-    \endentry
-    \entry{Tanabe2022}{article}{}
-      \name{author}{3}{}{%
-        {{hash=fe79ff046b379ee499d9981349434f9c}{%
-           family={Tanabe},
-           familyi={T\bibinitperiod},
-           given={Hiroki},
-           giveni={H\bibinitperiod}}}%
-        {{hash=c5ce024500fe29b568503d51a3c9d530}{%
-           family={Fukuda},
-           familyi={F\bibinitperiod},
-           given={Ellen\bibnamedelima Hidemi},
-           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
-        {{hash=e93d47fe50ff15742fad700a20e29a10}{%
-           family={Yamashita},
-           familyi={Y\bibinitperiod},
-           given={Nobuo},
-           giveni={N\bibinitperiod}}}%
-      }
-      \strng{namehash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \strng{fullhash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \strng{bibnamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \strng{authorbibnamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \strng{authornamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \strng{authorfullhash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \field{extraname}{2}
-      \field{sortinit}{T}
-      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{In 2019, Tanabe et al. proposed proximal gradient methods for multiobjective optimization. Under reasonable assumptions, they proved that the accumulation points of the sequences generated by these methods are Pareto stationary. However, the convergence rates were not established in that paper. Here, we show global convergence rates for multiobjective proximal gradient methods, matching what is known in scalar optimization. More specifically, by using merit functions as a way to measure the complexity, we prove the rates for non-convex problems ($O(\sqrt{1 / k})$), convex ones ($O(1 / k)$), and strongly convex ones ($O(r^k)$ for some$\sim$$r \in (0, 1)$). We also extend the so-called Polyak-{\L{}}ojasiewicz (PL) inequality for multiobjective optimization and establish the rate for multiobjective problems that satisfy such inequalities ($O(r^k)$ for some$\sim$$r \in (0, 1)$).}
-      \field{issn}{1862-4472}
-      \field{journaltitle}{Optimization Letters, in press}
-      \field{month}{4}
-      \field{title}{{Convergence rates analysis of a multiobjective proximal gradient method}}
-      \field{year}{2022}
-      \verb{doi}
-      \verb 10.1007/s11590-022-01877-7
-      \endverb
-      \verb{file}
-      \verb :Users/zalgo/Downloads/Tanabe2022_Article_ConvergenceRatesAnalysisOfAMul.pdf:pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1007/s11590-022-01877-7
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1007/s11590-022-01877-7
-      \endverb
-    \endentry
-    \entry{Tanabe2019}{article}{}
-      \name{author}{3}{}{%
-        {{hash=fe79ff046b379ee499d9981349434f9c}{%
-           family={Tanabe},
-           familyi={T\bibinitperiod},
-           given={Hiroki},
-           giveni={H\bibinitperiod}}}%
-        {{hash=c5ce024500fe29b568503d51a3c9d530}{%
-           family={Fukuda},
-           familyi={F\bibinitperiod},
-           given={Ellen\bibnamedelima Hidemi},
-           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
-        {{hash=e93d47fe50ff15742fad700a20e29a10}{%
-           family={Yamashita},
-           familyi={Y\bibinitperiod},
-           given={Nobuo},
-           giveni={N\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer US}%
-      }
-      \strng{namehash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \strng{fullhash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \strng{bibnamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \strng{authorbibnamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \strng{authornamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \strng{authorfullhash}{50829e7ec3808f1d9fd656ad5bc088e7}
-      \field{extraname}{3}
-      \field{sortinit}{T}
-      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{We propose new descent methods for unconstrained multiobjective optimization problems, where each objective function can be written as the sum of a continuously differentiable function and a proper convex but not necessarily differentiable one. The methods extend the well-known proximal gradient algorithms for scalar-valued nonlinear optimization, which are shown to be efficient for particular problems. Here, we consider two types of algorithms: with and without line searches. Under mild assumptions, we prove that each accumulation point of the sequence generated by these algorithms, if exists, is Pareto stationary. Moreover, we present their applications in constrained multiobjective optimization and robust multiobjective optimization, which is a problem that considers uncertainties. In particular, for the robust case, we show that the subproblems of the proximal gradient algorithms can be seen as quadratic programming, second-order cone programming, or semidefinite programming problems. Considering these cases, we also carry out some numerical experiments, showing the validity of the proposed methods.}
-      \field{issn}{15732894}
-      \field{journaltitle}{Computational Optimization and Applications}
-      \field{month}{3}
-      \field{number}{2}
-      \field{title}{{Proximal gradient methods for multiobjective optimization and their applications}}
-      \field{volume}{72}
-      \field{year}{2019}
-      \field{pages}{339\bibrangedash 361}
-      \range{pages}{23}
-      \verb{doi}
-      \verb 10.1007/s10589-018-0043-x
-      \endverb
-      \verb{file}
-      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Tanabe, Fukuda, Yamashita - 2019 - Proximal gradient methods for multiobjective optimization and their applications.pdf:pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1007/s10589-018-0043-x
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1007/s10589-018-0043-x
-      \endverb
-      \keyw{Multiobjective optimization,Pareto stationarity,Proximal gradient method,Robust optimization}
-    \endentry
-    \entry{Tseng2010}{article}{}
-      \name{author}{1}{}{%
-        {{hash=0de9e02af0123ef3a5e6efb649a72e15}{%
-           family={Tseng},
-           familyi={T\bibinitperiod},
-           given={Paul},
-           giveni={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{0de9e02af0123ef3a5e6efb649a72e15}
-      \strng{fullhash}{0de9e02af0123ef3a5e6efb649a72e15}
-      \strng{bibnamehash}{0de9e02af0123ef3a5e6efb649a72e15}
-      \strng{authorbibnamehash}{0de9e02af0123ef3a5e6efb649a72e15}
-      \strng{authornamehash}{0de9e02af0123ef3a5e6efb649a72e15}
-      \strng{authorfullhash}{0de9e02af0123ef3a5e6efb649a72e15}
-      \field{sortinit}{T}
-      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Convex optimization problems arising in applications, possibly as approximations of intractable problems, are often structured and large scale. When the data are noisy, it is of interest to bound the solution error relative to the (unknown) solution of the original noiseless problem. Related to this is an error bound for the linear convergence analysis of first-order gradient methods for solving these problems. Example applications include compressed sensing, variable selection in regression, TV-regularized image denoising, and sensor network localization. {{$\copyright$}} 2010 Springer and Mathematical Optimization Society.}
-      \field{issn}{00255610}
-      \field{journaltitle}{Mathematical Programming}
-      \field{number}{2}
-      \field{title}{{Approximation accuracy, gradient methods, and error bound for structured convex optimization}}
-      \field{volume}{125}
-      \field{year}{2010}
-      \field{pages}{263\bibrangedash 295}
-      \range{pages}{33}
-      \verb{doi}
-      \verb 10.1007/s10107-010-0394-2
-      \endverb
-      \keyw{Approximation accuracy,Compressed sensing,Convex optimization,Error bound,L1-regularization,Linear convergence,Nuclear/trace norm,Proximal gradient method,Regression,Sensor network localization,Variable selection}
     \endentry
     \entry{Villa2013}{article}{}
       \name{author}{4}{}{%
@@ -4232,6 +4283,53 @@
       \verb{url}
       \verb https://doi.org/10.1109/TAC.1963.1105511
       \endverb
+    \endentry
+    \entry{Zou2005}{article}{}
+      \name{author}{2}{}{%
+        {{hash=f15b129e88b4820c7ed982265e79986b}{%
+           family={Zou},
+           familyi={Z\bibinitperiod},
+           given={Hui},
+           giveni={H\bibinitperiod}}}%
+        {{hash=0cb8fe4210baa81c4b0e67913b4d2768}{%
+           family={Hastie},
+           familyi={H\bibinitperiod},
+           given={Trevor},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{c346171da05683239c65d0053413406e}
+      \strng{fullhash}{c346171da05683239c65d0053413406e}
+      \strng{bibnamehash}{c346171da05683239c65d0053413406e}
+      \strng{authorbibnamehash}{c346171da05683239c65d0053413406e}
+      \strng{authornamehash}{c346171da05683239c65d0053413406e}
+      \strng{authorfullhash}{c346171da05683239c65d0053413406e}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We propose the elastic net, a new regularization and variable selection method. Real world data and a simulation study show that the elastic net often outperforms the lasso, while enjoying a similar sparsity of representation. In addition, the elastic net encourages a grouping effect, where strongly correlated predictors tend to be in or out of the model together. The elastic net is particularly useful when the number of predictors (p) is much bigger than the number of observations (n). By contrast, the lasso is not a very satisfactory variable selection method in the p ≫ n case. An algorithm called LARS-EN is proposed for computing elastic net regularization paths efficiently, much like algorithm LARS does for the lasso. {{$\copyright$}} 2005 Royal Statistical Society.}
+      \field{issn}{1369-7412}
+      \field{journaltitle}{Journal of the Royal Statistical Society: Series B (Statistical Methodology)}
+      \field{month}{4}
+      \field{number}{2}
+      \field{title}{{Regularization and variable selection via the elastic net}}
+      \field{volume}{67}
+      \field{year}{2005}
+      \field{pages}{301\bibrangedash 320}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1111/j.1467-9868.2005.00503.x
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Zou, Hastie - 2005 - Regularization and variable selection via the elastic net.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1111/j.1467-9868.2005.00503.x
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1111/j.1467-9868.2005.00503.x
+      \endverb
+      \keyw{Grouping effect,LARS algorithm,Lasso,Penalization,Variable selection,p≫n problem}
     \endentry
   \enddatalist
 \endrefsection

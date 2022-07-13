@@ -1,50 +1,123 @@
 \documentclass[../main]{subfiles}
 
 \begin{document}
-\section{The algorithm} \label{sec:pgm:algorithm}
-For given~$x \in \dom F$ and~$\ell > 0$, we consider the following minimization problem:
-\[ \label{eq:prox subprob}
-    \min_{z \in \setR^n} \quad \varphi_\ell(z; x)
-,\]
-where
-\[ \label{eq:varphi}
-    \varphi_\ell(z; x) \coloneqq \max_{i = 1, \dots, m} [ \innerp{\nabla f_i(x)}{z - x} + g_i(z) - g_i(x) ] + \frac{\ell}{2} \norm*{ z - x }_2^2
-.\]
-The convexity of~$g_i$ implies that~$z \mapsto \varphi_\ell(z; x)$ is strongly convex, so the problem~\cref{eq:prox subprob} always has a unique solution.
-Let us write such a solution as~$p_\ell(x)$ and let~$\theta_\ell(x)$ be its optimal function value, i.e.,
-\[ \label{eq:p theta}
-    p_\ell(x) \coloneqq \argmin_{z \in \setR^n} \varphi_\ell(z; x) \eqand \theta_\ell(x) \coloneqq \min_{z \in \setR^n} \varphi_\ell(z; x)
-.\]
-The following proposition shows that~$p_\ell(x)$ and~$\theta_\ell(x)$ helps to characterize the Pareto stationarity of~\cref{eq:MOO}.
-\begin{lemma}[{\cite[Lemma 3.2]{Tanabe2019}}]\label{thm:pgm_stop}
-    Let $p_\ell$ and $\theta_\ell$ be defined in \cref{eq:p theta}.
+\section{The algorithm} \zlabel{sec:pgm:algorithm}
+For given~$x \in \dom F$ and~$\alpha > 0$, we consider the following minimization problem:
+\begin{equation} \label{eq:pgm_subproblem}
+    \min_{z \in \setR^n} \quad \varphi_\alpha(z; x)
+\end{equation}
+with
+\begin{equation} \label{eq:pgm_obj}
+    \varphi_\alpha(z; x) \coloneqq \max_{i = 1, \dots, m} [ \innerp{\nabla f_i(x)}{z - x} + g_i(z) - g_i(x) ] + \frac{1}{2 \alpha} \norm{ z - x }_2^2
+.\end{equation}
+The convexity of~$g_i$ implies that~$\varphi_\alpha(\cdot; x)$ is strongly convex, so~\zcref{eq:pgm_subproblem} always has a unique solution.
+Let us write such a solution as~$p_\alpha(x)$ and let~$\theta_\alpha(x)$ be its optimal function value, i.e.,
+\begin{equation} \label{eq:pgm_optimal_function}
+    p_\alpha(x) \coloneqq \argmin_{z \in \setR^n} \varphi_\alpha(z; x) \eqand \theta_\alpha(x) \coloneqq \min_{z \in \setR^n} \varphi_\alpha(z; x)
+.\end{equation}
+Note that
+\begin{equation} \label{eq:pgm_merit}
+    p_\alpha = W_\alpha \eqand \theta_\alpha = - w_\alpha
+\end{equation}
+for~$w_\alpha$ and~$W_\alpha$ defined by~\zcref{eq:reg_lin_gap_MO,eq:reg_lin_gap_MO_sol}.
+The following proposition shows that~$p_\alpha(x)$ and~$\theta_\alpha(x)$ help to characterize the Pareto stationarity of~\zcref{eq:composite_MO}.
+\begin{lemma} \zlabel{thm:pgm_stop}
+    Let $p_\alpha$ and $\theta_\alpha$ be defined in \zcref{eq:pgm_optimal_function}.
     Then, the following claims hold.
 	\begin{enumerate}
         \item The following three conditions are equivalent:
             \begin{enumerate*}
-                \item $x \in \setR^n$ is Pareto stationary for~\cref{eq:MOO}; \label{thm:pgm_stop:equivalence:stationary}
-                \item $p_\ell(x) = x$; \label{thm:pgm_stop:equivalence:sol}
-                \item $\theta_\ell(x) = x$. \label{thm:pgm_stop:equivalence:val}
-            \end{enumerate*} \label{thm:pgm_stop:equivalence}
-		\item The mappings $p_\ell$ and $\theta_\ell$ are continuous.\label{thm:pgm_stop:cont}
+                \item $x \in \setR^n$ is Pareto stationary for~\zcref{eq:composite_MO}; \zlabel{thm:pgm_stop:equivalence:stationary}
+                \item $p_\alpha(x) = x$; \zlabel{thm:pgm_stop:equivalence:sol}
+                \item $\theta_\alpha(x) = 0$. \zlabel{thm:pgm_stop:equivalence:val}
+            \end{enumerate*} \zlabel{thm:pgm_stop:equivalence}
+		\item The mappings $p_\alpha$ and $\theta_\alpha$ are continuous.
+            Moreover, if each~$\nabla f_i, i = 1, \dots, m$ is locally Lipschitz continuous,~$p_\alpha$ and~$\theta_\alpha$ are locally H\"older continuous with exponent~$1 / 2$ and locally Lipschitz continuous, respectively. \zlabel{thm:pgm_stop:cont}
 	\end{enumerate}
 \end{lemma}
+\begin{proof}
+    We can prove the claims immediately from \zcref{thm:reg_lin_gap,thm:cont_w_alpha}.
+\end{proof}
 
-From \cref{thm:pgm_stop}, we can treat~$\norm*{p_\ell(x) - x}_\infty < \varepsilon$ for some~$\varepsilon > 0$ as a stopping criteria.
-Now, we state below the proximal gradient method for~\cref{eq:MOO}.
-
+From \zcref{thm:pgm_stop}, we can treat~$\norm*{p_\alpha(x) - x}_\infty < \varepsilon$ for some~$\varepsilon > 0$ as a stopping criterion.
+Let us present our proposed algorithm in \zcref{alg:pgm_MO}.
 \begin{algorithm}[hbtp]
-    \caption{Proximal gradient method for multi-objective optimization}
-    \label{alg:pgm_MO}
+    \caption{The proximal gradient method for multi-objective optimization}
+    \zlabel{alg:pgm_MO}
     \begin{algorithmic}[1]
-        \Require $x^0 \in \dom F$, $\ell > L / 2$, $\varepsilon > 0$
-        \Ensure $x^\ast$: A weakly Pareto optimal point
+        \Require $x^0 \in \interior (\dom (F)), \varepsilon > 0$
         \State $k \gets 0$
-        \While{$\norm*{p_\ell(x^k) - x^k}_\infty \ge \varepsilon$}
-        \State $x^{k + 1} \gets p_\ell(x^k)$
+        \Loop
+        \State $z^k \gets p_{\alpha_k}\left(x^k\right)$ with some stepsize~$\alpha_k > 0$ \zlabel{alg:pgm_MO:subproblem}
+        \If{$\norm*{z^k - x^k}_\infty < \varepsilon$}
+        \State \Return $x^k$
+        \EndIf
+        \State $x^{k + 1} \gets x^k + s_k \left(z^k - x^k\right)$ with some stepsize~$s_k \in (0, 1]$ \zlabel{alg:pgm_MO:update}
         \State $k \gets k + 1$
-        \EndWhile
+        \EndLoop
     \end{algorithmic}
 \end{algorithm}
+We can consider the following three stepsize selection procedures.
+Note that every rule guarantees the objective functions' non-incrementality, i.e.,
+\begin{equation} \label{eq:pgm_nonincrementality}
+    F_i\left(x^{k + 1}\right) \le F_i\left(x^k\right) \forallcondition{i = 1, \dots, m, k \geq 0}
+.\end{equation}
+\subsection{Armijo rule along the feasible direction} \zlabel{sec:pgm:algorithm:armijo}
+We fix~$\alpha_k \coloneqq \alpha$ with some constant~$\alpha > 0$ for every~$k = 0, 1, \dots$ and compute~$s_k$ by 
+\begin{equation} \label{eq:pgm_armijo_step}
+    s_k \coloneqq \xi^{j_k}
+,\end{equation}
+where~$j_k$ is the smallest non-negative integer satisfying
+\begin{equation} \label{eq:pgm_armijo_rule}
+    F_i(x^k + \xi^{j_k} \left(z^k - x^k\right)) \le F_i\left(x^k\right) + \rho \xi^{j_k} \left[\theta_\alpha\left(x^k\right) - \frac{1}{2 \alpha} \norm*{z^k - x^k}_2^2\right]
+\end{equation} 
+with predifined constants~$\rho, \xi \in (0, 1)$ for each~$i = 1, \dots, m$.
+The following lemma demonstrates the existence of the stepsize~$s_k$ satisfying this rule.
+\begin{lemma} \zlabel{thm:pgm_armijo_existence}
+    If~$x \in \setR^n$ is not Pareto stationary for~\zcref{eq:composite_MO}, for all~$\alpha > 0$ and~$\rho \in (0, 1)$ there exists some~$\bar{s} > 0$ such that
+    \begin{equation}
+        F_i(x + s (z - x)) < F_i(x) + \rho s \left[\theta_\alpha(x) - \frac{1}{2 \alpha} \norm{z - x}_2^2\right]
+    \end{equation} 
+    for all~$i = 1, \dots, m$ and~$s \in (0, \bar{s}]$.
+\end{lemma}
+\begin{proof}
+    Let~$s \in (0, 1]$ and~$i = 1, \dots, m$.
+    Since~$g_i$ is convex, we have
+    \begin{equation}
+        g_i(x + s (p_\alpha(x) - x)) \le g_i(x) + s [g_i(p_\alpha(x)) - g_i(x)]
+    .\end{equation}
+    Combined with~\zcref{eq:first_order_approximation}, we get
+    \begin{multline}
+        F_i(x + s (p_\alpha(x) - x)) \\
+        \le F_i(x) + s \innerp{\nabla f_i(x)}{p_\alpha(x) - x} + s [g_i(p_\alpha(x)) - g_i(x)] + o(s \norm{p_\alpha(x) - x}_2)
+    \end{multline}
+    with~$o \colon [0, + \infty) \to \setR$ satisfying~$\lim_{t \to \infty} o(t) / t = 0$.
+    Then, \zcref{eq:pgm_optimal_function} gives
+    \begin{equation}
+        F_i(x + s (p_\alpha(x) - x)) 
+        \le F_i(x) + s \left[ \theta_\alpha(x) - \frac{1}{2 \alpha} \norm{p_\alpha(x) - x}_2^2 \right] + o(s \norm{p_\alpha(x) - x}_2)
+    .\end{equation}
+    Since~$x$ is not Pareto stationary, \zcref{thm:pgm_stop:equivalence} gives~$\theta_\alpha(x) < 0$.
+    Thus, the fact that~$\rho \in (0, 1)$ completes the proof.
+\end{proof}
+
+\subsection{Sufficient decrease rule along the proximal arc} \zlabel{sec:pgm:algorithm:sdc}
+Suppose that~$\nabla f_i$ is locally Lipschitz continuous for~$i = 1, \dots, m$.
+Let~$s_k = 1$ for all~$k = 0, 1, \dots$ and~$\alpha_{-1} > 0$.
+For each iteration, we find the smallest non-negative integer~$j_k$ such that
+\begin{equation} \label{eq:pgm_sdc}
+    F_i(p_{\xi^{j_k} \alpha_{k - 1}}\left(x^k\right)) \le F_i\left(x^k\right) + \theta_{\xi^{j_k} \alpha_{k - 1}}\left(x^k\right) \forallcondition{i = 1, \dots, m}
+\end{equation} 
+with some constant~$\xi \in (0, 1)$ for any~$i = 1, \dots, m$ and set
+\begin{equation} \label{eq:pgm_sdc_step}
+    \alpha_k = \xi^{j_k} \alpha_{k - 1}
+.\end{equation}
+
+\subsection{Constant stepsize} \zlabel{sec:pgm:algorithm:constant}
+When~$\nabla f_i, i = 1, \dots, m$ is $L_{f_i}$-Lipschitz continuous and~$L_f \coloneqq \max_{i = 1, \dots, m} L_{f_i}$, we set~$s_k = 1$ and~$\alpha_k = \alpha$ with~$\alpha \in (0, 1 / L_f]$ for each~$i = 1, \dots, m$.
+Then, \zcref{thm:descent} ensures that
+\begin{equation} \label{eq:pgm_constant}
+    F_i(p_\alpha\left(x^k\right)) \le F_i\left(x^k\right) + \theta_\alpha\left(x^k\right) \forallcondition{i = 1, \dots, m \text{ and } k = 0, 1, \dots}
+.\end{equation} 
 
 \end{document}

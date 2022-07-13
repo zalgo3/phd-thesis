@@ -1,60 +1,60 @@
 \documentclass[../../main]{subfiles}
 
 \begin{document}
-\subsection{Descent methods} \label{sec:intro:multi_objective:descent}
+\subsection{Descent methods} \zlabel{sec:intro:multi_objective:descent}
 \emph{Descent methods}~\cite{Fukuda2014} are iterative algorithms that decrease the objective function values at each iteration.
 They do not require \emph{a priori} parameters selection like scalarization, and unlike heuristics, we can analyze their global convergence property under reasonable assumptions.
 All algorithms proposed in this thesis are part of the descent methods.
-Below we provide typical descent methods for~\cref{eq:MOO}.
+Below we provide typical descent methods for~\zcref{eq:MOO}.
 
-\begin{example} \label{ex:descent}
+\begin{example} \zlabel{ex:descent}
     \begin{description}
-        \item[The steepest descent method~\cite{Fliege2000}] Consider a smooth unconstrained multi-objective optimization, i.e.,~$C = \setR^n$ and each~$F_i$ is differentiable in~\cref{eq:MOO}.
-            Then, the steepest descent method updates~$\set{x^k}$ by the following operations:
+        \item[The steepest descent method~\cite{Fliege2000}] Consider a smooth unconstrained multi-objective optimization, i.e.,~$C = \setR^n$ and each~$F_i$ is differentiable in~\zcref{eq:MOO}.
+            Then, the steepest descent method updates~$\set*{x^k}$ by the following operations:
             \begin{align} \label{eq:steepest_descent}
-                d^k &\coloneqq \argmin_{d \in \setR^n} \left[ \max_{i = 1, \dots, m} \innerp*{\nabla F_i(x^k)}{d} + \frac{1}{2 \lambda_k} \norm{d}_2^2 \right], \\
+                d^k &\coloneqq \argmin_{d \in \setR^n} \left[ \max_{i = 1, \dots, m} \innerp*{\nabla F_i\left(x^k\right)}{d} + \frac{1}{2 \alpha_k} \norm{d}_2^2 \right], \\
                 x^{k + 1} &\coloneqq x^k + s_k d^k
             \end{align}
-            with~$\lambda_k > 0$ and~$s_k > 0$.
-            When~$m = 1$, we have~$d^k = - \lambda_k \nabla F_1(x)$, which is the steepest descent direction for the scalar optimization~\cite{Cauchy1847}.
-        \item[The projected gradient method~\cite{Grana-Drummond2004,Fukuda2013}] For a convex-constrained smooth multi-objective optimization, i.e.,~$C \subseteq \setR^n$ is non-empty, closed, and convexand every~$F_i$ is differentiable in~\cref{eq:MOO}, we can use the projected gradient method described by
-            \[ \label{eq:proj_grad}
+            with~$\alpha_k > 0$ and~$s_k > 0$.
+            When~$m = 1$, we have~$d^k = - \alpha_k \nabla F_1(x)$, which is the steepest descent direction for the scalar optimization~\cite{Cauchy1847}.
+        \item[The projected gradient method~\cite{Grana-Drummond2004,Fukuda2013}] For a convex-constrained smooth multi-objective optimization, i.e.,~$C \subseteq \setR^n$ is non-empty, closed, and convex, and every~$F_i$ is differentiable in~\zcref{eq:MOO}, we can use the projected gradient method described by
+            \begin{equation} \label{eq:proj_grad}
                 \begin{aligned} 
-                    z^k &\coloneqq \argmin_{z \in C} \left[ \max_{i = 1, \dots, m} \innerp*{\nabla F_i(x^k)}{z - x^k} + \frac{1}{2 \lambda_k} \norm*{z - x^k}_2^2 \right], \\
+                    z^k &\coloneqq \argmin_{z \in C} \left[ \max_{i = 1, \dots, m} \innerp*{\nabla F_i\left(x^k\right)}{z - x^k} + \frac{1}{2 \alpha_k} \norm*{z - x^k}_2^2 \right], \\
                     x^{k + 1} &\coloneqq x^k + s_k \left(z^k - x^k \right)
                 \end{aligned}
-            \] 
-            with~$\lambda_k > 0$ and~$s_k > 0$.
-            When~$m = 1$,~\cref{eq:proj_grad} reduces to the projected gradient method for scalar optimization~\cite{Polyak1963,Goldstein1964,Goldstein1967,McCormick1969}, i.e.,
-            \[
+            \end{equation} 
+            with~$\alpha_k > 0$ and~$s_k > 0$.
+            When~$m = 1$,~\zcref{eq:proj_grad} reduces to the projected gradient method for scalar optimization~\cite{Polyak1963,Goldstein1964,Goldstein1967,McCormick1969}, i.e.,
+            \begin{equation}
                 \begin{aligned}
-                    z^k &\coloneqq \proj_C (x^k - \lambda_k \nabla F_1(x^k)), \\
+                    z^k &\coloneqq \proj_C (x^k - \alpha_k \nabla F_1\left(x^k\right)), \\
                     x^{k + 1} &\coloneqq x^k + s_k \left( z^k - x^k \right)
                 ,\end{aligned}
-            \] 
+            \end{equation} 
             where~$\proj_C$ denotes the projection onto~$C$ given by
-            \[ \label{eq:proj}
+            \begin{equation} \label{eq:proj}
                 \proj_C(x) \coloneqq \argmin_{z \in C} \norm{z - x}_2
-            .\] 
-            Moreover, when~$C = \setR^n$,~\cref{eq:proj_grad} amounts to the steepest descent method~\cref{eq:steepest_descent}.
+            .\end{equation} 
+            Moreover, when~$C = \setR^n$,~\zcref{eq:proj_grad} amounts to the steepest descent method~\zcref{eq:steepest_descent}.
         \item[The projected subgradient method~\cite{Bello-Cruz2013}]
-            Focus on a convex-constrained, non-smooth, and convex multi-objective optimization, i.e.,~$C$ is a non-empty, closed, and convex subset of~$\setR^n$, and each~$F_i$ is convex and non-differentiable in~\cref{eq:MOO}.
+            Focus on a convex-constrained, non-smooth, and convex multi-objective optimization, i.e.,~$C$ is a non-empty, closed, and convex subset of~$\setR^n$, and each~$F_i$ is convex and non-differentiable in~\zcref{eq:MOO}.
             The subgradient method requires an exogenous sequence~$\set{\beta_k}$ satisfying
-            \[
+            \begin{equation}
                 \beta_k > 0, \quad \sum_{k = 0}^{\infty} \beta_k = \infty, \eqand \sum_{k = 0}^{\infty} \beta_k^2 < \infty 
-            \] 
-            and generates~$\set{x^k}$ by
-            \[
+            \end{equation} 
+            and generates~$\set*{x^k}$ by
+            \begin{equation}
                     x^{k + 1} \coloneqq \argmin_{z \in C} \left[ \frac{1}{2} \norm{z - x^k}_2^2 + \frac{\beta_k}{\eta_k} \max_{i = 1, \dots, m} \innerp{\xi^k_i}{z - x^k} \right] 
-            ,\] 
-            where~$\xi^k_i \in \partial F_i(x^k)$ and
-            \[
+            ,\end{equation} 
+            where~$\xi^k_i \in \partial F_i\left(x^k\right)$ and
+            \begin{equation}
                 \eta_k \coloneqq \max_{i = 1, \dots, m} \norm{\xi_i}
-            .\] 
+            .\end{equation} 
             When~$m = 1$, this step represents the projected subgradient method~\cite{Polyak1967,Polyak1969,Shor1985,Alber1998,Alber2001} for scalar optimization:
-            \[
+            \begin{equation}
                 x^{k + 1} \coloneqq \proj_C\left( x^k - \frac{\beta_k}{\eta_k} \xi^k_1 \right) 
-            .\] 
+            .\end{equation} 
     \end{description}
 \end{example}
 

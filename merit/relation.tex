@@ -1,116 +1,105 @@
 \documentclass[../main]{subfiles}
 
 \begin{document}
-\section{Relation between different merit functions}
-This section assumes that the problem has a composite structure~\cref{eq:composite_MO} and discusses the connection between the merit functions proposed in \cref{sec:merit:merit:gap,sec:merit:merit:reg_gap,sec:merit:merit:reg_lin_gap}.
+\section{Relation between different merit functions} \zlabel{sec:merit:relation}
+This section assumes that the problem has a composite structure~\zcref{eq:composite_MO} and discusses the connection between the merit functions proposed in \zcref{sec:merit:merit}.
 First, we show some inequalities between different types of merit functions.
-\begin{theorem} \label{thm:merit between}
-    Let~$u_0$, $u_\alpha$, and $w_\alpha$ be defined by~\cref{eq:u_0,eq:u_alpha,eq:w_alpha}, respectively, for all~$\alpha > 0$.
+\begin{theorem} \zlabel{thm:merit_between}
+    Let~$u_\infty$, $u_\alpha$, and $w_\alpha$ be defined by~\zcref{eq:gap_MO,eq:reg_gap_MO,eq:reg_lin_gap_MO}, respectively, for all~$\alpha > 0$.
     Then, the following statements hold.
     \begin{enumerate}
-        \item If~$f_i$ is~$\mu_i$-convex for some~$\mu_i \in \setR$ and~$\mu = \min_{i = 1, \dots, m} \mu_i$, then we have
-            \[
+        \item If~$f_i$ is~$\mu_{f_i}$-convex for some~$\mu_{f_i} \in \setR$ and~$\mu_f = \min_{i = 1, \dots, m} \mu_{f_i}$, then we have
+            \begin{equation}
                 \begin{dcases}
-                    u_0(x) \le w_\mu(x) \eqand u_\alpha(x) \le w_{\mu + \alpha}(x), & \text{if } \mu \ge 0, \\
-                    u_{- \mu + \alpha}(x) \le w_\alpha(x), & \text{otherwise}
+                    u_\infty(x) \le w_{\mu^{-1}}(x) \eqand u_{\alpha^{-1}}(x) \le w_{(\mu_f + \alpha)^{-1}}(x), & \text{if } \mu_f \ge 0, \\
+                    u_{(- \mu_f + \alpha)^{-1}}(x) \le w_{\alpha^{-1}}(x), & \text{otherwise}
                 \end{dcases}
-            \]
-            for all~$\alpha > 0$ and~$x \in C$. \label{enum:merit between convex}
+            \end{equation}
+            for all~$\alpha > 0$ and~$x \in C$. \zlabel{thm:merit_between:convex}
 
-        \item If~$\nabla f_i$ is $L_i$-Lipschitz continuous for some~$L_i > 0$ and~$L = \max_{i = 1, \dots, m} L_i$, then we get
-            \[
-                u_{L + \alpha}(x) \le w_\alpha(x), \quad u_0(x) \ge w_L(x), \eqand u_\alpha(x) \ge w_{L + \alpha}(x)
-            \]
+        \item If~$\nabla f_i$ is $L_{f_i}$-Lipschitz continuous for some~$L_{f_i} > 0$ and~$L_f \coloneqq \max_{i = 1, \dots, m} L_{f_i}$, then we get
+            \begin{equation}
+                u_{(L_f + \alpha)^{-1}}(x) \le w_{\alpha^{-1}}(x), \quad u_\infty(x) \ge w_{L_f^{-1}}(x), \eqand u_{\alpha^{-1}}(x) \ge w_{(L_f + \alpha)^{-1}}(x)
+            \end{equation}
             for all~$\alpha > 0$ and~$x \in C$.
-            \label{enum:merit between Lipschitz}
+            \zlabel{thm:merit_between:Lipschitz}
     \end{enumerate}
 \end{theorem}
 \begin{proof}
-    \subCref{enum:merit between convex}:
+    \zcref[S]{thm:merit_between:convex}:
 Let~$i = 1, \dots, m$.
-The $\mu_i$-convexity of~$f_i$ gives
-\[
-    f_i(x) - f_i(y) \le \innerp{\nabla f_i(x)}{x - y} - \frac{\mu_i}{2} \norm{x - y}_2^2
-.\]
-By the definition of~$\mu$, we get
-\[
-    f_i(x) - f_i(y) \le \innerp{\nabla f_i(x)}{x - y} - \frac{\mu}{2} \norm{x - y}_2^2
-.\]
-Thus, recalling~\cref{eq:composite_MO}, we have
+The $\mu_{f_i}$-convexity of~$f_i$ gives
+\begin{equation}
+    f_i(x) - f_i(y) \le \innerp{\nabla f_i(x)}{x - y} - \frac{\mu_{f_i}}{2} \norm{x - y}_2^2
+.\end{equation}
+By the definition of~$\mu_f$, we get
+\begin{equation}
+    f_i(x) - f_i(y) \le \innerp{\nabla f_i(x)}{x - y} - \frac{\mu_f}{2} \norm{x - y}_2^2
+.\end{equation}
+Thus, recalling~\zcref{eq:composite_MO}, we have
 \begin{align}
-    &F_i(x) - F_i(y) \le \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\mu}{2} \norm{x - y}^2, \\
-    &F_i(x) - F_i(y) - \frac{\alpha}{2}\norm{x - y}_2^2 \le \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\mu + \alpha}{2} \norm{x - y}^2, \\
-    &F_i(x) - F_i(y) - \frac{- \mu + \alpha}{2}\norm{x - y}_2^2 \le \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\alpha}{2} \norm{x - y}^2
+    &F_i(x) - F_i(y) \le \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\mu_f}{2} \norm{x - y}^2, \\
+    &F_i(x) - F_i(y) - \frac{\alpha}{2}\norm{x - y}_2^2 \le \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\mu_f + \alpha}{2} \norm{x - y}^2, \\
+    &F_i(x) - F_i(y) - \frac{- \mu_f + \alpha}{2}\norm{x - y}_2^2 \le \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\alpha}{2} \norm{x - y}^2
 ,\end{align}
-so the desired inequalities are clear from~\cref{eq:u_0,eq:u_alpha,eq:w_alpha}.
+so the desired inequalities are clear from~\zcref{eq:gap_MO,eq:reg_gap_MO,eq:reg_lin_gap_MO}.
 
-\subCref{enum:merit between Lipschitz}:
+\zcref[S]{thm:merit_between:Lipschitz}:
 Let~$i = 1, \dots, m$.
-Suppose that~$\nabla f_i$ is $L_i$-Lipschitz continuous.
-Then, \cref{thm:descent} yields
-\[
-    \abs*{f_i(y) - f_i(x) - \nabla f_i(x)^\T (y - x)} \le \frac{L_i}{2}\norm{x - y}_2^2.
-\]
-By the definition of~$L$, we have
-\[
-    \abs*{f_i(y) - f_i(x) - \nabla f_i(x)^\T (y - x)} \le \frac{L}{2}\norm{x - y}_2^2.
-\]
+Suppose that~$\nabla f_i$ is $L_{f_i}$-Lipschitz continuous.
+Then, \zcref{thm:descent} yields
+\begin{equation}
+    \abs*{f_i(y) - f_i(x) - \innerp{\nabla f_i(x)}{y - x}} \le \frac{L_{f_i}}{2}\norm{x - y}_2^2.
+\end{equation}
+By the definition of~$L_f$, we have
+\begin{equation}
+    \abs*{f_i(y) - f_i(x) - \innerp{\nabla f_i(x)}{y - x}} \le \frac{L_f}{2}\norm{x - y}_2^2.
+\end{equation}
 This gives
 \begin{align}
-    &F_i(x) - F_i(y) - \frac{L + \alpha}{2} \norm{x - y}_2^2 \le \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\alpha}{2} \norm{x - y}_2^2, \\
-    &F_i(x) - F_i(y) \ge \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{L}{2} \norm{x - y}_2^2, \\
-    &F_i(x) - F_i(y) - \frac{\alpha}{2} \norm{x - y}_2^2 \ge \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{L + \alpha}{2} \norm{x - y}_2^2
+    &F_i(x) - F_i(y) - \frac{L_f + \alpha}{2} \norm{x - y}_2^2 \le \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\alpha}{2} \norm{x - y}_2^2, \\
+    &F_i(x) - F_i(y) \ge \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{L_f}{2} \norm{x - y}_2^2, \\
+    &F_i(x) - F_i(y) - \frac{\alpha}{2} \norm{x - y}_2^2 \ge \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{L_f + \alpha}{2} \norm{x - y}_2^2
 .\end{align}
-Therefore, we immediately get~$u_{L + \alpha}(x) \le w_\alpha(x)$,~$u_0(x) \ge w_L(x)$, and~$u_\alpha(x) \ge w_{L + \alpha}(x)$ for all~$x \in C$ by~\cref{eq:u_0,eq:u_alpha,eq:w_alpha}.
+Therefore, we immediately get~$u_{(L_f + \alpha)^{-1}}(x) \le w_{\alpha^{-1}}(x)$,~$u_\infty(x) \ge w_{L_f^{-1}}(x)$, and~$u_{\alpha^{-1}}(x) \ge w_{(L_f + \alpha)^{-1}}(x)$ for all~$x \in C$ by~\zcref{eq:gap_MO,eq:reg_gap_MO,eq:reg_lin_gap_MO}.
 \end{proof}
 
 Second, we present the relation between coefficients and the proposed merit functions' values.
-\begin{theorem} \label{thm:merit inner}
-    Recall that~$w_\alpha$ is defined by~\cref{eq:w_alpha} for all~$\alpha > 0$.
-    Let~$r$ be an arbitrary scalar such that $r \ge \alpha$.
+\begin{theorem} \zlabel{thm:merit_inner}
+    Recall that~$w_{\alpha_1}$ is defined by~\zcref{eq:reg_lin_gap_MO} for all~$\alpha_1 > 0$.
+    Let~$\alpha_2$ be an arbitrary scalar such that $\alpha_1 \ge \alpha_2$.
     Then, we get
-    \[
-        w_r(x) \le w_\alpha(x) \le \frac{r}{\alpha} w_r(x) \forallcondition{x \in C}
-    .\]
+    \begin{equation}
+        w_{\alpha_2}(x) \le w_{\alpha_1}(x) \le \frac{\alpha_1}{\alpha_2} w_{\alpha_2}(x) \forallcondition{x \in C}
+    .\end{equation}
 \end{theorem}
 \begin{proof}
     Let~$x \in C$.
-    Since~$r \ge \alpha > 0$, the definition~\cref{eq:w_alpha} of~$w_r$ and~$w_\alpha$ clearly gives the first inequality.
+    Since~$\alpha_1 \ge \alpha_2 > 0$, the definition~\zcref{eq:reg_lin_gap_MO} of~$w_{\alpha_1}$ and~$w_{\alpha_2}$ clearly gives the first inequality.
     Thus, we prove the second one.
-    From the definition~\cref{eq:w_alpha} of $w_\alpha$, we have
+    From the definition~\zcref{eq:reg_lin_gap_MO} of $w_{\alpha_1}$, we have
 \begin{align}
-    \MoveEqLeft w_\alpha(x) = \sup_{y \in C} \min_{i = 1, \dots, m} \left[ \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\alpha}{2}\norm{x - y}_2^2 \right] \\
-    ={}& \frac{r}{\alpha} \sup_{y \in C} \min_{i = 1, \dots, m} \left[ \innerp*{\nabla f_i(x)}{ \frac{\alpha}{r}(x - y) } + \frac{\alpha}{r}(g_i(x) - g_i(y)) - \frac{r}{2} \norm*{ \frac{\alpha}{r} (x - y) }_2^2 \right] \\
-    \le{}& \frac{r}{\alpha} \sup_{y \in C} \min_{i = 1, \dots, m} \left[ \innerp*{\nabla f_i(x)}{ \frac{\alpha}{r} (x - y) } + g_i(x) - g_i \left(x - \frac{\alpha}{r}(x - y)\right) \right. \\
-        &\hspace{7em} \left. - \frac{r}{2}\norm*{\frac{\alpha}{r}(x - y)}_2^2 \right]
+    \MoveEqLeft w_{\alpha_1}(x) = \sup_{y \in C} \min_{i = 1, \dots, m} \left[ \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{1}{2 \alpha_1}\norm{x - y}_2^2 \right] \\
+    ={}& \frac{\alpha_1}{\alpha_2} \sup_{y \in C} \min_{i = 1, \dots, m} \left[ \innerp*{\nabla f_i(x)}{ \frac{\alpha_2}{\alpha_1}(x - y) } + \frac{\alpha_2}{\alpha_1}(g_i(x) - g_i(y)) - \frac{1}{2 \alpha_2} \norm*{ \frac{\alpha_2}{\alpha_1} (x - y) }_2^2 \right] \\
+    \le{}& \frac{\alpha_1}{\alpha_2} \sup_{y \in C} \min_{i = 1, \dots, m} \left[ \innerp*{\nabla f_i(x)}{ \frac{\alpha_2}{\alpha_1} (x - y) } + g_i(x) - g_i \left(x - \frac{\alpha_2}{\alpha_1}(x - y)\right) \right. \\
+        &\hspace{7em} \left. - \frac{1}{2 \alpha_2}\norm*{\frac{\alpha_2}{\alpha_1}(x - y)}_2^2 \right]
 \end{align}
 where the first inequality follows from the convexity of~$g_i$.
-Since~$C$ is convex, $x, y \in C$ implies~$x - (\alpha / r)(x - y) \in C$.
-Therefore, from the definition~\cref{eq:w_alpha} of~$w_r$, we get
-\[
-    w_\alpha(x) \le \frac{r}{\alpha} w_r(x)
-.\] 
+Since~$C$ is convex, $x, y \in C$ implies~$x - (\alpha_2 / \alpha_1)(x - y) \in C$.
+Therefore, from the definition~\zcref{eq:reg_lin_gap_MO} of~$w_{\alpha_2}$, we get
+\begin{equation}
+    w_{\alpha_1}(x) \le \frac{\alpha_1}{\alpha_2} w_{\alpha_2}(x)
+.\end{equation} 
 \end{proof}
 
-Considering \cref{enum:w u correspond}, we get the following corollary.
+Considering \zcref{rem:reg_lin_gap:reg_gap}, we get the following corollary.
 \begin{corollary}
-    Assume that each component~$F_i$ of the objective function~$F$ of~\cref{eq:MOO} is convex.
-    Recall that~$u_\alpha$ is defined by~\cref{eq:u_alpha} for all~$\alpha > 0$.
-    Let~$r$ be an arbitrary scalar such that $r \ge \alpha$.
+    Assume that each component~$F_i$ of the objective function~$F$ of~\zcref{eq:MOO} is convex.
+    Recall that~$u_{\alpha_1}$ is defined by~\zcref{eq:reg_gap_MO} for all~$\alpha_1 > 0$.
+    Let~$\alpha_2$ be an arbitrary scalar such that $\alpha_1 \ge \alpha_2$.
     Then, we get
-    \[
-        u_r(x) \le u_\alpha(x) \le \frac{r}{\alpha} u_r(x) \forallcondition{x \in C}
-    .\]
+    \begin{equation}
+        u_{\alpha_2}(x) \le u_{\alpha_1}(x) \le \frac{\alpha_1}{\alpha_2} u_{\alpha_2}(x) \forallcondition{x \in C}
+    .\end{equation}
 \end{corollary}
-
-\begin{remark}
-    For unconstrained problems, we can consider the following inequality.
-    \[ \label{eq:MOO proximal-PL}
-        w_L(x) \ge \tau u_0(x) \condition{for all~$x \in \setR^n$ for some~$\tau > 0$}
-    ,\]
-    which is an extension of the proximal-PL condition for scalar optimization~\cite{Karimi2016}.
-    Under this condition, we can prove that proximal gradient methods for multi-objective optimization~\cite{Tanabe2019} have linear convergence rate~\cite{Tanabe2022}.
-    Note that this inequality holds particularly if each~$f_i$ is strongly convex from \cref{enum:merit between convex} and \cref{thm:merit inner}.
-\end{remark}
-
 \end{document}

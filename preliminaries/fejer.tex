@@ -1,0 +1,17 @@
+\documentclass[../main]{subfiles}
+
+\begin{document}
+\section{Quasi-F\'ejer convergence} \zlabel{sec:preliminaries:fejer}
+We define the concept of \emph{quasi-F\'ejer convergence} and introduce a related theorem useful for the global convergence analysis.
+\begin{definition}[Quasi-F\'ejer convergence] \zlabel{def:fejer}
+    We say that~$\set*{x^k} \subseteq \setR^p$ is quasi-F\'ejer convergent to a non-empty set~$T \subseteq \setR^p$ if for all~$x \in T$ there exists~$\set{\varepsilon_k} \subseteq \setRpos$ such that
+    \begin{equation}
+        \norm{x^{k + 1} - x}_2^2 \le \norm{x^k - x}_2^2 + \varepsilon_k \eqand \sum_{\ell = 0}^{\infty} \varepsilon_\ell < + \infty \forallcondition{k = 0, 1, \dots}
+    .\end{equation} 
+\end{definition}
+
+\begin{theorem}[{\cite[Theorem~1]{Burachik1995}}] \zlabel{thm:fejer}
+    If~$\set*{x^k}$ is quasi-F\'ejer convergent to a non-empty set~$T \subseteq \setR^p$, then~$\set*{x^k}$ is bounded.
+    Moreover, if an accumulation point~$x^*$ of~$\set*{x^k}$ belongs to~$T$, then~$\lim_{k \to \infty} x^k = x^*$
+\end{theorem}
+\end{document}

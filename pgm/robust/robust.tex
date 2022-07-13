@@ -1,34 +1,48 @@
 \documentclass[../../main]{subfiles}
 
 \begin{document}
-\section{Application to robust multi-objective optimization} \label{sec:pgm:robust}
-Now, let us apply the proposed algorithms to robust multi-objective optimization. Here, we suppose that the problems include uncertain parameters. Moreover, suppose that we can estimate the set of these uncertain parameters. Then, we try to optimize by considering the worst scenario. We observe that studies about robust multi-objective optimization is relatively new~\cite{Ehrgott2014,Fliege2014,Morishita2016}.
+\section{Application to robust multi-objective optimization} \zlabel{sec:pgm:robust}
+Now, let us apply the proposed algorithms to robust multi-objective optimization.
+Here, we suppose that the problems include uncertain parameters.
+Moreover, suppose that we can estimate the set of these uncertain parameters.
+Then, we try to optimize by considering the worst scenario.
+We observe that studies about robust multi-objective optimization is relatively new~\cite{Ehrgott2014,Fliege2014,Morishita2016}.
 
 Here, we consider the convex function $g_i$ defined as follows:
 \begin{equation} \label{eq:g_i}
-g_i(x) \coloneqq \max_{u \in {\mathcal{U}}_i } \hat{g}_i (x,u).
+    g_i(x) \coloneqq \max_{u \in {\mathcal{U}}_i } \hat{g}_i (x,u).
 \end{equation}
-We call ${\mathcal{U}}_i \subseteq \setR^n$ an \emph{uncertainty set}. From now on, we assume ${\mathcal{U}}_i \subset \setR^n$ and $\hat{g}_i \colon \setR^n \times \setR^n \to \setR$ to be convex with respect to $x$. It is easy to see that $g_i$ is also convex. However, $g_i$ is not necessarily differentiable even if $\hat{g}_i$ is differentiable. First, let us reformulate the subproblem~\cref{eq:prox subprob} by using an extra variable $\gamma \in \setR$ as
+We call ${\mathcal{U}}_i \subseteq \setR^n$ an \emph{uncertainty set}.
+From now on, we assume that~${\mathcal{U}}_i \subset \setR^n$ is convex, and~$\hat{g}_i \colon \setR^n \times \setR^n \to (-\infty, +\infty]$ is closed, proper, and convex for~$x$.
+It is easy to see that $g_i$ is also closed, proper, and convex.
+However, $g_i$ is not necessarily differentiable even if $\hat{g}_i$ is differentiable.
+First, let us reformulate the subproblem~\zcref{eq:pgm_subproblem} by using an extra variable $\gamma \in \setR$ as
+\begin{equation}
+    \begin{aligned}
+        \min_{\gamma, z} \quad   &\gamma + \frac{1}{2 \alpha}\norm{z - x}_2^2  \\ 
+        \st    \quad   &\innerp{\nabla f_i(x)}{z - x} + g_i(z) - g_i(x) \leq \gamma, \quad i = 1,\ldots,m.
+    \end{aligned}
+\end{equation}
+Note that $g_i$ is not easy to calculate; thus, the subproblem is challenging to solve.
+When $\hat{g}_i$ and $\mathcal{U}_i$ have some particular structure, the constraints can be written as explicit formulae using the duality of~\zcref{eq:g_i}.
+Now, assume that the dual problem of the maximization problem \zcref{eq:g_i} is written as follows:
 \begin{align}
-\begin{aligned}
-\min_{\gamma, d} \quad   &\gamma + \frac{\ell}{2}\|d\|^2  \\ 
-\st    \quad   &\nabla f_i(x)^\T d + g_i(x+d) - g_i(x) \leq \gamma, \quad i = 1,\ldots,m.
-\end{aligned}
+\min_{w^i} \quad &\tilde{g}_i (x, w^i)  \\ 
+\st    \quad   &w^i \in \tilde{\mathcal{U}}_i (x),
 \end{align}
-Note that $g_i$ is not easy to calculate, and thus, the subproblem is difficult to solve. When $\hat{g}_i$ and $\mathcal{U}_i$ have some special structure, the constraints can be written as explicit formulae by using the duality of~\cref{eq:g_i}. Now, assume that the dual problem of the maximization problem \cref{eq:g_i} is written as follows:
-\begin{align}
-\min_{w_i} \quad &\tilde{g}_i (x, w_i)  \\ 
-\st    \quad   &w_i \in \tilde{\mathcal{U}}_i (x),
-\end{align}
-where $\tilde{g}_i \colon \setR^n \times \setR^m \to \setR$ and $\displaystyle \tilde{\mathcal{U}}_i \colon \setR^n \to 2^{\setR^m}$. If strong duality holds, then we see that the subproblem \cref{eq:prox subprob} is equivalent to
-\begin{align} \label{eq:subproblem}
-\begin{aligned}
-\min_{\gamma, d, w_i} \quad   &\gamma + \frac{\ell}{2} \|d\|^2   \\ 
-\st    \quad   &\nabla f_i(x)^\T d + \tilde{g}_i (x + d, w_i) - g_i(x) \leq \gamma,\\
-&w_i \in \tilde{\mathcal{U}}_i (x + d), \quad i = 1,\ldots,m .
-\end{aligned}
-\end{align}
-When $\tilde{g}_i$ and $\tilde{\mathcal{U}}_i$ have some explicit form, this problem is tractable. As we mention below, in this case, we can convert the above subproblem to some well-known convex optimization problems. This idea can be also seen in~\cite{Ben-tal1998}. In the following, we will introduce some robust multi-objective optimization problems where the subproblems can be written as quadratic programming, second-order cone programming or semidefinite programming problems.
+where $\tilde{g}_i \colon \setR^n \times \setR^m \to (-\infty, +\infty]$ and $\displaystyle \tilde{\mathcal{U}}_i \colon \setR^n \to 2^{\setR^m}$.
+If the strong duality holds, then we see that the subproblem \zcref{eq:pgm_subproblem} is equivalent to
+\begin{equation} \label{eq:subproblem}
+    \begin{aligned}
+        \min_{\gamma, z, w^1, \dots, w^m} \quad   &\gamma + \frac{1}{2 \alpha} \norm{z - x}_2^2   \\ 
+        \st    \quad   &\innerp{\nabla f_i(x)}{z - x} + \tilde{g}_i (z, w^i) - g_i(x) \leq \gamma,\\
+                       &w^i \in \tilde{\mathcal{U}}_i (z), \quad i = 1,\ldots,m .
+    \end{aligned}
+\end{equation}
+When $\tilde{g}_i$ and $\tilde{\mathcal{U}}_i$ have some explicit form, this problem is tractable.
+As we mention below, we can convert the above subproblem to some well-known convex optimization problems in this case.
+This idea can also be seen in~\cite{Ben-tal1998}.
+In the following, we will introduce some robust multi-objective optimization problems where the subproblems can be written as quadratic programming, second-order cone programming, or semi-definite programming problems.
 
 \subfile{QP}
 
