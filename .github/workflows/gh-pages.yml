@@ -28,7 +28,7 @@ jobs:
       - name: Build main pdf file
         run: latexmk main.tex && latexmk -c && mkdir -p pdf && cp main.pdf ./pdf/
       - name: Build diff pdf file
-        if: ${{ github.event.name == 'pull_request' }}
+        if: ${{ github.event_name == 'pull_request' }}
         run: latexmk diff.tex && latexmk -c && mkdir -p pdf && cp diff.pdf ./pdf/
       - name: Deploy pages
         uses: peaceiris/actions-gh-pages@v3
