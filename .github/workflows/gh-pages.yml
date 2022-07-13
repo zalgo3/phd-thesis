@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Get last successful commit id
-        if: ${{ github.event.name == 'pull_request' }}
+        if: ${{ github.event_name == 'pull_request' }}
         uses: nrwl/last-successful-commit-action@v1
         id: last_successful_commit
         with:
@@ -23,7 +23,7 @@ jobs:
           workflow_id: 'gh-pages.yml'
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Generate diff tex source
-        if: ${{ github.event.name == 'pull_request' }}
+        if: ${{ github.event_name == 'pull_request' }}
         run: latexdiff-vc --git --flatten -r ${{ steps.last_successful_commit.outputs.commit_hash }} main.tex && mv *diff*.tex diff.tex
       - name: Build main pdf file
         run: latexmk main.tex && latexmk -c && mkdir -p pdf && cp main.pdf ./pdf/
