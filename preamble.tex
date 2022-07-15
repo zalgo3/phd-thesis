@@ -105,26 +105,34 @@
 
 \makenomenclature
 \renewcommand\nomname{List of Symbols and Notations}
-\nomenclature{$\setR$}{the set of real numbers}
-\nomenclature{$\setR^n$}{the $n$-dimensional real space}
-\nomenclature{$\setRpos^n$}{the nonnegative orthant in~$\setR^n$}
-\nomenclature{$\innerp{x}{y}$}{the Euclidean inner product between~$x$ and~$y$}
-\nomenclature{$\norm{x}_2$}{the $\ell_2$-norm of~$x$}
-\nomenclature{$\norm{x}_1$}{the $\ell_1$-norm of~$x$}
-\nomenclature{$\norm{x}_\infty$}{the $\ell_\infty$-norm of~$x$}
-\nomenclature{$(x, y)$}{the open line segment between~$x$ and~$y$}
-\nomenclature{$[x, y]$}{the closed line segment between~$x$ and~$y$}
-\nomenclature{$\dom(f)$}{the effective domain of function~$f$}
-\nomenclature{$\nabla f(x)$}{the gradient of~$f$ at~$x$}
-\nomenclature{$\jdv{f}{x}$}{the Jacobian matrix of~$f$ at~$x$}
-\nomenclature{$\partial f(x)$}{the subdifferential of~$f$ at~$x$}
-\nomenclature{$I_n$}{the $n \times n$ identity matrix}
-\nomenclature{$\simplex^n$}{the unit $n$-simplex}
-\nomenclature{$\interior(C)$}{the interior of~$C$}
-\nomenclature{$\conv(C)$}{the convex hull of~$C$}
-\nomenclature{$\dist(x, C)$}{the distance between~$x$ and~$C$}
-\nomenclature{$\dim(X)$}{the dimension of a space~$X$}
-\nomenclature{$\ker(A)$}{the kernel of a matrix~$A$}
+\renewcommand{\nomgroup}[1]{
+    \ifthenelse{\equal{#1}{A}}{\item[\textbf{Vector Spaces}]}{}
+    \ifthenelse{\equal{#1}{B}}{\item[\textbf{Sets}]}{}
+    \ifthenelse{\equal{#1}{C}}{\item[\textbf{Matrices}]}{}
+    \ifthenelse{\equal{#1}{D}}{\item[\textbf{Functions and Operators}]}{}
+}
+\nomenclature[Aa]{$\setR$}{the set of real numbers}
+\nomenclature[Aa]{$\setR^n$}{the $n$-dimensional real space}
+\nomenclature[Aa]{$\setRpos^n$}{the nonnegative orthant in~$\setR^n$}
+\nomenclature[Ab]{$\innerp{x}{y}$}{the Euclidean inner product between~$x$ and~$y$}
+\nomenclature[Ab]{$\norm{x}_2$}{the $\ell_2$-norm of~$x$}
+\nomenclature[Ab]{$\norm{x}_1$}{the $\ell_1$-norm of~$x$}
+\nomenclature[Ab]{$\norm{x}_\infty$}{the $\ell_\infty$-norm of~$x$}
+\nomenclature[Ab]{$(x, y)$}{the open line segment between~$x$ and~$y$}
+\nomenclature[Ab]{$[x, y]$}{the closed line segment between~$x$ and~$y$}
+\nomenclature[Ab]{$\dim(X)$}{the dimension of a space~$X$}
+\nomenclature[Ba]{$\simplex^n$}{the unit $n$-simplex}
+\nomenclature[Bb]{$\interior(C)$}{the interior of~$C$}
+\nomenclature[Bb]{$\conv(C)$}{the convex hull of~$C$}
+\nomenclature[Bc]{$\dist(x, C)$}{the distance between~$x$ and~$C$}
+\nomenclature[C]{$\ker(A)$}{the kernel of a matrix~$A$}
+\nomenclature[C]{$A^\T$}{the transpose of a matrix~$A$}
+\nomenclature[C]{$I_n$}{the $n \times n$ identity matrix}
+\nomenclature[Da]{$\nabla f(x)$}{the gradient of~$f$ at~$x$}
+\nomenclature[Db]{$\jdv{f}{x}$}{the Jacobian matrix of~$f$ at~$x$}
+\nomenclature[Db]{$\partial f(x)$}{the subdifferential of~$f$ at~$x$}
+\nomenclature[Db]{$f'(x; d)$}{the directional derivative of~$f$ at~$x$ in a direction~$d$}
+\nomenclature[Dc]{$\dom(f)$}{the effective domain of function~$f$}
 
 
 \renewcommand\algorithmicrequire{\textbf{Input:}}

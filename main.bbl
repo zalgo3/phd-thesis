@@ -957,6 +957,61 @@
       \endverb
       \keyw{Constrained minimization,complexity,multiobjective}
     \endentry
+    \entry{Carrizo2016}{article}{}
+      \name{author}{3}{}{%
+        {{hash=e94a3111c06cf6db930818dd94788c76}{%
+           family={Carrizo},
+           familyi={C\bibinitperiod},
+           given={Gabriel\bibnamedelima A.},
+           giveni={G\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=a7101a552df6cc59ecf64b1d6629abf8}{%
+           family={Lotito},
+           familyi={L\bibinitperiod},
+           given={Pablo\bibnamedelima A.},
+           giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=3d5970ef24eedff870ded68bc43a7a5c}{%
+           family={Maciel},
+           familyi={M\bibinitperiod},
+           given={Mar\'{\i}a\bibnamedelima C.},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Verlag}%
+      }
+      \strng{namehash}{15175d242b55023688115f08dfd136b4}
+      \strng{fullhash}{15175d242b55023688115f08dfd136b4}
+      \strng{bibnamehash}{15175d242b55023688115f08dfd136b4}
+      \strng{authorbibnamehash}{15175d242b55023688115f08dfd136b4}
+      \strng{authornamehash}{15175d242b55023688115f08dfd136b4}
+      \strng{authorfullhash}{15175d242b55023688115f08dfd136b4}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A trust-region-based algorithm for the nonconvex unconstrained multiobjective optimization problem is considered. It is a generalization of the algorithm proposed by Fliege et al. (SIAM J Optim 20:602--626, 2009), for the convex problem. Similarly to the scalar case, at each iteration a subproblem is solved and the step needs to be evaluated. Therefore, the notions of decrease condition and of predicted reduction are adapted to the vectorial case. A rule to update the trust region radius is introduced. Under differentiability assumptions, the algorithm converges to points satisfying a necessary condition for Pareto points and, in the convex case, to a Pareto points satisfying necessary and sufficient conditions. Furthermore, it is proved that the algorithm displays a q-quadratic rate of convergence. The global behavior of the algorithm is shown in the numerical experience reported.}
+      \field{issn}{0025-5610}
+      \field{journaltitle}{Mathematical Programming}
+      \field{month}{9}
+      \field{number}{1-2}
+      \field{title}{{Trust region globalization strategy for the nonconvex unconstrained multiobjective optimization problem}}
+      \field{volume}{159}
+      \field{year}{2016}
+      \field{pages}{339\bibrangedash 369}
+      \range{pages}{31}
+      \verb{doi}
+      \verb 10.1007/s10107-015-0962-6
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Carrizo, Lotito, Maciel - 2016 - Trust region globalization strategy for the nonconvex unconstrained multiobjective optimization problem.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s10107-015-0962-6
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s10107-015-0962-6
+      \endverb
+      \keyw{Convergence,Multiobjective optimization,Newton method,Trust region}
+    \endentry
     \entry{Carrizosa1998}{article}{}
       \name{author}{2}{}{%
         {{hash=c19ee81e25a09561cea8769b19e3c001}{%
@@ -1239,6 +1294,101 @@
       \verb https://doi.org/10.1016/S0377-2217(97)00300-7
       \endverb
       \keyw{Cone-convexity of set-valued functions,Gap function,Multicriteria optimization,Wolfe dual}
+    \endentry
+    \entry{Chen2022}{thesis}{}
+      \name{author}{3}{}{%
+        {{hash=7adf8f76df352c5c2f0187f23c017e2d}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Kangming},
+           giveni={K\bibinitperiod}}}%
+        {{hash=c5ce024500fe29b568503d51a3c9d530}{%
+           family={Fukuda},
+           familyi={F\bibinitperiod},
+           given={Ellen\bibnamedelima Hidemi},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=e93d47fe50ff15742fad700a20e29a10}{%
+           family={Yamashita},
+           familyi={Y\bibinitperiod},
+           given={Nobuo},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Kyoto University}%
+      }
+      \strng{namehash}{17d0cf5f2ca41b128763d2f70efc7fbd}
+      \strng{fullhash}{17d0cf5f2ca41b128763d2f70efc7fbd}
+      \strng{bibnamehash}{17d0cf5f2ca41b128763d2f70efc7fbd}
+      \strng{authorbibnamehash}{17d0cf5f2ca41b128763d2f70efc7fbd}
+      \strng{authornamehash}{17d0cf5f2ca41b128763d2f70efc7fbd}
+      \strng{authorfullhash}{17d0cf5f2ca41b128763d2f70efc7fbd}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{A proximal gradient method with Bregman distance in multi-objective optimization}}
+      \field{type}{phdthesis}
+      \field{year}{2022}
+      \verb{file}
+      \verb :Users/zalgo/Downloads/2022-002.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://www.amp.i.kyoto-u.ac.jp/tecrep/ps_file/2022/2022-002.pdf
+      \endverb
+      \verb{url}
+      \verb http://www.amp.i.kyoto-u.ac.jp/tecrep/ps_file/2022/2022-002.pdf
+      \endverb
+      \keyw{bregman distance,multi-objective,proximal gradient method}
+    \endentry
+    \entry{Cocchi2020}{article}{}
+      \name{author}{2}{}{%
+        {{hash=9dd8acca1b5e187ae6113b8450d426f1}{%
+           family={Cocchi},
+           familyi={C\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=0b1dcca471ac070c4dc8db696fa01ade}{%
+           family={Lapucci},
+           familyi={L\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{f1b2672e9b1469293c125e8d8462f139}
+      \strng{fullhash}{f1b2672e9b1469293c125e8d8462f139}
+      \strng{bibnamehash}{f1b2672e9b1469293c125e8d8462f139}
+      \strng{authorbibnamehash}{f1b2672e9b1469293c125e8d8462f139}
+      \strng{authornamehash}{f1b2672e9b1469293c125e8d8462f139}
+      \strng{authorfullhash}{f1b2672e9b1469293c125e8d8462f139}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper, we propose an adaptation of the classical augmented Lagrangian method for dealing with multi-objective optimization problems. Specifically, after a brief review of the literature, we give a suitable definition of Augmented Lagrangian for equality and inequality constrained multi-objective problems. We exploit this object in a general computational scheme that is proved to converge, under mild assumptions, to weak Pareto points of such problems. We then provide a modified version of the algorithm which is more suited for practical implementations, proving again convergence properties under reasonable hypotheses. Finally, computational experiments show that the proposed methods not only do work in practice, but are also competitive with respect to state-of-the-art methods.}
+      \field{issn}{15732894}
+      \field{journaltitle}{Computational Optimization and Applications}
+      \field{month}{9}
+      \field{number}{1}
+      \field{title}{{An augmented Lagrangian algorithm for multi-objective optimization}}
+      \field{volume}{77}
+      \field{year}{2020}
+      \field{pages}{29\bibrangedash 56}
+      \range{pages}{28}
+      \verb{doi}
+      \verb 10.1007/S10589-020-00204-Z/FIGURES/3
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Cocchi, Lapucci - 2020 - An augmented Lagrangian algorithm for multi-objective optimization.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/article/10.1007/s10589-020-00204-z
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/article/10.1007/s10589-020-00204-z
+      \endverb
+      \keyw{Augmented Lagrangian method,Constrained multi-objective optimization,Global convergence,Multi-objective steepest descent,Pareto stationarity}
     \endentry
     \entry{Deb2014}{article}{}
       \name{author}{2}{}{%
@@ -1535,6 +1685,56 @@
       \verb 10.1016/j.ejor.2014.03.013
       \endverb
       \keyw{Multi-objective optimization,Robustness and sensitivity analysis,Scenarios,Uncertainty modelling}
+    \endentry
+    \entry{ElMoudden2018}{article}{}
+      \name{author}{2}{}{%
+        {{hash=c6e9e4ed72b98225fcd6557364b73062}{%
+           family={{El Moudden}},
+           familyi={E\bibinitperiod},
+           given={Mustapha},
+           giveni={M\bibinitperiod}}}%
+        {{hash=21483525ea834a286d4d8fe3ed9fd93e}{%
+           family={{El Ghali}},
+           familyi={E\bibinitperiod},
+           given={Ahmed},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York LLC}%
+      }
+      \strng{namehash}{f115f474735fb1fb201ff6d05c866e07}
+      \strng{fullhash}{f115f474735fb1fb201ff6d05c866e07}
+      \strng{bibnamehash}{f115f474735fb1fb201ff6d05c866e07}
+      \strng{authorbibnamehash}{f115f474735fb1fb201ff6d05c866e07}
+      \strng{authornamehash}{f115f474735fb1fb201ff6d05c866e07}
+      \strng{authorfullhash}{f115f474735fb1fb201ff6d05c866e07}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper, we consider the linearly constrained multiobjective minimization, and we propose a new reduced gradient method for solving this problem. Our approach solves iteratively a convex quadratic optimization subproblem to calculate a suitable descent direction for all the objective functions, and then use a bisection algorithm to find an optimal stepsize along this direction. We prove, under natural assumptions, that the proposed algorithm is well-defined and converges globally to Pareto critical points of the problem. Finally, this algorithm is implemented in the MATLAB environment and comparative results of numerical experiments are reported.}
+      \field{issn}{15732894}
+      \field{journaltitle}{Computational Optimization and Applications}
+      \field{month}{12}
+      \field{number}{3}
+      \field{title}{{A new reduced gradient method for solving linearly constrained multiobjective optimization problems}}
+      \field{volume}{71}
+      \field{year}{2018}
+      \field{pages}{719\bibrangedash 741}
+      \range{pages}{23}
+      \verb{doi}
+      \verb 10.1007/S10589-018-0023-1/FIGURES/6
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/El Moudden, El Ghali - 2018 - A new reduced gradient method for solving linearly constrained multiobjective optimization problems.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/article/10.1007/s10589-018-0023-1
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/article/10.1007/s10589-018-0023-1
+      \endverb
+      \keyw{Bisection algorithm,Linear constraints,Multiobjective optimization,Pareto critical point,Reduced gradient methods}
     \endentry
     \entry{ElMoudden2020}{article}{}
       \name{author}{2}{}{%
@@ -1909,6 +2109,119 @@
       \verb https://doi.org/10.1016/j.ejor.2013.10.028
       \endverb
       \keyw{Markowitz,Multiobjective,Robustification,Uncertainty}
+    \endentry
+    \entry{Fukuda2019}{article}{}
+      \name{author}{3}{}{%
+        {{hash=19b9fd4e6b1015aae5764de1468cee3c}{%
+           family={Fukuda},
+           familyi={F\bibinitperiod},
+           given={Ellen\bibnamedelima H.},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=943222ef021934bfd9fab202c7791870}{%
+           family={Drummond},
+           familyi={D\bibinitperiod},
+           given={L.\bibnamedelimi M.Gra\~{n}a},
+           giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=a4ced8dc72900452ed578f203ea9d885}{%
+           family={Raupp},
+           familyi={R\bibinitperiod},
+           given={Fernanda\bibnamedelima M.P.},
+           giveni={F\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor & Francis}%
+      }
+      \strng{namehash}{41a0ccdaa192261d313f1dd0c6f9106c}
+      \strng{fullhash}{41a0ccdaa192261d313f1dd0c6f9106c}
+      \strng{bibnamehash}{41a0ccdaa192261d313f1dd0c6f9106c}
+      \strng{authorbibnamehash}{41a0ccdaa192261d313f1dd0c6f9106c}
+      \strng{authornamehash}{41a0ccdaa192261d313f1dd0c6f9106c}
+      \strng{authorfullhash}{41a0ccdaa192261d313f1dd0c6f9106c}
+      \field{extraname}{1}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{For solving constrained multicriteria problems, we introduce the multiobjective barrier method (MBM), which extends the scalar-valued internal penalty method. This multiobjective version of the cla...}
+      \field{eprinttype}{arXiv}
+      \field{issn}{10294945}
+      \field{journaltitle}{Optimization}
+      \field{month}{11}
+      \field{number}{11}
+      \field{title}{{A barrier-type method for multiobjective optimization}}
+      \field{volume}{69}
+      \field{year}{2019}
+      \field{pages}{2471\bibrangedash 2487}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1080/02331934.2019.1576667
+      \endverb
+      \verb{eprint}
+      \verb 1803.11379
+      \endverb
+      \verb{urlraw}
+      \verb https://www.tandfonline.com/doi/abs/10.1080/02331934.2019.1576667
+      \endverb
+      \verb{url}
+      \verb https://www.tandfonline.com/doi/abs/10.1080/02331934.2019.1576667
+      \endverb
+      \keyw{Barrier methods,Pareto optimality,multiobjective optimization}
+    \endentry
+    \entry{Fukuda2016}{article}{}
+      \name{author}{3}{}{%
+        {{hash=19b9fd4e6b1015aae5764de1468cee3c}{%
+           family={Fukuda},
+           familyi={F\bibinitperiod},
+           given={Ellen\bibnamedelima H.},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=943222ef021934bfd9fab202c7791870}{%
+           family={Drummond},
+           familyi={D\bibinitperiod},
+           given={L.\bibnamedelimi M.Gra\~{n}a},
+           giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=a4ced8dc72900452ed578f203ea9d885}{%
+           family={Raupp},
+           familyi={R\bibinitperiod},
+           given={Fernanda\bibnamedelima M.P.},
+           giveni={F\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Verlag}%
+      }
+      \strng{namehash}{41a0ccdaa192261d313f1dd0c6f9106c}
+      \strng{fullhash}{41a0ccdaa192261d313f1dd0c6f9106c}
+      \strng{bibnamehash}{41a0ccdaa192261d313f1dd0c6f9106c}
+      \strng{authorbibnamehash}{41a0ccdaa192261d313f1dd0c6f9106c}
+      \strng{authornamehash}{41a0ccdaa192261d313f1dd0c6f9106c}
+      \strng{authorfullhash}{41a0ccdaa192261d313f1dd0c6f9106c}
+      \field{extraname}{2}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We propose an extension of the classical real-valued external penalty method to the multicriteria optimization setting. As its single objective counterpart, it also requires an external penalty function for the constraint set, as well as an exogenous divergent sequence of nonnegative real numbers, the so-called penalty parameters, but, differently from the scalar procedure, the vector-valued method uses an auxiliary function, which can be chosen among large classes of \textquotedblleft{}monotonic\textquotedblright{} real-valued mappings. We analyze the properties of the auxiliary functions in those classes and exhibit some examples. The convergence results are similar to those of the scalar-valued method, and depending on the kind of auxiliary function used in the implementation, under standard assumptions, the generated infeasible sequences converge to weak Pareto or Pareto optimal points. We also propose an implementable local version of the external penalization method and study its convergence results.}
+      \field{issn}{18638279}
+      \field{journaltitle}{TOP}
+      \field{month}{7}
+      \field{number}{2}
+      \field{title}{{An external penalty-type method for multicriteria}}
+      \field{volume}{24}
+      \field{year}{2016}
+      \field{pages}{493\bibrangedash 513}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1007/S11750-015-0406-8/FIGURES/1
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Fukuda, Drummond, Raupp - 2016 - An external penalty-type method for multicriteria.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/article/10.1007/s11750-015-0406-8
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/article/10.1007/s11750-015-0406-8
+      \endverb
+      \keyw{Constrained multiobjective optimization,External penalty method,Pareto optimality,Scalar representation}
     \endentry
     \entry{Fukuda2014}{article}{}
       \name{author}{2}{}{%
@@ -2349,6 +2662,88 @@
       \verb{url}
       \verb https://doi.org/10.1090/S0002-9904-1964-11178-2
       \endverb
+    \endentry
+    \entry{Goncalves2021}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=04ffc82a2c3336302c3634971b370ab9}{%
+           family={Gon\c{c}alves},
+           familyi={G\bibinitperiod},
+           given={Max\bibnamedelimb Leandro\bibnamedelima Nobre},
+           giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=fff6032ecf2a90c42155d1e985d56eb8}{%
+           family={Lima},
+           familyi={L\bibinitperiod},
+           given={Fernando\bibnamedelima S.},
+           giveni={F\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=e0ba06ca01caf4c4ed4f4ab436276dc5}{%
+           family={Prudente},
+           familyi={P\bibinitperiod},
+           given={Leandro\bibnamedelima F.},
+           giveni={L\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{c0fc1ecc25eb1ca6a1b33c5b840430e7}
+      \strng{fullhash}{c0fc1ecc25eb1ca6a1b33c5b840430e7}
+      \strng{bibnamehash}{c0fc1ecc25eb1ca6a1b33c5b840430e7}
+      \strng{authorbibnamehash}{c0fc1ecc25eb1ca6a1b33c5b840430e7}
+      \strng{authornamehash}{c0fc1ecc25eb1ca6a1b33c5b840430e7}
+      \strng{authorfullhash}{c0fc1ecc25eb1ca6a1b33c5b840430e7}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Optimization Online}
+      \field{title}{{Globally convergent Newton-type methods for multiobjective optimization}}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb http://www.optimization-online.org/DB_HTML/2020/08/7955.html
+      \endverb
+      \verb{url}
+      \verb http://www.optimization-online.org/DB_HTML/2020/08/7955.html
+      \endverb
+    \endentry
+    \entry{GranaDrummond2005}{article}{}
+      \name{author}{2}{}{%
+        {{hash=fe65a340df9900ace59b80afeed7e889}{%
+           family={{Gra\~{n}a Drummond}},
+           familyi={G\bibinitperiod},
+           given={L.\bibnamedelimi M.},
+           giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=696a4bec40f681832390dae0b6456d6f}{%
+           family={Svaiter},
+           familyi={S\bibinitperiod},
+           given={Benar\bibnamedelima F.},
+           giveni={B\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {North-Holland}%
+      }
+      \strng{namehash}{b9fdcfafe8c9f9c37462218797492652}
+      \strng{fullhash}{b9fdcfafe8c9f9c37462218797492652}
+      \strng{bibnamehash}{b9fdcfafe8c9f9c37462218797492652}
+      \strng{authorbibnamehash}{b9fdcfafe8c9f9c37462218797492652}
+      \strng{authornamehash}{b9fdcfafe8c9f9c37462218797492652}
+      \strng{authorfullhash}{b9fdcfafe8c9f9c37462218797492652}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this work we propose a Cauchy-like method for solving smooth unconstrained vector optimization problems. When the partial order under consideration is the one induced by the nonnegative orthant, we regain the steepest descent method for multicriteria optimization recently proposed by Fliege and Svaiter. We prove that every accumulation point of the generated sequence satisfies a certain first-order necessary condition for optimality, which extends to the vector case the well known "gradient equal zero"; condition for real-valued minimization. Finally, under some reasonable additional hypotheses, we prove (global) convergence to a weak unconstrained minimizer. As a by-product, we show that the problem of finding a weak constrained minimizer can be viewed as a particular case of the so-called Abstract Equilibrium problem. {{$\copyright$}} 2004 Elsevier B.V. All rights reserved.}
+      \field{issn}{0377-0427}
+      \field{journaltitle}{Journal of Computational and Applied Mathematics}
+      \field{month}{3}
+      \field{number}{2}
+      \field{title}{{A steepest descent method for vector optimization}}
+      \field{volume}{175}
+      \field{year}{2005}
+      \field{pages}{395\bibrangedash 414}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1016/J.CAM.2004.06.018
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Gra{\~{n}}a Drummond, Svaiter - 2005 - A steepest descent method for vector optimization.pdf:pdf
+      \endverb
+      \keyw{K-convexity,Pareto optimality,Quasi-F\'{e}jer convergence,Steepest descent,Vector optimization}
     \endentry
     \entry{Grana-Drummond2004}{article}{}
       \name{author}{2}{}{%
@@ -3223,6 +3618,107 @@
       \endverb
       \keyw{Error bound,Merit function,Weak domination property,Weakly efficient solution}
     \endentry
+    \entry{LucambioPerez2018}{article}{}
+      \name{author}{2}{}{%
+        {{hash=4e4136d085a99a96a28cb7982eadac84}{%
+           family={{Lucambio P\'{e}rez}},
+           familyi={L\bibinitperiod},
+           given={L.\bibnamedelimi R.},
+           giveni={L\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=d4db89be7311f80aea1c53ceb5cea2f2}{%
+           family={Prudente},
+           familyi={P\bibinitperiod},
+           given={L.\bibnamedelimi F.},
+           giveni={L\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Society for Industrial}%
+        {Applied Mathematics Publications}%
+      }
+      \strng{namehash}{2a18f546fc02d78bc9700bacc6c3322c}
+      \strng{fullhash}{2a18f546fc02d78bc9700bacc6c3322c}
+      \strng{bibnamehash}{2a18f546fc02d78bc9700bacc6c3322c}
+      \strng{authorbibnamehash}{2a18f546fc02d78bc9700bacc6c3322c}
+      \strng{authornamehash}{2a18f546fc02d78bc9700bacc6c3322c}
+      \strng{authorfullhash}{2a18f546fc02d78bc9700bacc6c3322c}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this work, we propose nonlinear conjugate gradient methods for finding criticalpoints of vector-valued functions with respect to the partial order induced by a closed, convex, andpointed cone with nonempty interior. No convexity assumption is made on the objectives. Theconcepts of Wolfe and Zoutendjik conditions are extended for the vector-valued optimization. Inparticular, we show that there exist intervals of step sizes satisfying the Wolfe-type conditions. Theconvergence analysis covers the vector extensions of the Fletcher{Reeves, conjugate descent, Dai{Yuan, Polak{Rib\`{\i}ere{Polyak, and Hestenes{Stiefel parameters that retrieve the classical ones in thescalar minimization case. Under inexact line searches and without regular restarts, we prove thatthe sequences generated by the proposed methods find points that satisfy the first-order necessarycondition for Pareto-optimality. Numerical experiments illustrating the practical behavior of themethods are presented.}}}}}}
+      \field{issn}{1052-6234}
+      \field{journaltitle}{SIAM Journal on Optimization}
+      \field{month}{1}
+      \field{number}{3}
+      \field{title}{{Nonlinear conjugate gradient methods for vector optimization}}
+      \field{volume}{28}
+      \field{year}{2018}
+      \field{pages}{2690\bibrangedash 2720}
+      \range{pages}{31}
+      \verb{doi}
+      \verb 10.1137/17M1126588
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Lucambio Perez, Prudente - 2018 - Nonlinear conjugate gradient methods for vector optimization.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1137/17M1126588
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1137/17M1126588
+      \endverb
+      \keyw{Conjugate gradient method,Line search algorithm,Pareto-optimality,Unconstrained optimization,Vector optimization,Wolfe conditions}
+    \endentry
+    \entry{Maghri2018}{article}{}
+      \name{author}{2}{}{%
+        {{hash=9fe0565e13655a1d9281ef736a09f786}{%
+           family={Maghri},
+           familyi={M\bibinitperiod},
+           given={Mounir\bibnamedelima El},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=7586cd0bebef1c1f6bfa7203fbd6be06}{%
+           family={Elboulqe},
+           familyi={E\bibinitperiod},
+           given={Youssef},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York LLC}%
+      }
+      \strng{namehash}{dac9a4b8f10176df44bd925b2e9702fc}
+      \strng{fullhash}{dac9a4b8f10176df44bd925b2e9702fc}
+      \strng{bibnamehash}{dac9a4b8f10176df44bd925b2e9702fc}
+      \strng{authorbibnamehash}{dac9a4b8f10176df44bd925b2e9702fc}
+      \strng{authornamehash}{dac9a4b8f10176df44bd925b2e9702fc}
+      \strng{authorfullhash}{dac9a4b8f10176df44bd925b2e9702fc}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper, we present the Wolfe's reduced gradient method for multiobjective (multicriteria) optimization. We precisely deal with the problem of minimizing nonlinear objectives under linear constraints and propose a reduced Jacobian method, namely a reduced gradient-like method that does not scalarize those programs. As long as there are nondominated solutions, the principle is to determine a direction that decreases all goals at the same time to achieve one of them. Following the reduction strategy, only a reduced search direction is to be found. We show that this latter can be obtained by solving a simple differentiable and convex program at each iteration. Moreover, this method is conceived to recover both the discontinuous and continuous schemes of Wolfe for the single-objective programs. The resulting algorithm is proved to be (globally) convergent to a Pareto KKT-stationary (Pareto critical) point under classical hypotheses and a multiobjective Armijo line search condition. Finally, experiment results over test problems show a net performance of the proposed algorithm and its superiority against a classical scalarization approach, both in the quality of the approximated Pareto front and in the computational effort.}
+      \field{issn}{15732878}
+      \field{journaltitle}{Journal of Optimization Theory and Applications}
+      \field{month}{12}
+      \field{number}{3}
+      \field{title}{{Reduced Jacobian method}}
+      \field{volume}{179}
+      \field{year}{2018}
+      \field{pages}{917\bibrangedash 943}
+      \range{pages}{27}
+      \verb{doi}
+      \verb 10.1007/S10957-018-1362-X/FIGURES/7
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Maghri, Elboulqe - 2018 - Reduced Jacobian method.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/article/10.1007/s10957-018-1362-x
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/article/10.1007/s10957-018-1362-x
+      \endverb
+      \keyw{Descent direction,KKT-stationarity,Multiobjective optimization,Nonlinear programming,Pareto optima,Reduced gradient method}
+    \endentry
     \entry{Mangasarian1993}{article}{}
       \name{author}{2}{}{%
         {{hash=1630fca73a93198e4bfa3687bb8b3de3}{%
@@ -3414,6 +3910,61 @@
       \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Morishita - 2016 - A descent method for robust multiobjective optimization in the presence of implementation errors.pdf:pdf
       \endverb
     \endentry
+    \entry{Morovati2018}{article}{}
+      \name{author}{3}{}{%
+        {{hash=c327620dc9f38a2651693adad2ff8b0d}{%
+           family={Morovati},
+           familyi={M\bibinitperiod},
+           given={Vahid},
+           giveni={V\bibinitperiod}}}%
+        {{hash=9a443143cf8ac74861087b13515403ef}{%
+           family={Basirzadeh},
+           familyi={B\bibinitperiod},
+           given={Hadi},
+           giveni={H\bibinitperiod}}}%
+        {{hash=e058981867cbce8792bec02a496d82a3}{%
+           family={Pourkarimi},
+           familyi={P\bibinitperiod},
+           given={Latif},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Verlag}%
+      }
+      \strng{namehash}{906fc1c79b355bcc3a421df77f4b21f0}
+      \strng{fullhash}{906fc1c79b355bcc3a421df77f4b21f0}
+      \strng{bibnamehash}{906fc1c79b355bcc3a421df77f4b21f0}
+      \strng{authorbibnamehash}{906fc1c79b355bcc3a421df77f4b21f0}
+      \strng{authornamehash}{906fc1c79b355bcc3a421df77f4b21f0}
+      \strng{authorfullhash}{906fc1c79b355bcc3a421df77f4b21f0}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This work is an attempt to develop multiobjective versions of some well-known single objective quasi-Newton methods, including BFGS, self-scaling BFGS (SS-BFGS), and the Huang BFGS (H-BFGS). A comprehensive and comparative study of these methods is presented in this paper. The Armijo line search is used for the implementation of these methods. The numerical results show that the Armijo rule does not work the same way for the multiobjective case as for the single objective case, because, in this case, it imposes a large computational effort and significantly decreases the speed of convergence in contrast to the single objective case. Hence, we consider two cases of all multi-objective versions of quasi-Newton methods: in the presence of the Armijo line search and in the absence of any line search. Moreover, the convergence of these methods without using any line search under some mild conditions is shown. Also, by introducing a multiobjective subproblem for finding the quasi-Newton multiobjective search direction, a simple representation of the Karush--Kuhn--Tucker conditions is derived. The H-BFGS quasi-Newton multiobjective optimization method provides a higher-order accuracy in approximating the second order curvature of the problem functions than the BFGS and SS-BFGS methods. Thus, this method has some benefits compared to the other methods as shown in the numerical results. All mentioned methods proposed in this paper are evaluated and compared with each other in different aspects. To do so, some well-known test problems and performance assessment criteria are employed. Moreover, these methods are compared with each other with regard to the expended CPU time, the number of iterations, and the number of function evaluations.}
+      \field{issn}{1619-4500}
+      \field{journaltitle}{4OR}
+      \field{month}{9}
+      \field{number}{3}
+      \field{title}{{Quasi-Newton methods for multiobjective optimization problems}}
+      \field{volume}{16}
+      \field{year}{2018}
+      \field{pages}{261\bibrangedash 294}
+      \range{pages}{34}
+      \verb{doi}
+      \verb 10.1007/s10288-017-0363-1
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Morovati, Basirzadeh, Pourkarimi - 2018 - Quasi-Newton methods for multiobjective optimization problems.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/S10288-017-0363-1
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/S10288-017-0363-1
+      \endverb
+      \keyw{Multiobjective optimization,Nondominated points,Nonparametric methods,Performance profiles,Quasi-Newton methods}
+    \endentry
     \entry{Nesterov1983}{article}{}
       \name{author}{1}{}{%
         {{hash=8a41b35fe7b3d1725cb95bd7eec40b01}{%
@@ -3449,6 +4000,56 @@
       \verb{url}
       \verb http://mi.mathnet.ru/eng/dan/v269/i3/p543
       \endverb
+    \endentry
+    \entry{Nishimura2022}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=2e053a8d890d643005d1e3e3a65b3fb8}{%
+           family={Nishimura},
+           familyi={N\bibinitperiod},
+           given={Yuki},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=c5ce024500fe29b568503d51a3c9d530}{%
+           family={Fukuda},
+           familyi={F\bibinitperiod},
+           given={Ellen\bibnamedelima Hidemi},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=e93d47fe50ff15742fad700a20e29a10}{%
+           family={Yamashita},
+           familyi={Y\bibinitperiod},
+           given={Nobuo},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{7db2ccb63324a646b7fc5ed1e2569c87}
+      \strng{fullhash}{7db2ccb63324a646b7fc5ed1e2569c87}
+      \strng{bibnamehash}{7db2ccb63324a646b7fc5ed1e2569c87}
+      \strng{authorbibnamehash}{7db2ccb63324a646b7fc5ed1e2569c87}
+      \strng{authornamehash}{7db2ccb63324a646b7fc5ed1e2569c87}
+      \strng{authorfullhash}{7db2ccb63324a646b7fc5ed1e2569c87}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Accelerated proximal gradient methods, which are also called fast iterative shrinkage-thresholding algorithms (FISTA) are known to be efficient for many applications. Recently, Tanabe et al. proposed an extension of FISTA for multiobjective optimization problems. However, similarly to the single-objective minimization case, the objective functions values may increase in some iterations, and inexact computations of subproblems can also lead to divergence. Motivated by this, here we propose a variant of the FISTA for multiobjective optimization, that imposes some monotonicity of the objective functions values. In the single-objective case, we retrieve the so-called MFISTA, proposed by Beck and Teboulle. We also prove that our method has global convergence with rate $O(1/k^2)$, and show some numerical advantages in requiring monotonicity.}
+      \field{eprinttype}{arXiv}
+      \field{month}{6}
+      \field{title}{{Monotonicity for multiobjective accelerated proximal gradient methods}}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.48550/arxiv.2206.04412
+      \endverb
+      \verb{eprint}
+      \verb 2206.04412
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Nishimura, Fukuda, Yamashita - 2022 - Monotonicity for Multiobjective Accelerated Proximal Gradient Methods.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2206.04412v1
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2206.04412v1
+      \endverb
+      \keyw{Multiobjective descent methods,Pareto optimality,accelerated methods,first-order methods,proximal gradient methods}
     \endentry
     \entry{Parikh2014}{book}{}
       \name{author}{2}{}{%
@@ -3610,6 +4211,151 @@
       \verb{doi}
       \verb 10.1016/0041-5553(69)90061-5
       \endverb
+    \endentry
+    \entry{Povalej2014}{article}{}
+      \name{author}{1}{}{%
+        {{hash=607eecf7d1916ed73824d22fefa34ff3}{%
+           family={Povalej},
+           familyi={P\bibinitperiod},
+           given={\v{Z}iga},
+           giveni={\v{Z}\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {North-Holland}%
+      }
+      \strng{namehash}{607eecf7d1916ed73824d22fefa34ff3}
+      \strng{fullhash}{607eecf7d1916ed73824d22fefa34ff3}
+      \strng{bibnamehash}{607eecf7d1916ed73824d22fefa34ff3}
+      \strng{authorbibnamehash}{607eecf7d1916ed73824d22fefa34ff3}
+      \strng{authornamehash}{607eecf7d1916ed73824d22fefa34ff3}
+      \strng{authorfullhash}{607eecf7d1916ed73824d22fefa34ff3}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper we present a quasi-Newton's method for unconstrained multiobjective optimization of strongly convex objective functions. Hence, we can approximate the Hessian matrices by using the well known BFGS method. The approximation of the Hessian matrices is usually faster than their exact evaluation, as used in, e.g., recently proposed Newton's method for multiobjective optimization. We propose and analyze a new algorithm and prove that its convergence is superlinear. {{$\copyright$}} 2013 Elsevier B.V. All rights reserved.}
+      \field{issn}{0377-0427}
+      \field{journaltitle}{Journal of Computational and Applied Mathematics}
+      \field{month}{1}
+      \field{title}{{Quasi-Newton's method for multiobjective optimization}}
+      \field{volume}{255}
+      \field{year}{2014}
+      \field{pages}{765\bibrangedash 777}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1016/J.CAM.2013.06.045
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Povalej - 2014 - Quasi-Newton's method for multiobjective optimization.pdf:pdf
+      \endverb
+      \keyw{Multiobjective optimization,Newton's method,Pareto optimum,Quasi-Newton's method}
+    \endentry
+    \entry{Qu2011}{article}{}
+      \name{author}{3}{}{%
+        {{hash=f8d9531fac2e80f8ebd940340aeefc36}{%
+           family={Qu},
+           familyi={Q\bibinitperiod},
+           given={Shaojian},
+           giveni={S\bibinitperiod}}}%
+        {{hash=3204094ca3af0cfb3894a8d450b70277}{%
+           family={Goh},
+           familyi={G\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=6e097c7ab1e86702a3d42cd77bb7a844}{%
+           family={Chan},
+           familyi={C\bibinitperiod},
+           given={Felix\bibnamedelima T.S.},
+           giveni={F\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {North-Holland}%
+      }
+      \strng{namehash}{f9ebef518f0a60f6074845f6648e76f3}
+      \strng{fullhash}{f9ebef518f0a60f6074845f6648e76f3}
+      \strng{bibnamehash}{f9ebef518f0a60f6074845f6648e76f3}
+      \strng{authorbibnamehash}{f9ebef518f0a60f6074845f6648e76f3}
+      \strng{authornamehash}{f9ebef518f0a60f6074845f6648e76f3}
+      \strng{authorfullhash}{f9ebef518f0a60f6074845f6648e76f3}
+      \field{sortinit}{Q}
+      \field{sortinithash}{ce69a400a872ddd02ee7fdb3b38c6abd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper presents a quasi-Newton-type algorithm for nonconvex multiobjective optimization. In this algorithm, the iterations are repeated until termination conditions are met, which is when a suitable descent direction cannot be found anymore. Under suitable assumptions, global convergence is established. {{$\copyright$}} 2011 Elsevier B.V. All rights reserved.}
+      \field{issn}{0167-6377}
+      \field{journaltitle}{Operations Research Letters}
+      \field{month}{9}
+      \field{number}{5}
+      \field{title}{{Quasi-Newton methods for solving multiobjective optimization}}
+      \field{volume}{39}
+      \field{year}{2011}
+      \field{pages}{397\bibrangedash 399}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1016/J.ORL.2011.07.008
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Downloads/1-s2.0-S016763771100085X-main.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/J.ORL.2011.07.008
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/J.ORL.2011.07.008
+      \endverb
+      \keyw{Critical point,Global convergence,Multiobjective optimization,Pareto optimality,Quasi-Newton methods}
+    \endentry
+    \entry{Qu2013}{article}{}
+      \name{author}{3}{}{%
+        {{hash=f8d9531fac2e80f8ebd940340aeefc36}{%
+           family={Qu},
+           familyi={Q\bibinitperiod},
+           given={Shaojian},
+           giveni={S\bibinitperiod}}}%
+        {{hash=3204094ca3af0cfb3894a8d450b70277}{%
+           family={Goh},
+           familyi={G\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=b2074bb77c2967f816ab786ec7767015}{%
+           family={Liang},
+           familyi={L\bibinitperiod},
+           given={Bing},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor & Francis}%
+      }
+      \strng{namehash}{f57d59b83d7b58ae778be1f62565a283}
+      \strng{fullhash}{f57d59b83d7b58ae778be1f62565a283}
+      \strng{bibnamehash}{f57d59b83d7b58ae778be1f62565a283}
+      \strng{authorbibnamehash}{f57d59b83d7b58ae778be1f62565a283}
+      \strng{authornamehash}{f57d59b83d7b58ae778be1f62565a283}
+      \strng{authorfullhash}{f57d59b83d7b58ae778be1f62565a283}
+      \field{sortinit}{Q}
+      \field{sortinithash}{ce69a400a872ddd02ee7fdb3b38c6abd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper first proposes a trust region algorithm to obtain a stationary point of unconstrained multiobjective optimisation problem. Under suitable assumptions, the global convergence of the new a...}
+      \field{issn}{10556788}
+      \field{journaltitle}{Optimization Methods and Software}
+      \field{month}{8}
+      \field{number}{4}
+      \field{title}{{Trust region methods for solving multiobjective optimisation}}
+      \field{volume}{28}
+      \field{year}{2013}
+      \field{pages}{796\bibrangedash 811}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1080/10556788.2012.660483
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1080/10556788.2012.660483
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1080/10556788.2012.660483
+      \endverb
+      \keyw{90C29,90C30,Pareto optimisation,convergence,multiobjective optimisation,stationary point,trust region methods}
     \endentry
     \entry{Rockafellar1998}{book}{}
       \name{author}{2}{}{%
@@ -4012,6 +4758,57 @@
       \endverb
       \keyw{Calculus of Variations and Optimal Control,Combinatorics,Mathematical Methods in Physics,Mathematical and Computational Physics,Mathematics of Computing,Numerical Analysis,Optimization,Theoretical}
     \endentry
+    \entry{Tanabe2022c}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=fe79ff046b379ee499d9981349434f9c}{%
+           family={Tanabe},
+           familyi={T\bibinitperiod},
+           given={Hiroki},
+           giveni={H\bibinitperiod}}}%
+        {{hash=c5ce024500fe29b568503d51a3c9d530}{%
+           family={Fukuda},
+           familyi={F\bibinitperiod},
+           given={Ellen\bibnamedelima Hidemi},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=e93d47fe50ff15742fad700a20e29a10}{%
+           family={Yamashita},
+           familyi={Y\bibinitperiod},
+           given={Nobuo},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \strng{fullhash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \strng{bibnamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \strng{authorbibnamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \strng{authornamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \strng{authorfullhash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \field{extraname}{1}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Convex-composite optimization, which minimizes an objective function represented by the sum of a differentiable function and a convex one, is widely used in machine learning and signal/image processing. Fast Iterative Shrinkage Thresholding Algorithm (FISTA) is a typical method for solving this problem and has a global convergence rate of $O(1 / k^2)$. Recently, this has been extended to multi-objective optimization, together with the proof of the $O(1 / k^2)$ global convergence rate. However, its momentum factor is classical, and the convergence of its iterates has not been proven. In this work, introducing some additional hyperparameters $(a, b)$, we propose another accelerated proximal gradient method with a general momentum factor, which is new even for the single-objective cases. We show that our proposed method also has a global convergence rate of $O(1/k^2)$ for any $(a,b)$, and further that the generated sequence of iterates converges to a weak Pareto solution when $a$ is positive, an essential property for the finite-time manifold identification. Moreover, we report numerical results with various $(a,b)$, showing that some of these choices give better results than the classical momentum factors.}
+      \field{eprinttype}{arXiv}
+      \field{howpublished}{arXiv:2205.05262}
+      \field{month}{5}
+      \field{title}{{A globally convergent fast iterative shrinkage-thresholding algorithm with a new momentum factor for single and multi-objective convex optimization}}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.48550/arxiv.2205.05262
+      \endverb
+      \verb{eprint}
+      \verb 2205.05262
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Tanabe, Fukuda, Yamashita - 2022 - A globally convergent fast iterative shrinkage-thresholding algorithm with a new momentum factor for.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2205.05262v1
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2205.05262v1
+      \endverb
+    \endentry
     \entry{Tanabe2022a}{misc}{}
       \name{author}{3}{}{%
         {{hash=fe79ff046b379ee499d9981349434f9c}{%
@@ -4036,6 +4833,7 @@
       \strng{authorbibnamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
       \strng{authornamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
       \strng{authorfullhash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \field{extraname}{2}
       \field{sortinit}{T}
       \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
       \field{labelnamesource}{author}
@@ -4058,6 +4856,158 @@
       \verb{url}
       \verb https://doi.org/10.48550/arXiv.2202.10994
       \endverb
+    \endentry
+    \entry{Tanabe2022}{article}{}
+      \name{author}{3}{}{%
+        {{hash=fe79ff046b379ee499d9981349434f9c}{%
+           family={Tanabe},
+           familyi={T\bibinitperiod},
+           given={Hiroki},
+           giveni={H\bibinitperiod}}}%
+        {{hash=c5ce024500fe29b568503d51a3c9d530}{%
+           family={Fukuda},
+           familyi={F\bibinitperiod},
+           given={Ellen\bibnamedelima Hidemi},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=e93d47fe50ff15742fad700a20e29a10}{%
+           family={Yamashita},
+           familyi={Y\bibinitperiod},
+           given={Nobuo},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \strng{fullhash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \strng{bibnamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \strng{authorbibnamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \strng{authornamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \strng{authorfullhash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \field{extraname}{3}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In 2019, Tanabe et al. proposed proximal gradient methods for multiobjective optimization. Under reasonable assumptions, they proved that the accumulation points of the sequences generated by these methods are Pareto stationary. However, the convergence rates were not established in that paper. Here, we show global convergence rates for multiobjective proximal gradient methods, matching what is known in scalar optimization. More specifically, by using merit functions as a way to measure the complexity, we prove the rates for non-convex problems ($O(\sqrt{1 / k})$), convex ones ($O(1 / k)$), and strongly convex ones ($O(r^k)$ for some$\sim$$r \in (0, 1)$). We also extend the so-called Polyak-{\L{}}ojasiewicz (PL) inequality for multiobjective optimization and establish the rate for multiobjective problems that satisfy such inequalities ($O(r^k)$ for some$\sim$$r \in (0, 1)$).}
+      \field{issn}{1862-4472}
+      \field{journaltitle}{Optimization Letters, in press}
+      \field{month}{4}
+      \field{title}{{Convergence rates analysis of a multiobjective proximal gradient method}}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.1007/s11590-022-01877-7
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Downloads/Tanabe2022_Article_ConvergenceRatesAnalysisOfAMul.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s11590-022-01877-7
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s11590-022-01877-7
+      \endverb
+    \endentry
+    \entry{Tanabe2022b}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=fe79ff046b379ee499d9981349434f9c}{%
+           family={Tanabe},
+           familyi={T\bibinitperiod},
+           given={Hiroki},
+           giveni={H\bibinitperiod}}}%
+        {{hash=c5ce024500fe29b568503d51a3c9d530}{%
+           family={Fukuda},
+           familyi={F\bibinitperiod},
+           given={Ellen\bibnamedelima Hidemi},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=e93d47fe50ff15742fad700a20e29a10}{%
+           family={Yamashita},
+           familyi={Y\bibinitperiod},
+           given={Nobuo},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \strng{fullhash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \strng{bibnamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \strng{authorbibnamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \strng{authornamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \strng{authorfullhash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \field{extraname}{4}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A merit (gap) function is a map that returns zero at the solutions of problems and strictly positive values otherwise. Its minimization is equivalent to the original problem by definition, and it can estimate the distance between a given point and the solution set. Ideally, this function should have some properties, including the ease of computation, continuity, differentiability, boundedness of the level set, and error boundedness. In this work, we propose new merit functions for multiobjective optimization with continuous objectives, convex objectives, and composite objectives, and we show that they have such desirable properties under reasonable assumptions.}
+      \field{eprinttype}{arXiv}
+      \field{howpublished}{arXiv:2010.09333}
+      \field{month}{10}
+      \field{title}{{New merit functions for multiobjective optimization and their properties}}
+      \field{year}{2022}
+      \verb{eprint}
+      \verb 2010.09333
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Tanabe, Fukuda, Yamashita - 2022 - New merit functions for multiobjective optimization and their properties.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.48550/arXiv.2010.09333
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.48550/arXiv.2010.09333
+      \endverb
+    \endentry
+    \entry{Tanabe2019}{article}{}
+      \name{author}{3}{}{%
+        {{hash=fe79ff046b379ee499d9981349434f9c}{%
+           family={Tanabe},
+           familyi={T\bibinitperiod},
+           given={Hiroki},
+           giveni={H\bibinitperiod}}}%
+        {{hash=c5ce024500fe29b568503d51a3c9d530}{%
+           family={Fukuda},
+           familyi={F\bibinitperiod},
+           given={Ellen\bibnamedelima Hidemi},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=e93d47fe50ff15742fad700a20e29a10}{%
+           family={Yamashita},
+           familyi={Y\bibinitperiod},
+           given={Nobuo},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer US}%
+      }
+      \strng{namehash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \strng{fullhash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \strng{bibnamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \strng{authorbibnamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \strng{authornamehash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \strng{authorfullhash}{50829e7ec3808f1d9fd656ad5bc088e7}
+      \field{extraname}{5}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We propose new descent methods for unconstrained multiobjective optimization problems, where each objective function can be written as the sum of a continuously differentiable function and a proper convex but not necessarily differentiable one. The methods extend the well-known proximal gradient algorithms for scalar-valued nonlinear optimization, which are shown to be efficient for particular problems. Here, we consider two types of algorithms: with and without line searches. Under mild assumptions, we prove that each accumulation point of the sequence generated by these algorithms, if exists, is Pareto stationary. Moreover, we present their applications in constrained multiobjective optimization and robust multiobjective optimization, which is a problem that considers uncertainties. In particular, for the robust case, we show that the subproblems of the proximal gradient algorithms can be seen as quadratic programming, second-order cone programming, or semidefinite programming problems. Considering these cases, we also carry out some numerical experiments, showing the validity of the proposed methods.}
+      \field{issn}{15732894}
+      \field{journaltitle}{Computational Optimization and Applications}
+      \field{month}{3}
+      \field{number}{2}
+      \field{title}{{Proximal gradient methods for multiobjective optimization and their applications}}
+      \field{volume}{72}
+      \field{year}{2019}
+      \field{pages}{339\bibrangedash 361}
+      \range{pages}{23}
+      \verb{doi}
+      \verb 10.1007/s10589-018-0043-x
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Tanabe, Fukuda, Yamashita - 2019 - Proximal gradient methods for multiobjective optimization and their applications.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s10589-018-0043-x
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s10589-018-0043-x
+      \endverb
+      \keyw{Multiobjective optimization,Pareto stationarity,Proximal gradient method,Robust optimization}
     \endentry
     \entry{Villa2013}{article}{}
       \name{author}{4}{}{%
@@ -4120,6 +5070,72 @@
       \endverb
       \keyw{49M07,65K10,90C25,94A08,accelerated forward-backward splitting,convex optimization,estimate sequences,inexact proximity operator,total variation}
     \endentry
+    \entry{Wang2019}{article}{}
+      \name{author}{5}{}{%
+        {{hash=29cf52c501415c2581e525b1a5f89d61}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Jinhua},
+           giveni={J\bibinitperiod}}}%
+        {{hash=395053b18f759b83f987f3a2374f053e}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Yaohua},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=33836cb34aa46b31fe6703e4155c67e1}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Carisa\bibnamedelimb Kwok\bibnamedelima Wai},
+           giveni={C\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=3e898f075a13f6d37258aaf9d87f5000}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Chong},
+           giveni={C\bibinitperiod}}}%
+        {{hash=25454620987002e8abc0a81a232704c7}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Xiaoqi},
+           giveni={X\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Society for Industrial}%
+        {Applied Mathematics}%
+      }
+      \strng{namehash}{febdbb53bf7677d60ae11e4532b451fd}
+      \strng{fullhash}{febdbb53bf7677d60ae11e4532b451fd}
+      \strng{bibnamehash}{febdbb53bf7677d60ae11e4532b451fd}
+      \strng{authorbibnamehash}{febdbb53bf7677d60ae11e4532b451fd}
+      \strng{authornamehash}{febdbb53bf7677d60ae11e4532b451fd}
+      \strng{authorfullhash}{febdbb53bf7677d60ae11e4532b451fd}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We consider the extended Newton method for approaching a Pareto optimum of a multiobjective optimization problem, establish quadratic convergence criteria, and estimate a radius of convergence ball...}
+      \field{issn}{10526234}
+      \field{journaltitle}{SIAM Journal on Optimization}
+      \field{month}{9}
+      \field{number}{3}
+      \field{title}{{Extended Newton Methods for Multiobjective Optimization: Majorizing Function Technique and Convergence Analysis}}
+      \field{volume}{29}
+      \field{year}{2019}
+      \field{pages}{2388\bibrangedash 2421}
+      \range{pages}{34}
+      \verb{doi}
+      \verb 10.1137/18M1191737
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/Wang et al. - 2019 - Extended Newton Methods for Multiobjective Optimization Majorizing Function Technique and Convergence Analysis.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://epubs.siam.org/doi/10.1137/18M1191737
+      \endverb
+      \verb{url}
+      \verb https://epubs.siam.org/doi/10.1137/18M1191737
+      \endverb
+      \keyw{$L$-average Lipschitz condition,65K05,90C29,90C30,Newton method,Pareto optimum,Primary,Secondary,convergence criteria,multiobjective optimization}
+    \endentry
     \entry{WayneStateUniversity1972}{article}{}
       \name{author}{1}{}{%
         {{hash=28742572fcf7c3f19d8eff379976f458}{%
@@ -4157,6 +5173,51 @@
       \verb{url}
       \verb https://doi.org/10.2307/2317434
       \endverb
+    \endentry
+    \entry{White1984}{article}{}
+      \name{author}{1}{}{%
+        {{hash=19b56b5827a4ae29fe67870684641447}{%
+           family={White},
+           familyi={W\bibinitperiod},
+           given={D\bibnamedelima J},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{19b56b5827a4ae29fe67870684641447}
+      \strng{fullhash}{19b56b5827a4ae29fe67870684641447}
+      \strng{bibnamehash}{19b56b5827a4ae29fe67870684641447}
+      \strng{authorbibnamehash}{19b56b5827a4ae29fe67870684641447}
+      \strng{authornamehash}{19b56b5827a4ae29fe67870684641447}
+      \strng{authorfullhash}{19b56b5827a4ae29fe67870684641447}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper generalizes the penalty function method of Zang-will for scalar problems to vector problems. The vector penalty function takes the form $$g(x,\lambda ) = f(x) + \lambda ^{ - 1} P(x)e,$$ wheree \textlstrikethru{≺}R m, with each component equal to unity;f:R n →R m, represents them objective functions {f i} defined onX $$ \subseteq $$ R n; $\lambda$ ∈R 1, $\lambda$>0;P:R n →R 1 X $$ \subseteq $$ Z $$ \subseteq $$ R n,P(x)≦0, ∨x ∈R n,P(x) = 0 ⇄x ∈X. The paper studies properties of {E (Z, $\lambda$ r )} for a sequence of positive {$\lambda$ r } converging to 0 in relationship toE(X), whereE(Z, $\lambda$ r ) is the efficient set ofZ with respect tog({\textperiodcentered{}}, $\lambda$r) andE(X) is the efficient set ofX with respect tof. It is seen that some of Zangwill's results do not hold for the vector problem. In addition, some new results are given.}
+      \field{issn}{1573-2878}
+      \field{journaltitle}{Journal of Optimization Theory and Applications}
+      \field{month}{8}
+      \field{number}{4}
+      \field{title}{{Multiobjective programming and penalty functions}}
+      \field{volume}{43}
+      \field{year}{1984}
+      \field{pages}{583\bibrangedash 599}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1007/BF00935007
+      \endverb
+      \verb{file}
+      \verb :Users/zalgo/Library/Application Support/Mendeley Desktop/Downloaded/White, Yu - 1984 - Multiobjective programming and penalty functions.pdf:pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/article/10.1007/BF00935007
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/article/10.1007/BF00935007
+      \endverb
+      \keyw{Applications of Mathematics,Calculus of Variations and Optimal Control,Engineering,Operations Research/Decision Theory,Optimization,Theory of Computation,general}
     \endentry
     \entry{Yang2003}{article}{}
       \name{author}{1}{}{%

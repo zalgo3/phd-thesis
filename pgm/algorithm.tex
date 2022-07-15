@@ -10,7 +10,7 @@ with
 \begin{equation} \label{eq:pgm_obj}
     \varphi_\alpha(z; x) \coloneqq \max_{i = 1, \dots, m} [ \innerp{\nabla f_i(x)}{z - x} + g_i(z) - g_i(x) ] + \frac{1}{2 \alpha} \norm{ z - x }_2^2
 .\end{equation}
-The convexity of~$g_i$ implies that~$\varphi_\alpha(\cdot; x)$ is strongly convex, so~\zcref{eq:pgm_subproblem} always has a unique solution.
+The convexity of~$g_i$ implies that~$\varphi_\alpha(\cdot; x)$ is strongly convex, so~\zcref{eq:pgm_subproblem} always has a unique solution, which is also in~$\dom(F)$.
 Let us write such a solution as~$p_\alpha(x)$ and let~$\theta_\alpha(x)$ be its optimal function value, i.e.,
 \begin{equation} \label{eq:pgm_optimal_function}
     p_\alpha(x) \coloneqq \argmin_{z \in \setR^n} \varphi_\alpha(z; x) \eqand \theta_\alpha(x) \coloneqq \min_{z \in \setR^n} \varphi_\alpha(z; x)
@@ -71,7 +71,7 @@ where~$j_k$ is the smallest non-negative integer satisfying
 \begin{equation} \label{eq:pgm_armijo_rule}
     F_i(x^k + \xi^{j_k} \left(z^k - x^k\right)) \le F_i\left(x^k\right) + \rho \xi^{j_k} \left[\theta_\alpha\left(x^k\right) - \frac{1}{2 \alpha} \norm*{z^k - x^k}_2^2\right]
 \end{equation} 
-with predifined constants~$\rho, \xi \in (0, 1)$ for each~$i = 1, \dots, m$.
+with predefined constants~$\rho, \xi \in (0, 1)$ for each~$i = 1, \dots, m$.
 The following lemma demonstrates the existence of the stepsize~$s_k$ satisfying this rule.
 \begin{lemma} \zlabel{thm:pgm_armijo_existence}
     If~$x \in \setR^n$ is not Pareto stationary for~\zcref{eq:composite_MO}, for all~$\alpha > 0$ and~$\rho \in (0, 1)$ there exists some~$\bar{s} > 0$ such that
