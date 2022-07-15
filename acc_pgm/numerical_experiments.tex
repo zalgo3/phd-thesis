@@ -21,23 +21,26 @@ and we set~$\varepsilon = 10^{-5}$ for the stopping criteria.
 \subsection{Artificial test problems (bi-objective and tri-objective)}
 First, we solve the multi-objective test problems in the form~\zcref{eq:MOO}, modifications from~\cite{Jin2001,Fliege2009}, whose objective functions are defined by
 \begin{align}
-    &f_1(x) = \frac{1}{n} \norm*{x}^2,
-    f_2(x) = \frac{1}{n} \norm*{x - 2}^2,
+    &f_1(x) = \frac{1}{n} \norm*{x}_2^2,
+    f_2(x) = \frac{1}{n} \norm*{x - 2}_2^2,
     g_1(x) = g_2(x) = 0, \tag{JOS1}\label{eq:JOS1} \\
-    &f_1(x) = \frac{1}{n} \norm*{x}^2,
-    f_2(x) = \frac{1}{n} \norm*{x - 2}^2,
-    g_1(x) = \frac{1}{n} \norm*{x}_1,
-    g_2(x) = \frac{1}{2n} \norm*{x - 1}_1,
-    \label{eq:JOS1_L1} \tag{JOS1-L1}\\
+    &\left\{
+        \begin{aligned}
+            f_1(x) &= \frac{1}{n} \norm*{x}_2^2,
+            f_2(x) = \frac{1}{n} \norm*{x - 2}_2^2, \\
+            g_1(x) &= \frac{1}{n} \norm*{x}_1,
+            g_2(x) = \frac{1}{2n} \norm*{x - 1}_1,
+        \end{aligned} \right.
+        \label{eq:JOS1_L1} \tag{JOS1-L1}\\
     &\left\{\begin{aligned} 
             f_1(x) &= \frac{1}{n^2} \sum_{i = 1}^{n} i (x_i - i)^4,
-            f_2(x) = \exp \left( \sum_{i = 1}^{n} \frac{x_i}{n} \right) + \norm*{x}^2,\\
+            f_2(x) = \exp \left( \sum_{i = 1}^{n} \frac{x_i}{n} \right) + \norm*{x}_2^2,\\
             f_3(x) &= \frac{1}{n (n + 1)} \sum_{i = 1}^{n} i (n - i + 1) \exp (- x_i),
             g_1(x) = g_2(x) = g_3(x) = 0,
     \end{aligned} \right. \label{eq:FDS} \tag{FDS}\\
     &\left\{\begin{aligned} 
             f_1(x) &= \frac{1}{n^2} \sum_{i = 1}^{n} i (x_i - i)^4,
-            f_2(x) = \exp \left( \sum_{i = 1}^{n} \frac{x_i}{n} \right) + \norm*{x}^2,\\
+            f_2(x) = \exp \left( \sum_{i = 1}^{n} \frac{x_i}{n} \right) + \norm*{x}_2^2,\\
             f_3(x) &= \frac{1}{n (n + 1)} \sum_{i = 1}^{n} i (n - i + 1) \exp (- x_i),
             g_1(x) = g_2(x) = g_3(x) = \indicator_{\setRpos^n}(x),
     \end{aligned} \right.\label{eq:FDS_CONSTRAINED} \tag{FDS-CON}
@@ -189,7 +192,7 @@ In detail, as shown in \zcref{fig:cameraman}, to a~$256 \times 256$ cameraman te
 
 Letting~$\theta, B,$ and~$W$ be the observed image, the blur matrix, and the inverse of the Haar wavelet transform, respectively, consider the single-objective problem~\zcref{eq:MOO} with~$m = 1$ and
 \begin{equation} \label{eq:cam_deblur} \tag{CAM-DEBLUR}
-    f_1(x) \coloneqq \norm*{BWx - \theta}^2 \eqand g_1(x)=\lambda \norm*{x}_1
+    f_1(x) \coloneqq \norm*{BWx - \theta}_2^2 \eqand g_1(x)=\lambda \norm*{x}_1
 ,\end{equation} 
 where~$\lambda \coloneqq 2 \times 10^{-5}$ is a regularization parameter.
 Unlike in the previous subsection, we can compute~$\nabla f$'s Lipschitz constant by calculating~$(BW)^\T(BW)$'s eigenvalues using the two-dimensional cosine transform~\cite{Hansen2006}, so we use it constantly as~$\alpha^{-1}$.

@@ -9,7 +9,7 @@ Below we provide typical descent methods for~\zcref{eq:MOO}.
 
 \begin{example} \zlabel{ex:descent}
     \begin{description}
-        \item[The steepest descent method~\cite{Fliege2000}] Consider a smooth unconstrained multi-objective optimization, i.e.,~$C = \setR^n$ and each~$F_i$ is differentiable in~\zcref{eq:MOO}.
+        \item[The steepest descent method~\cite{Fliege2000,GranaDrummond2005}] Consider a smooth unconstrained multi-objective optimization, i.e.,~$C = \setR^n$ and each~$F_i$ is differentiable in~\zcref{eq:MOO}.
             Then, the steepest descent method updates~$\set*{x^k}$ by the following operations:
             \begin{align} \label{eq:steepest_descent}
                 d^k &\coloneqq \argmin_{d \in \setR^n} \left[ \max_{i = 1, \dots, m} \innerp*{\nabla F_i\left(x^k\right)}{d} + \frac{1}{2 \alpha_k} \norm{d}_2^2 \right], \\
@@ -17,7 +17,7 @@ Below we provide typical descent methods for~\zcref{eq:MOO}.
             \end{align}
             with~$\alpha_k > 0$ and~$s_k > 0$.
             When~$m = 1$, we have~$d^k = - \alpha_k \nabla F_1(x)$, which is the steepest descent direction for the scalar optimization~\cite{Cauchy1847}.
-        \item[The projected gradient method~\cite{Grana-Drummond2004,Fukuda2013}] For a convex-constrained smooth multi-objective optimization, i.e.,~$C \subseteq \setR^n$ is non-empty, closed, and convex, and every~$F_i$ is differentiable in~\zcref{eq:MOO}, we can use the projected gradient method described by
+        \item[The projected gradient method~\cite{Grana-Drummond2004}] For a convex-constrained smooth multi-objective optimization, i.e.,~$C \subseteq \setR^n$ is non-empty, closed, and convex, and every~$F_i$ is differentiable in~\zcref{eq:MOO}, we can use the projected gradient method described by
             \begin{equation} \label{eq:proj_grad}
                 \begin{aligned} 
                     z^k &\coloneqq \argmin_{z \in C} \left[ \max_{i = 1, \dots, m} \innerp*{\nabla F_i\left(x^k\right)}{z - x^k} + \frac{1}{2 \alpha_k} \norm*{z - x^k}_2^2 \right], \\
@@ -57,5 +57,6 @@ Below we provide typical descent methods for~\zcref{eq:MOO}.
             .\end{equation} 
     \end{description}
 \end{example}
+There are various other extensions of single-objective methods, e.g., the proximal point~\cite{Bonnel2005}, Newton's~\cite{Fliege2009,Goncalves2021,Wang2019}, quasi-Newton~\cite{Qu2011,Povalej2014,Morovati2018}, trust-region~\cite{Qu2013,Carrizo2016}, inexact projected gradient~\cite{Fukuda2013}, reduced gradient~\cite{Maghri2018,ElMoudden2018}, augumented Lagrangian~\cite{Cocchi2020}, external penalty~\cite{White1984,Fukuda2016}, barrier~\cite{Fukuda2019}, and conjugate gradient methods~\cite{LucambioPerez2018}.
 
 \end{document}
