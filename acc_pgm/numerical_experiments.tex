@@ -2,9 +2,9 @@
 
 \begin{document}
 \section{Numerical experiments} \zlabel{sec:acc_pgm:experiments}
-This section compares the performance of \zcref{alg:acc_pgm_MO} with various~$a$ and~$b$ through numerical experiments.
+This section compares the performance of \zcref{alg:pgm_MO,alg:acc_pgm_MO} with various~$a$ and~$b$ through numerical experiments.
 We run all experiments in Python 3.9.9 on a machine with 2.3 GHz Intel Core i7 CPU and 32 GB memory.
-For each example, we test 15 different hyperparameters combining~$a = 0, 1 / 6, 1 / 4, 1 / 2, 3 / 4$ and~$b = a^2 / 4, (a^2 + 1) / 8, 1 / 4$, i.e.,
+For \zcref{alg:acc_pgm_MO}, we test 15 different hyperparameters combining~$a = 0, 1 / 6, 1 / 4, 1 / 2, 3 / 4$ and~$b = a^2 / 4, (a^2 + 1) / 8, 1 / 4$, i.e.,
 \begin{equation}
     (a, b) = \left\{
         \begin{gathered}
@@ -46,14 +46,93 @@ First, we solve the multi-objective test problems in the form~\zcref{eq:MOO}, mo
     \end{aligned} \right.\label{eq:FDS_CONSTRAINED} \tag{FDS-CON}
 \end{align}
 where~$x \in \setR^n, n = 50$ and~$\indicator_{\setRpos^n}$ is an indicator function~\zcref{eq:indicator} of the nonnegative orthant.
-We choose~$1000$ initial points, commonly for all pairs~$(a, b)$, and randomly with a uniform distribution between~$\underline{c}$ and~$\overline{c}$, where~$\underline{c} = (-2, \dots, -2)^\T$ and~$\overline{c} = (4, \dots, 4)^\T$ for~\zcref{eq:JOS1,eq:JOS1_L1},~$\underline{c} = (-2, \dots, -2)^\T$ and~$\overline{c} = (2, \dots, 2)^\T$ for~\zcref{eq:FDS}, and~$\underline{c} = (0, \dots, 0)^\T$ and~$\overline{c} = (2, \dots, 2)^\T$ for~\zcref{eq:FDS_CONSTRAINED}.
+We choose~$1000$ initial points, commonly for all algorithms, and randomly with a uniform distribution between~$\underline{c}$ and~$\overline{c}$, where~$\underline{c} = (-2, \dots, -2)^\T$ and~$\overline{c} = (4, \dots, 4)^\T$ for~\zcref{eq:JOS1,eq:JOS1_L1},~$\underline{c} = (-2, \dots, -2)^\T$ and~$\overline{c} = (2, \dots, 2)^\T$ for~\zcref{eq:FDS}, and~$\underline{c} = (0, \dots, 0)^\T$ and~$\overline{c} = (2, \dots, 2)^\T$ for~\zcref{eq:FDS_CONSTRAINED}.
 Moreover, we use backtracking for updating~$\alpha$ to satisfy~\zcref{eq:acc_pgm_sdc}, with~$1$ as the initial value of~$\alpha$ and~$0.5$ as the constant multiplied into~$\alpha$ at each iteration.
 Furthermore, at each iteration, we transform the subproblem~\zcref{eq:acc_pgm_subprob} into their dual like~\zcref{eq:dual_reg_lin_gap} and solve them with the trust-region interior point method~\cite{Byrd1999} using the scientific library SciPy.
 
-\zcref{fig:Pareto,tab:Average computational costs} present the experimental results.
+\zcref{fig:pgm_acc_pgm,tab:pgm_acc_pgm,fig:Pareto,tab:Average computational costs} present the experimental results.
+\zcref{fig:pgm_acc_pgm,tab:pgm_acc_pgm} implies that \zcref{alg:acc_pgm_MO} generates a wide range of Pareto solutions faster than \zcref{alg:pgm_MO}.
 \zcref{fig:Pareto} plots the solutions only for the cases~$(a, b) = (0, 1 / 4), (3 / 4, 1 / 4)$, but other combinations also yield similar plots, including a wide range of Pareto solutions.
 \zcref{tab:Average computational costs} shows that the new momentum factors are fast enough to compete with the existing ones ($(a, b) = (0, 1/4)$ or $b = a^2/4$) and better than them in some cases.
 
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[b]{.49\hsize}
+        \centering
+        \includegraphics[width=\textwidth]{figs/JOS1.pdf}
+        \subcaption{\zcref{eq:JOS1}}
+    \end{minipage}
+    \begin{minipage}[b]{.49\hsize}
+        \centering
+        \includegraphics[width=\textwidth]{figs/JOS1_L1.pdf}
+        \subcaption{\zcref{eq:JOS1_L1}}
+    \end{minipage}
+    \begin{minipage}[b]{.49\hsize}
+        \centering
+        \includegraphics[width=\textwidth]{figs/FDS.pdf}
+        \subcaption{\zcref{eq:FDS}}
+    \end{minipage}
+    \begin{minipage}[b]{.49\hsize}
+        \centering
+        \includegraphics[width=\textwidth]{figs/FDS_CONSTRAINED.pdf}
+        \subcaption{\zcref{eq:FDS_CONSTRAINED}}
+    \end{minipage}
+    \caption{Objective function values obtained by \zcref{alg:pgm_MO,alg:acc_pgm_MO} with~$(a, b) = (0, 1 / 4)$}
+    \zlabel{fig:pgm_acc_pgm}
+\end{figure}
+\begin{table}[htpb]
+    \centering
+    \caption{Average computational costs with \zcref{alg:pgm_MO,alg:acc_pgm_MO} with~$(a, b) = (0, 1 / 4)$}
+    \zlabel{tab:pgm_acc_pgm}
+    \begin{minipage}{.49\hsize}
+        \centering
+        \subcaption{\zcref{eq:JOS1}}
+        \begin{tabular}{@{}ccc@{}}
+            \toprule
+            & \zcref{alg:pgm_MO} & \zcref{alg:acc_pgm_MO} \\
+            \midrule
+            Time [\si{\second}] & \num{15.5} & \num{3.55} \\
+            Iters. & \num{231.7} & \num{65.0} \\
+            \bottomrule
+        \end{tabular}
+    \end{minipage}
+    \begin{minipage}{.49\hsize}
+        \centering
+        \subcaption{\zcref{eq:JOS1_L1}}
+        \begin{tabular}{@{}ccc@{}}
+            \toprule
+            & \zcref{alg:pgm_MO} & \zcref{alg:acc_pgm_MO} \\
+            \midrule
+            Time [\si{\second}] & \num{13.2} & \num{8.53} \\
+            Iters. & \num{219.6} & \num{161.2} \\
+            \bottomrule
+        \end{tabular}
+    \end{minipage}
+    \begin{minipage}{.49\hsize}
+        \centering
+        \subcaption{\zcref{eq:FDS}}
+        \begin{tabular}{@{}ccc@{}}
+            \toprule
+            & \zcref{alg:pgm_MO} & \zcref{alg:acc_pgm_MO} \\
+            \midrule
+            Time [\si{\second}] & \num{99.10} & \num{34.16}\\
+            Iters. & \num{636.1} & \num{216.1} \\
+            \bottomrule
+        \end{tabular}
+    \end{minipage}
+    \begin{minipage}{.49\hsize}
+        \centering
+        \subcaption{\zcref{eq:FDS_CONSTRAINED}}
+        \begin{tabular}{@{}ccc@{}}
+            \toprule
+            & \zcref{alg:pgm_MO} & \zcref{alg:acc_pgm_MO} \\
+            \midrule
+            Time [\si{\second}] & \num{134.64} & \num{40.03} \\
+            Iterations & \num{873.6} & \num{260.8} \\
+            \bottomrule
+        \end{tabular}
+    \end{minipage}
+\end{table}
 \begin{figure}[htbp]
     \centering
     \begin{minipage}[b]{.49\hsize}
@@ -113,7 +192,7 @@ Furthermore, at each iteration, we transform the subproblem~\zcref{eq:acc_pgm_su
 \end{figure}
 \begin{table}[htbp]
     \centering
-    \caption{Average computational costs to solve the multi-objective examples}
+    \caption{Average computational costs of \zcref{alg:acc_pgm_MO} with various $(a, b)$}
     \zlabel{tab:Average computational costs}
     \begin{minipage}{.49\hsize}
         \centering
@@ -170,7 +249,7 @@ Furthermore, at each iteration, we transform the subproblem~\zcref{eq:acc_pgm_su
 \end{table}
 
 \subsection{Image deblurring (single-objective)}
-Since our proposed momentum factor is also new in the single-objective context, we also tackle deblurring the cameraman test image via a single-objective $\ell_2$-$\ell_1$ minimization, inspired by~\cite{Beck2009}.
+Since our proposed momentum factor is also new in the single-objective context, we also tackle deblurring the cameraman test image via a single-objective $\ell_2$-$\ell_1$ minimization with \zcref{alg:acc_pgm_MO}, inspired by~\cite{Beck2009}.
 In detail, as shown in \zcref{fig:cameraman}, to a~$256 \times 256$ cameraman test image with each pixel scaled to~$[0,1]$, we generate an observed image by applying a Gaussian blur of size~$9 \times 9$ and standard deviation $4$ and adding a zero-mean white Gaussian noise with standard deviation $10^{-3}$.
 \begin{figure}[htpb]
     \centering
