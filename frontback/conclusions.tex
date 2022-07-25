@@ -7,7 +7,7 @@ We summarize the results obtained here as follows:
 \begin{enumerate}
     \item In \zcref{sec:merit}, we have proposed three merit functions for non-smooth multi-objective optimization:
         \begin{enumerate*}
-            \item the gap function for continuous multi-objective optimization; \zlabel{sec:conclusions:merit:gap}
+            \item the gap function for lower semi-continuous multi-objective optimization; \zlabel{sec:conclusions:merit:gap}
             \item the regularized gap function for convex multi-objective optimization; \zlabel{sec:conclusions:merit:reg_gap}
             \item the regularized and partially linearized gap function for composite multi-objective optimization. \zlabel{sec:conclusions:merit:reg_lin_gap}
         \end{enumerate*}
@@ -27,7 +27,7 @@ We summarize the results obtained here as follows:
     \item In \zcref{sec:acc_pgm}, we have proposed the accelerated proximal gradient method for convex composite multi-objective optimization.
         We have proved the proposed methods'~$O(1 / k^2)$ convergence rate and the global convergence property.
         This method includes some hyperparameters, which is new even for single-objective cases.
-        We finally have reported some numerical results, showing that some of these choices give better results than the classical algorithms.
+        We finally have reported some numerical results, showing that our proposed method is faster than the method without acceleration and that some choices of hyperparameters give better results than the classical algorithms.
 \end{enumerate}
 
 We believe that these contributions have had some impact on non-smooth and composite multi-objective optimization.

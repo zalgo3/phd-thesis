@@ -7,7 +7,7 @@ It presents new merit functions for them, and discusses their properties mention
 
 In detail, it proposes the following three merit functions for~\zcref{eq:MOO}: 
 \begin{enumerate}
-    \item the gap function for continuous multi-objective optimization; \zlabel{enum:gap_MO}
+    \item the gap function for lower semi-continuous multi-objective optimization; \zlabel{enum:gap_MO}
     \item the regularized gap function for convex multi-objective optimization; \zlabel{enum:reg_gap_MO}
     \item the regularized and partially linearized gap function for composite multi-objective optimization. \zlabel{enum:reg_lin_gap_MO}
 \end{enumerate}
@@ -23,11 +23,11 @@ The regularized and partially linearized gap function~\zcref[noname]{enum:reg_li
     \begin{subtable}{\textwidth}
         \centering
         \caption{Proposed merit functions and their properties}
-        \begin{tblr}{hline{1,2,5}={solid}, hline{3,4}={dashed}, width=\textwidth, colspec={@{}X[.75,c]X[1.5,c]X[c]X[c]X[c]X[1.5,c]X[3,c]X[2,c]@{}}, rowspec={Q[m]Q[m]Q[m]Q[m]}}
+        \begin{tblr}{hline{1,2,5}={solid}, hline{3,4}={dashed}, width=\textwidth, colspec={@{}X[.75,c]X[1.5,c]X[c]X[c]X[c]X[1.5,c]X[3,c]X[c]@{}}, rowspec={Q[m]Q[m]Q[m]Q[m]}}
         & Obj. & Sol. & Cont. & Diff. & SP & LB & EB \\
-            \zcref[noname]{enum:gap_MO} & Cont. & \SetCell[r=2]{m}WPO & LSC & $\times$ & $\times$ & LB &\SetCell[r=2]{m} SgC \\
+            \zcref[noname]{enum:gap_MO} & LSC & \SetCell[r=2]{m}WPO & LSC & $\times$ & $\times$ & LB &\SetCell[r=3]{m} PL \\
             \zcref[noname]{enum:reg_gap_MO} & Conv. & & \SetCell[r=2]{m}Cont. &\SetCell[r=2]{m} DD & SC & Conv., LB & \\
-            \zcref[noname]{enum:reg_lin_gap_MO} & Comp. & PS & & & SC, $C^2$ & Conv., LB, etc. & SgC, etc.  \\
+            \zcref[noname]{enum:reg_lin_gap_MO} & Comp. & PS & & & SC, $C^2$ & Conv., LB, etc. &  \\
         \end{tblr}
     \end{subtable}
 
@@ -52,14 +52,14 @@ The regularized and partially linearized gap function~\zcref[noname]{enum:reg_li
             DD & Directional differentiability \\
             $C^2$ & Twice continuously differentiable \\
             SC & Strict convexity \\
-            SgC & Strong convexity \\
+            PL & Multi-objective proximal PL inequality \\
             \hline
         \end{tblr}
     \end{subtable}
 \end{table}
 
 We summarize the structure of the rest of this chapter.
-\zcref{sec:merit:merit} proposes different merit functions for multi-objective optimization with continuous, convex, and composite objectives, respectively, along with methods for evaluating the function values, the differentiability, and the stationary point properties.
+\zcref{sec:merit:merit} proposes different merit functions for multi-objective optimization with loser semi-continuous, convex, and composite objectives, respectively, along with methods for evaluating the function values, the differentiability, and the stationary point properties.
 \zcref{sec:merit:relation} then discusses the connection between different merit functions.
 In addition, \zcref{sec:merit:lb} gives sufficient conditions under which the merit functions are levfel-bounded.
 Finally, \zcref{sec:merit:eb} extends the proximal-PL condition mentioned in \zcref{sec:preliminaries:PL} to multi-objective optimization and shows that the merit functions provide error bounds under such a condition.
