@@ -1,8 +1,8 @@
 \documentclass[../../main]{subfiles}
 
 \begin{document}
-\subsection{A gap function for continuous multi-objective optimization} \zlabel{sec:merit:merit:gap}
-First, we assume only continuity on~$F$ and propose a gap function~$u_\infty \colon C \to (-\infty, +\infty]$ as follows:
+\subsection{A gap function for lower semi-continuous multi-objective optimization} \zlabel{sec:merit:merit:gap}
+First, we assume only lower semi-continuity on~$F$ and propose a gap function~$u_\infty \colon C \to (-\infty, +\infty]$ as follows:
 \begin{equation} \label{eq:gap_MO}
     u_\infty(x) \coloneqq \sup_{y \in C} \min_{i = 1, \dots, m} [ F_i(x) - F_i(y) ] 
 .\end{equation}
@@ -35,7 +35,7 @@ We now show that $u_\infty$ is a merit function in the sense of weak Pareto opti
     which means that~$x$ is weakly Pareto optimal for~\zcref{eq:MOO} by \zcref{def:Pareto:Pareto}.
 \end{proof}
 
-The following theorem is clear from the continuity of~$F_i$.
+The following theorem is clear from the lower semi-continuity of~$F_i$.
 \begin{theorem} \zlabel{thm:gap_MO_cont}
     The function~$u_\infty$ defined by~\zcref{eq:gap_MO} is lower semi-continuous on~$C$.
 \end{theorem}
