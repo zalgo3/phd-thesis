@@ -7,10 +7,10 @@
 
 \ifdraft{
     \usepackage[style=draft,maxnames=99,giveninits]{biblatex}
-    \usepackage[bblfile=main]{biblatex-readbbl}
+    \usepackage{biblatex2bibitem}
 }{
     \usepackage[maxnames=99,giveninits]{biblatex}
-    \usepackage[bblfile=main]{biblatex-readbbl}
+    \usepackage{biblatex2bibitem}
 }
 
 \usepackage{graphicx}
@@ -343,7 +343,7 @@ nameinlink,
 \makeatother
 
 \AtEndDocument{
-    \printbibliography
+    \printbibitembibliography
 }
 
 
