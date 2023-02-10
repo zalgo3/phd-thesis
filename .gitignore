@@ -17,6 +17,4 @@
 *.pdf
 !**/figs/*.pdf
 
-*.bbl
-
 *.bib
