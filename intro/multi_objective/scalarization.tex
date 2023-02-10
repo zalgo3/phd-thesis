@@ -9,11 +9,11 @@ Let us now introduce the \emph{weighted sum method}~\cite{Zadeh1963}, one of the
 It scalarizes~\zcref{eq:MOO} with the weight vector~$w \coloneqq (w_1, \dots, w_m)^\T \in \setR^m$ as follows:
 \begin{equation} \label{eq:weighted}
     \min_{x \in \setR^n} \quad \innerp{w}{F(x)}
-,\end{equation} 
+    ,\end{equation}
 where
 \begin{equation}
     w \ge 0 \eqand \sum_{i = 1}^{m} w_i = 1
-.\end{equation} 
+    .\end{equation}
 When~$F$ is convex, for every Pareto optimal solution~$x^\ast$ of~\zcref{eq:MOO}, there exists~$w$ such that~$x^\ast$ is the solution of~\zcref{eq:weighted}~\cite{Miettinen1998}.
 However, it may be challenging to choose a \emph{good} weight in advance.
 Moreover, if~$F$ is non-convex, there may be Pareto optimal solutions that are not the solutions of~\zcref{eq:weighted} for any~$w$, and some~$w$ may make~\zcref{eq:weighted} unbounded.

@@ -18,7 +18,7 @@ In such cases, optimization algorithms aim to get Pareto stationary points defin
     Then, we call~$x \in C$ \emph{Pareto stationary} if~
     \begin{equation}
         \max_{i = 1, \dots, m} F_i'(x; y - x) \ge 0 \forallcondition{y \in C}
-    .\end{equation} 
+        .\end{equation}
 \end{definition}
 We state below the relation among the three concepts given by~\zcref{def:Pareto,def:Pareto_stationary}.
 \begin{lemma} \zlabel{thm:Pareto}
@@ -38,8 +38,8 @@ We state below the relation among the three concepts given by~\zcref{def:Pareto,
     Then, \zcref{def:Pareto_stationary} shows that for some~$y \in C$ we have~$\max_{i = 1, \dots, m} F_i'(x; y - x) < 0$.
     By the definition~\zcref{eq:dir_deriv} of the directional derivative, for a sufficiently small scalar~$\beta > 0$, we obtain
     \begin{equation}
-        \max_{i = 1, \dots, m} [ F_i(x + \beta (y - x)) - F_i(x) ] < 0 
-    ,\end{equation} 
+        \max_{i = 1, \dots, m} [ F_i(x + \beta (y - x)) - F_i(x) ] < 0
+        ,\end{equation}
     which means that~$x$ is not weakly Pareto optimal from \zcref{def:Pareto:weak}.
 
     \zcref[S]{thm:Pareto:convex}:
@@ -48,11 +48,11 @@ We state below the relation among the three concepts given by~\zcref{def:Pareto,
     Therefore, the convexity of~$F_i$ and \zcref{thm:nondecreasing} give
     \begin{equation}
         F'(x; y - x) \le F_i(y) - F_i(x) < 0 \forallcondition{i = 1, \dots, m}
-    .\end{equation} 
+        .\end{equation}
     Hence, we get
     \begin{equation}
         \max_{i = 1, \dots, m} F'(x; y - x) < 0
-    ,\end{equation} 
+        ,\end{equation}
     which implies that~$x$ is not Pareto stationary from \zcref{def:Pareto_stationary}.
 
     \zcref[S]{thm:Pareto:strict_convex}:
@@ -61,15 +61,15 @@ We state below the relation among the three concepts given by~\zcref{def:Pareto,
     Since~$F_i$ is strictly convex for every~$i = 1, \dots, m$, we have
     \begin{equation}
         F(x + \beta(y - x)) < F(x) + \beta (F(y) - F(x)) \forallcondition{\beta \in (0, 1)}
-    .\end{equation} 
+        .\end{equation}
     Reducing~$F(x)$ and dividing by~$\beta$ from both sides lead to
     \begin{equation}
         \frac{F(x + \beta(y - x)) - F(x)}{\beta} < F(y) - F(x) \le 0
-    .\end{equation} 
+        .\end{equation}
     Applying \zcref{thm:nondecreasing} to each component yields
     \begin{equation}
         F_i'(x; y - x) < F_i(y) - F_i(x) \le 0
-    ,\end{equation} 
+        ,\end{equation}
     which shows that~$x$ is not Pareto stationary.
 \end{proof}
 \end{document}

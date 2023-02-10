@@ -5,26 +5,26 @@
 Suppose that~$\hat{g}_i (x,u) = \innerp{x}{u}$ and ${\mathcal{U}}_i = \Set*{ u \in \setR^n }{ A_i u \le b^i }$, where $A_i \in \setR^{d \times n}$ and $b^i \in \setR^d$, that is, $\hat{g}_i$ is linear in $x$, and $\mathcal{U}_i$ is a polyhedron. Suppose also that $\mathcal{U}_i$ is nonempty and bounded.
 Then, we can rewrite \zcref{eq:g_i} as the following linear programming problem:
 \begin{align}\label{eq:lp}
-\begin{aligned}
-\max_u \quad   & \innerp{x}{u} \\ 
-\st    \quad   & A_i u \le b^i.
-\end{aligned}
+    \begin{aligned}
+        \max_u \quad & \innerp{x}{u}  \\
+        \st    \quad & A_i u \le b^i.
+    \end{aligned}
 \end{align}
 Its dual problem is given by
 \begin{align}
-\begin{aligned}
-\min_w \quad   & \innerp*{b^i}{w} \\ 
-\st    \quad   & A_i^\T w = x, \\
-&w \geq 0.
-\end{aligned}
+    \begin{aligned}
+        \min_w \quad & \innerp*{b^i}{w} \\
+        \st    \quad & A_i^\T w = x,    \\
+                     & w \geq 0.
+    \end{aligned}
 \end{align}
 Since the strong duality holds, we can convert the subproblem \zcref{eq:pgm_subproblem} (or, equivalently \zcref{eq:subproblem}) to a linearly constrained quadratic programming problem:
 \begin{align}\label{eq:qp}
-\begin{aligned}
-\min_{\gamma, z, w^1, \dots, w^m} \quad   &\gamma + \frac{1}{2 \alpha}\norm{z - x}_2^2  \\ 
-\st    \quad   &\innerp{\nabla f_i(x)}{z - x} + \innerp*{b^i}{w^i} - g_i(x) \le \gamma, \\
-& A_i^\T w^i = z, \\
-&w^i \geq 0, \quad i = 1,\dots,m.
-\end{aligned}
+    \begin{aligned}
+        \min_{\gamma, z, w^1, \dots, w^m} \quad & \gamma + \frac{1}{2 \alpha}\norm{z - x}_2^2                             \\
+        \st    \quad                            & \innerp{\nabla f_i(x)}{z - x} + \innerp*{b^i}{w^i} - g_i(x) \le \gamma, \\
+                                                & A_i^\T w^i = z,                                                         \\
+                                                & w^i \geq 0, \quad i = 1,\dots,m.
+    \end{aligned}
 \end{align}
 \end{document}

@@ -7,7 +7,7 @@ However, many real-world problems have multiple objectives.
 One solution to this is \emph{multi-objective optimization}, which minimizes several objective functions as follows:
 \begin{equation} \label{eq:MOO}
     \min_{x \in C} \quad F(x)
-,\end{equation} 
+    ,\end{equation}
 where~$C \subseteq \setR^n$ is a constraint set, and $F \colon \setR^n \to (-\infty, +\infty]^m$ is a vector-valued function with~$F \coloneqq (F_1, \dots, F_m)^\T$.
 When~$m = 1$,~\zcref{eq:MOO} reduces to a single-objective optimization.
 This model has many applications in engineering~\cite{Eschenauer1990}, statistics~\cite{Carrizosa1998}, and machine learning (particularly multi-task learning~\cite{Sener2018,Lin2019} and neural architecture search~\cite{Kim2017,Dong2018,Elsken2019}).

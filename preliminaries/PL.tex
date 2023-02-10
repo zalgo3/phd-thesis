@@ -5,13 +5,13 @@
 We focus on the following unconstrained optimization problem:
 \begin{equation} \label{eq:differentiable_OP}
     \min_{x \in \setR^n} \quad f(x)
-,\end{equation}
+    ,\end{equation}
 where~$f \colon \setR^n \to \setR$ is continuously differentiable.
 Assume that \zcref{eq:differentiable_OP} has an optimal solution, and let~$f^*$ denote the optimal function value.
 Then, we say that~$f$ satisfies the Polyak-{\L}ojasiewicz (PL) inequality if there exists~$\mu_f > 0$ such that
 \begin{equation} \label{eq:PL}
     \frac{1}{2} \norm{\nabla f(x)}_2^2 \ge \mu_f (f(x) - f^*) \forallcondition{x \in \setR^n}
-.\end{equation}
+    .\end{equation}
 \zcref[S]{eq:PL} is valid, for example, when~$f$ is strongly convex.
 Under~\zcref{eq:PL}, the steepest descent method~\cite{Cauchy1847} solving~\zcref{eq:differentiable_OP} converges linearly~\cite{Polyak1963}.
 
@@ -19,11 +19,11 @@ On the other hand, we consider the composite optimization~\zcref{eq:composite}, 
 If there exists~$\mu_{f, g} > 0$ such that
 \begin{equation} \label{eq:proximal_PL}
     \frac{1}{2} \mathcal{D}_g(x, L) \ge \mu_{f, g} (F(x) - F^*) \forallcondition{x \in \setR^n}
-,\end{equation}
+    ,\end{equation}
 where
 \begin{equation}
-    \mathcal{D}_g(x, \beta) \coloneqq - 2 \beta \min_{y \in \setR^n} \left[ \innerp{\nabla f(x)}{y - x} + g(y) - g(x) + \frac{\beta}{2} \norm{y - x}_2^2 \right] 
-.\end{equation}
+    \mathcal{D}_g(x, \beta) \coloneqq - 2 \beta \min_{y \in \setR^n} \left[ \innerp{\nabla f(x)}{y - x} + g(y) - g(x) + \frac{\beta}{2} \norm{y - x}_2^2 \right]
+    .\end{equation}
 Like~\zcref{eq:PL}, the strong convexity of~$g$ is the sufficient condition of~\zcref{eq:proximal_PL}.
 With~\zcref{eq:proximal_PL}, the proximal gradient method described by~\zcref{alg:pgm} for~\zcref{eq:composite} converges linearly~\cite{Karimi2016}.
 \end{document}

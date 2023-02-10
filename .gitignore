@@ -1,5 +1,4 @@
 *.aux
-*.bcf
 *.blg
 *.fdb_latexmk
 *.fls
@@ -19,6 +18,5 @@
 !**/figs/*.pdf
 
 *.bbl
-!main.bbl
 
 *.bib

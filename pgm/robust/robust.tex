@@ -19,24 +19,24 @@ However, $g_i$ is not necessarily differentiable even if $\hat{g}_i$ is differen
 First, let us reformulate the subproblem~\zcref{eq:pgm_subproblem} by using an extra variable $\gamma \in \setR$ as
 \begin{equation}
     \begin{aligned}
-        \min_{\gamma, z} \quad   &\gamma + \frac{1}{2 \alpha}\norm{z - x}_2^2  \\ 
-        \st    \quad   &\innerp{\nabla f_i(x)}{z - x} + g_i(z) - g_i(x) \leq \gamma, \quad i = 1,\ldots,m.
+        \min_{\gamma, z} \quad & \gamma + \frac{1}{2 \alpha}\norm{z - x}_2^2                                        \\
+        \st    \quad           & \innerp{\nabla f_i(x)}{z - x} + g_i(z) - g_i(x) \leq \gamma, \quad i = 1,\ldots,m.
     \end{aligned}
 \end{equation}
 Note that $g_i$ is not easy to calculate; thus, the subproblem is challenging to solve.
 When $\hat{g}_i$ and $\mathcal{U}_i$ have some particular structure, the constraints can be written as explicit formulae using the duality of~\zcref{eq:g_i}.
 Now, assume that the dual problem of the maximization problem \zcref{eq:g_i} is written as follows:
 \begin{align}
-\min_{w^i} \quad &\tilde{g}_i (x, w^i)  \\ 
-\st    \quad   &w^i \in \tilde{\mathcal{U}}_i (x),
+    \min_{w^i} \quad & \tilde{g}_i (x, w^i)               \\
+    \st    \quad     & w^i \in \tilde{\mathcal{U}}_i (x),
 \end{align}
 where $\tilde{g}_i \colon \setR^n \times \setR^m \to (-\infty, +\infty]$ and $\displaystyle \tilde{\mathcal{U}}_i \colon \setR^n \to 2^{\setR^m}$.
 If the strong duality holds, then we see that the subproblem \zcref{eq:pgm_subproblem} is equivalent to
 \begin{equation} \label{eq:subproblem}
     \begin{aligned}
-        \min_{\gamma, z, w^1, \dots, w^m} \quad   &\gamma + \frac{1}{2 \alpha} \norm{z - x}_2^2   \\ 
-        \st    \quad   &\innerp{\nabla f_i(x)}{z - x} + \tilde{g}_i (z, w^i) - g_i(x) \leq \gamma,\\
-                       &w^i \in \tilde{\mathcal{U}}_i (z), \quad i = 1,\ldots,m .
+        \min_{\gamma, z, w^1, \dots, w^m} \quad & \gamma + \frac{1}{2 \alpha} \norm{z - x}_2^2                               \\
+        \st    \quad                            & \innerp{\nabla f_i(x)}{z - x} + \tilde{g}_i (z, w^i) - g_i(x) \leq \gamma, \\
+                                                & w^i \in \tilde{\mathcal{U}}_i (z), \quad i = 1,\ldots,m .
     \end{aligned}
 \end{equation}
 When $\tilde{g}_i$ and $\tilde{\mathcal{U}}_i$ have some explicit form, this problem is tractable.

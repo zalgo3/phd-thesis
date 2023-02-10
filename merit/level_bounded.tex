@@ -12,7 +12,7 @@ We state below sufficient conditions for the level-boundedness of the merit func
         \item If~$F_i$ is level-bounded for all~$i = 1, \dots, m$, then~$u_\infty$ is level-bounded. \zlabel{thm:merit_lb:gap}
         \item If~$F_i$ is convex and level-bounded for all~$i = 1, \dots, m$, then~$u_\alpha$ is level-bounded for all~$\alpha > 0$. \zlabel{thm:merit_lb:reg_gap}
         \item Suppose that~$F$ has the composite structure~\zcref{eq:composite_MO}.
-            If~$f_i$ is~$\mu_{f_i}$-convex for some~$\mu_{f_i} \in \setR$ or~$\nabla f_i$ is $L_{f_i}$-Lipschitz continuous for some~$L_{f_i} > 0$, and~$F_i$ is convex and level-bounded for all~$i = 1, \dots, m$, then~$w_\alpha$ is level-bounded for all~$\alpha > 0$. \zlabel{thm:merit_lb:reg_lin_gap}
+              If~$f_i$ is~$\mu_{f_i}$-convex for some~$\mu_{f_i} \in \setR$ or~$\nabla f_i$ is $L_{f_i}$-Lipschitz continuous for some~$L_{f_i} > 0$, and~$F_i$ is convex and level-bounded for all~$i = 1, \dots, m$, then~$w_\alpha$ is level-bounded for all~$\alpha > 0$. \zlabel{thm:merit_lb:reg_lin_gap}
     \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -36,15 +36,15 @@ We state below sufficient conditions for the level-boundedness of the merit func
     \zcref[S]{eq:u dual} gives
     \begin{equation}
         \begin{aligned}
-            u_\alpha(x) &= \min_{\lambda \in \Delta^m} \left[ \sum_{i = 1}^{m} \lambda_i F_i(x) - \alpha^{-1} \envelope_{\alpha \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x) \right] \\
-                      &\begin{multlined}
-                          = \min_{\lambda \in \Delta^m} \sum_{i = 1}^{m} \lambda_i \left[ F_i(x) - F_i\left( \prox_{\alpha \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x) \right) \right. \\
-                          \left.- \frac{1}{2 \alpha} \norm*{x - \prox_{\alpha \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x)}_2^2 \right] 
-                      \end{multlined} \\
-                      &\ge \frac{1}{2} \min_{\lambda \in \Delta^m} \sum_{i = 1}^{m} \lambda_i \left[ F_i(x) - F_i\left( \prox_{\alpha \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x) \right) \right] \\
-                      &= \frac{1}{2} \min_{i = 1, \dots, m} \left[ F_i(x) - F_i\left( \prox_{\alpha \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x) \right) \right] 
-        ,\end{aligned}
-    \end{equation} 
+            u_\alpha(x) & = \min_{\lambda \in \Delta^m} \left[ \sum_{i = 1}^{m} \lambda_i F_i(x) - \alpha^{-1} \envelope_{\alpha \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x) \right]                 \\
+                        & \begin{multlined}
+                              = \min_{\lambda \in \Delta^m} \sum_{i = 1}^{m} \lambda_i \left[ F_i(x) - F_i\left( \prox_{\alpha \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x) \right) \right. \\
+                                  \left.- \frac{1}{2 \alpha} \norm*{x - \prox_{\alpha \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x)}_2^2 \right]
+                          \end{multlined}                                                                              \\
+                        & \ge \frac{1}{2} \min_{\lambda \in \Delta^m} \sum_{i = 1}^{m} \lambda_i \left[ F_i(x) - F_i\left( \prox_{\alpha \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x) \right) \right] \\
+                        & = \frac{1}{2} \min_{i = 1, \dots, m} \left[ F_i(x) - F_i\left( \prox_{\alpha \sum\limits_{i = 1}^{m} \lambda_i F_i + \indicator_C}(x) \right) \right]
+            ,\end{aligned}
+    \end{equation}
     where the inequality follows from \zcref{thm:second_prox_col}.
     Therefore, with similar arguments given in the proof of \zcref{thm:merit_lb:gap}, we can show the level-boundedness of~$u_\alpha$ by contradiction.
 
@@ -60,7 +60,7 @@ The following example indicates that our proposed merit functions are not necess
     Then, the gap function~$u_\infty$ defined by~\zcref{eq:reg_gap_MO} is written as
     \begin{align}
         u_\infty(x) & = \sup_{y \in \setR} \min [ F_1(x) - F_1(y), F_2(x) - F_2(y) ] \\
-             & = \sup_{y \in \setR} \min [ (x^2 - y^2), 0 ] = 0.
+                    & = \sup_{y \in \setR} \min [ (x^2 - y^2), 0 ] = 0.
     \end{align}
     On the other hand, $F$ is level-bounded because $\lim_{\norm{x}_2 \to \infty} F_1(x) = \infty$.
 \end{example}

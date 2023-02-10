@@ -9,59 +9,59 @@ First, we show some inequalities between different types of merit functions.
     Then, the following statements hold.
     \begin{enumerate}
         \item If~$f_i$ is~$\mu_{f_i}$-convex for some~$\mu_{f_i} \in \setR$ and~$\mu_f = \min_{i = 1, \dots, m} \mu_{f_i}$, then we have
-            \begin{equation}
-                \begin{dcases}
-                    u_\infty(x) \le w_{\mu_f^{-1}}(x) \eqand u_{\alpha^{-1}}(x) \le w_{(\mu_f + \alpha)^{-1}}(x), & \text{if } \mu_f \ge 0, \\
-                    u_{(- \mu_f + \alpha)^{-1}}(x) \le w_{\alpha^{-1}}(x), & \text{otherwise}
-                \end{dcases}
-            \end{equation}
-            for all~$\alpha > 0$ and~$x \in C$. \zlabel{thm:merit_between:convex}
+              \begin{equation}
+                  \begin{dcases}
+                      u_\infty(x) \le w_{\mu_f^{-1}}(x) \eqand u_{\alpha^{-1}}(x) \le w_{(\mu_f + \alpha)^{-1}}(x), & \text{if } \mu_f \ge 0, \\
+                      u_{(- \mu_f + \alpha)^{-1}}(x) \le w_{\alpha^{-1}}(x),                                        & \text{otherwise}
+                  \end{dcases}
+              \end{equation}
+              for all~$\alpha > 0$ and~$x \in C$. \zlabel{thm:merit_between:convex}
 
         \item If~$\nabla f_i$ is $L_{f_i}$-Lipschitz continuous for some~$L_{f_i} > 0$ and~$L_f \coloneqq \max_{i = 1, \dots, m} L_{f_i}$, then we get
-            \begin{equation}
-                u_{(L_f + \alpha)^{-1}}(x) \le w_{\alpha^{-1}}(x), \quad u_\infty(x) \ge w_{L_f^{-1}}(x), \eqand u_{\alpha^{-1}}(x) \ge w_{(L_f + \alpha)^{-1}}(x)
-            \end{equation}
-            for all~$\alpha > 0$ and~$x \in C$.
-            \zlabel{thm:merit_between:Lipschitz}
+              \begin{equation}
+                  u_{(L_f + \alpha)^{-1}}(x) \le w_{\alpha^{-1}}(x), \quad u_\infty(x) \ge w_{L_f^{-1}}(x), \eqand u_{\alpha^{-1}}(x) \ge w_{(L_f + \alpha)^{-1}}(x)
+              \end{equation}
+              for all~$\alpha > 0$ and~$x \in C$.
+              \zlabel{thm:merit_between:Lipschitz}
     \end{enumerate}
 \end{theorem}
 \begin{proof}
     \zcref[S]{thm:merit_between:convex}:
-Let~$i = 1, \dots, m$.
-The $\mu_{f_i}$-convexity of~$f_i$ gives
-\begin{equation}
-    f_i(x) - f_i(y) \le \innerp{\nabla f_i(x)}{x - y} - \frac{\mu_{f_i}}{2} \norm{x - y}_2^2
-.\end{equation}
-By the definition of~$\mu_f$, we get
-\begin{equation}
-    f_i(x) - f_i(y) \le \innerp{\nabla f_i(x)}{x - y} - \frac{\mu_f}{2} \norm{x - y}_2^2
-.\end{equation}
-Thus, recalling~\zcref{eq:composite_MO}, we have
-\begin{align}
-    &F_i(x) - F_i(y) \le \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\mu_f}{2} \norm{x - y}_2^2, \\
-    &F_i(x) - F_i(y) - \frac{\alpha}{2}\norm{x - y}_2^2 \le \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\mu_f + \alpha}{2} \norm{x - y}_2^2, \\
-    &F_i(x) - F_i(y) - \frac{- \mu_f + \alpha}{2}\norm{x - y}_2^2 \le \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\alpha}{2} \norm{x - y}_2^2
-,\end{align}
-so the desired inequalities are clear from~\zcref{eq:gap_MO,eq:reg_gap_MO,eq:reg_lin_gap_MO}.
+    Let~$i = 1, \dots, m$.
+    The $\mu_{f_i}$-convexity of~$f_i$ gives
+    \begin{equation}
+        f_i(x) - f_i(y) \le \innerp{\nabla f_i(x)}{x - y} - \frac{\mu_{f_i}}{2} \norm{x - y}_2^2
+        .\end{equation}
+    By the definition of~$\mu_f$, we get
+    \begin{equation}
+        f_i(x) - f_i(y) \le \innerp{\nabla f_i(x)}{x - y} - \frac{\mu_f}{2} \norm{x - y}_2^2
+        .\end{equation}
+    Thus, recalling~\zcref{eq:composite_MO}, we have
+    \begin{align}
+         & F_i(x) - F_i(y) \le \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\mu_f}{2} \norm{x - y}_2^2,                                              \\
+         & F_i(x) - F_i(y) - \frac{\alpha}{2}\norm{x - y}_2^2 \le \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\mu_f + \alpha}{2} \norm{x - y}_2^2,  \\
+         & F_i(x) - F_i(y) - \frac{- \mu_f + \alpha}{2}\norm{x - y}_2^2 \le \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\alpha}{2} \norm{x - y}_2^2
+        ,\end{align}
+    so the desired inequalities are clear from~\zcref{eq:gap_MO,eq:reg_gap_MO,eq:reg_lin_gap_MO}.
 
-\zcref[S]{thm:merit_between:Lipschitz}:
-Let~$i = 1, \dots, m$.
-Suppose that~$\nabla f_i$ is $L_{f_i}$-Lipschitz continuous.
-Then, \zcref{thm:descent} yields
-\begin{equation}
-    \abs*{f_i(y) - f_i(x) - \innerp{\nabla f_i(x)}{y - x}} \le \frac{L_{f_i}}{2}\norm{x - y}_2^2.
-\end{equation}
-By the definition of~$L_f$, we have
-\begin{equation}
-    \abs*{f_i(y) - f_i(x) - \innerp{\nabla f_i(x)}{y - x}} \le \frac{L_f}{2}\norm{x - y}_2^2.
-\end{equation}
-This gives
-\begin{align}
-    &F_i(x) - F_i(y) - \frac{L_f + \alpha}{2} \norm{x - y}_2^2 \le \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\alpha}{2} \norm{x - y}_2^2, \\
-    &F_i(x) - F_i(y) \ge \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{L_f}{2} \norm{x - y}_2^2, \\
-    &F_i(x) - F_i(y) - \frac{\alpha}{2} \norm{x - y}_2^2 \ge \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{L_f + \alpha}{2} \norm{x - y}_2^2
-.\end{align}
-Therefore, we immediately get~$u_{(L_f + \alpha)^{-1}}(x) \le w_{\alpha^{-1}}(x)$,~$u_\infty(x) \ge w_{L_f^{-1}}(x)$, and~$u_{\alpha^{-1}}(x) \ge w_{(L_f + \alpha)^{-1}}(x)$ for all~$x \in C$ by~\zcref{eq:gap_MO,eq:reg_gap_MO,eq:reg_lin_gap_MO}.
+    \zcref[S]{thm:merit_between:Lipschitz}:
+    Let~$i = 1, \dots, m$.
+    Suppose that~$\nabla f_i$ is $L_{f_i}$-Lipschitz continuous.
+    Then, \zcref{thm:descent} yields
+    \begin{equation}
+        \abs*{f_i(y) - f_i(x) - \innerp{\nabla f_i(x)}{y - x}} \le \frac{L_{f_i}}{2}\norm{x - y}_2^2.
+    \end{equation}
+    By the definition of~$L_f$, we have
+    \begin{equation}
+        \abs*{f_i(y) - f_i(x) - \innerp{\nabla f_i(x)}{y - x}} \le \frac{L_f}{2}\norm{x - y}_2^2.
+    \end{equation}
+    This gives
+    \begin{align}
+         & F_i(x) - F_i(y) - \frac{L_f + \alpha}{2} \norm{x - y}_2^2 \le \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{\alpha}{2} \norm{x - y}_2^2, \\
+         & F_i(x) - F_i(y) \ge \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{L_f}{2} \norm{x - y}_2^2,                                              \\
+         & F_i(x) - F_i(y) - \frac{\alpha}{2} \norm{x - y}_2^2 \ge \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{L_f + \alpha}{2} \norm{x - y}_2^2
+        .\end{align}
+    Therefore, we immediately get~$u_{(L_f + \alpha)^{-1}}(x) \le w_{\alpha^{-1}}(x)$,~$u_\infty(x) \ge w_{L_f^{-1}}(x)$, and~$u_{\alpha^{-1}}(x) \ge w_{(L_f + \alpha)^{-1}}(x)$ for all~$x \in C$ by~\zcref{eq:gap_MO,eq:reg_gap_MO,eq:reg_lin_gap_MO}.
 \end{proof}
 
 Second, we present the relation between coefficients and the proposed merit functions' values.
@@ -71,25 +71,25 @@ Second, we present the relation between coefficients and the proposed merit func
     Then, we get
     \begin{equation}
         w_{\alpha_2}(x) \le w_{\alpha_1}(x) \le \frac{\alpha_1}{\alpha_2} w_{\alpha_2}(x) \forallcondition{x \in C}
-    .\end{equation}
+        .\end{equation}
 \end{theorem}
 \begin{proof}
     Let~$x \in C$.
     Since~$\alpha_1 \ge \alpha_2 > 0$, the definition~\zcref{eq:reg_lin_gap_MO} of~$w_{\alpha_1}$ and~$w_{\alpha_2}$ clearly gives the first inequality.
     Thus, we prove the second one.
     From the definition~\zcref{eq:reg_lin_gap_MO} of $w_{\alpha_1}$, we have
-\begin{align}
-    \MoveEqLeft w_{\alpha_1}(x) = \sup_{y \in C} \min_{i = 1, \dots, m} \left[ \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{1}{2 \alpha_1}\norm{x - y}_2^2 \right] \\
-    ={}& \frac{\alpha_1}{\alpha_2} \sup_{y \in C} \min_{i = 1, \dots, m} \left[ \innerp*{\nabla f_i(x)}{ \frac{\alpha_2}{\alpha_1}(x - y) } + \frac{\alpha_2}{\alpha_1}(g_i(x) - g_i(y)) - \frac{1}{2 \alpha_2} \norm*{ \frac{\alpha_2}{\alpha_1} (x - y) }_2^2 \right] \\
-    \le{}& \frac{\alpha_1}{\alpha_2} \sup_{y \in C} \min_{i = 1, \dots, m} \left[ \innerp*{\nabla f_i(x)}{ \frac{\alpha_2}{\alpha_1} (x - y) } + g_i(x) - g_i \left(x - \frac{\alpha_2}{\alpha_1}(x - y)\right) \right. \\
-        &\hspace{7em} \left. - \frac{1}{2 \alpha_2}\norm*{\frac{\alpha_2}{\alpha_1}(x - y)}_2^2 \right]
-\end{align}
-where the first inequality follows from the convexity of~$g_i$.
-Since~$C$ is convex, $x, y \in C$ implies~$x - (\alpha_2 / \alpha_1)(x - y) \in C$.
-Therefore, from the definition~\zcref{eq:reg_lin_gap_MO} of~$w_{\alpha_2}$, we get
-\begin{equation}
-    w_{\alpha_1}(x) \le \frac{\alpha_1}{\alpha_2} w_{\alpha_2}(x)
-.\end{equation} 
+    \begin{align}
+        \MoveEqLeft w_{\alpha_1}(x) = \sup_{y \in C} \min_{i = 1, \dots, m} \left[ \innerp{\nabla f_i(x)}{x - y} + g_i(x) - g_i(y) - \frac{1}{2 \alpha_1}\norm{x - y}_2^2 \right]                                                                                              \\
+        ={}   & \frac{\alpha_1}{\alpha_2} \sup_{y \in C} \min_{i = 1, \dots, m} \left[ \innerp*{\nabla f_i(x)}{ \frac{\alpha_2}{\alpha_1}(x - y) } + \frac{\alpha_2}{\alpha_1}(g_i(x) - g_i(y)) - \frac{1}{2 \alpha_2} \norm*{ \frac{\alpha_2}{\alpha_1} (x - y) }_2^2 \right] \\
+        \le{} & \frac{\alpha_1}{\alpha_2} \sup_{y \in C} \min_{i = 1, \dots, m} \left[ \innerp*{\nabla f_i(x)}{ \frac{\alpha_2}{\alpha_1} (x - y) } + g_i(x) - g_i \left(x - \frac{\alpha_2}{\alpha_1}(x - y)\right) \right.                                                   \\
+              & \hspace{7em} \left. - \frac{1}{2 \alpha_2}\norm*{\frac{\alpha_2}{\alpha_1}(x - y)}_2^2 \right]
+    \end{align}
+    where the first inequality follows from the convexity of~$g_i$.
+    Since~$C$ is convex, $x, y \in C$ implies~$x - (\alpha_2 / \alpha_1)(x - y) \in C$.
+    Therefore, from the definition~\zcref{eq:reg_lin_gap_MO} of~$w_{\alpha_2}$, we get
+    \begin{equation}
+        w_{\alpha_1}(x) \le \frac{\alpha_1}{\alpha_2} w_{\alpha_2}(x)
+        .\end{equation}
 \end{proof}
 
 Considering \zcref{rem:reg_lin_gap:reg_gap}, we get the following corollary.
@@ -100,6 +100,6 @@ Considering \zcref{rem:reg_lin_gap:reg_gap}, we get the following corollary.
     Then, we get
     \begin{equation}
         u_{\alpha_2}(x) \le u_{\alpha_1}(x) \le \frac{\alpha_1}{\alpha_2} u_{\alpha_2}(x) \forallcondition{x \in C}
-    .\end{equation}
+        .\end{equation}
 \end{corollary}
 \end{document}

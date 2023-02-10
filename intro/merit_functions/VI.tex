@@ -6,12 +6,12 @@ Merit functions have evolved in the context of reformulating variational inequal
 The \emph{variational inequality} (VI) consists in finding~$x \in C$ such that
 \begin{equation} \label{eq:VI}
     \innerp{T(x)}{y - x} \ge 0 \forallcondition{y \in C}
-,\end{equation} 
+    ,\end{equation}
 where~$C \subseteq \setR^n$ is nonempty, closed, and convex, and~$T \colon \setR^n \to \setR^n$ is continuous.
 We can also rewrite~\zcref{eq:VI} as the following \emph{complementarity problem} (CP):
 \begin{equation} \label{eq:CP}
     T(x) \ge 0, \quad x \ge 0, \eqand \innerp{T(x)}{x} \ge 0
-.\end{equation} 
+    .\end{equation}
 In particular, if~$T$ is affine, we call~\zcref{eq:CP} the \emph{linear complementarity problem} (LCP).
 There are many merit functions for VIs and CPs, but here we illustrate the most basic two merit functions for VIs.
 
@@ -21,7 +21,7 @@ There are many merit functions for VIs and CPs, but here we illustrate the most 
             We call the function~$G_\infty \colon \setR^m \to (-\infty, +\infty]$ the \emph{classical gap function}:
             \begin{equation} \label{eq:gap}
                 G_\infty(x) \coloneqq \sup_{y \in C} \innerp{T(x)}{x - y}
-            .\end{equation} 
+                .\end{equation}
             It has the following properties:
             \begin{itemize}
                 \item $G_\infty(x) \ge 0$ for all~$x \in C$;
@@ -32,31 +32,31 @@ There are many merit functions for VIs and CPs, but here we illustrate the most 
         \item[The regularized gap function~\cite{Fukushima1992,Auchmuty1989}]
             For a given parameter~$\alpha > 0$, we can consider the \emph{regularized gap function}~$G_\alpha \colon \setR^n \to \setR$ defined by
             \begin{equation} \label{eq:reg_gap}
-                G_\alpha(x) \coloneqq \max_{y \in C} \left[ \innerp{T(x)}{x - y} - \frac{1}{2 \alpha} \norm{x - y}_2^2 \right] 
-            ,\end{equation} 
+                G_\alpha(x) \coloneqq \max_{y \in C} \left[ \innerp{T(x)}{x - y} - \frac{1}{2 \alpha} \norm{x - y}_2^2 \right]
+                ,\end{equation}
             which is a merit function for the VI~\zcref{eq:VI}, too.
             Since~\zcref{eq:reg_gap} maximizes a strongly concave function on a nonempty, closed, and convex set, even if~$C$ is unbounded, a unique point attains the maximum, and~$G_\alpha$ is finite everywhere.
             Moreover, denoting such a maximizer by~$H_\alpha(x)$, if~$T$ is continuously differentiable,~$G_\alpha$ is also differentiable at any point~$x$, and we have
             \begin{equation}
                 \nabla G_\alpha(x) = T(x) - [ \jdv{T}{x} - \alpha^{-1} I_n ] (H_\alpha(x) - x)
-            .\end{equation} 
+                .\end{equation}
             Note that
             \begin{equation}
                 H_\alpha(x) = \proj_C(x - \alpha T(x))
-            .\end{equation} 
+                .\end{equation}
             Furthermore, if the Jacobian~$\jdv{T}{x}$ is positive definite on~$C$, any stationary point of the problem
             \begin{equation}
                 \min_{x \in C} \quad G_\alpha(x)
-            \end{equation} 
+            \end{equation}
             solves the VI~\zcref{eq:VI}~\cite{Fukushima1992}.
             In addition, if~$T$ is strongly monotone with modulus~$\mu > 0$, i.e.,
             \begin{equation}
                 \innerp{T(x) - T(x')}{x - x'} > \mu \norm{x - x'}_2^2 \forallcondition{x, x' \in \setR^n}
-            ,\end{equation}
+                ,\end{equation}
             and if~$\alpha > 1 / (2 \mu)$, then~$G_\alpha$ has the following error bound property~\cite{Taji1993}:
             \begin{equation}
                 \norm{x - x^\ast} \le \sqrt{\frac{G_\alpha(x)}{\mu - 1 / (2 \alpha)}} \forallcondition{x \in S}
-            ,\end{equation} 
+                ,\end{equation}
             where~$x^\ast$ is the unique solution of the VI~\zcref{eq:VI}.
     \end{description}
 \end{example}
