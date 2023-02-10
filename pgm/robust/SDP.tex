@@ -2,9 +2,9 @@
 
 \begin{document}
 \subsection{Semi-definite programming} \zlabel{sec:pgm:robust:SDP}
-Suppose that~$\hat{g}_i (x,u) = \innerp{x + u}{A_i (x + u)}$ and ${\mathcal{U}}_i = \Set*{ a^i + P_i v \in \setR^n }{\norm{v}_2 \leq 1 }$, where $A_i \in \setR^{n \times n}$ and $A_i \succeq O, a^i \in \setR^n$ and $P_i \in \setR^{n \times n}$. 
-Then, there exists a matrix $M_i \in \setR^{n \times n}$ such that $A_i = M_i M_i^\T$. 
-Note that $\hat{g}_i$ is convex quadratic and $\mathcal{U}_i$ is an ellipsoid. 
+Suppose that~$\hat{g}_i (x,u) = \innerp{x + u}{A_i (x + u)}$ and ${\mathcal{U}}_i = \Set*{ a^i + P_i v \in \setR^n }{\norm{v}_2 \leq 1 }$, where $A_i \in \setR^{n \times n}$ and $A_i \succeq O, a^i \in \setR^n$ and $P_i \in \setR^{n \times n}$.
+Then, there exists a matrix $M_i \in \setR^{n \times n}$ such that $A_i = M_i M_i^\T$.
+Note that $\hat{g}_i$ is convex quadratic and $\mathcal{U}_i$ is an ellipsoid.
 Here, without loss of generality we can assume that $A$ is a symmetric matrix since $\innerp*{x + u}{A_i (x + u)} = \innerp*{x + u}{\tilde{A}_i (x + u)}$, where $\tilde{A}_i \coloneqq \left(A_i+A_i^\T\right) / 2$. Then, $g_i(x)$ can be given as
 \begin{equation} \label{eq:sdp_g_i}
     g_i(x) = \max_{v : \norm{v}_2 \leq 1} \innerp*{x + a^i + P_i v}{A_i \left(x + a^i + P_i v\right)}.
@@ -15,19 +15,19 @@ Since problem~\zcref{eq:sdp_g_i} is a maximization problem of a convex function,
 \end{equation}
 From~\cite[Section~3]{Beck2006}, the Lagrangian dual of the maximization problem~\zcref{eq:sdp_g_i_} is given by
 \begin{equation}\label{eq:dual}
-    \begin{aligned} 
-        \min_{\beta, w} \quad   & -w \\ 
-        \st    \quad   & 
+    \begin{aligned}
+        \min_{\beta, w} \quad & -w            \\
+        \st    \quad          &
         \begin{bmatrix}
-            -P_i^\T A_i P_i &\quad -P_i^\T A_i \left(z + a^i\right) \\
-            -\left(z + a^i\right)^\T A_i^\T P_i &\quad -\innerp*{z + a^i}{A_i \left(z + a^i\right)} - w
+            -P_i^\T A_i P_i                     & \quad -P_i^\T A_i \left(z + a^i\right)                 \\
+            -\left(z + a^i\right)^\T A_i^\T P_i & \quad -\innerp*{z + a^i}{A_i \left(z + a^i\right)} - w
         \end{bmatrix}
         \succeq
         \beta \begin{bmatrix}
-            -I_n & 0 \\
-            0 & 1
-        \end{bmatrix}, \\
-                       & \beta \geq 0,
+                  -I_n & 0 \\
+                  0    & 1
+              \end{bmatrix},                  \\
+                              & \beta \geq 0,
     \end{aligned}
 \end{equation}
 where~$I_n$ stands for the identity matrix of dimension~$n$.
@@ -36,36 +36,36 @@ Since both~\zcref{eq:sdp_g_i_} and \zcref{eq:dual} have strictly feasible soluti
 Therefore, recalling~\zcref{eq:subproblem}, the subproblem~\zcref{eq:pgm_subproblem} is equivalent to
 \begin{equation}
     \begin{aligned}
-        \min_{\gamma, z, w, \beta} \quad & \gamma + \frac{1}{2 \alpha} \norm{z - x}_2^2 \\ 
-        \st    \quad   & \innerp{\nabla f_i(x)}{z - x} - w_i - g_i (x) \leq \gamma, \\
-                       & \begin{bmatrix}
-                           -P_i^\T A_i P_i + \beta_i I_n &\quad -P_i^\T A_i \left(z + a^i\right) \\
-                           -\left(z + a^i\right)^\T A_i^\T P_i &\quad -\innerp*{z + a^i}{A_i \left(z + a^i\right)} - w_i -\beta_i
-                       \end{bmatrix} 
-                       \succeq O, \\
-                       & \beta_i \geq 0, \quad i = 1,\dots,m.
+        \min_{\gamma, z, w, \beta} \quad & \gamma + \frac{1}{2 \alpha} \norm{z - x}_2^2                                                            \\
+        \st    \quad                     & \innerp{\nabla f_i(x)}{z - x} - w_i - g_i (x) \leq \gamma,                                              \\
+                                         & \begin{bmatrix}
+                                               -P_i^\T A_i P_i + \beta_i I_n       & \quad -P_i^\T A_i \left(z + a^i\right)                            \\
+                                               -\left(z + a^i\right)^\T A_i^\T P_i & \quad -\innerp*{z + a^i}{A_i \left(z + a^i\right)} - w_i -\beta_i
+                                           \end{bmatrix}
+        \succeq O,                                                                                                                                 \\
+                                         & \beta_i \geq 0, \quad i = 1,\dots,m.
     \end{aligned}
 \end{equation}
 Now, by using slack variables $\tau \in \setR$ and $\zeta^i \in \setR$ and converting the convex quadratic constraints to second-order cone ones, we get the following semi-definite programming problem:
 \begin{equation} \label{eq:sdp}
     \begin{aligned}
-        \min_{\tau, \beta, w, \gamma, z} \quad   &\tau \\ 
-        \st    \quad   &\innerp{\nabla f_i(x)}{z - x} - w_i - g_i(x) \leq \gamma, \\
-                       & \begin{bmatrix} 1 - \gamma + \tau \\
-                           1 + \gamma - \tau \\
-                           \sqrt{\frac{2}{\alpha}} (z - x)
-                       \end{bmatrix} \in \mathcal{K}_{n + 2}, \\
-                       & 
-                       \begin{bmatrix}
-                           -P_i^\T A_i P_i + \beta_i I_n & -P_i^\T A_i \left(z + a^i\right) \\
-                           -\left(z + a^i\right)^\T A_i^\T P_i & \zeta^i
-                       \end{bmatrix} \succeq
-                       O, \\
-                       & \begin{bmatrix} \dfrac{1 - \zeta^i - w_i - \beta_i}{2} \\
-                           \dfrac{1 + \zeta^i + w_i + \beta_i}{2} \\
-                           M_i^\T \left(z + a^i\right)
-                       \end{bmatrix} \in \mathcal{K}_{n + 2}, \\
-                       & \beta_i \geq 0,  \quad i = 1,\ldots,m.
+        \min_{\tau, \beta, w, \gamma, z} \quad & \tau                                                      \\
+        \st    \quad                           & \innerp{\nabla f_i(x)}{z - x} - w_i - g_i(x) \leq \gamma, \\
+                                               & \begin{bmatrix} 1 - \gamma + \tau \\
+                                                     1 + \gamma - \tau \\
+                                                     \sqrt{\frac{2}{\alpha}} (z - x)
+                                                 \end{bmatrix} \in \mathcal{K}_{n + 2},                    \\
+                                               &
+        \begin{bmatrix}
+            -P_i^\T A_i P_i + \beta_i I_n       & -P_i^\T A_i \left(z + a^i\right) \\
+            -\left(z + a^i\right)^\T A_i^\T P_i & \zeta^i
+        \end{bmatrix} \succeq
+        O,                                                                                                 \\
+                                               & \begin{bmatrix} \dfrac{1 - \zeta^i - w_i - \beta_i}{2} \\
+                                                     \dfrac{1 + \zeta^i + w_i + \beta_i}{2} \\
+                                                     M_i^\T \left(z + a^i\right)
+                                                 \end{bmatrix} \in \mathcal{K}_{n + 2},    \\
+                                               & \beta_i \geq 0,  \quad i = 1,\ldots,m.
     \end{aligned}
 \end{equation}
 Note that the second-order cone constraints can be converted further into semi-definite constraints.

@@ -156,7 +156,7 @@
 
 
 \zcsetup{
-nameinlink,
+    nameinlink,
 }
 \setlist[description]{style=nextline}
 \setlist[enumerate,1]{
@@ -172,9 +172,9 @@ nameinlink,
     name-pl = claims,
 }
 \zcRefTypeSetup{equation}{
-    name-sg = ,
-    name-pl = ,
-    +refbounds={,(,),},
+name-sg = ,
+name-pl = ,
++refbounds={,(,),},
 }
 \zcRefTypeSetup{assumption}{
     Name-sg = Assumption,
@@ -295,10 +295,10 @@ nameinlink,
 \makeatletter
 \AtBeginDocument{
     \renewcommand\chapter{
-        \if@openright\cleardoublepage\else\clearpage\fi
-        \global\@topnum\z@
-        \@afterindentfalse
-    \secdef\@chapter\@schapter}
+      \if@openright\cleardoublepage\else\clearpage\fi
+      \global\@topnum\z@
+      \@afterindentfalse
+      \secdef\@chapter\@schapter}
     \renewcommand\tableofcontents{
         \if@twocolumn
             \@restonecoltrue\onecolumn
@@ -306,8 +306,8 @@ nameinlink,
             \@restonecolfalse
         \fi
         \chapter*{\contentsname
-            \@mkboth{
-        \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}
+          \@mkboth{
+              \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}
         \@starttoc{toc}
         \if@restonecol\twocolumn\fi
     }
@@ -331,7 +331,7 @@ nameinlink,
         \fi
         \chapter*{\listtablename}
         \@mkboth{
-        \MakeUppercase\listtablename}
+            \MakeUppercase\listtablename}
         {\MakeUppercase\listtablename}
         \@starttoc{lot}
         \if@restonecol\twocolumn\fi

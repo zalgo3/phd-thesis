@@ -4,8 +4,8 @@
 \subsection{A gap function for lower semi-continuous multi-objective optimization} \zlabel{sec:merit:merit:gap}
 First, we assume only lower semi-continuity on~$F$ and propose a gap function~$u_\infty \colon C \to (-\infty, +\infty]$ as follows:
 \begin{equation} \label{eq:gap_MO}
-    u_\infty(x) \coloneqq \sup_{y \in C} \min_{i = 1, \dots, m} [ F_i(x) - F_i(y) ] 
-.\end{equation}
+    u_\infty(x) \coloneqq \sup_{y \in C} \min_{i = 1, \dots, m} [ F_i(x) - F_i(y) ]
+    .\end{equation}
 When~$F$ is linear, this merit function has already been discussed in~\cite{Liu2009}, but here we consider the more general nonlinear cases.
 We now show that $u_\infty$ is a merit function in the sense of weak Pareto optimality.
 \begin{theorem} \zlabel{thm:gap_MO}
@@ -18,20 +18,20 @@ We now show that $u_\infty$ is a merit function in the sense of weak Pareto opti
     By the definition~\zcref{eq:gap_MO} of~$u_\infty$, we get
     \begin{equation}
         u_\infty(x) = \sup_{y \in C} \min_{i = 1, \dots, m} [ F_i(x) - F_i(y) ]
-                 \ge \min_{i = 1, \dots, m} [ F_i(x) - F_i(x) ] = 0
-    .\end{equation} 
+        \ge \min_{i = 1, \dots, m} [ F_i(x) - F_i(x) ] = 0
+        .\end{equation}
     On the other hand, again, considering the definition~\zcref{eq:gap_MO} of~$u_\infty$, we obtain
     \begin{equation}
         u_\infty(x) = 0 \iff \min_{i = 1, \dots, m} [ F_i(x) - F_i(y) ] \le 0 \forallcondition{y \in C}
-    .\end{equation} 
+        .\end{equation}
     This is equivalent to the existence of~$i = 1, \dots, m$ such that
     \begin{equation}
         F_i(x) - F_i(y) \le 0 \forallcondition{y \in C}
-    ,\end{equation} 
+        ,\end{equation}
     i.e., there does not exist~$y \in C$ such that
     \begin{equation}
         F_i(x) - F_i(y) > 0 \forallcondition{i = 1, \dots, m}
-    ,\end{equation} 
+        ,\end{equation}
     which means that~$x$ is weakly Pareto optimal for~\zcref{eq:MOO} by \zcref{def:Pareto:Pareto}.
 \end{proof}
 
@@ -45,7 +45,7 @@ Thus, we can use~$u_\infty$ to measure the complexity of multi-objective optimiz
 Moreover, \zcref{thm:gap_MO} implies that we can get weakly Pareto optimal solutions via the following single-objective optimization problem:
 \begin{equation}
     \min_{x \in C} \quad u_\infty(x)
-.\end{equation} 
+    .\end{equation}
 However, if~$F_i$ is not bounded from below on~$C$, we cannot guarantee that~$u_\infty$ is finite-valued.
 Moreover, even if~$u_\infty$ is finite-valued,~$u_\infty$ does not preserve the differentiability of the original objective function~$F$.
 

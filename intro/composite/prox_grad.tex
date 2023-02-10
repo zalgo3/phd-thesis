@@ -5,8 +5,8 @@
 The \emph{proximal gradient method}~\cite{Fukushima1981} is one of the most common algorithms for solving~\zcref{eq:composite}.
 For a given~$x^0 \in \interior (\dom (F))$, it recursively update~$\set*{x^k} $ by
 \begin{equation}
-    x^{k + 1} = \prox_{\alpha_k g} \left( x^k - \alpha_k \nabla f\left(x^k\right) \right) 
-,\end{equation} 
+    x^{k + 1} = \prox_{\alpha_k g} \left( x^k - \alpha_k \nabla f\left(x^k\right) \right)
+    ,\end{equation}
 where~$\prox$ is the \emph{proximal operator}, which we will define in~\zcref{eq:prox}.
 If we can estimate the Lipschitz constant~$L_f$, we can use a constant stepsize~$\alpha_k \in (0, 1 / L_f]$.
 Otherwise, we can determine~$\alpha_k$ in each iteration by backtracking.

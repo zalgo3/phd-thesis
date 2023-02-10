@@ -7,7 +7,7 @@ Afterward, various merit functions appeared for multi-objective problems, includ
 Below we pick up generalizations of \zcref{ex:merit_VI} to the \emph{weak Stamnpacchia type vector variational inequality} $(SVVI)^w$, which consists in finding~$x \in C$ such that
 \begin{equation} \label{eq:SVVIw}
     (\innerp{T_1(x)}{y - x}, \dots, \innerp{T_m(x)}{y - x}) \notin - \interior(\setRpos^m) \forallcondition{y \in C}
-,\end{equation} 
+    ,\end{equation}
 where~$C \subseteq \setR^n$ is a nonempty, closed, convex, and $T_i \colon \setR^n \to \setR^n, i = 1, \dots, m$.
 Note that~$x$ satisfies~\zcref{eq:SVVIw} if and only if~$x$ is weakly Pareto optimal for~\zcref{eq:MOO} when~$F_i$ is differentiable and~$T_i = \nabla F_i$ for each~$i = 1, \dots, m$.
 \begin{example} \zlabel{ex:merit_MO}
@@ -16,7 +16,7 @@ Note that~$x$ satisfies~\zcref{eq:SVVIw} if and only if~$x$ is weakly Pareto opt
             We can write the gap function~$G_\infty \colon \setR^n \to (-\infty, +\infty]$ for~\zcref{eq:SVVIw} as
             \begin{equation}
                 G_\infty(x) \coloneqq \min_{\lambda \in \simplex^m} \sup_{y \in C} \innerp*{\sum_{i = 1}^{m} \lambda_i T_i(x)}{x - y}
-            ,\end{equation} 
+                ,\end{equation}
             where~$\simplex^m$ is the unit~$m$-simplex, which we will define by~\zcref{eq:simplex}.
             When~$m = 1$, it corresponds to~\zcref{eq:gap}.
             Like~\zcref{eq:gap},~$G_\infty$ is a merit function for~\zcref{eq:SVVIw}, i.e.,
@@ -28,30 +28,30 @@ Note that~$x$ satisfies~\zcref{eq:SVVIw} if and only if~$x$ is weakly Pareto opt
         \item[The regularized gap function for~$(SVVI)^w$~\cite{Charitha2010}]
             We can define the regularized gap function~$G_\alpha \colon \setR^n \to \setR$ with~$\alpha > 0$ for~\zcref{eq:SVVIw} by
             \begin{equation} \label{eq:reg_gap_SVVIw}
-                G_\alpha(x) \coloneqq \min_{\lambda \in \simplex^m} \max_{y \in C} \left[ \innerp*{\sum_{i = 1}^{m} \lambda_i T_i(x)}{x - y} - \frac{1}{2 \alpha} \norm{x - y}_2^2 \right] 
-            ,\end{equation} 
+                G_\alpha(x) \coloneqq \min_{\lambda \in \simplex^m} \max_{y \in C} \left[ \innerp*{\sum_{i = 1}^{m} \lambda_i T_i(x)}{x - y} - \frac{1}{2 \alpha} \norm{x - y}_2^2 \right]
+                ,\end{equation}
             matching~\zcref{eq:reg_gap} when~$m = 1$.
             It also satisfies the two propeties as a merit function for~\zcref{eq:SVVIw}.
             Moreover, if each~$T_i, i = 1, \dots, m$ is continuously differentiable, then~$G_\alpha$ is directionally differentiable in any direction~$d \in \setR^n$, and
             \begin{multline}
                 G_\alpha'(x;d) = \min_{\lambda \in \Lambda(x)} \Bigg[ \innerp*{\sum_{i = 1}^{m} \lambda_i T_i(x) - \sum_{i = 1}^{m} \lambda_i \jdv{T_i}{x} (H_\alpha(x, \lambda) - x)}{d} \\
-                + \alpha \innerp*{H_\alpha(x, \lambda) - x}{d} \Bigg] 
-            ,\end{multline}
+                + \alpha \innerp*{H_\alpha(x, \lambda) - x}{d} \Bigg]
+                ,\end{multline}
             where
             \begin{align}
-                H_\alpha(x, \lambda) &\coloneqq \proj_C\left( x - \alpha^{-1} \sum_{i = 1}^{m} \lambda_i T_i(x) \right), \\
-                T_\alpha(x, \lambda) &\coloneqq - \innerp*{\sum_{i = 1}^{m} \lambda_i T_i(x)}{H_\alpha(x, \lambda) - x} - \frac{1}{2 \alpha} \norm{H_\alpha(x, \lambda) - x}_2^2, \\
-                \Lambda(x) &\coloneqq \Set{\lambda \in \simplex^m}{G_\alpha(x) = T_\alpha(x, \lambda)}
-            .\end{align}
+                H_\alpha(x, \lambda) & \coloneqq \proj_C\left( x - \alpha^{-1} \sum_{i = 1}^{m} \lambda_i T_i(x) \right),                                                          \\
+                T_\alpha(x, \lambda) & \coloneqq - \innerp*{\sum_{i = 1}^{m} \lambda_i T_i(x)}{H_\alpha(x, \lambda) - x} - \frac{1}{2 \alpha} \norm{H_\alpha(x, \lambda) - x}_2^2, \\
+                \Lambda(x)           & \coloneqq \Set{\lambda \in \simplex^m}{G_\alpha(x) = T_\alpha(x, \lambda)}
+                .\end{align}
             Particularly, if~$\Lambda(x)$ is a singleton, i.e.,~$\Lambda(x) = \set{\lambda(x)}$,~$G_\alpha$ is Gateaux differentiable at~$x$ and
             \begin{multline}
                 \nabla G_\alpha(x) \\
                 = \sum_{i = 1}^{m} \lambda_i(x) T_i(x) - \sum_{i = 1}^{m} \lambda_i(x) \jdv{T_i}{x} [H_\alpha(x, \lambda(x)) - x] + \alpha^{-1} [H_\alpha(x, \lambda(x)) - x]
-            .\end{multline}
+                .\end{multline}
             Furthermore, if each~$T_i, i = 1, \dots, m$ is strongly monotone with modulus~$\mu_i > 0$, and if~$\alpha > 1 / (2 \mu)$ with~$\mu \coloneqq \min_{i = 1, \dots, m} \mu_i$, then~$G_\alpha$ provides the error bound:
             \begin{equation}
                 \dist(x, sol(SVVI)^w) \le \sqrt{\frac{G_\alpha(x)}{\mu - 1 / (2 \alpha)}} \forallcondition{x \in C}
-            ,\end{equation} 
+                ,\end{equation}
             where~$sol(SVVI)^w$ denotes the solution set of~\zcref{eq:SVVIw}.
     \end{description}
 \end{example}

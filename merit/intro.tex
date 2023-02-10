@@ -5,7 +5,7 @@
 This chapter considers the convex-constrained multi-objective optimization problems, i.e.,~\zcref{eq:MOO} with~$C$ being non-empty, closed, and convex.
 It presents new merit functions for them, and discusses their properties mentioned in \zcref{sec:intro:merit}.
 
-In detail, it proposes the following three merit functions for~\zcref{eq:MOO}: 
+In detail, it proposes the following three merit functions for~\zcref{eq:MOO}:
 \begin{enumerate}
     \item the gap function for lower semi-continuous multi-objective optimization; \zlabel{enum:gap_MO}
     \item the regularized gap function for convex multi-objective optimization; \zlabel{enum:reg_gap_MO}
@@ -24,10 +24,10 @@ The regularized and partially linearized gap function~\zcref[noname]{enum:reg_li
         \centering
         \caption{Proposed merit functions and their properties}
         \begin{tblr}{hline{1,2,5}={solid}, hline{3,4}={dashed}, width=\textwidth, colspec={@{}X[.75,c]X[1.5,c]X[c]X[c]X[c]X[1.5,c]X[3,c]X[c]@{}}, rowspec={Q[m]Q[m]Q[m]Q[m]}}
-        & Obj. & Sol. & Cont. & Diff. & SP & LB & EB \\
-            \zcref[noname]{enum:gap_MO} & LSC & \SetCell[r=2]{m}WPO & LSC & $\times$ & $\times$ & LB &\SetCell[r=3]{m} PL \\
-            \zcref[noname]{enum:reg_gap_MO} & Conv. & & \SetCell[r=2]{m}Cont. &\SetCell[r=2]{m} DD & SC & Conv., LB & \\
-            \zcref[noname]{enum:reg_lin_gap_MO} & Comp. & PS & & & SC, $C^2$ & Conv., LB, etc. &  \\
+                                                & Obj.  & Sol.                & Cont.                 & Diff.               & SP        & LB              & EB                  \\
+            \zcref[noname]{enum:gap_MO}         & LSC   & \SetCell[r=2]{m}WPO & LSC                   & $\times$            & $\times$  & LB              & \SetCell[r=3]{m} PL \\
+            \zcref[noname]{enum:reg_gap_MO}     & Conv. &                     & \SetCell[r=2]{m}Cont. & \SetCell[r=2]{m} DD & SC        & Conv., LB       &                     \\
+            \zcref[noname]{enum:reg_lin_gap_MO} & Comp. & PS                  &                       &                     & SC, $C^2$ & Conv., LB, etc. &                     \\
         \end{tblr}
     \end{subtable}
 
@@ -37,22 +37,22 @@ The regularized and partially linearized gap function~\zcref[noname]{enum:reg_li
         \caption{Table of abbreviations}
         \begin{tblr}{@{}cc@{}}
             \hline
-            Obj. & Objective functions \\
-            Sol. & Solutions \\
-            Cont. & Continuity \\
-            Diff. & Differentiability \\
-            SP & Stationary points \\
-            LB & Level-boundedness \\
-            EB & Error bounds \\
-            Cont. & Continuity \\
-            Comp. & Composite \\
-            WPO & Weak Pareto optimality \\
-            PS & Pareto stationarity \\
-            LSC & Lower semicontinuity \\
-            DD & Directional differentiability \\
-            $C^2$ & Twice continuously differentiable \\
-            SC & Strict convexity \\
-            PL & Multi-objective proximal PL inequality \\
+            Obj.  & Objective functions                    \\
+            Sol.  & Solutions                              \\
+            Cont. & Continuity                             \\
+            Diff. & Differentiability                      \\
+            SP    & Stationary points                      \\
+            LB    & Level-boundedness                      \\
+            EB    & Error bounds                           \\
+            Cont. & Continuity                             \\
+            Comp. & Composite                              \\
+            WPO   & Weak Pareto optimality                 \\
+            PS    & Pareto stationarity                    \\
+            LSC   & Lower semicontinuity                   \\
+            DD    & Directional differentiability          \\
+            $C^2$ & Twice continuously differentiable      \\
+            SC    & Strict convexity                       \\
+            PL    & Multi-objective proximal PL inequality \\
             \hline
         \end{tblr}
     \end{subtable}

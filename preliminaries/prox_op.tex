@@ -5,19 +5,19 @@
 We suppose that~$h \colon \setR^p \to (-\infty, +\infty]$ is closed, proper, and convex.
 Then, we define the \emph{Moreau envelope} or \emph{Moreau-Yosida regularization}~$\envelope_h \colon \setR^p \to \setR$ by
 \begin{equation} \label{eq:Moreau_env}
-    \envelope_h(x) \coloneqq \min_{y \in \setR^p} \left[ h(y) + \frac{1}{2} \norm{x - y}_2^2 \right] 
-.\end{equation} 
+    \envelope_h(x) \coloneqq \min_{y \in \setR^p} \left[ h(y) + \frac{1}{2} \norm{x - y}_2^2 \right]
+    .\end{equation}
 The minimization problem in~\zcref{eq:Moreau_env} has a unique solution because of the strong convexity of its objective function.
 We call this solution the \emph{proximal operator} and write it as
 \begin{equation} \label{eq:prox}
-    \prox_h(x) = \argmin_{y \in \setR^p} \left[ h(y) + \frac{1}{2} \norm{x - y}_2^2 \right] 
-.\end{equation} 
+    \prox_h(x) = \argmin_{y \in \setR^p} \left[ h(y) + \frac{1}{2} \norm{x - y}_2^2 \right]
+    .\end{equation}
 The proximal operator is non-expansive, i.e.,~$\norm{\prox_h(x) - \prox_h(y)}_2 \le \norm{x - y}_2$ for any~$x, y \in \setR^p$.
 This also means that~$\prox_h$ is $1$-Lipschitz continuous.
 Moreover, when~$h$ is the indicator function~\zcref{eq:indicator} of a non-empty, closed, and convex set~$C \subseteq \setR^p$, we have
 \begin{equation} \label{eq:prox_ind}
     \prox_{\indicator_C}(x) = \proj_C(x)
-,\end{equation} 
+    ,\end{equation}
 where~$\proj_C$ is the projection onto~$C$ defined by~\zcref{eq:proj}.
 Even if~$h$ is non-differentiable, its Moreau envelope~$\envelope_h$ is differentiable.
 \begin{theorem}[{\cite[Theorem 6.60]{Beck2017}}] \zlabel{thm:Moreau_smooth}
@@ -25,7 +25,7 @@ Even if~$h$ is non-differentiable, its Moreau envelope~$\envelope_h$ is differen
     Then,~$\envelope_h$ is~$1$-smooth and
     \begin{equation}
         \nabla \envelope_h(x) = x - \prox_h(x)
-    .\end{equation} 
+        .\end{equation}
 \end{theorem}
 We also refer to the so-called second prox theorem and a corollary quickly derived from it.
 \begin{theorem}[Second prox theorem~{\cite[Theorem~6.39]{Beck2017}}] \zlabel{thm:second_prox}
@@ -33,13 +33,13 @@ We also refer to the so-called second prox theorem and a corollary quickly deriv
     Then, it follows that
     \begin{equation}
         \innerp{x - \prox_h(x)}{y - \prox_h(x)} \le h(y) - h(\prox_h(x)) \forallcondition{x, y \in \setR^p}
-    .\end{equation} 
+        .\end{equation}
 \end{theorem}
 \begin{corollary} \zlabel{thm:second_prox_col}
     Let~$h \colon \setR^p \to (-\infty, +\infty]$ be closed, proper, and convex.
     Then, we have
     \begin{equation}
         \norm{x - \prox_h(x)}_2^2 \le h(x) - h(\prox_h(x)) \forallcondition{x \in \setR^p}
-    .\end{equation} 
+        .\end{equation}
 \end{corollary}
 \end{document}

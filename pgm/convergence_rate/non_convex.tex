@@ -9,11 +9,11 @@ We present below the main theorem of this subsection.
     In particular,
     \begin{equation}
         \liminf_{k \to \infty} (k \log k) w_1\left(x^k\right) = 0
-    \end{equation} 
+    \end{equation}
     and
     \begin{equation}
         \min_{0 \le j \le k - 1} w_1\left(x^j\right) = O(1 / k)
-    \end{equation} 
+    \end{equation}
     with~$O \colon [0, + \infty) \to \setR$ such that~$\limsup_{t \to \infty} O(t) / t < \infty$.
 \end{theorem}
 
@@ -22,7 +22,7 @@ Before proving \zcref{thm:pgm_rate_nonconvex}, we first show the existence of a 
     In \zcref{alg:pgm_MO} with the \zcref[ref=title,noname]{sec:pgm:algorithm:armijo} under \zcref{asm:pgm_Lipschitz_gradient}, the stepsize~$s_k$ satisfies
     \begin{equation}
         s_k \ge s_{\min} \coloneqq \min \left[\frac{2 \xi (1 - \rho)}{\alpha L_f}, 1\right] \forallcondition{k \ge 0}
-    .\end{equation} 
+        .\end{equation}
 \end{lemma}
 \begin{proof}
     Recall that~$s_k = \xi^{j_k}$ for some non-negative integer~$j_k$ in~\zcref{eq:pgm_armijo_step}.
@@ -31,27 +31,27 @@ Before proving \zcref{thm:pgm_rate_nonconvex}, we first show the existence of a 
     Since~$j_k$ is the smallest non-negative integer satisfying~\zcref{eq:pgm_armijo_rule}, there exists~$i_k = 1, \dots, m$ such that
     \begin{equation}
         F_{i_k}(x^k + \xi^{j_k - 1} \left(z^k - x^k\right)) > F_{i_k}\left(x^k\right) + \rho \xi^{j_k - 1} \left[ \theta_\alpha\left(x^k\right) - \frac{1}{2\alpha} \norm*{z^k - x^k}_2^2 \right]
-    .\end{equation} 
+        .\end{equation}
     On the other hand,~$L_{f_{i_k}}$-Lipschitz continuity of~$\nabla f_{i_k}$ and \zcref{thm:descent} give
     \begin{align}
-        \MoveEqLeft F_{i_k}(x^k + \xi^{j_k - 1} \left(z^k - x^k\right)) \le F_{i_k}\left(x^k\right) + \innerp*{\nabla f_{i_k}\left(x^k\right)}{\xi^{j_k - 1} \left(z^k - x^k\right)} \\
-        &+ g_{i_k}(x^k + \xi^{j_k - 1} \left(z^k - x^k\right)) - g_{i_k}\left(x^k\right) + \frac{L_{f_{i_k}}}{2} \norm*{\xi^{j_k - 1} \left(z^k - x^k\right)}_2^2 \\
-        \le{}& F_{i_k}\left(x^k\right) + \xi^{j_k - 1} \left[ \innerp*{\nabla f_{i_k}\left(x^k\right)}{z^k - x^k} + g_{i_k}\left(z^k\right) - g_{i_k}\left(x^k\right) \right] + \frac{L_f}{2} \norm*{\xi^{j_k - 1} \left(z^k - x^k\right)}_2^2 \\
-    \le{}& F_{i_k}\left(x^k\right) + \xi^{j_k - 1} \left[ \theta_\alpha\left(x^k\right) - \frac{1}{2 \alpha} \norm*{z^k - x^k}_2^2 \right] + \frac{L_f \xi^{2 (j_k - 1)}}{2} \norm*{z^k - x^k}_2^2
-    ,\end{align}
+        \MoveEqLeft F_{i_k}(x^k + \xi^{j_k - 1} \left(z^k - x^k\right)) \le F_{i_k}\left(x^k\right) + \innerp*{\nabla f_{i_k}\left(x^k\right)}{\xi^{j_k - 1} \left(z^k - x^k\right)}                                                            \\
+              & + g_{i_k}(x^k + \xi^{j_k - 1} \left(z^k - x^k\right)) - g_{i_k}\left(x^k\right) + \frac{L_{f_{i_k}}}{2} \norm*{\xi^{j_k - 1} \left(z^k - x^k\right)}_2^2                                                                        \\
+        \le{} & F_{i_k}\left(x^k\right) + \xi^{j_k - 1} \left[ \innerp*{\nabla f_{i_k}\left(x^k\right)}{z^k - x^k} + g_{i_k}\left(z^k\right) - g_{i_k}\left(x^k\right) \right] + \frac{L_f}{2} \norm*{\xi^{j_k - 1} \left(z^k - x^k\right)}_2^2 \\
+        \le{} & F_{i_k}\left(x^k\right) + \xi^{j_k - 1} \left[ \theta_\alpha\left(x^k\right) - \frac{1}{2 \alpha} \norm*{z^k - x^k}_2^2 \right] + \frac{L_f \xi^{2 (j_k - 1)}}{2} \norm*{z^k - x^k}_2^2
+        ,\end{align}
     where the second inequality comes from the convexity of~$g_{i_k}$ and \zcref{eq:pgm_Lipschitz_constant}, and the third one follows from~\zcref{eq:pgm_optimal_function} and \zcref{alg:pgm_MO:update} of \zcref{alg:pgm_MO}.
     Combining the above two inequalities lead to
     \begin{equation}
         (1 - \rho) \xi^{j_k - 1} \left[ \theta_\alpha\left(x^k\right) - \frac{1}{2 \alpha} \norm*{z^k - x^k}_2^2 \right] + \frac{L_f \xi^{2 (j_k - 1)}}{2} \norm*{z^k - x^k}_2^2 > 0
-    .\end{equation} 
+        .\end{equation}
     Thus, \zcref{eq:reg_lin_gap_MO_LB} yields
     \begin{equation}
         - \frac{(1 - \rho) \xi^{j_k - 1}}{\alpha} \norm*{z^k - x^k}_2^2 + \frac{L_f \xi^{2 (j_k - 1)}}{2} \norm*{z^k - x^k}_2^2 > 0
-    .\end{equation} 
+        .\end{equation}
     Therefore, we have
     \begin{equation}
         s_k = \xi^{j_k} > \frac{2 \xi (1 - \rho)}{\alpha L_f} \ge s_{\min}
-    .\end{equation}
+        .\end{equation}
 \end{proof}
 
 Similarly, when we employ the \zcref[ref=title,noname]{sec:pgm:algorithm:sdc},~$\alpha_k$ has a uniform lower bound.
@@ -71,10 +71,10 @@ We now show the main theorem as follows:
     Let~$k \ge 0$ and take~$i$ such that~$F_i$ is bounded from below.
     \zcref[S]{eq:pgm_armijo_step,eq:pgm_armijo_rule} give
     \begin{align}
-        F_i\left(x^{k + 1}\right) - F_i\left(x^k\right) &\le \rho s_k \left[ \theta_\alpha\left(x^k\right) - \frac{1}{2 \alpha} \norm*{z^k - x^k}_2^2 \right] \\
-                                  &\le - \rho s_{\min} w_\alpha\left(x^k\right) \\
-                                  &\le - \rho s_{\min} \max ( 1, \alpha^{-1} ) w_1\left(x^k\right)
-    ,\end{align}
+        F_i\left(x^{k + 1}\right) - F_i\left(x^k\right) & \le \rho s_k \left[ \theta_\alpha\left(x^k\right) - \frac{1}{2 \alpha} \norm*{z^k - x^k}_2^2 \right] \\
+                                                        & \le - \rho s_{\min} w_\alpha\left(x^k\right)                                                         \\
+                                                        & \le - \rho s_{\min} \max ( 1, \alpha^{-1} ) w_1\left(x^k\right)
+        ,\end{align}
     where the second inequality follows from~\zcref{eq:pgm_merit,thm:pgm_armijo_stepsize_lb}, and the third one comes from \zcref{thm:merit_inner}.
     Since~$F_i$ is bounded from below, adding up the inequality from~$k = 0$ to~$k = \infty$ lead to the summability of~$\set*{w_1\left(x^k\right)}$.
 
@@ -83,7 +83,7 @@ We now show the main theorem as follows:
     \zcref[S]{thm:pgm_sdc_stepsize_lb} imply that
     \begin{equation}
         F_i\left(x^{k + 1}\right) - F_i\left(x^k\right) \le - w_{\alpha_{\min}}\left(x^k\right)
-    .\end{equation} 
+        .\end{equation}
     The proof from here is the same as in the previous paragraph.
 
     \zcref[ref=title,noname,S]{sec:pgm:algorithm:constant}:
